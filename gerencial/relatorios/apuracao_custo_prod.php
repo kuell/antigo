@@ -1,7 +1,8 @@
 <?php
 
-require ('/var/www/sigAntigo/sig2/class/CustoProducao.class.php');
-require ("/var/www/sigAntigo/sig2/bibliotecas/fpdf/fpdf.php");
+require ('../../Connections/conect_mysqli.php');
+require ('../../class/CustoProducao.class.php');
+require ("../../bibliotecas/fpdf/fpdf.php");
 
 class PDF extends FPDF {
 	function Header() {
@@ -192,12 +193,209 @@ class PDF extends FPDF {
 	}
 }
 
-$pdf = new PDF("P", "mm", "A4");
-$pdf->AliasNbPages();
-$pdf->SetMargins(3, 2, 3, 1);
-$pdf->AddPage();
+// IF
+if ($_GET['tipoArquivo'] == 'pdf') {
 
-$pdf->Dados($_GET['data1'], $_GET['data2']);
-$pdf->Output();
+	$pdf = new PDF("P", "mm", "A4");
+	$pdf->AliasNbPages();
+	$pdf->SetMargins(3, 2, 3, 1);
+	$pdf->AddPage();
 
+	$pdf->Dados($_GET['data1'], $_GET['data2']);
+	$pdf->Output();
+
+}
+
+// ELSE
+ else if ($_GET['tipoArquivo'] == 'xls') {
+
+	include ('../../bibliotecas/PHPExcel/PHPExcel.php');
+
+	// Instanciamos a classe
+	$objPHPExcel = new PHPExcel();
+	$custo       = new CustoProducao('2014-12-01', '2014-12-31');
+
+	// Definimos o estilo da fonte
+	$objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
+
+	// Criamos as colunas
+	$objPHPExcel->setActiveSheetIndex(0)
+	            ->setCellValue('A1', 'Frizelo Frigorificos Ltda')
+	            ->setCellValue('A3', "QTD. ABATE ")
+	            ->setCellValue("A4", "PESO ABATE")
+	            ->setCellValue("A6", "KG PRODUZIDO")
+	            ->setCellValue("A7", "RENDIMENTO")
+	            ->setCellValue("A8", "PREÇO MEDIO")
+	            ->setCellValue("A9", "KG MEDIO POR CABEÇA")
+	            ->setCellValue("A10", "KG MEDIO PRODUZIDO POR CABEÇA")
+	            ->setCellValue("A11", "VALOR DA PRODUÇÃO CORRENTE")
+	            ->setCellValue("A13", "ITENS")
+	            ->setCellValue("B13", "CUSTO TOTAL")
+	            ->setCellValue("C13", "CUSTO UNIT./ ABATE")
+	            ->setCellValue("D13", "CUSTO UNIT./ PRODUÇÃO")
+	            ->setCellValue("A14", "TAXAS")
+	            ->setCellValue("A15", "CUSTO COMERCIAL (FRETE/SEGURO/ICMS)")
+	            ->setCellValue("A16", "MÃO DE OBRA DIRETA");
+	// Podemos configurar diferentes larguras paras as colunas como padrão
+	$objPHPExcel->setActiveSheetIndex(0)->mergeCells('A1:D1');
+	$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(40);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(15);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(15);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(15);
+
+	// Também podemos escolher a posição exata aonde o dado será inserido (coluna, linha, dado);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, 3, 'QTD ABATE');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 3, $custo->abateQtd);
+	$linha++;
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 4, 'PESO ABATE');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 4, $custo->abatePeso);
+	$linha++;
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, 6, 'KG PRODUZIDO');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 6, $custo->kgProduzido);
+	$linha++;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 7, $custo->rendimento);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 8, $custo->precoMedio);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 9, $custo->kgMedioPorCabeca);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 10, $custo->kgMedioProduzidoPorCabeca);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 11, $custo->valorProducaoCorrente);
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 14, $custo->taxas);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 14, ($custo->taxas/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 14, ($custo->taxas/$custo->kgProduzido));
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 15, $custo->custoComercial);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 15, ($custo->custoComercial/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 15, ($custo->custoComercial/$custo->kgProduzido));
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 16, $custo->maoDeObraDireta);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 16, ($custo->maoDeObraDireta/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 16, ($custo->maoDeObraDireta/$custo->kgProduzido));
+
+	$linha = 17;
+
+	foreach ($custo->rh['DIRETO'] as $key => $val) {
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, utf8_decode($key));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $val);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, $val/$custo->abatePeso);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, $val/$custo->kgProduzido);
+		$linha++;
+
+	}
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'CONSUMO MATERIAL PRODUTIVO');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $custo->consumoMaterialProdutivo);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, ($custo->consumoMaterialProdutivo/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, ($custo->consumoMaterialProdutivo/$custo->kgProduzido));
+	$linha++;
+
+	foreach ($custo->almox['DIRETO'] as $key => $val) {
+
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, utf8_decode($key));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $val);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, $val/$custo->abatePeso);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, $val/$custo->kgProduzido);
+
+		$linha++;
+	}
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'ENERGIA');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $custo->energia);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, ($custo->energia/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, ($custo->energia/$custo->kgProduzido));
+	$linha++;
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'SUBTOTAL CUSTO DIRETO');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $custo->subTotalDireto);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, ($custo->subTotalDireto/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, ($custo->subTotalDireto/$custo->kgProduzido));
+	$linha++;
+	$linha++;
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'MÃO DE OBRA INDIRETA');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $custo->maoDeObraIndireta);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, ($custo->maoDeObraIndireta/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, ($custo->maoDeObraIndireta/$custo->kgProduzido));
+	$linha++;
+
+	foreach ($custo->rh['INDIRETO'] as $key => $val) {
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, utf8_decode($key));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $val);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, $val/$custo->abatePeso);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, $val/$custo->kgProduzido);
+		$linha++;
+	}
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'CONSUMO DIVERSOS');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $custo->consumoDiversos);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, ($custo->consumoDiversos/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, ($custo->consumoDiversos/$custo->kgProduzido));
+	$linha++;
+
+	foreach ($custo->almox['INDIRETO'] as $key => $val) {
+
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, utf8_decode($key));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $val);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, $val/$custo->abatePeso);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, $val/$custo->kgProduzido);
+
+		$linha++;
+	}
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'SERVIÇOS GERAIS');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $custo->servicosGerais);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, ($custo->servicosGerais/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, ($custo->servicosGerais/$custo->kgProduzido));
+	$linha++;
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'OLEO DIESEL');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $custo->oleoDiesel);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, ($custo->oleoDiesel/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, ($custo->oleoDiesel/$custo->kgProduzido));
+	$linha++;
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'SUBTOTAL CUSTO INDIRETO');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $custo->subTotalIndireto);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, ($custo->subTotalIndireto/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, ($custo->subTotalIndireto/$custo->kgProduzido));
+	$linha++;
+	$linha++;
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'CUSTO TOTAL');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, $custo->subTotalIndireto+$custo->subTotalDireto);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, (($custo->subTotalIndireto+$custo->subTotalDireto)/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, (($custo->subTotalIndireto+$custo->subTotalDireto)/$custo->kgProduzido));
+	$linha++;
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $linha, 'MARGEM');
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $linha, ($custo->valorProducaoCorrente-($custo->subTotalIndireto+$custo->subTotalDireto)));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $linha, (($custo->valorProducaoCorrente-($custo->subTotalIndireto+$custo->subTotalDireto))/$custo->abatePeso));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $linha, (($custo->valorProducaoCorrente-($custo->subTotalIndireto+$custo->subTotalDireto))/$custo->kgProduzido));
+	$linha++;
+
+	// Exemplo inserindo uma segunda linha, note a diferença no segundo parâmetro
+	//$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 3, "Beltrano");
+	//$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 3, " da Silva Sauro");
+	//$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 3, "beltrando@exemplo.com.br");
+
+	// Podemos renomear o nome das planilha atual, lembrando que um único arquivo pode ter várias planilhas
+	$objPHPExcel->getActiveSheet()->setTitle('Credenciamento para o Evento');
+
+	// Cabeçalho do arquivo para ele baixar
+	header('Content-Type: application/vnd.ms-excel');
+	header('Content-Disposition: attachment;filename="apuracao custo de producao ref ('.$_GET['data1'].' - '.$_GET['data2'].').xls"');
+	header('Cache-Control: max-age=0');
+	// Se for o IE9, isso talvez seja necessário
+	header('Cache-Control: max-age=1');
+
+	// Acessamos o 'Writer' para poder salvar o arquivo
+	$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+
+	// Salva diretamente no output, poderíamos mudar arqui para um nome de arquivo em um diretório ,caso não quisessemos jogar na tela
+	$objWriter->save('php://output');
+
+	exit;
+}
+// FIM IF
 ?>

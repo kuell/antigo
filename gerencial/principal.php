@@ -21,6 +21,7 @@
 
 		}
   function abreParametro(pagina, parametro){
+
     data1 = document.getElementById('data1').value
     data2 = document.getElementById('data2').value
     param = document.getElementById(parametro).value
@@ -67,10 +68,18 @@
   <table border="0" align="center" class="KT_tngtable">
     <tr class="acao_pagina">
       <th colspan="3">Industria e Faturamento</th>
+      </tr>
+      <tr>
+      <td colspan="3">
+        Tipo de Arquivo:<select id='tipoArquivo'>
+                            <option value="pdf">PDF</option>
+                            <option value="xls">Excel</option>
+                        </select>
+      </td>
     </tr>
     <tr>
       <td><input type="button" name="Rendimento / Corretor4" id="Rendimento / Corretor4" value="Analise de Rendimento" onclick="abre('ind_analiseRend.php')" /></td>
-      <td><input type="button" name="Custos de Produção" id="Custos de Produção" value="Custos de Produção  (mensal)" onclick="abre('apuracao_custo_prod.php')" /></td>
+      <td><input type="button" name="Custos de Produção" id="Custos de Produção" value="Custos de Produção  (mensal)" onclick="abreParametro('apuracao_custo_prod.php', 'tipoArquivo')" /></td>
 	  <td><input type="button" name="Custos de Produção" id="Custos de Produção" value="Custos de Produção  (diario)" onclick="abre('apuracao_custo_prod_diario.php')" /></td>
     </tr>
   </table>
@@ -92,7 +101,7 @@ $sql  = "select * from setor where rh = 1";
 $qr   = $conn->query($sql) or die('Erro na obtensao dos dados'.$sql);
 while ($res = $qr->fetch_object()) {
 	?>
-								   <option value="<?php echo $res->id_setor;?>"><?php echo $res->setor;
+															   <option value="<?php echo $res->id_setor;?>"><?php echo $res->setor;
 	?></option>
 	<?php
 }

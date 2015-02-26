@@ -1,5 +1,4 @@
 <?php
-require ('/var/www/sigAntigo/sig2/Connections/conect_mysqli.php');
 
 class CustoProducao extends Connect {
 	public $abateQtd;
@@ -50,7 +49,7 @@ class CustoProducao extends Connect {
 		$this->taxas                 = $this->dados->taxa;
 		$this->valorProducaoCorrente = $this->getValorProducaoCorrente($datai, $dataf);
 
-		$this->rendimento                   = round(($this->kgProduzido*100)/$this->abatePeso, 2).' %';
+		$this->rendimento                   = round(($this->kgProduzido*100)/$this->abatePeso, 2);
 		$this->kgMedioPorCabeca             = round($this->abatePeso/$this->abateQtd, 2);
 		$this->kgMedioProduzidoPorCabeca    = round(($this->kgMedioPorCabeca*$this->rendimento/100), 2);
 		$this->precoMedio                   = round($this->valorProducaoCorrente/$this->kgProduzido, 2);
@@ -158,6 +157,5 @@ class CustoProducao extends Connect {
 
 		return $result;
 	}
-
 }
 ?>
