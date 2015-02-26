@@ -1,0 +1,70 @@
+a {
+  font-size: 9px
+  font-family:  Verdana, Arial, Helvetica, sans-serif;
+  color: #003399;
+  text-decoration: none; }
+a:hover {
+  color: #FF0000;
+  text-decoration: none; }
+a:active {
+  text-decoration: underline;
+  color: #000066; }
+
+.tableGeral {
+  BACKGROUND-COLOR: #cccccc;
+}
+.table00 {
+  BACKGROUND-COLOR: #cccccc;
+}
+.table00L {
+  BACKGROUND-COLOR: #ffffff; 
+}
+.td00 {
+  FONT-SIZE: 14px; VERTICAL-ALIGN: middle;  
+  COLOR: #ffffff; 
+  FONT-FAMILY: Verdana, Arial, sans-serif; 
+  BACKGROUND-COLOR: #00234E; 
+  TEXT-ALIGN: center;
+}
+.td0_0 {
+  FONT-SIZE: 12px; 
+  VERTICAL-ALIGN: middle; 
+  COLOR: #ffffff; 
+  FONT-FAMILY: Verdana, Arial, sans-serif; 
+  BACKGROUND-COLOR: #003e69; 
+  TEXT-ALIGN: left;
+  font-weight: bold;
+}
+.td0_1 {
+  FONT-SIZE: 12px; 
+  VERTICAL-ALIGN: middle; 
+  COLOR: #000000; 
+  FONT-FAMILY: Tahoma, Arial, sans-serif; 
+  BACKGROUND-COLOR: #8ec9fc; 
+  TEXT-ALIGN: left;
+}
+.td0_2 {
+  FONT-SIZE: 12px;
+  VERTICAL-ALIGN: middle;
+  COLOR: #000000;
+  FONT-FAMILY: Tahoma, Arial, sans-serif;
+  BACKGROUND-COLOR: #ffffff;
+  TEXT-ALIGN: left;
+}
+
+.td0_3 {
+  FONT-SIZE: 12px;
+  VERTICAL-ALIGN: middle;
+  COLOR: #000000;
+  FONT-FAMILY: Arial, Tahoma, sans-serif;
+  BACKGROUND-COLOR: #EAEAEA;
+  TEXT-ALIGN: left;
+}
+
+.inputbox {
+  font-family      : Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 10px;
+  color            : #000000;
+  background-color : #F8F8F8;
+  border           : 1px solid #CCCCCC;
+}

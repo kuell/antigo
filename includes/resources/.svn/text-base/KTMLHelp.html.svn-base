@@ -1,0 +1,2757 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>KTML Help</title>
+<link rel="stylesheet" type="text/css" href="../ktm/core/styles/help.css"/>
+<script src="../common/js/base.js"></script>
+<script src="../common/js/utility.js"></script>
+<script src="../ktm/core/js/lib/help.js"></script>
+<style type="text/css">
+<!--
+.style3 {color: #FF0000}
+.style1 {color: #FF6600}
+.style2 {color: #000000}
+.style4 {color: #CC0099}
+.style5 {
+	font-size: 20px;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body onLoad="showHelpTopic()">
+<div id="topic_basicformat_bold" class="topic_hidden">
+    <div class="title"><strong>Bold</strong></div>
+    <div class="content">
+		<p>In order to apply the <strong>bold</strong> style to your text, click the <strong>Bold</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+B</strong>. The formatting style will be applied to the selected text. Pressing the <strong>Bold</strong> button and typing text will also make the text entered afterwards bold.</p>
+		<p>To check if the formatting style is set to bold, place the cursor inside that certain text or select it, and check if the <strong>Bold</strong> button is activated. To remove the bold style, select the text and deactivate the <strong>Bold</strong> button by clicking  it.</p>
+    </div>
+</div>
+
+
+<div id="topic_basicformat_italic" class="topic_hidden">
+    <div class="title"><strong>Italic</strong></div>
+    <div class="content">
+		<p>In order to apply the <em>italic</em> style to your text, click the <strong>Italic</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+I</strong>. The formatting style will be applied to the selected text. Pressing the <strong>Italic</strong> button and typing text will also make the text entered afterwards italic.</p>
+		<p>To check if the formatting style is set to italic, place the cursor inside that certain text or select it, and check if the <strong>Italic</strong> button is activated. To remove the italic style, select the text and deactivate the <strong>Italic</strong> button by clicking it.</p>
+    </div>
+</div>
+
+
+<div id="topic_basicformat_underline" class="topic_hidden">
+    <div class="title"><strong>Underline</strong></div>
+    <div class="content">
+		<p>In order to <u>underline</u> text in your file or message, click the <strong>Underline</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+U</strong>. The formatting style will be applied to the selected text. Pressing the <strong>Underline</strong> button and typing text will also make the text entered afterwards underlined.</p>
+		<p>To check if the formatting style is set to underline, place the cursor inside that certain text or select it, and check if the <strong>Underline</strong> button is activated. To remove the underline style, select the text and deactivate the <strong>Underline</strong> button by clicking it.</p>
+    </div>
+</div>
+
+
+<div id="topic_toggle_fullscreen" class="topic_hidden">
+    <div class="title"><strong>Toggle Full Screen</strong></div>
+  <div class="content">
+		<p>Whenever you need to expand the KTML 4 editable region in order to manipulate content more efficiently, click the <strong>Toggle Full Screen</strong> button from the toolbar. It will enlarge the KTML 4 area and make it as big as your screen. </p>
+  </div>
+</div>
+
+
+<div id="topic_bulleted_list" class="topic_hidden">
+    <div class="title"><strong>Bulleted List</strong></div>
+    <div class="content">
+		<p>If you select several paragraphs and then click the <strong>Bulleted List</strong> button from the toolbar, KTML 4 will insert a bullet at the beginning of each paragraph. If at the end of a bulleted paragraph you hit the &quot;Enter&quot; key, the new paragraph will begin with a bullet.</p>
+		<p>After clicking the <strong>Bulleted List</strong> button, it will remain active until the list is unset or until you move on to a not-bulleted paragraph. To unset a bulleted list, select it and then click the same button to deactivate the style. To move on and end the bulleted list, press <strong>Enter</strong> twice after the last element in the list. To check if a paragraph or a list presents the Bulleted List style, place the cursor inside that certain paragraph or select it, and check if the <strong>Bulleted List</strong> button is activated.</p>
+		<p>When the &#8220;Tab&#8221; key is pressed while the cursor is inside a bulleted paragraph, that paragraph is indented and the bullets change their shape.</p>
+		<p><strong>Note: </strong>In Mozilla only, if you apply a bulleted list to each paragraph separately, the spacing will increase, compared to the situation when the bulleted list is applied to all selected paragraphs at once.</p>
+    </div>
+</div>
+
+
+<div id="topic_numbered_list" class="topic_hidden">
+    <div class="title"><strong>Numbered List</strong></div>
+    <div class="content">
+		<p>If you select several paragraphs and then click the <strong>Numbered List</strong> button from the toolbar, KTML 4 will insert a number at the beginning of each paragraph, in ascending order. If at the end of a numbered paragraph you hit the &quot;Enter&quot; key, the new paragraph will begin with a number as well.</p>
+		<p>After clicking the <strong>Numbered List</strong> button, it will remain active until the list is unset or until you move on to a not-numbered paragraph. To unset a numbered list, select it and then click the same button to deactivate the style. To move on and end the numbered list, press <strong>Enter</strong> twice after the last element in the list. To check if a paragraph or a list presents the Numbered List style, place the cursor inside that certain paragraph or select it, and check if the <strong>Numbered List</strong> button is activated.</p>
+		<p>If you place the cursor inside a certain numbered paragraph (not the last one) and deactivate the <strong>Numbered List</strong> button, that paragraph will no longer be preceded by a number. A new list will start right below it. The numbering is reset and the following paragraph's number (the first paragraph in the new list) is set to 1.</p>
+		<p>When the <strong>Tab</strong> key is pressed while:</p>
+		<ul>
+		  <li> the cursor is inside a numbered paragraph -- the paragraph is indented and its number will become 1. The number of the following paragraph is decremented by 1. This way, you can obtain nested lists.</li>
+	      <li>having several paragraphs selected -- they will be indented, and a nested list will be created (that starts numbering with 1). In the main list, the paragraphs that follow the nested list will have their associated numbers decreased.</li>
+        </ul>
+        <p><strong>Note: </strong>In Mozilla only, if you apply a numbered list to each paragraph separately (instead of applying it to a selection of several paragraphs), the numbering will be reset each time (i.e. each paragraph number is set to 1).</p>
+    </div>
+</div>
+
+
+<div id="topic_cleanup" class="topic_hidden">
+    <div class="title"><strong>Clean HTML Code</strong></div>
+    <div class="content">
+		<p>When inserting one or more paragraphs already formatted with another word processor (e.g. Microsoft Word or OpenOffice), the size of the HTML code could considerably increase. This phenomenon is due to the export methods used by the two applications that insert into the HTML code many and mostly useless HTML tags. With KTML 4 you can clean-up the code of these tags by using the <strong>Clean HTML Code</strong> button and then use the KTML 4 format functions:</p>
+		<ol>
+		  <li>Clean Word Markup - it removes all the unnecessary Microsoft Word tags.</li>
+	      <li>Clean Inline Styles - it removes all the CSS styles.</li>
+	      <li>Clean All Formatting Tags - it replaces the following tags: &lt;H1&gt;, &lt;H2&gt;, &lt;H3&gt;, &lt;H4&gt;, &lt;H5&gt;, &lt;H6&gt;, &lt;ADDRESS&gt;, &lt;PRE&gt; with the &lt;p&gt; (paragraph) tag.</li>
+        </ol>
+	    <p>The clean-up process affects the current selection or the entire page if no selection was made. The result is a cleaner and more accurate code.</p>
+    </div>
+</div>
+
+
+<div id="topic_colors_fore" class="topic_hidden">
+    <div class="title"><strong>Text Color</strong></div>
+  <div class="content">
+		<p>The <strong>Text Color</strong> button allows you to set a certain text color (foreground color). The button has two areas:</p>
+		<ol>
+		  <li>Click the icon on the left to use the currently selected text color (it is shown by the horizontal bar in the lower part of the icon).</li>
+	      <li>By clicking the arrow on the right, the <strong>Color Picker</strong> window will be displayed allowing you to select a color for your text.</li>
+	  </ol>
+	  <p>The effect will be applied to the selected text and to the one entered after setting the foreground color. To change the color, select the text, click the <strong>Text Color</strong> button and choose a more convenient color from the <strong>Color Picker</strong>.</p>
+		<p><strong>Note:</strong> You can define yourself the colors displayed in the <strong>Color Picker</strong> in a configuration file. The default colors are those from the <em>Web safe color palette</em> (216 colors) and some gray shades. Read more about this in the API documentation.</p>
+	</div>
+</div>
+
+
+<div id="topic_colors_back" class="topic_hidden">
+    <div class="title"><strong>Highlight</strong></div>
+    <div class="content">
+		<p>The <strong>Highlight</strong> button allows you to set a certain highlight color (background color). The button has two areas:</p>
+		<ol>
+		  <li>Click the icon on the left to use the currently selected highlight color (it is shown by the horizontal bar in the lower part of the icon).</li>
+	      <li>By clicking the arrow on the right, the <strong>Color Picker</strong> window will be displayed allowing you to select a highlight color for your text.</li>
+	  </ol>
+		<p>The effect will be applied to the selected text and to the one entered after setting the background color. To change the color, select the text, click the <strong>Highlight</strong> button and choose a more convenient color from the <strong>Color Picker</strong>.</p>
+        <p><strong>Note:</strong> You can define yourself the colors displayed in the <strong>Color Picker</strong> in a configuration file. The default colors are those from the <em>Web safe color palette</em> (216 colors) and some gray shades. Read more about this in the API documentation.</p>
+    </div>
+</div>
+
+
+<div id="topic_colors_picker" class="topic_hidden">
+    <div class="title"><strong>Color Picker</strong></div>
+    <div class="content">
+		<p>The <strong>Color Picker</strong> is a matrix that presents a large range of colors from which you can choose, but it also offers the possibility of entering the hexadecimal code for a precise, preferred color. The <strong>Color Picker</strong> interface includes the following elements:</p>		
+		<ol>
+		  <li><strong>Color Code</strong> text box: when you launch the Color Picker window, this text box will display the code of the previously selected color. Once you select a new color, the displayed code will change. Also, you can enter the  hexadecimal code yourself.</li>
+		  <li><strong>Mouse-over</strong> display item: when you move the mouse above the color matrix, the color that has the mouse over it will be displayed (as well as its code) in a larger rectangle in this display item.</li>
+		  <li><strong>Selected</strong> display item: once you select a color in the matrix, its appearance will be shown in this display item.</li>
+		  <li><strong>OK</strong> button: apply the chosen color to your selection by clicking this button.</li>
+		  <li><strong>Cancel</strong> button: cancel any color selection by clicking this button.</li>
+		  <li><strong>Help</strong> button: open the contextual help window.</li>
+	  </ol>
+  </div>
+</div>
+
+
+<div id="topic_cut" class="topic_hidden">
+    <div class="title"><strong>Cut</strong></div>
+    <div class="content">
+		<p>In order to cut the selected image or text from its context, click the <strong>Cut</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+X</strong>. To cut the selected image/text means to remove it from the document and place it into the Clipboard, from where it can be pasted into either the KTML 4 editable region or another editor.</p>
+		<p><strong>Note: </strong>In Mozilla, the Cut command is not accessible from the toolbar, but only by using the keyboard shortcut.</p>
+    </div>
+</div>
+
+
+<div id="topic_copy" class="topic_hidden">
+    <div class="title"><strong>Copy</strong></div>
+    <div class="content">
+		<p>In order to copy the selected image or text, click the <strong>Copy</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+C</strong>. After executing this command, the selected image/text is copied to the Clipboard, from where it can be pasted into either the KTML 4 editable region or another editor.</p>
+		<p><strong>Note: </strong>In Mozilla, the Copy command is not accessible from the toolbar, but only by using the keyboard shortcut.</p>
+    </div>
+</div>
+
+
+<div id="topic_paste" class="topic_hidden">
+    <div class="title"><strong>Paste</strong></div>
+    <div class="content">
+		<p>This command is to be applied after a previous <strong>Cut</strong> or <strong>Copy</strong> operation. The image/text stored in the clipboard is then placed into the KTML 4 editable region, in the current pointer position or replacing the already selected image/text (if there is any). This command is accessible through the <strong>Paste</strong> button from the toolbar or by using the shortcut keys <strong>Ctrl+V</strong>.</p>
+		<p><strong>Note: </strong>In Mozilla, the Paste command is not accessible from the toolbar, but only by using the keyboard shortcut.</p>
+    </div>
+</div>
+
+
+<div id="topic_fontface" class="topic_hidden">
+    <div class="title"><strong>Change Font</strong></div>
+    <div class="content">
+		<p>The KTML 4 editor allows you to change the font for your text by selecting the desired one from the <strong>Font</strong> drop-down menu available in the toolbar. The default font style is &quot;Times New Roman, Times, serif&quot; or &quot; Verdana, Helvetica&quot;.</p>
+		<p>The autoselection of the current font is a feature that allows you to easily find out what font a particular word or text has just by selecting it or by positioning the cursor inside it. If a text section with more than one font applied (on different words) is selected, a font will no longer be displayed in the drop-down menu. When changing the font for the selection that has multiple fonts applied, the whole text will be set to have the new selected font.</p>
+		<p>When a CSS style containing references to new fonts is imported into the document, those new styles will appear in the drop-down menu.</p>
+		<p><strong>Note:</strong> You can define yourself the font list in a configuration file. There is a default font list defined in case you make no changes in the configuration file. Read more about this in the API documentation.</p>
+    </div>
+</div>
+
+
+<div id="topic_fontsize" class="topic_hidden">
+    <div class="title"><strong>Change Font Size</strong></div>
+    <div class="content">
+		<p>The font size can be changed by selecting the desired size from the <strong>Size</strong> drop-down menu available in the toolbar. The size change affects the selected text or the text entered afterwards, if no text selection has been made. By default, the text size is set to 14 pixels. The text sizes are similar to the ones used by the most common word processors (Microsoft Word, OpenOffice).</p>
+		<p>The current font size will be autoselected from the drop-down menu. To see what size a specific text is, simply select the text or click inside it, and then check out the font size drop-down menu. However, if a text selection has more than one font size applied, a certain size will no longer be displayed in the drop-down menu.</p>
+		<p>When changing the size of a text selection that has multiple sizes applied, they will all be replaced by the new size.</p>
+    </div>
+</div>
+
+
+<div id="topic_horline" class="topic_hidden">
+    <div class="title"><strong>Horizontal Rule</strong></div>
+    <div class="content">
+		<p>By pressing this button, you can insert a horizontal line into the document at the point where the cursor is. It will help you visually separate elements.</p>
+    </div>
+</div>
+
+
+<div id="topic_html_tags" class="topic_hidden">
+    <div class="title"><strong>Apply Formatting Styles</strong></div>
+    <div class="content">
+		<p>This drop-down menu contains some classic heading and formatting tags that can be applied to your text.</p>
+		<p>If you want to apply a specific heading tag, first select the text or place the cursor inside it. Then choose a heading tag from the <b>Format</b> drop-down menu in the toolbar. The heading will be set for the entire paragraph that contains the current selection. If that paragraph already has a heading tag applied, it will be replaced by the newly selected one.</p>
+    </div>
+</div>
+
+
+<div id="topic_css_style" class="topic_hidden">
+    <div class="title"><strong>Apply CSS Styles</strong></div>
+    <div class="content">
+		<p>The <strong>Style</strong> drop-down menu displays the available Cascading Style Sheets (CSS) styles from which you can choose to implement styling in HTML. The CSS styles can be applied to any type of selection (text, image, table). If you want to set or change the CSS style for a certain text, you can either select it or place the cursor inside it (if it's a whole paragraph that you want to format), and then choose a CSS style from the drop-down menu in the toolbar.</p>
+		<p>If you place the cursor inside a paragraph that has CSS styles applied to only certain parts of it, and then select a style from the drop-down menu, the CSS style will be set for all the words in the paragraph, except for the ones that already had a style defined.</p>
+		<p>If you place the cursor inside a word from a paragraph, and that word has a CSS style set (style A), if you apply a new style (style B), all the words in that paragraph that were formatted with style A will switch to style B now (all these words were included in the same CSS style tag - a SPAN tag). This is a very useful feature because the user doesn't have to spend time making text selections and identifying styles.</p>
+		<p><strong>Tip:</strong> In order to obtain good results, apply CSS styles to your text in an accurate manner, rather than making repeated text selections and changing the style several times. This method is not recommended, especially when using the Mozilla browser, because the HTML code will get too complicated and the visual results will not always be the expected ones. To manage the CSS styles correctly, also use the Tag Selector in order to easily select and remove some SPAN tags (corresponding to already set CSS styles) from the code.</p>
+    </div>
+</div>
+
+
+<div id="topic_indent" class="topic_hidden">
+    <div class="title"><strong>Increase Indent</strong></div>
+    <div class="content">
+		<p>By pressing the <strong>Increase Indent</strong> button from the toolbar or the <strong>Tab</strong> key, the indentation function is called. It increases the distance between the current paragraph (the selected one or the one where the cursor is placed) and the left page margin.</p>
+		<p>Each time you click the <strong>Increase Indent</strong> button, the left margin will increase.</p>
+  </div>
+</div>
+
+
+<div id="topic_outdent" class="topic_hidden">
+    <div class="title"><strong>Decrease Indent</strong></div>
+    <div class="content">
+		<p>This command executes the exact reverse operation of the Increase Indent one. It can be applied only if an Increase Indent command was executed before-hand. Its role is to decrease the left margin each time you click the <strong>Decrease Indent</strong> button from the toolbar or use the shortcut keys <strong>Shift+Tab</strong>.</p>
+		<p>Remember it only functions if the paragraph was already indented (once, twice, or as many times as you plan to click the <strong>Decrease Indent</strong> button).</p>
+  </div>
+</div>
+
+
+<div id="topic_browse_media" class="topic_hidden">
+    <div class="title"><strong>Browse for Media Files</strong></div>
+    <div class="content">
+		<p>You can upload and/or insert images or videos into your web pages by using the <strong>Image</strong> button. When clicking this button, a pop-up window (<strong>Remote File Explorer</strong>) is displayed and helps you select the desired file to insert from the remote server, or upload a new one from your local machine. Before inserting a media file into the KTML 4 editable area, it has to be previously uploaded on the remote server.</p>
+		<p> Even if some media files are deleted from the site pages, their corresponding files will remain on the remote server until you delete them from the upload folder.</p>
+    </div>
+</div>
+
+
+<div id="topic_browse_doc" class="topic_hidden">
+    <div class="title"><strong>Browse for Documents</strong></div>
+    <div class="content">
+		<p>You can upload and/or insert documents into your web pages by using the <strong>Link to  Document</strong> button. When clicking this button, a pop-up window (<strong>Remote File Explorer</strong>) is displayed and helps you select the desired file to insert from the remote server, or upload a new one from your local machine. Before inserting a document file into the KTML 4 editable area, it has to be previously uploaded on the remote server.</p>
+		<p> When you insert a document, a link with its name will be included in your page where the cursor was placed. By clicking the link, the document from the remote server will be opened. Even if some document links are deleted from the site pages, their corresponding files will remain on the remote server until you delete them from the upload folder.</p>
+	</div>
+</div>
+
+
+<div id="topic_browse_temp" class="topic_hidden">
+    <div class="title"><strong>Browse for Templates</strong></div>
+    <div class="content">
+		<p>You can upload and/or insert templates (<em>.htm</em> or <em>.html</em>) into your web pages by using the <strong>Content Template</strong> button. When clicking this button, a pop-up window (<strong>Remote File Explorer</strong>) is displayed and helps you select the desired file to insert from the remote server, or upload a new one from your local machine. Before inserting a template file into the KTML 4 editable area, it has to be previously uploaded on the remote server.</p>
+		<p> You can create your own templates in KTML by putting together a design in the visual editor. Then select it all, right-click, choose the Save as Template option, and then name the new file (the accepted extensions are htm and html). It will be saved on the remote server, in a folder of choice.</p>
+    </div>
+</div>
+
+
+<div id="topic_insert_character" class="topic_hidden">
+    <div class="title"><strong>Insert Special Character</strong></div>
+    <div class="content">
+		<p>The <strong>Special Character</strong> button allows you to insert a special character in page when the keyboard does not come at hand. The button has two areas:</p>
+		<ol>
+		  <li>Click the icon on the left to use the currently selected character (shown by the icon).</li>
+	      <li>By clicking the arrow on the right, the <strong>Character Picker</strong> window will be displayed allowing you to select the character that you need. It displays a matrix of characters from which you can choose.</li>
+        </ol>
+        <p><strong>Note:</strong> You can define yourself the special characters list displayed in the matrix in a configuration file. There is a default character list defined in case you make no changes in the configuration file. Read more about this in the API documentation.</p>
+    </div>
+</div>
+
+
+<div id="topic_character_picker" class="topic_hidden">
+    <div class="title"><strong>Character Picker</strong></div>
+    <div class="content">
+		<p> The <strong>Character Picker</strong> is a window that presents a vast matrix of special characters. This interface includes the following elements:</p>
+		<ol>
+		  <li><strong>Selected</strong> display item: once you select an element in the matrix, its symbol will be shown in this display item (in  larger size).</li>
+		  <li><strong>Insert</strong> button: insert the selected character in your page by clicking this button.</li>
+		  <li><strong>Cancel</strong> button: cancel any character selection or insertion in your page by clicking this button.</li>
+	      <li><strong>Help</strong> button: open the contextual help window.</li>
+	  </ol>
+  </div>
+</div>
+
+
+<div id="topic_insert_link_picker" class="topic_hidden">
+    <div class="title"><strong>Insert Link / Hyperlink Picker</strong></div>
+  <div class="content">
+		<p>In order to easily insert links (of various types) in your page, use the <strong>Link / Hyperlink Picker</strong>  button from the toolbar. The button has two areas on which you can click:  the button icon (image) and the arrow on the right. You can link your page to other site pages, to external sites, to downloadable files or to an anchor (within the same page or in another site page).</p>
+<ol>
+		  <li>If you click the button icon, a window will pop-up requiring you to enter the URL for the link. Once you fill it in, click <strong>OK</strong> and the link will be inserted in page. If no selection (text, image) had been made before you clicked this button, the specified URL will be inserted in page as a link. If a selection had been made, it will become link to the entered URL.<br>
+		  <strong>Note:</strong> If you want to create a link to an anchor in the same page, simply enter &quot;#&quot; followed by the anchor name in the URL text box. If the anchor is not in the same page, enter &quot;#&quot; and the anchor name after specifying the URL.</li>
+	      <li>If you click the arrow on the right, a drop-down menu will show. On the first row, enter a piece of text (at least one letter) of interest for the link you want to insert. Depending on your input, the list of options below varies (the options contain in their name the entered text). By selecting one of them, a link to that URL, and with the name displayed in the drop-down menu (if no selection had been made), will be automatically inserted in your page. If a selection had been made, it will become link to the selected URL.<br>
+		  <strong>Note:</strong>  The list of options is created by the developer and it facilitates the users' effort when inserting links in that site's pages.</li>
+        </ol>
+        <p>You can also insert a link by making a selection in page (text, image), and then using the shortcut keys <strong>Ctrl+K</strong>. The selection will become a link, and you can enter its URL in the Link Properties panel that automatically opens when pressing those keys.</p>
+    </div>
+</div>
+
+
+<div id="topic_insert_anchor" class="topic_hidden">
+    <div class="title"><strong>Insert Anchor</strong></div>
+    <div class="content">
+		<p>By clicking this button, you can insert an anchor in your page (the equivalent of a 'bookmark' in Microsoft Word) right where the cursor is placed or right before the selected image/text. After clicking the <strong>Anchor</strong> button, you will be prompted to type a name for the anchor. The name will be needed when a link to that anchor is created.</p>
+		<p>An anchor is used to specifically localize a certain place in the page, place to which you can link later on words or images. This type of links redirects the visitor to another section of the same web page. A symbol (glyph) will be displayed to show you where anchors are created in  page.</p>
+    </div>
+</div>
+
+
+<div id="topic_insert_table" class="topic_hidden">
+    <div class="title"><strong>Insert Table</strong></div>
+    <div class="content">
+		<p>You can insert a table in your page by clicking the <strong>Table / Insert 2x2 Table</strong> button from the toolbar. The button has two areas:</p>
+		<ol>
+		  <li>If you click the button icon (its tooltip is <strong>Insert 2x2 Table</strong>) for the first time in the current session, a 2x2 table will be inserted in page. If you click it later on, after already including tables in page, the table that will be inserted will have the same dimensions as the one included last in page.</li>
+	      <li>If you click the arrow on the right (at first, its tooltip is <strong>Table</strong> - later on, it will display the dimensions of the table last inserted in page), the visual row/cell selector will be displayed. By moving the mouse cursor up and down / to the right and to the left in the expandable window that pops-up, you can modify the default dimensions (2x2) and insert a table of the needed size.</li>
+        </ol>
+		<p> Through the Table, Row and Cell Properties panels you can set a lot more options for the table.</p>
+    </div>
+</div>
+
+
+<div id="topic_align_left" class="topic_hidden">
+    <div class="title"><strong>Align Left</strong></div>
+    <div class="content">
+		<p>In order to apply the left alignment style to your selected paragraph(s), click the <strong>Align Left</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+Shift+L</strong>. Just like when using common word processors, the selected paragraph(s) will be aligned to the left margin of the page.</p>
+		<p><strong>Note:</strong> If you want to apply the left alignment to only one paragraph, you do not have to select it, but only click inside it and then press the <strong>Align Left</strong> button from the toolbar.</p>
+    </div>
+</div>
+
+
+<div id="topic_align_center" class="topic_hidden">
+    <div class="title"><strong>Center</strong></div>
+    <div class="content">
+		<p>In order to apply the centered alignment style to your selected paragraph(s), click the <strong>Center</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+Shift+E</strong>. Just like when using common word processors, the selected paragraph(s) will be aligned equally-distanced from the left and right margins of the page (in the center of the page).</p>
+		<p><strong>Note:</strong> If you want to apply the centered alignment to only one paragraph, you do not have to select it, but only click inside it and then press the <strong>Center</strong> button from the toolbar.</p>
+    </div>
+</div>
+
+
+<div id="topic_align_right" class="topic_hidden">
+    <div class="title"><strong>Align Right</strong></div>
+    <div class="content">
+		<p>In order to apply the right alignment style to your selected paragraph(s), click the <strong>Align Right</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+Shift+R</strong>. Just like when using common word processors, the selected paragraph(s) will be aligned to the right margin of the page.</p>
+		<p><strong>Note:</strong> If you want to apply the right alignment to only one paragraph, you do not have to select it, but only click inside it and then press the <strong>Align Right</strong> button from the toolbar.</p>
+    </div>
+</div>
+
+
+<div id="topic_align_justify" class="topic_hidden">
+    <div class="title"><strong>Justify</strong></div>
+    <div class="content">
+		<p>In order to apply the justified alignment style to your selected paragraph(s), click the <strong>Justify </strong> button from the toolbar or use the shortcut keys <strong>Ctrl+Shift+J</strong>. Just like when using common word processors, the selected paragraph(s) will be aligned to both margins of the page (left and right) and text will be uniformly distributed.</p>
+		<p><strong>Note:</strong> If you want to apply the justified alignment to only one paragraph, you do not have to select it, but only click inside it and then press the <strong>Justify</strong> button from the toolbar.</p>
+    </div>
+</div>
+
+
+<div id="topic_findreplace_button" class="topic_hidden">
+    <div class="title"><strong>Find/Replace</strong></div>
+    <div class="content">
+		<p>The KTML 4 editor allows you to find and replace text both in Design and Code view. In order to do this, click the <strong>Find/Replace</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+F</strong>. A window will pop-up and help you set the details for the find and replace operation. </p>
+    </div>
+</div>
+
+
+<div id="topic_findreplace_window" class="topic_hidden">
+    <div class="title"><strong>Find/Replace User Interface</strong></div>
+    <div class="content">
+		<p>The KTML 4 <strong>Find/Replace</strong> user interface includes the following elements:</p>
+		<ol>
+		  <li><strong>Find what</strong> text box: enter the text to be found/replaced. </li>
+	      <li><strong>Replace with</strong> text box: enter the text that will replace the found one. </li>
+	      <li><strong>Match case</strong> checkbox: check this option if upper-case/lower-case letters should be taken into account. </li>
+	      <li><strong>Match whole word only</strong> checkbox: check this option if you are looking for complete words, and not pieces of words (character strings).</li>
+	      <li><strong>Find Next</strong> button: locate the next occurrence of the searched word (it can be seen selected in page). </li>
+	      <li><strong>Replace</strong> button: replace the current occurrence of the found word with the value entered in the <strong>Replace  with</strong> text box. </li>
+	      <li><strong>Replace All</strong> button: replace all occurrences of the found word with the value entered in the <strong>Replace  with</strong> text box. </li>
+	      <li><strong>Cancel</strong> button: cancel the find/replace operation and close the window.</li>
+	      <li><strong>Help</strong> button: open the contextual help window.</li>
+	  </ol>
+  </div>
+</div>
+
+
+<div id="topic_spellcheck_button" class="topic_hidden">
+    <div class="title"><strong>Spellcheck</strong></div>
+    <div class="content">
+		<p>In order to spellcheck the text content in your page, or just a part of it that is selected, click the <strong>Spellcheck</strong> button. A window will pop-up and help you streamline the spellchecking process.</p>
+		<p>You can quickly identify the misspelled words, select from the available suggestions, add words to the dictionary, ignore or change the occurrences of a word.</p>
+    </div>
+</div>
+
+
+<div id="topic_spellcheck_window" class="topic_hidden">
+    <div class="title"><strong>Spellcheck User Interface</strong></div>
+    <div class="content">
+		<p>The KTML 4 <strong>Spellcheck</strong> user interface includes the following elements:</p>
+		<ol>
+		  <li><strong>Not in dictionary</strong> display item: it displays the unknown or misspelled words (one at a time) found in the text to be spellchecked. </li>
+	      <li><strong>Replace with</strong> text box: if there are suggestions for the current unknown or misspelled word, the first one will be displayed in this text box. You can directly enter the correct word, as well. </li>
+	      <li><strong>Suggestions</strong> list: choose  from the available suggestions the correct word for your text.</li>
+	      <li><strong>Language</strong> drop-down menu: select from the available options the language used in your text. </li>
+	      <li><strong>Ignore</strong> button: ignore the current occurrence of the selected word. </li>
+	      <li><strong>Ignore All</strong> button: ignore all the occurrences of the selected word.</li>
+	      <li><strong>Add to Dict.</strong> button: click this button to add the current &quot;misspelled&quot; word to the dictionary. </li>
+	      <li><strong>Change</strong> button: change the current occurrence of the selected word with the value displayed in the <strong>Replace  with</strong> text box.</li>
+	      <li><strong>Change All</strong> button:    change (at once) all the occurrences of the selected word with the value displayed in the <strong>Replace  with</strong> text box.</li>
+	      <li><strong>Close</strong> button: close the window if you want to end the spellcheck process. </li>
+	      <li><strong>Help</strong> button:  open the contextual help window.</li>
+	  </ol>
+  </div>
+</div>
+
+
+<div id="topic_code_design" class="topic_hidden">
+    <div class="title"><strong>Show Code/Design</strong></div>
+    <div class="content">
+		<p>Since KTML 4 is a WYSIWYG text editor for HTML documents, it was important to implement a function that would allow toggling the edit modes. Advanced users benefit from this as they can edit the document in the HTML format as well.<br>
+The KTML 4 editor has two editing modes, between which you can switch by clicking the <strong>Show Code/Design</strong> button from the toolbar:</p>
+		<ol>
+          <li>Design view: a text editor displaying the final result.</li>
+          <li>Code view: the HTML editor.</li>
+	    </ol>
+    </div>
+</div>
+
+
+<div id="topic_show_hide" class="topic_hidden">
+    <div class="title"><strong>Show/Hide Invisible Elements</strong></div>
+    <div class="content">
+		<p>In many situations, setting the table border to 0 (to make it invisible) may be needed. KTML 4 allows you to view table borders (for further editing) even when they are set to invisible. Showing invisible elements allows you to organize data in a tabular manner, while respecting certain design rules. Just press the <strong>Show/Hide Invisible Elements</strong> button from the toolbar.</p>
+    </div>
+</div>
+
+
+<div id="topic_undo" class="topic_hidden">
+    <div class="title"><strong>Undo</strong></div>
+    <div class="content">
+		<p>In order to return to the previous state of your page (just before the last modification), click the <strong>Undo</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+Z</strong>. KTML 4 allows you to undo the last 50 changes made.</p>
+		<p>Depending on the page elements that were modified, the changes that can be reversed are:</p>
+		<ul>
+		  <li><strong>Texts: </strong>text insertion/deletion, text formatting, style formatting,  color changes (foreground and background).</li>
+		  <li><strong>Images: </strong>image insertion/deletion, image resize, image properties modifications.</li>
+		  <li><strong>Tables: </strong>table insertion/deletion, table properties modifications, row insertion/deletion, column insertion/deletion, row and column properties changes.</li>
+		  <li><strong>Links: </strong>link insertion/deletion, links properties changes.</li>
+		  <li><strong>Spellcheck: </strong>users can undo the last word-changes done by the spellchecker.</li>
+		  <li><strong>Clean HTML Content: </strong>users will be able to undo the changes operated by the Clean HTML Content command.</li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="topic_redo" class="topic_hidden">
+    <div class="title"><strong>Redo</strong></div>
+    <div class="content">
+		<p>In order to return to the page state before undoing something, click the <strong>Redo</strong> button from the toolbar or use the shortcut keys <strong>Ctrl+Y</strong>. This command allows you to execute again the same action that you previously canceled. You will be able to redo all the operations performed on a page using KTML 4.</p>
+    </div>
+</div>
+
+
+<div id="topic_superscript" class="topic_hidden">
+    <div class="title"><strong>Superscript</strong></div>
+    <div class="content">
+		<p>In order to make a certain text section display as superscript text, click the <strong>Superscript</strong> button from the toolbar. The formatting style will be applied to the selected text. Pressing the <strong>Superscript</strong> button and typing text will also make the text entered afterwards superscript text.</p>
+		<p>To check if the formatting style is set to superscript, place the cursor inside that certain text or select it, and check if the <strong>Superscript</strong> button is activated. To remove the superscript style, select the text and deactivate the <strong>Superscript</strong> button by clicking it.</p>
+    </div>
+</div>
+
+
+<div id="topic_subscript" class="topic_hidden">
+    <div class="title"><strong>Subscript</strong></div>
+    <div class="content">
+		<p>In order to make a certain text section display as subscript text, click the <strong>Subscript</strong> button from the toolbar. The formatting style will be applied to the selected text. Pressing the <strong>Subscript</strong> button and typing text will also make the text entered afterwards subscript text.</p>
+		<p>To check if the formatting style is set to subscript, place the cursor inside that certain text or select it, and check if the <strong>Subscript</strong> button is activated. To remove the subscript style, select the text and deactivate the <strong>Subscript</strong> button by clicking it.</p>
+    </div>
+</div>
+
+
+<div id="topic_form_tb_form" class="topic_hidden">
+    <div class="title"><strong>Form</strong></div>
+    <div class="content">
+		<p>In order to insert an HTML form (empty at first) in your page click  the <strong>Form</strong> button from the toolbar. Once inserted, the form will be indicated by a doted red outline. Set advanced form options by using the Form Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_text_field" class="topic_hidden">
+    <div class="title"><strong>Text Field</strong></div>
+    <div class="content">
+		<p>In order to insert a text field inside a form in page (or even independent from the form) click the <strong>Text Field</strong> button from the toolbar. After inserting it, you can set it to display content on a single line, on multiple lines, or display password content. This, and  other settings can be done with the Text Field Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_textarea" class="topic_hidden">
+    <div class="title"><strong>Textarea</strong></div>
+    <div class="content">
+	    <p>In order to insert a textarea inside a form in page (or even independent from the form) click the <strong>Textarea</strong> button from the toolbar. After inserting it, you can set it to display content on a single line, on multiple lines, or display password content. This, and other settings can be done with the Textarea Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_button" class="topic_hidden">
+    <div class="title"><strong>Button</strong></div>
+    <div class="content">
+	    <p>In order to insert a button inside a form in page (or even independent from the form) click the <strong>Button</strong> button from the toolbar. Buttons perform actions when clicked, and these actions usually involve submitting forms. Set advanced button options by using the Button Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_checkbox" class="topic_hidden">
+    <div class="title"><strong>Checkbox</strong></div>
+    <div class="content">
+	    <p>In order to insert a checkbox inside a form in page (or even independent from the form) click the <strong>Checkbox</strong> button from the toolbar. Checkboxes are used when there are only two available answers regarding a certain decision (yes or no). Their being checked or unchecked covers those two possibilities. You can insert a set of checkboxes in page and allow the user to check multiple options at once. Configure advanced checkbox settings by using the Checkbox Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_radio_button" class="topic_hidden">
+    <div class="title"><strong>Radio Button</strong></div>
+    <div class="content">
+	    <p>In order to insert a radio button inside a form in page (or even independent from the form) click the <strong>Radio Button </strong> button from the toolbar. In a group of related radio buttons, only one of them can be checked at one time (exclusive selection). Configure advanced radio button settings by using the Radio Button Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_list_menu" class="topic_hidden">
+    <div class="title"><strong>List/Menu</strong></div>
+    <div class="content">
+	    <p>In order to insert a list/menu item inside a form in page (or even independent from the form) click the <strong>List/Menu</strong> button from the toolbar. With a list you can make multiple selections, while with a menu you can only select one option. Set advanced list/menu options by using the List/Menu Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_file_field" class="topic_hidden">
+    <div class="title"><strong>File Field</strong></div>
+    <div class="content">
+	    <p>In order to insert a file field inside a form in page (or even independent from the form) click the <strong>File Field </strong> button from the toolbar. File fields offer the possibility of browsing to a file stored on your computer, and then submit it as form data. Set advanced file field options by using the File Field Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_hidden_field" class="topic_hidden">
+    <div class="title"><strong>Hidden Field</strong></div>
+    <div class="content">
+	    <p>In order to insert a hidden field inside a form in page (or even independent from the form) click the <strong>Hidden Field </strong> button from the toolbar. Hidden fields store information that is not displayed in the form (e.g. current date, data specified by the site developer, data retrieved from the session etc.). Set advanced hidden field options by using the Hidden Field Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_fieldset" class="topic_hidden">
+    <div class="title"><strong>Fieldset</strong></div>
+    <div class="content">
+	    <p>In order to insert a fieldset inside a form in page (or even independent from the form) click the <strong>Fieldset</strong> button from the toolbar. A fieldset is a bordered container that has a name ('Legend' is the default name) and inside which you can insert other form elements. To set advanced fieldset options use the Fieldset Properties panel.</p>
+  </div>
+</div>
+
+
+<div id="topic_form_tb_label" class="topic_hidden">
+    <div class="title"><strong>Label</strong></div>
+    <div class="content">
+	    <p>In order to insert a label inside a form in page (or even independent from the form) click the <strong>Label</strong> button from the toolbar. A label is a text section associated to a form control (previously inserted in page). When you click the label, the form control gets focused. To set advanced label options use the Label Properties panel.</p>
+  </div>
+</div>
+
+
+<!--
+<div id="topic_prop_panel" class="topic_hidden">
+    <div class="title"><strong>Properties Panel</strong></div>
+    <div class="content">
+		<p> The Properties panel is the area on the very bottom of the KTML 4 interface. It displays specific options (height, source, link, color etc.) for the currently selected page element (table, image, link, textarea etc.). You can simply consult these settings or edit them.</p>
+		<p>In KTML 4, there are twenty-three (23) Property panels.<br>
+	  </p>
+    </div>
+</div>
+-->
+
+
+<div id="topic_PI_cell_id" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box (displayed in <em>Simple</em> view) enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (table cell) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_cell_width" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Width</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Width</strong> text box (displayed in <em>Simple</em> view) specify the width of the table cell where the cursor is placed (it will become the width of that respective table column). The width can be given in either  number of pixels or percentage of the whole table's width.</p>
+		<p>If you enter the width in pixels and the value is greater than 1000, a pop-up window will display an error message: &#8220;The value must be lower than 1000.&#8221; It's recommended that you enter the value as percents.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_height" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Height</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p> In the <strong>Height</strong> text box (displayed in <em>Simple</em> view) specify the height of the table cell where the cursor is placed (it will become the height of that respective table row). The height can be given in either  number of pixels or percentage of the whole table's height.</p>
+		<p>If you enter the height in pixels and the value is greater than 1000, a pop-up window will display an error message: &#8220;The value must be lower than 1000.&#8221; It's recommended that you enter the value as percents. Usually though, the height is not set because it increases anyway as you type text in the table cell.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_H_align" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Horizontal Alignment</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p> The <strong>H Align</strong> drop-down menu (displayed in <em>Simple</em> view) contains the options for the horizontal alignment of the cell's content:</p>
+		<ul>
+          <li>Default</li>
+          <li>Left</li>
+          <li>Right</li>
+          <li>Center</li>
+	    </ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_V_align" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Vertical Alignment</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p> The <strong>V Align</strong> drop-down menu (displayed in <em>Simple</em> view) contains the options for the vertical alignment of the cell's content:</p>
+		<ul>
+          <li>Default</li>
+          <li>Top</li>
+          <li>Bottom</li>
+          <li>Baseline</li>
+          <li>Middle</li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_no_wrap" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: No Wrap</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p>Check the <strong>No Wrap</strong> option (displayed in <em>Simple</em> view) if you want the text inserted in the current cell to be displayed as a single line (if there are more paragraphs, each of them on a line). This could enlarge the cell. If the option is not checked, then the entered text passes on to the next line when it reaches the cell width limit.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_header" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Header</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p>If the <strong>Header</strong> option (displayed in <em>Simple</em> view) is checked, the content from the current cell will be formatted as bold and centered (header style).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_bg_image" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Background Image</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p>With the <strong>Bg</strong> text box (displayed in <em>Advanced</em> view) you can set the desired background image for the selected cell (where the cursor is placed). You can either enter the full path (URL) to the image previously uploaded on the remote server or you can click the <strong>Browse for Image</strong> button to select an image from the server.</p>
+		<p><strong>Note:</strong> It is your task to make sure the table cell and the image have the right dimensions, as automatic resizing of the image to the cell's dimensions will not take place.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_bg_color" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Background Color</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p>With the <strong>Bg Color</strong> text box (displayed in <em>Advanced</em> view) you can set the desired background color for the selected cell (where the cursor is placed). You can enter the hexadecimal code of the color in the text box or you can click the <strong>Color Picker</strong> button to select a color from a large range of colors. The Color Picker also offers the possibility of entering the hexadecimal code for a precise, preferred background color.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_border_color" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Border Color</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p>With the <strong>Brdr Color</strong> text box (displayed in <em>Advanced</em> view) you can set the desired border color of the selected cell (where the cursor is placed). You can enter the hexadecimal code of the color in the text box or you can click the <strong>Color Picker</strong> button to select a color from a large range of colors. The Color Picker also offers the possibility of entering the hexadecimal code for a precise, preferred border color.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_advanced" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Advanced</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p>By clicking the <strong>Advanced</strong> button (displayed in <em>Simple</em> view), the Cell Properties panel will switch to <em>Advanced</em> view. You will be offered the possibility of setting advanced options for the currently selected table cell.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_cell_simple" class="topic_hidden">
+    <div class="title"><strong>Cell Properties: Simple</strong></div>
+    <div class="content">
+		<p>The Cell Properties panel is displayed when the cursor is placed inside a table cell or when the &lt;TD&gt; tag is selected in the Tag Selector.</p>
+		<p>By clicking the <strong>Simple</strong> button (displayed in <em>Advanced</em> view), the Cell Properties panel will switch to <em>Simple</em> view. You will be offered the possibility of setting various options for the currently selected table cell.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_row_id" class="topic_hidden">
+    <div class="title"><strong>Row Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Row Properties panel is displayed when you select at least two cells on the same table row, when you click the associated glyph (the selector symbol), or when the &lt;TR&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (table row) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_row_H_align" class="topic_hidden">
+    <div class="title"><strong>Row Properties: Horizontal Alignment</strong></div>
+    <div class="content">
+		<p>The Row Properties panel is displayed when you select at least two cells on the same table row, when you click the associated glyph (the selector symbol), or when the &lt;TR&gt; tag is selected in the Tag Selector.</p>
+		<p>The <strong>H Align</strong> drop-down menu contains the options for the horizontal alignment of the row's content:</p>
+		<ul>
+          <li>Default</li>
+          <li>Left</li>
+          <li>Right</li>
+          <li>Center</li>
+	    </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_row_V_align" class="topic_hidden">
+    <div class="title"><strong>Row Properties: Vertical Alignment</strong></div>
+    <div class="content">
+		<p>The Row Properties panel is displayed when you select at least two cells on the same table row, when you click the associated glyph (the selector symbol), or when the &lt;TR&gt; tag is selected in the Tag Selector.</p>
+		<p>The <strong>V Align</strong> drop-down menu contains the options for the vertical alignment of the row's content:</p>
+        <ul>
+          <li>Default</li>
+          <li>Top</li>
+          <li>Bottom</li>
+          <li>Baseline</li>
+          <li>Middle</li>
+        </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_row_bg_image" class="topic_hidden">
+	<div class="title"><strong>Row Properties: Background Image</strong></div>
+    <div class="content">
+		<p>The Row Properties panel is displayed when you select at least two cells on the same table row, when you click the associated glyph (the selector symbol), or when the &lt;TR&gt; tag is selected in the Tag Selector.</p>
+		<p>With the <strong>Bg</strong> text box you can set an image as the row background. You can either enter the full path (URL) to the image previously uploaded on the remote server or you can click the <strong>Browse for image</strong> button to select an image from the server.</p>
+		<p><strong>Note:</strong> It is your task to make sure the image has appropriate dimensions, as automatic resizing of the image to the row's dimensions will not take place.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_row_bg_color" class="topic_hidden">
+    <div class="title"><strong>Row Properties: Background Color</strong></div>
+    <div class="content">
+		<p>The Row Properties panel is displayed when you select at least two cells on the same table row, when you click the associated glyph (the selector symbol), or when the &lt;TR&gt; tag is selected in the Tag Selector.</p>
+		<p>With the <strong>Bg Color</strong> text box you can set the desired background color for the selected row. You can enter the hexadecimal code of the color in the text box or you can click the <strong>Color Picker</strong> button to select a color from a large range of colors. The Color Picker also offers the possibility of entering the hexadecimal code for a precise, preferred background color.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_row_border_color" class="topic_hidden">
+    <div class="title"><strong>Row Properties: Border Color</strong></div>
+    <div class="content">
+		<p>The Row Properties panel is displayed when you select at least two cells on the same table row, when you click the associated glyph (the selector symbol), or when the &lt;TR&gt; tag is selected in the Tag Selector.</p>
+		<p>With the <strong>Brdr Color</strong> text box you can set the desired border color for the selected row. You can enter the hexadecimal code of the color in the text box or you can click the <strong>Color Picker</strong> button to select a color from a large range of colors. The Color Picker also offers the possibility of entering the hexadecimal code for a precise, preferred border color.</p>
+		<p><strong>Note:</strong> Each cell of the selected row is bordered in that color, and not only the table row (seen as a larger cell).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_row_header" class="topic_hidden">
+    <div class="title"><strong>Row Properties: Header</strong></div>
+    <div class="content">
+		<p>The Row Properties panel is displayed when you select at least two cells on the same table row, when you click the associated glyph (the selector symbol), or when the &lt;TR&gt; tag is selected in the Tag Selector.</p>
+		<p>If the <strong>Header</strong> option is checked, the content from the current row will be formatted as bold and centered (header style).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_row_no_wrap" class="topic_hidden">
+    <div class="title"><strong>Row Properties: No Wrap</strong></div>
+    <div class="content">
+		<p>The Row Properties panel is displayed when you select at least two cells on the same table row, when you click the associated glyph (the selector symbol), or when the &lt;TR&gt; tag is selected in the Tag Selector.</p>
+		<p>If the <strong>No Wrap</strong> option is checked, each paragraph in the current row will be displayed on a single line.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_table_id" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box (displayed in <em>Simple</em> view) enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (table) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_table_width" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Width</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Width</strong> text box (displayed in <em>Simple</em> view) specify a new width for the table. The width can be given in either number of pixels or percentage of the page width. If you enter the width in pixels and the value is greater than 1000, a pop-up window will display the error message: &#8220;The value must be lower than 1000.&#8221;</p>
+		<p><strong>Note:</strong> The default width of the table is rather tight (each column expands wide enough for the 'space' character to fit inside). You can also manually modify the table's dimensions by pulling the table handlers (they appear once the table is selected).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_height" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Height</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Height</strong> text box (displayed in <em>Simple</em> view) specify the new height of the table. The height can be given in either number of pixels or percentage of the  page height. If you enter the height in pixels and the value is greater than 1000, a pop-up window will display the error message: &#8220;The value must be lower than 1000.&#8221; Usually though, the table height is not set because it changes (increases) anyway as you type text in the table cells.</p>
+		<p><strong>Note:</strong> The default height of the table is rather short (each column expands deep enough for the mouse cursor to fit inside). You can also manually modify the table's dimensions by pulling the table handlers (they appear once the table is selected).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_cell_pad" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Cell Padding</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>CellPad</strong> text box (displayed in <em>Simple</em> view) specify the number of pixels between a cell&rsquo;s content and the cell's borders (cell padding). The default value is 2.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_cell_space" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Cell Spacing</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>CellSpace</strong> text box (displayed in <em>Simple</em> view) specify the number of pixels between adjacent cells (cell spacing). The default value is 2.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_border" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Border</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Border</strong> text box (displayed in <em>Simple</em> view) enter the thickness (in pixels) of the border that you want displayed around the table. The default value is 1. To make the border invisible, set this attribute to 0.</p>
+		<p><strong>Note:</strong> When the table border becomes invisible, the inside cell borders also become invisible. Otherwise, they maintain a constant thickness, no matter how thick the table border is.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_align" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Horizontal Alignment</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>The <strong>H Align</strong> drop-down menu (displayed in <em>Simple</em> view) contains the options for the horizontal alignment of the table relatively to the page:</p>
+        <ul>
+          <li>Default</li>
+          <li>Left</li>
+          <li>Right</li>
+          <li>Center</li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_header" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Header Rows</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Header Rows</strong> text box (displayed in <em>Simple</em> view) enter the number of rows that you will use as the table header. They will be included in the &lt;thead&gt;&lt;/thead&gt; tag. You can definite CSS rules for this tag in the KT_styles.css file (included in the package) so that the header rows will have a specific look.</p>
+		<p><strong>Note:</strong> When talking about header and footer rows, you must see the table as having three categories of rows: header, body, and footer. There cannot be header rows without footer rows (at least in the <strong>KTML 4</strong> vision). So if you enter a numeric value in one of the text boxes and leave the other one blank, the latter will be automatically filled with the value 1. The sum of the two values entered cannot be greater than the number of table rows minus 1 (at least one row must correspond to the table body). So if you choose to work with header and footer rows, and the second value you enter is greater than the maximum admitted, it will be automatically decreased to that allowed maximum value.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_footer" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Footer Rows</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Footer Rows</strong> text box (displayed in <em>Simple</em> view) enter the number of rows that you will use as the table footer. They will be included in the &lt;tfoot&gt;&lt;/tfoot&gt; tag. You can definite CSS rules for this tag in the KT_styles.css file (included in the package) so that the footer rows will have a specific look.</p>
+		<p><strong>Note:</strong> When talking about header and footer rows, you must see the table as having three categories of rows: header, body, and footer. There cannot be header rows without footer rows (at least in the <strong>KTML 4</strong> vision). So if you enter a numeric value in one of the text boxes and leave the other one blank, the latter will be automatically filled with the value 1. The sum of the two values entered cannot be greater than the number of table rows minus 1 (at least one row must correspond to the table body). So if you choose to work with header and footer rows, and the second value you enter is greater than the maximum admitted, it will be automatically decreased to that allowed maximum value.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_caption" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Caption</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Caption</strong> text box (displayed in <em>Advanced</em> view) enter the text that you want displayed as the table caption (name for the table). The &lt;caption&gt;&lt;/caption&gt; tag is included in the &lt;table&gt;&lt;/table&gt; tag.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_summary" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Summary</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Summary</strong> text box (displayed in <em>Advanced</em> view) enter the value for the 'summary' attribute.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_caption_pos" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Caption Position</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>The <strong>Caption Position</strong> drop-down menu (displayed in <em>Advanced</em> view) contains the options for the caption position relatively to the table (and its height):</p>
+		<ul>
+		  <li>Top - caption displayed above the table.</li>
+	      <li>Bottom - caption displayed below the table.</li>
+	    </ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_caption_align" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Caption Align</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>The <strong>Caption Align</strong> drop-down menu (displayed in <em>Advanced</em> view) contains the options for the horizontal alignment of the caption relatively to the table (and its width):</p>
+		<ul>
+		  <li>Left</li>
+	      <li>Center</li>
+	      <li>Right</li>
+	    </ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_bg_image" class="topic_hidden">
+	<div class="title"><strong>Table Properties: Background Image</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>With the <strong>Bg</strong> text box (displayed in <em>Advanced</em> view) you can set an image as the table background. You can either enter the full path (URL) to the image previously uploaded on the remote server or you can click the <strong>Browse for Image</strong> button to select an image from the server.</p>
+		<p><strong>Note:</strong> It is your task to make sure the image has appropriate dimensions, as automatic resizing of the image to the table's dimensions will not take place.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_bg_color" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Background Color</strong></div>
+    <div class="content">
+        <p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+	    <p>With the <strong>Bg Color</strong> text box (displayed in <em>Advanced</em> view) you can set the desired background color for the table. You can enter the hexadecimal code of the color in the text box or you can click the <strong>Color Picker</strong> button to select a color from a large range of colors. The Color Picker also offers the possibility of entering the hexadecimal code for a precise, preferred background color.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_table_border_color" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Border Color</strong></div>
+    <div class="content">
+	    <p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+	    <p>With the <strong>Brdr Color</strong> text box (displayed in <em>Advanced</em> view) you can set the desired border color for the table. You can enter the hexadecimal code of the color in the text box or you can click the <strong>Color Picker</strong> button to select a color from a large range of colors. The Color Picker also offers the possibility of entering the hexadecimal code for a precise, preferred border color.</p>
+	  <p><strong>Note:</strong>  Each cell of the table is bordered in that color, and not only the table itself (seen as a larger cell).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_table_advanced" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Advanced</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>By clicking the <strong>Advanced</strong> button (displayed in <em>Simple</em> view), the Table Properties panel will switch to <em>Advanced</em> view. You will be offered the possibility of setting advanced options for the currently selected table.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_table_simple" class="topic_hidden">
+    <div class="title"><strong>Table Properties: Simple</strong></div>
+    <div class="content">
+		<p>The Table Properties panel is displayed when you select a table by clicking its associated glyph (the selector symbol) or when the &lt;TABLE&gt; tag is selected in the Tag Selector.</p>
+		<p>By clicking the <strong>Simple</strong> button (displayed in <em>Advanced</em> view), the Table Properties panel will switch to <em>Simple</em> view. You will be offered the possibility of setting various options for the currently selected table.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_unord_list_id" class="topic_hidden">
+    <div class="title"><strong>Bulleted List Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Bulleted List Properties panel is displayed when you select at least two elements in a bulleted (unordered) list or when the &lt;UL&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (bulleted list) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_unord_list_type" class="topic_hidden">
+    <div class="title"><strong>Bulleted List Properties: Bullet Shape </strong></div>
+    <div class="content">
+	  <p>The Bulleted List Properties panel is displayed when you select at least two elements in a bulleted (unordered) list or when the &lt;UL&gt; tag is selected in the Tag Selector.</p>
+		<p>With the <strong>Bullet Shape </strong> drop-down menu you can change the shape of the bullets displayed before the list elements. The available options are:</p>
+		<ul>
+		  <li>Circle</li>
+	      <li>Disc</li>
+	      <li>Square</li>
+        </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_ord_list_id" class="topic_hidden">
+    <div class="title"><strong>Numbered List Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Numbered List Properties panel is displayed when you select at least two elements in a numbered (ordered) list or when the &lt;OL&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (numbered list) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_ord_list_type" class="topic_hidden">
+    <div class="title"><strong>Numbered List Properties: Numbering Type</strong></div>
+    <div class="content">
+		<p>The Numbered List Properties panel is displayed when you select at least two elements in a numbered (ordered) list or when the &lt;OL&gt; tag is selected in the Tag Selector.</p>
+		<p>With the <strong>Numbering Type</strong> drop-down menu you can change the numbering style of the list elements. The available options are:</p>
+		<ol>
+		  <li>Arabic (default): 1, 2, 3...</li>
+	      <li>Lower alpha: a, b, c...</li>
+	      <li>Upper alpha: A, B, C...</li>
+	      <li>Lower roman: i, ii, iii...</li>
+	      <li>Upper roman: I, II, III...</li>
+	    </ol>
+    </div>
+</div>
+
+
+<div id="topic_PI_ord_list_start" class="topic_hidden">
+    <div class="title"><strong>Numbered List Properties: Start at</strong></div>
+    <div class="content">
+		<p>The Numbered List Properties panel is displayed when you select at least two elements in a numbered (ordered) list or when the &lt;OL&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Start at</strong> text box enter a number equal or greater than zero with which the numbering should start. For example, if you enter 4, the first element in the ordered list will be preceded by 4, d, D, iv or IV (depending on the preferred numbering type).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_list_item_id" class="topic_hidden">
+    <div class="title"><strong>List Item Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The List Item Properties panel is displayed when you select or simply place the mouse cursor inside a list element (the list can be numbered or bulleted), or when the &lt;LI&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (list element) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_list_item_shape" class="topic_hidden">
+    <div class="title"><strong>List Item Properties: Bullet Shape</strong></div>
+    <div class="content">
+		<p>The List Item Properties panel is displayed when you select or simply place the mouse cursor inside a list element (the list can be numbered or bulleted), or when the &lt;LI&gt; tag is selected in the Tag Selector.</p>
+		<p>If the list item belongs to a bulleted list, the <strong>Bullet Shape</strong> drop-down menu will be displayed, allowing you to change the bullet appearance. Choose one of the available options:</p>
+		<ul>
+		  <li>Disc</li>
+	      <li>Circle</li>
+	      <li>Square</li>
+	  </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_list_item_type" class="topic_hidden">
+    <div class="title"><strong>List Item Properties: Numbering Type</strong></div>
+    <div class="content">
+		<p>The List Item Properties panel is displayed when you select or simply place the mouse cursor inside a list element (the list can be numbered or bulleted), or when the &lt;LI&gt; tag is selected in the Tag Selector.</p>
+		<p>If the list item belongs to a numbered list, the <strong>Numbering Type</strong> drop-down menu will show allowing you to change the numbering style.  Choose one of the available options:</p>
+		<ol>
+          <li>Arabic (default): 1, 2, 3...</li>
+          <li>Lower alpha: a, b, c...</li>
+          <li>Upper alpha: A, B, C...</li>
+          <li>Lower roman: i, ii, iii...</li>
+          <li>Upper roman: I, II, III...</li>
+        </ol>
+    </div>
+</div>
+
+
+<div id="topic_PI_list_item_value" class="topic_hidden">
+    <div class="title"><strong>List Item Properties: Start Value</strong></div>
+    <div class="content">
+		<p>The List Item Properties panel is displayed when you select or simply place the mouse cursor inside a list element (the list can be numbered or bulleted), or when the &lt;LI&gt; tag is selected in the Tag Selector.</p>
+		<p>If the list item belongs to a numbered list, the <strong>Start at</strong> text box will show. The number you enter in this text box will be associated to the list item and displayed before it (as either a number, an alpha character or a roman character). The number/letter associated to the following list item will become this set value increased by 1.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_hr_id" class="topic_hidden">
+    <div class="title"><strong>Horizontal Rule Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Horizontal Rule Properties panel is displayed when you select a horizontal rule (by clicking on it) inserted in page. It corresponds to the &lt;HR&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (horizontal rule) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_hr_width" class="topic_hidden">
+    <div class="title"><strong>Horizontal Rule Properties: Width</strong></div>
+    <div class="content">
+		<p>The Horizontal Rule Properties panel is displayed when you select a horizontal rule (by clicking on it) inserted in page. It corresponds to the &lt;HR&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Width</strong> text box enter a number that can represent either pixels or percents (of the page width). Select one of these two options from the associated drop-down menu.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_hr_width_measure" class="topic_hidden">
+    <div class="title"><strong>Horizontal Rule Properties: Express Width In</strong></div>
+    <div class="content">
+		<p>The Horizontal Rule Properties panel is displayed when you select a horizontal rule (by clicking on it) inserted in page. It corresponds to the &lt;HR&gt; tag in the Tag Selector.</p>
+		<p>The width of a horizontal rule can be expressed in either pixels or percents (relatively to the page width). Select the desired way for measuring width in the drop-down menu next to the <strong>Width</strong> text box.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_hr_height" class="topic_hidden">
+    <div class="title"><strong>Horizontal Rule Properties: Height</strong></div>
+    <div class="content">
+		<p>The Horizontal Rule Properties panel is displayed when you select a horizontal rule (by clicking on it) inserted in page. It corresponds to the &lt;HR&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Height</strong> text box enter the number of pixels for the horizontal rule's height. The greater the number is, the deeper the delimitation space (between the two paragraphs the horizontal line separates) will be.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_hr_align" class="topic_hidden">
+    <div class="title"><strong>Horizontal Rule Properties: Horizontal Alignment</strong></div>
+    <div class="content">
+		<p>The Horizontal Rule Properties panel is displayed when you select a horizontal rule (by clicking on it) inserted in page. It corresponds to the &lt;HR&gt; tag in the Tag Selector.</p>
+		<p>The <strong>H Align</strong> drop-down menu contains the options for the  position of the horizontal rule relatively to the page's width:</p>
+        <ul>
+          <li>Default</li>
+          <li>Left</li>
+          <li>Center</li>
+          <li>Right</li>
+        </ul>
+        <p>Obviously, if the rule is as wide as the page, aligning it to the left, right, center would not make a difference in its position. But when the rule's width is smaller than the page's, then its alignment options will be visible. </p>
+    </div>
+</div>
+
+
+<div id="topic_PI_hr_shading" class="topic_hidden">
+    <div class="title"><strong>Horizontal Rule Properties: Shading</strong></div>
+    <div class="content">
+		<p>The Horizontal Rule Properties panel is displayed when you select a horizontal rule (by clicking on it) inserted in page. It corresponds to the &lt;HR&gt; tag in the Tag Selector.</p>
+		<p>If you check the <strong>Shading</strong> option, the inside area of the horizontal rule (its thickness is given but the height) will be transparent. If left unchecked, the rectangle corresponding to the horizontal rule will be filled with a shade of gray.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_id" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box (displayed in <em>Simple</em> view) enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (Flash movie) in page.</p>
+	</div>
+</div>
+
+
+<div id="topic_PI_flash_width" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Width</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>W</strong> text box (displayed in <em>Simple</em> view) enter the movie's new width in pixels. You can also manually modify the width by pulling the movie's handlers (they appear once the Flash movie is selected).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_height" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Height</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>H</strong> text box (displayed in <em>Simple</em> view) enter the movie's new height in pixels. You can also manually modify the height by pulling the movie's handlers (they appear once the Flash movie is selected).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_file" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: File</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>The <strong>File</strong> text box (displayed in <em>Simple</em> view) displays the path on the remote server of the currently selected Flash movie. If you want to replace the selection with another movie, click the button next to the text box and browse to another file. You can also manually change the path and make it point to a new Flash movie.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_alt_img" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Alternate Image</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>With the <strong>Alternate Image</strong> text box you can set an image to be displayed in the browsers that do not have support for playing Flash movies. You can either enter the full path (URL) to the image previously uploaded on the remote server or you can click the <strong>Browse for File </strong> button to select an image from the server.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_play" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Play</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>Click the <strong>Play</strong> button (displayed in both <em>Simple</em> and <em>Advanced</em> view) when you want the movie to start playing. Its label will then turn to 'Stop'. By clicking the <strong>Stop</strong> button, the Flash movie will cease playing.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_size" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Initial Size</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Initial Size</strong> button (displayed in <em>Simple</em> view), when clicked, brings the Flash movie to its original dimensions.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_advanced" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Advanced</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Advanced</strong> button (displayed in <em>Simple</em> view), the Flash Properties panel will switch to <em>Advanced</em> view. You will be offered the possibility of setting advanced options for the currently selected Flash movie.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_loop" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Loop</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>If the <strong>Loop</strong> option (displayed in <em>Advanced</em> view) is checked, the Flash movie will play continuously. Else, it will only play once and then stop.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_autoplay" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Autoplay</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>If the <strong>Autoplay</strong> option (displayed in <em>Advanced</em> view) is checked, the Flash movie will automatically start playing when the page is loaded.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_H_space" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Horizontal Space</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>H Space</strong> text box (displayed in <em>Advanced</em> view) specify the horizontal distance (in pixels) between the Flash movie and the other page elements (images, table borders, text) to its left and right. These other page elements can be present in  page or can be added at a later time: they will not get closer to the Flash movie than the horizontal space set. The default value is 0 (zero).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_V_space" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Vertical Space</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>V Space</strong> text box (displayed in <em>Advanced</em> view) specify the vertical distance (in pixels) between the Flash movie and the other page elements (images, table borders, text) above and below it. These other page elements can be present in  page or can be added at a later time: they will not get closer to the Flash movie than the vertical space set. The default value is 0 (zero).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_quality" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Quality</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p> In the <strong>Quality</strong> drop-down menu (displayed in <em>Advanced</em> view) choose the option that you prefer for the Flash movie in your page. Know that the <em>high</em> quality focuses on a better appearance, while the <em>low</em> quality on a better speed:</p>
+		<ul>
+		  <li>Low</li>
+	      <li>Auto Low</li>
+	      <li>Auto High</li>
+	      <li>High</li>
+	    </ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_scale" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Scale</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p> In the <strong>Scale</strong> drop-down menu (displayed in <em>Advanced</em> view) select how you want the Flash movie to fit into the dimensions you set in the <strong>W</strong> and <strong>H</strong> text boxes from <em>Simple</em> view:</p>
+		<ul>
+		  <li>Default (Show all)</li>
+	      <li>No border</li>
+	      <li>Exact fit</li>
+	    </ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_flash_align" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Align</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Align</strong> drop-down menu (displayed in <em>Advanced</em> view) contains the options for the Flash movie position in relation with the other page elements:</p>
+		<ul>
+		  <li>Default</li>
+		  <li>Baseline</li>
+		  <li>Top</li>
+		  <li>Middle</li>
+		  <li>Bottom</li>
+		  <li>Text Top</li>
+		  <li>Absolute Middle</li>
+		  <li>Absolute Bottom</li>
+		  <li>Left</li>
+		  <li>Right</li>
+	    </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_flash_bg_color" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Background Color</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>With the <strong>Bg Color</strong> text box (displayed in <em>Advanced</em> view) you can set the desired background color for the selected Flash movie. The color will also show when the movie is not playing.</p>
+		<p>You can enter the hexadecimal code of the color in the text box or you can click the <strong>Color Picker</strong> button to select a color from a large range of colors. The Color Picker also offers the possibility of entering the hexadecimal code for a precise, preferred background color.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_flash_simple" class="topic_hidden">
+    <div class="title"><strong>Flash Properties: Simple</strong></div>
+    <div class="content">
+		<p>The Flash Properties panel is displayed when you select (click on) a Flash movie (.swf) inserted in your page. It corresponds to the &lt;flashmovie&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Simple</strong> button (displayed in <em>Advanced</em> view), the Flash Properties panel will switch to <em>Simple</em> view. You will be offered the possibility of setting various options for the currently selected Flash movie.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_id" class="topic_hidden">
+	<div class="title"><strong>Windows Media Properties: Element ID</strong></div>
+  <div class="content">
+	  <p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box (displayed in <em>Simple</em> view) enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (Windows Media movie) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_width" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Width</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>W</strong> text box (displayed in <em>Simple</em> view) enter the movie's new width in pixels. You can also manually modify the width by pulling the movie's handlers (they appear once the Windows Media movie is selected).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_height" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Height</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>H</strong> text box (displayed in <em>Simple</em> view) enter the movie's new height in pixels. You can also manually modify the height by pulling the movie's handlers (they appear once the Windows Media movie is selected).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_file" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: File</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>The <strong>File</strong> text box (displayed in <em>Simple</em> view) shows the path on the remote server of the currently selected Windows Media movie. If you want to replace the selection with another movie, click the button next to the text box and browse to another file. You can also manually change the path and make it point to a new Windows Media movie.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_alt_img" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Alternate Image</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>With the <strong>Alternate Image</strong> text box you can set an image to be displayed in the browsers that do not have support for playing Windows Media movies. You can either enter the full path (URL) to the image previously uploaded on the remote server or you can click the <strong>Browse for File </strong> button to select an image from the server.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_wind_play" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Play</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>Click the <strong>Play</strong> button (displayed in both <em>Simple</em> and <em>Advanced</em> view) when you want the movie to start playing. Its label will then turn to 'Stop'. By clicking the <strong>Stop</strong> button, the Windows Media movie will cease playing.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_size" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Initial Size</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Initial size</strong> button (displayed in <em>Simple</em> view), when clicked, brings the Windows Media movie to its original dimensions.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_align" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Align</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Align</strong> drop-down menu (displayed in <em>Advanced</em> view) contains the options for the Windows Media movie  alignment relatively to the page:</p>
+        <ul>
+          <li>Default</li>
+          <li>Baseline</li>
+          <li>Top</li>
+          <li>Middle</li>
+          <li>Bottom</li>
+          <li>Text Top</li>
+          <li>Abolute Middle</li>
+          <li>Absolute Bottom</li>
+          <li>Left</li>
+          <li>Right</li>
+        </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_advanced" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Advanced</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Advanced</strong> button (displayed in <em>Simple</em> view), the Windows Media Properties panel will switch to <em>Advanced</em> view. You will be offered the possibility of setting advanced options for the currently selected Windows Media movie.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_start" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Auto Start</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>If the <strong>Auto Start</strong> option (displayed in <em>Advanced</em> view) is checked, the Windows Media movie will start playing as soon as the page loads.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_controls" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Show Controls</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>If the <strong>Show Controls</strong> option (displayed in <em>Advanced</em> view) is checked, controls such as pause/play, stop, rewind, forward will be displayed under the actual movie area in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_display" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Show Display</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>If the <strong>Show Display</strong> option (displayed in <em>Advanced</em> view) is checked, the playlist name and the name of the Windows Media movie file will be shown under the movie area in page (under the controls bar, if they were set to show).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_status_bar" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Show Status Bar</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>If the <strong>Show Status Bar</strong> option (displayed in <em>Advanced</em> view) is checked, you will be told how much time out of the total movie time has passed since the movie started playing. This information will be displayed under the display area, if it was set to show; if not, under the controls bar, if it was set to show; else, right under the movie area.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_wind_simple" class="topic_hidden">
+    <div class="title"><strong>Windows Media Properties: Simple</strong></div>
+    <div class="content">
+		<p>The Windows Media Properties panel is displayed when you select (click on) a Windows Media movie (<em>.wmv</em>, <em>.avi</em>) inserted in your page. It corresponds to the &lt;windowsmedia&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Simple</strong> button (displayed in <em>Advanced</em> view), the Windows Media Properties panel will switch to <em>Simple</em> view. You will be offered the possibility of setting various options for the currently selected Windows Media movie.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_quicktime_id" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box (displayed in <em>Simple</em> view) enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (QuickTime movie) in page.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_width" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Width</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>W</strong> text box (displayed in <em>Simple</em> view) enter the movie's new width in pixels. You can also manually modify the width by pulling the movie's handlers (they appear once the QuickTime movie is selected).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_height" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Height</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>H</strong> text box (displayed in <em>Simple</em> view) enter the movie's new height in pixels. You can also manually modify the height by pulling the movie's handlers (they appear once the QuickTime movie is selected).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_play" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Play</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>Click the <strong>Play</strong> button (displayed in both <em>Simple</em> and <em>Advanced</em> view) when you want the movie to start playing. Its label will then turn to <em>Stop</em>. By clicking the <strong>Stop</strong> button, the QuickTime movie will cease playing.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_file" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: File</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>The <strong>File</strong> text box (displayed in <em>Simple</em> view) displays the path on the remote server of the currently selected QuickTime movie. If you want to replace the selection with another movie, click the button next to the text box and browse to another file. You can also manually change the path and make it point to a new QuickTime movie.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_alt_img" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Alternate Image</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>With the <strong>Alternate Image</strong> text box you can set an image to be displayed in the browsers that do not have support for playing  QuickTime movies. You can either enter the full path (URL) to the image previously uploaded on the remote server or you can click the <strong>Browse for File </strong> button to select an image from the server.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_advanced" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Advanced</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Advanced</strong> button (displayed in <em>Simple</em> view), the QuickTime Properties panel will switch to <em>Advanced</em> view. You will be offered the possibility of setting advanced options for the currently selected QuickTime movie.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_loop" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Loop</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>If the <strong>Loop</strong> option (displayed in <em>Advanced</em> view) is checked, the QuickTime movie will play continuously. Else, it will only play once and then stop.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_autoplay" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Autoplay</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>If the <strong>Autoplay</strong> option (displayed in <em>Advanced</em> view) is checked, the QuickTime movie will automatically start playing when the page is loaded.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_H_space" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Horizontal Space</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>H Space</strong> text box (displayed in <em>Advanced</em> view) specify the horizontal distance (in pixels) between the QuickTime movie and the other page elements (images, table borders, text) to its left and right. These other page elements can be present in  page or can be added at a later time: they will not get closer to the QuickTime movie than the horizontal space set. The default value is 0 (zero).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_V_space" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Vertical Space</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>V Space</strong> text box (displayed in <em>Advanced</em> view) specify the vertical distance (in pixels) between the QuickTime movie and the other page elements (images, table borders, text) above and below it. These other page elements can be present in  page or can be added at a later time: they will not get closer to the QuickTime movie than the vertical space set. The default value is 0 (zero).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_controller" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Controller Bar</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>If the <strong>Controller</strong> option (displayed in <em>Advanced</em> view) is checked, the controller bar of the QuickTime movie will show. Else, it will be hidden.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_scale" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Scale</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p> In the <strong>Scale</strong> drop-down menu (displayed in <em>Advanced</em> view) select how you want the QuickTime movie to fit into the dimensions you set in the <strong>W</strong> and <strong>H</strong> text boxes from <em>Simple</em> view:</p>
+		<ul>
+		  <li>Exact fit - The QuickTime movie fits in the specified rectangle (width x height). It does not preserve original aspect ratio.</li>
+          <li>Aspect - It preserves the original aspect ratio of the movie when playing.</li>
+		</ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_quicktime_align" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Align</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Align</strong> drop-down menu (displayed in <em>Advanced</em> view) contains the options for the QuickTime movie position in relation with the other page elements:</p>
+		<ul>
+		  <li>Default</li>
+		  <li>Baseline</li>
+		  <li>Top</li>
+		  <li>Middle</li>
+		  <li>Bottom</li>
+		  <li>Text Top</li>
+		  <li>Absolute Middle</li>
+		  <li>Absolute Bottom</li>
+		  <li>Left</li>
+		  <li>Right</li>
+	    </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_quicktime_bg_color" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Background Color</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>With the <strong>Bg Color</strong> text box (displayed in <em>Advanced</em> view) you can set the desired background color for the selected QuickTime movie. The color will also show when the movie is not playing.</p>
+		<p>You can enter the hexadecimal code of the color in the text box or you can click the <strong>Color Picker</strong> button to select a color from a large range of colors. The Color Picker also offers the possibility of entering the hexadecimal code for a precise, preferred background color.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_quicktime_simple" class="topic_hidden">
+    <div class="title"><strong>QuickTime Properties: Simple</strong></div>
+    <div class="content">
+		<p>The QuickTime Properties panel is displayed when you select (click on) a QuickTime movie (.mov) inserted in your page. It corresponds to the &lt;quicktime&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Simple</strong> button (displayed in <em>Advanced</em> view), the QuickTime Properties panel will switch to <em>Simple</em> view. You will be offered the possibility of setting various options for the currently selected QuickTime movie.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_form_id" class="topic_hidden">
+    <div class="title"><strong>Form Properties: Element ID </strong></div>
+    <div class="content">
+		<p>The Form Properties panel is displayed when you click inside a form (inside the doted red outline) or when the &lt;FORM&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (form) in page.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_form_action" class="topic_hidden">
+    <div class="title"><strong>Form Properties: Action</strong></div>
+    <div class="content">
+		<p>The Form Properties panel is displayed when you click inside a form (inside the doted red outline) or when the &lt;FORM&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Action</strong> text box enter the path to the page that will process the form.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_form_target" class="topic_hidden">
+    <div class="title"><strong>Form Properties: Target</strong></div>
+    <div class="content">
+		<p>The Form Properties panel is displayed when you click inside a form (inside the doted red outline) or when the &lt;FORM&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Target</strong> drop-down menu select in what window the page that processes the submitted data will load:</p>
+		<ul>
+		  <li>Default</li>
+	      <li>_blank</li>
+	      <li>_parent</li>
+	      <li>_self</li>
+	      <li>_top</li>
+      </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_form_method" class="topic_hidden">
+    <div class="title"><strong>Form Properties: Method</strong></div>
+    <div class="content">
+		<p>The Form Properties panel is displayed when you click inside a form (inside the doted red outline) or when the &lt;FORM&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Method</strong> drop-down menu select the method to be used when sending the form data to the server:</p>
+		<ul>
+		  <li>Default</li>
+	      <li>GET</li>
+          <li>POST</li>
+	    </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_form_enctype" class="topic_hidden">
+    <div class="title"><strong>Form Properties: Encoding Type</strong></div>
+    <div class="content">
+		<p>The Form Properties panel is displayed when you click inside a form (inside the doted red outline) or when the &lt;FORM&gt; tag is selected in the Tag Selector.</p>
+		<p>In the <strong>Enctype</strong> drop-down menu select the encoding type of the data submitted to the server:</p>
+		<ul>
+	      <li>Default</li>
+	      <li>application/x-www-form-urlencoded</li>
+	      <li>multipart/form-data</li>
+	    </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_textfield_id" class="topic_hidden">
+    <div class="title"><strong>Text Field Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Text Field Properties panel is displayed when you select (click on) a text field inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (text field) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_textfield_charwidth" class="topic_hidden">
+    <div class="title"><strong>Text Field Properties: Char Width</strong></div>
+    <div class="content">
+		<p>The Text Field Properties panel is displayed when you select (click on) a text field inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Char Width</strong> text box set the maximum number of characters that can be displayed at one time in the text field (if it only has one row). If it is a multi-line text field, this number represents the width of the form control given in characters.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_textfield_maxchars" class="topic_hidden">
+    <div class="title"><strong>Text Field Properties: Max Chars</strong></div>
+    <div class="content">
+		<p>The Text Field Properties panel is displayed when you select (click on) a text field inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Max Chars </strong> text box set the maximum number of characters that can be entered in the (single-line) text field.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_textfield_type" class="topic_hidden">
+    <div class="title"><strong>Text Field Properties: Type</strong></div>
+    <div class="content">
+		<p>The Text Field Properties panel is displayed when you select (click on) a text field inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>From the <strong>Type</strong> drop-down menu select a type for the current text field:</p>
+		<ul>
+		  <li>Single Line</li>
+	      <li>Multi Line</li>
+	      <li>Password</li>
+	    </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_textfield_wrap" class="topic_hidden">
+    <div class="title"><strong>Text Field Properties: Wrap</strong></div>
+    <div class="content">
+		<p>The Text Field Properties panel is displayed when you select (click on) a text field inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Wrap</strong> drop-down menu is only enabled when the text field is a multi-line one (textarea). It specifies how the input will be displayed. The available options are:</p>
+		<ul>
+		  <li>Default (Virtual)</li>
+	      <li>Off</li>
+		  <li>Physical</li>
+		</ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_textfield_init" class="topic_hidden">
+    <div class="title"><strong>Text Field Properties: Initial Value</strong></div>
+    <div class="content">
+		<p>The Text Field Properties panel is displayed when you select (click on) a text field inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Init Val</strong> text box enter the initial value that should be displayed in the text field when the form loads.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_textarea_id" class="topic_hidden">
+    <div class="title"><strong>Textarea Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Textarea Properties panel is displayed when you select (click on) a textarea inserted in your page. It corresponds to the &lt;TEXTAREA&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (textarea) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_textarea_charwidth" class="topic_hidden">
+    <div class="title"><strong>Textarea Properties: Char Width</strong></div>
+    <div class="content">
+		<p>The Textarea Properties panel is displayed when you select (click on) a textarea inserted in your page. It corresponds to the &lt;TEXTAREA&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Char Width</strong> text box set the maximum number of characters that can be displayed on a textarea row (in other words, it's the textarea width, given in characters).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_textarea_maxchars" class="topic_hidden">
+    <div class="title"><strong>Textarea Properties: Number of Lines</strong></div>
+    <div class="content">
+		<p>The Textarea Properties panel is displayed when you select (click on) a textarea inserted in your page. It corresponds to the &lt;TEXTAREA&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Num Lines </strong> text box set the height of the textarea (the number of rows visible at one time).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_textarea_type" class="topic_hidden">
+    <div class="title"><strong>Textarea Properties: Type</strong></div>
+    <div class="content">
+		<p>The Textarea Properties panel is displayed when you select (click on) a textarea inserted in your page. It corresponds to the &lt;TEXTAREA&gt; tag in the Tag Selector.</p>
+		<p>From the <strong>Type</strong> drop-down menu select a type for the current textarea:</p>
+		<ul>
+		  <li>Single Line</li>
+	      <li>Multi Line</li>
+	      <li>Password</li>
+	    </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_textarea_wrap" class="topic_hidden">
+    <div class="title"><strong>Textarea Properties: Wrap</strong></div>
+    <div class="content">
+		<p>The Textarea Properties panel is displayed when you select (click on) a textarea inserted in your page. It corresponds to the &lt;TEXTAREA&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Wrap</strong> drop-down menu is only enabled when the textarea is a multi-line one. It specifies how the input will be displayed. The available options are:</p>
+		<ul>
+		  <li class="style1 style2">Default</li>
+	      <li class="style1 style2">Off</li>
+		  <li class="style1 style2">Virtual</li>
+		  <li class="style1 style2">Physical</li>
+		</ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_textarea_init" class="topic_hidden">
+    <div class="title"><strong>Textarea Properties: Initial Value</strong></div>
+    <div class="content">
+		<p>The Textarea Properties panel is displayed when you select (click on) a textarea inserted in your page. It corresponds to the &lt;TEXTAREA&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Init Val</strong> text box enter the initial value that should be displayed in the textarea when the form loads.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_button_id" class="topic_hidden">
+    <div class="title"><strong>Button Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Button Properties panel is displayed when you select (click on) a button inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (button) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_button_label" class="topic_hidden">
+    <div class="title"><strong>Button Properties: Label</strong></div>
+    <div class="content">
+		<p>The Button Properties panel is displayed when you select (click on) a button inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Label</strong> text box enter the text that will be displayed on the button.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_button_action" class="topic_hidden">
+    <div class="title"><strong>Button Properties: Action</strong></div>
+    <div class="content">
+		<p>The Button Properties panel is displayed when you select (click on) a button inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Action</strong> radio group offers three possibilities regarding what happens when the button is clicked:</p>
+		<ol>
+		  <li>Submit form - the form data is submitted for processing.</li>
+	      <li>Reset form - the input entered in the form controls is cleared.</li>
+	      <li>None - specify the action to take place when the button is clicked.</li>
+      </ol>
+  </div>
+</div>
+
+
+<div id="topic_PI_checkbox_id" class="topic_hidden">
+    <div class="title"><strong>Checkbox Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Checkbox Properties panel is displayed when you select (click on) a checkbox inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (checkbox) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_checkbox_value" class="topic_hidden">
+    <div class="title"><strong>Checkbox Properties: Checked Value</strong></div>
+    <div class="content">
+		<p>The Checkbox Properties panel is displayed when you select (click on) a checkbox inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Checked value </strong>text box enter the value that will be sent to the server once the form is submitted, if the checkbox was checked.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_checkbox_initial" class="topic_hidden">
+    <div class="title"><strong>Checkbox Properties: Initial State</strong></div>
+    <div class="content">
+		<p>The Checkbox Properties panel is displayed when you select (click on) a checkbox inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Initial state </strong>radio group choose how you want the checkbox to be when the form first loads in browser:</p>
+		<ul>
+		  <li>Checked</li>
+	      <li>Unchecked</li>
+      </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_radio_id" class="topic_hidden">
+    <div class="title"><strong>Radio Button Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Radio Button Properties panel is displayed when you select (click on) a radio button inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (radio button) in page.</p>
+		<p> <strong>Note:</strong> However, if you need to work with a radio group (more radio buttons, with only one that can be selected at one time), all the buttons in the group must share the same <strong>id</strong>.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_radio_value" class="topic_hidden">
+    <div class="title"><strong>Radio Button Properties: Checked Value</strong></div>
+    <div class="content">
+		<p>The Radio Button Properties panel is displayed when you select (click on) a radio button inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Checked value </strong>text box enter the value that will be sent to the server once the form is submitted, if the current radio button was selected.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_radio_initial" class="topic_hidden">
+    <div class="title"><strong>Radio Button Properties: Initial State</strong></div>
+    <div class="content">
+		<p>The Radio Button Properties panel is displayed when you select (click on) a radio button inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Initial state </strong>radio group choose how you want the current radio button to be when the form first loads in browser:</p>
+		<ul>
+		  <li>Checked</li>
+	      <li>Unchecked</li>
+	    </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_listmenu_id" class="topic_hidden">
+    <div class="title"><strong>List/Menu Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The List/Menu Properties panel is displayed when you select (click on) a list/menu item inserted in your page. It corresponds to the &lt;SELECT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (list/menu) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_listmenu_type" class="topic_hidden">
+    <div class="title"><strong>List/Menu Properties: Type</strong></div>
+    <div class="content">
+		<p>The List/Menu Properties panel is displayed when you select (click on) a list/menu item inserted in your page. It corresponds to the &lt;SELECT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Type</strong> drop-down menu decide if you want the list/menu item to be displayed as a:</p>
+		<ul>
+		  <li>Menu - a drop-down menu that will only show one option when the form loads. To view all the options, click the down arrow in the drop-down menu.</li>
+	      <li>List - a list displays more options when the form loads, and it can also allow multiple selections.</li>
+        </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_listmenu_height" class="topic_hidden">
+    <div class="title"><strong>List/Menu Properties: Height</strong></div>
+    <div class="content">
+		<p>The List/Menu Properties panel is displayed when you select (click on) a list/menu item inserted in your page. It corresponds to the &lt;SELECT&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Height</strong> text box is only enabled if the form item type is 'list'. Enter the number of elements that you want the list to display (how many rows it should have).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_listmenu_select" class="topic_hidden">
+    <div class="title"><strong>List/Menu Properties: Selections</strong></div>
+    <div class="content">
+		<p>The List/Menu Properties panel is displayed when you select (click on) a list/menu item inserted in your page. It corresponds to the &lt;SELECT&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Allow multiple</strong> checkbox is only enabled if the form item type is 'list'. Check it if you want multiple selections (of the list elements) to be possible.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_listmenu_values" class="topic_hidden">
+    <div class="title"><strong>List/Menu Properties: List Values </strong></div>
+    <div class="content">
+		<p>The List/Menu Properties panel is displayed when you select (click on) a list/menu item inserted in your page. It corresponds to the &lt;SELECT&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>List Values</strong> button, a dialog box pops-up and allows you to add/edit elements in the list/menu control.</p>
+  </div>
+</div>
+
+
+<div id="topic_listmenu_options_editor" class="topic_hidden">
+    <div class="title"><strong>List/Menu Values Editor</strong></div>
+    <div class="content">
+		<p>This dialog box pops-up when the <strong>List Values</strong> button from the <strong>List/Menu Properties</strong> panel is clicked. It offers you the possibility of adding or editing elements (labels and values) from the list/menu item. The user interface presents the following controls:</p>
+		<ol>
+		  <li>The <strong>Plus (+)</strong>/<strong>Minus (-)</strong> buttons allow you to add/remove elements from the list/menu item.</li>
+		  <li>In the <strong>Item label</strong> and <strong>Item value</strong> text boxes enter the label (text displayed in the form control) and the value (value submitted to the server) of the current list element. The already entered elements are displayed.</li>
+		  <li>With the <strong>up</strong> and <strong>down</strong> arrows you can change the order of the list elements (in this same order they will be displayed in the form control).</li>
+		  <li>Click <strong>OK</strong> when you are done configuring the list elements.</li>
+		  <li>Click <strong>Cancel</strong> to exit without any new settings to be applied.</li>
+		  <li>The <strong>Help</strong> button opens this help window.</li>
+	    </ol>
+  </div>
+</div>
+
+
+<div id="topic_PI_filefield_id" class="topic_hidden">
+    <div class="title"><strong>File Field Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The File Field Properties panel is displayed when you select (click on) a file field inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (file field) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_filefield_charwidth" class="topic_hidden">
+    <div class="title"><strong>File Field Properties: Char Width</strong></div>
+    <div class="content">
+		<p>The File Field Properties panel is displayed when you select (click on) a file field inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Char Width</strong> text box set the maximum number of characters that can be displayed at one time in the file field (the width of the form control given in characters).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_filefield_maxchars" class="topic_hidden">
+    <div class="title"><strong>File Field Properties: Max Chars</strong></div>
+    <div class="content">
+		<p>The File Field Properties panel is displayed when you select (click on) a file field inserted in your page. It corresponds to the &lt;INPUT&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Max Chars</strong> text box set the maximum number of characters that can be entered in the file field when you choose to type the path to the file. If you use the <strong>Browse</strong> button to select a file, the number of characters in the path can and may exceed the set value of characters.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_hiddenfield_id" class="topic_hidden">
+    <div class="title"><strong>Hidden Field Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Hidden Field Properties panel is displayed when you select (click on) a hidden field inserted in your page. It corresponds to the &lt;hidden&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (hidden field) in page.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_hiddenfield_value" class="topic_hidden">
+    <div class="title"><strong>Hidden Field Properties: Value</strong></div>
+    <div class="content">
+		<p>The Hidden Field Properties panel is displayed when you select (click on) a hidden field inserted in your page. It corresponds to the &lt;hidden&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Value</strong> text box enter the hidden field value that will be sent to the server once the form is submitted.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_fieldset_id" class="topic_hidden">
+    <div class="title"><strong>Fieldset Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Fieldset Properties panel is displayed when you select (click on) a fieldset control inserted in your page. It corresponds to the &lt;FIELDSET&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (fieldset) in page.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_fieldset_legend" class="topic_hidden">
+    <div class="title"><strong>Fieldset Properties: Legend</strong></div>
+    <div class="content">
+		<p>The Fieldset Properties panel is displayed when you select (click on) a fieldset control inserted in your page. It corresponds to the &lt;FIELDSET&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Legend</strong> text box enter the title to be displayed on the fieldset border. </p>
+    </div>
+</div>
+
+
+<div id="topic_PI_fieldset_align" class="topic_hidden">
+    <div class="title"><strong>Fieldset Properties: Align Legend</strong></div>
+    <div class="content">
+		<p>The Fieldset Properties panel is displayed when you select (click on) a fieldset control inserted in your page. It corresponds to the &lt;FIELDSET&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Align Legend</strong> drop-down menu select the way you want the fieldset title to be aligned on to the fieldset border:</p>
+        <ul>
+          <li>Default</li>
+          <li>Bottom</li>
+          <li>Center</li>
+          <li>Left</li>
+          <li>Right</li>
+          <li>Top</li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_label_id" class="topic_hidden">
+    <div class="title"><strong>Label Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Label Properties panel is displayed when you select or click inside a label field inserted in your page. It corresponds to the &lt;LABEL&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (label) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_label_for" class="topic_hidden">
+    <div class="title"><strong>Label Properties: For</strong></div>
+    <div class="content">
+		<p>The Label Properties panel is displayed when you select or click inside a label field inserted in your page. It corresponds to the &lt;LABEL&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>For</strong> text box enter the unique name (ID) of the form control to which you want to associate the label. Afterwards, when the page loads and you click the label, the corresponding form control gets focused.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_image_id" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box (displayed in <em>Simple</em> view) enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (image) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_image_width" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Width</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Width</strong> text box (displayed in <em>Simple</em> view) specify a new width for the selected image (in pixels).</p>
+        <ul>
+          <li>If you do not specify any dimension in the <strong>Height</strong> text box as well, its value will be automatically calculated (according to the width you entered) and the image size will be modified proportionally.</li>
+          <li>If you also enter a value in the <strong>Height</strong> text box, no automatic recalculation will be done this time (the image ratio and quality could get damaged if you enter both values).</li>
+        </ul>
+        <p> To keep the original size of the image, leave this field (and the <strong>Height</strong> one) to its default value. You can also resize the image without using the Image Properties panel: simply select it and then drag the resize handlers.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_image_height" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Height</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Height</strong> text box (displayed in <em>Simple</em> view) specify a new height for the selected image (in pixels).</p>
+		<ul>
+		  <li>If you do not specify any dimension in the <strong>Width</strong> text box as well, its value will be automatically calculated (according to the height you entered) and the image size will be modified proportionally.</li>
+		  <li>If you also enter a value in the <strong>Width</strong> text box, no automatic recalculation will be done this time (the image ratio and quality could get damaged if you enter both values).</li>
+	    </ul>
+		<p> To keep the original size of the image, leave this field (and the <strong>Width</strong> one) to its default value. You can also resize the image without using the Image Properties panel: simply select it and then drag the resize handlers.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_image_constrain" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Constrain</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>Connecting somehow the <strong>Width</strong> and <strong>Height</strong> text boxes, you'll notice the <strong>Constrain</strong> control (displayed in <em>Simple</em> view, obviously) that has only two appearances (symbols), namely <em>chain</em> and <em>broken chain</em>. They alternate according to your mouse-clicks. If you are resizing an image and you want to do it:</p>
+		<ul>
+		  <li>proportionally, make sure the <em>chain</em> symbol is displayed. Once you enter one of the 
+	      dimensions, the other one will be automatically calculated so to maintain the proportion.</li>
+		  <li>not proportionally (independent dimensions), make sure the <strong>Constrain</strong> control displays 
+	      the <em>broken chain</em> symbol.</li>
+	  </ul>
+  </div>
+</div>
+
+
+<div id="topic_PI_image_H_space" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Horizontal Space</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>H Space</strong> text box (displayed in <em>Advanced</em> view) specify the horizontal distance (in pixels) between the image and the other page elements (images, table borders, text) to its left and right. These other page elements can be present in  page or can be added at a later time: they will not get closer to the image than the horizontal space set. The default value is 0 (zero).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_image_V_space" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Vertical Space</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>V Space</strong> text box (displayed in <em>Advanced</em> view) specify the vertical distance (in pixels) between the image and the other page elements (images, table borders, text) above and below it. These other page elements can be present in  page or can be added at a later time: they will not get closer to the image than the vertical space set. The default value is 0 (zero).</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_image_source" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Source</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Src</strong> text box  (displayed in <em>Simple</em> view) displays the path on the remote server to the source image file. By clicking the <strong>Browse for image</strong> button to the right, you can replace the selected image with a new one of your choice.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_image_link" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Link</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Link</strong> text box (displayed in <em>Simple</em> view) enter a correct URL, and when clicking on the image, you will be redirected to that web page.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_image_align" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Align</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Align</strong> drop-down menu (displayed in <em>Advanced</em> view) contains the options for the image position in relation with the other page elements:</p>
+		<ul>
+		  <li>Default</li>
+		  <li>Baseline</li>
+		  <li>Top</li>
+		  <li>Middle</li>
+		  <li>Bottom</li>
+		  <li>Text Top</li>
+		  <li>Absolute Middle</li>
+		  <li>Absolute Bottom</li>
+		  <li>Left</li>
+		  <li>Right</li>
+	    </ul>
+    </div>
+</div>
+
+
+<div id="topic_PI_image_alt_text" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Alternative Text</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Alt</strong> text box (displayed in <em>Advanced</em> view) enter the alternative text (tooltip) to be displayed by browsers that do not       support images. In  most common browsers, this text also appears when the pointer is over the image.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_image_border" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Border</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Border</strong> text box (displayed in <em>Simple</em> view) enter the thickness (in pixels) of the border that you want displayed around the image. The default value is 0 (no border is displayed).</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_image_advanced" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Advanced</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Advanced</strong> button (displayed in <em>Simple</em> view), the Image Properties panel will switch to <em>Advanced</em> view. You will be offered the possibility of setting advanced options for the currently selected image.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_image_simple" class="topic_hidden">
+    <div class="title"><strong>Image Properties: Simple</strong></div>
+    <div class="content">
+		<p>The Image Properties panel is displayed when you select (click on) an image inserted in your page. It corresponds to the &lt;IMG&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Simple</strong> button (displayed in <em>Advanced</em> view), the Image Properties panel will switch to <em>Simple</em> view. You will be offered the possibility of setting various options for the currently selected image.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_link_id" class="topic_hidden">
+    <div class="title"><strong>Link Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Link Properties panel is displayed when you select or click inside a link from your page. It corresponds to the &lt;A&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (link) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_link_target" class="topic_hidden">
+    <div class="title"><strong>Link Properties: Target</strong></div>
+    <div class="content">
+		<p>The Link Properties panel is displayed when you select or click inside a link from your page. It corresponds to the &lt;A&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Target</strong> drop-down menu presents the options for defining the window that will display the targeted page:</p>
+		<ol>
+          <li>normal</li>
+          <li>new window</li>
+          <li>current window</li>
+          <li>current frame</li>
+          <li>parent frame</li>
+          <li>custom target...</li>
+		</ol>
+        <p><strong>Note:</strong> If there is a link applied to an image and you want to edit the link properties, the simple act of selecting the image will not open the Link Properties panel, but the Image Properties panel. In order to configure the link, click the &lt;A&gt; tag in the Tag Selector.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_link_href" class="topic_hidden">
+    <div class="title"><strong>Link Properties: Link</strong></div>
+    <div class="content">
+		<p>The Link Properties panel is displayed when you select or click inside a link from your page. It corresponds to the &lt;A&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Link</strong> text box you can edit the URL address of the targeted page. By clicking the <strong>Browse for File</strong> button to the right, the <strong>Remote File Explorer</strong> window opens and you can select the file on the remote server to which the current link should point.</p>
+		<p><strong>Note:</strong> If there is a link applied to an image and you want to edit the link properties, the simple act of selecting the image will not open the Link Properties panel, but the Image Properties panel. In order to configure the link, click the &lt;A&gt; tag in the Tag Selector.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_link_title" class="topic_hidden">
+    <div class="title"><strong>Link Properties: Title</strong></div>
+    <div class="content">
+		<p>The Link Properties panel is displayed when you select or click inside a link from your page. It corresponds to the &lt;A&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Title</strong> text box enter the tooltip to be displayed when the mouse pointer is placed over the link (in  most common browsers).</p>
+		<p><strong>Note:</strong> If there is a link applied to an image and you want to edit the link properties, the simple act of selecting the image will not open the Link Properties panel, but the Image Properties panel. In order to configure the link, click the &lt;A&gt; tag in the Tag Selector.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_link_remove" class="topic_hidden">
+    <div class="title"><strong>Link Properties: Remove Link</strong></div>
+    <div class="content">
+		<p>The Link Properties panel is displayed when you select or click inside a link from your page. It corresponds to the &lt;A&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Remove Link</strong> button, the link (actual link or anchor) associated to the current selection (text, image) is removed.</p>
+		<p><strong>Note:</strong> If there is a link applied to an image and you want to edit the link properties, the simple act of selecting the image will not open the Link Properties panel, but the Image Properties panel. In order to configure the link, click the &lt;A&gt; tag in the Tag Selector.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_anchor_id" class="topic_hidden">
+    <div class="title"><strong>Anchor Properties: Element ID</strong></div>
+    <div class="content">
+		<p>The Anchor Properties panel is displayed when you select (click on) the glyph of an anchor inserted in page. It corresponds to the &lt;anchor&gt; tag in the Tag Selector.</p>
+		<p>In the <strong>Element ID</strong> text box enter the value for the <strong>id</strong> attribute. It will uniquely identify the element (anchor) in page.</p>
+  </div>
+</div>
+
+
+<div id="topic_PI_anchor_name" class="topic_hidden">
+    <div class="title"><strong>Anchor Properties: Name</strong></div>
+    <div class="content">
+		<p>The Anchor Properties panel is displayed when you select (click on) the glyph of an anchor inserted in page. It corresponds to the &lt;anchor&gt; tag in the Tag Selector.</p>
+		<p>The <strong>Name</strong> text box displays the name you entered when you created the anchor.</p>
+    </div>
+</div>
+
+
+<div id="topic_PI_anchor_remove" class="topic_hidden">
+    <div class="title"><strong>Anchor Properties: Remove Anchor</strong></div>
+    <div class="content">
+		<p>The Anchor Properties panel is displayed when you select (click on) the glyph of an anchor inserted in page. It corresponds to the &lt;anchor&gt; tag in the Tag Selector.</p>
+		<p>By clicking the <strong>Remove Anchor</strong> button, the current anchor is removed. If the anchor was applied to a selection (text, image), once you remove the anchor, its associated glyph will disappear and the initial selection will be revealed.</p>
+    </div>
+</div>
+
+
+<div id="topic_file_expl_upload" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Upload Files on Server</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>By clicking the <strong>Upload File </strong> button, a window will pop-up offering the possibility to look in the folder structure. Browse to the needed folder, select one or more files (hold the CTRL/SHIFT key for multiple selection), and then click the <strong>Open</strong> button. All the selected files will be uploaded to the remote server, and you can see them displayed as thumbnails in the Remote File Explorer window.</p>
+		<p><strong>Note:</strong> The types of files that are allowed for upload, by default, are:</p>
+		<ul>
+		  <li>document types: .doc, .pdf, .csv, .xls, .rtf, .sxw, .odt</li>
+	      <li>media file types: .bmp, .mov, .mpg, .avi, .mp3, .mpeg, .swf, .wmv, .jpg, .jpeg, .gif, .png</li>
+        </ul>
+        <p>This list <strong>can</strong> vary, depending on the  settings configured by the site administrator.</p>
+    </div>
+</div>
+
+
+<div id="topic_file_expl_select" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Insert Files in Page</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>By clicking the <strong>Insert</strong> button, all the files selected (hold the CTRL/SHIFT key for multiple selection) in the current remote folder will be inserted in page.</p>
+		<p>Document files will be inserted as links. Once a link is pressed, the document file stored on the remote server will be opened.</p>
+  </div>
+</div>
+
+
+<div id="topic_file_expl_filter" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Filter Files</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>According to the upload folders you set for document, media, and template files, the <strong>Show</strong> drop-down menu will display certain options. Depending on the selected option, only files of the specified type from the remote folder will be displayed (as thumbnails), simplifying your work.</p>
+		<p>All the possible options displayed in the <strong>Show</strong> drop-down menu (in different situations) are:</p>
+		<ol>
+		  <li>All Files</li>
+	      <li>Media Files - it is the default option when you click the <strong>Image</strong> button. It includes images and video files.</li>
+	      <li>Images</li>
+	      <li>Documents - it is the default option when you click the <strong>Link to Document</strong> button.</li>
+	      <li>Templates - it is the default option when you click the <strong>Content Template</strong> button. It is always displayed as disabled, no matter if the configured templates upload folder coincides or not with the documents and/or media files upload folder.</li>
+		</ol>
+        <p>Depending on the selected option, only files of the specified type from the remote folder will be displayed (as thumbnails), simplifying your work.</p>
+        <p>The option selected in the <strong>Show</strong> drop-down menu also influences the files upload operation: when clicking the <strong>Upload File</strong> button, only the type of file specified in the <strong>Show</strong> drop-down menu will be displayed (in the folder from which you are uploading files).</p>
+    </div>
+</div>
+
+
+<div id="topic_file_expl_cancel" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Cancel</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>By clicking the <strong>Cancel</strong> button, the Remote File Explorer window will close and no file will be inserted in page (even though they are selected). This operation will not cancel the creation of new folders on the remote server or the upload of new files.</p>
+    </div>
+</div>
+
+
+<div id="topic_file_expl_home_icon" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Home Folder</strong></div>
+  <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>No matter what folder is currently selected in the tree-menu on the left, when you click the <strong>Home</strong> button, the home folder on the remote server will be accessed and its files will be displayed on the right. If you haven't done any specific settings in this regard, the home folder is by default the root folder.</p>
+  </div>
+</div>
+
+
+<div id="topic_file_expl_home_text" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Path to the Current Folder</strong></div>
+  <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>The text box associated to the <strong>Home</strong> button displays the path to the current folder (that has its files displayed as thumbnails on the right). The displayed path is relative to the folder root defined in the File Browser module. If the text box is blank, the root folder itself is selected and its included files are displayed.</p>
+		<p>You can also type the path to a certain folder (e.g. <em>folder_1/folder_12/</em>). If the folder is right on the root, you can simply type its name.  Once you click the <strong>Go</strong> button, the files in that folder will be listed on the right.</p>
+  </div>
+</div>
+
+
+<div id="topic_file_expl_go" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Go</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>By clicking the <strong>Go</strong> button, the file browser will navigate to the folder specified (its path) in the <strong>Home</strong> text box. If the text box is empty, the files stored on the main root will be displayed in the files area on the right.</p>
+  </div>
+</div>
+
+
+<div id="topic_file_expl_refresh" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Refresh</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>By clicking the <strong>Refresh</strong> button, the content of the current folder will be refreshed: the included files will be reloaded. This way, if any change occured meanwhile in the folder structure, it will become visible after refreshing.</p>
+  </div>
+</div>
+
+
+<div id="topic_file_expl_new_folder" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Create New Folder</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>With the <strong>New Folder</strong> button you can create new folders in the remote folder structure.</p>
+		<ul>
+		  <li>If there is no folder selected when you click this button, the new directory will be created straight on the root.</li>
+	      <li>If there is a folder selected, it will become the parent of the new directory.</li>
+        </ul>
+        <p>Once you click the <strong>New Folder</strong> button, you will be prompted to enter a name for the new directory.</p>
+  </div>
+</div>
+
+
+<div id="topic_file_expl_edit_image" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Edit Image</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>The <strong>Edit Image</strong> button is only enabled when an image file is selected in the files area. Once clicked, it will open the Image Editor window, that provides a complete set of operations to help bring images in perfect shape.</p>
+  </div>
+</div>
+
+
+<div id="topic_file_expl_delete" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Delete</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>By clicking the <strong>Delete</strong> button, you will be prompted to confirm the deletion of the currently selected file(s) or folder from the remote server. If the selected folder is empty, it will be deleted without asking for confirmation.</p>
+  </div>
+</div>
+
+
+<div id="topic_file_expl_tree_menu" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Folder Structure</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>A tree-menu explorer (folder navigator) is displayed on the left, showing the folder structure on the remote server.</p>
+		<p>The next time you launch the Remote File Explorer, the folder that you worked with previously will be remembered and selected in the tree-menu. Its content will be displayed in the files area on the right.<br>
+		</p>
+    </div>
+</div>
+
+
+<div id="topic_file_expl_thumbnails" class="topic_hidden">
+    <div class="title"><strong>Remote File Explorer: Files in Current Folder</strong></div>
+    <div class="content">
+		<p>The Remote File Explorer window is displayed when you click the <strong>Image</strong>, <strong>Link to Document</strong> or <strong>Content Template</strong> buttons from the toolbar, or similar buttons in certain Property panels.</p>
+		<p>The files included in the selected folder on the left (in the tree-menu) are displayed as thumbnails on the right. You can select one or more files (holding the Ctrl key pressed). You can copy, cut, and paste files between folders. Files can also be renamed and duplicated. For more possible operations, check out the right-click contextual menus when manipulating files.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_finish" class="topic_hidden">
+    <div class="title"><strong>Image Editor: OK</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>By clicking the <strong>OK</strong> button, the Image Editor window will close and all the changes that you performed on the selected image will become available on the remote server and in page (if and when the image is inserted in page).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_undo" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Reset</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>The <strong>Reset</strong> button is not active when you first launch the KTML Image Editor. It becomes active after you perform at least one operation on the image. By clicking it, the initial state of the image will be instantly restored (no matter how many changes you have just performed on the image).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_cancel" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Close</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>By clicking the <strong>Close</strong> button, the Image Editor window will close and no change will be performed on the current image.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_crop" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Crop</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>When clicking the <strong>Crop</strong> button, a 107 pixels/107 pixels rectangle is displayed on top of your picture. You can change its position by dragging it around, and its dimensions by using either its handlers or the <strong>Width</strong> and <strong>Height</strong> text boxes that show in the lower part of the interface. Click the <strong>Apply</strong> button displayed at the bottom to crop the image to the established area.</p>
+		<p><strong>Note:</strong> When cropping an image, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_crop_width" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Crop - Width</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Crop</strong> button, the <strong>Width</strong> text box will be displayed in the lower part of the interface. Use it to specify the width (in pixels) of the cropping rectangle.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_crop_height" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Crop - Height</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Crop</strong> button, the <strong>Height</strong> text box will be displayed in the lower part of the interface. Use it to specify the height (in pixels) of the cropping rectangle.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_crop_apply" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Crop - Apply</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Crop</strong> button, the <strong>Apply</strong> button will be displayed in the lower part of the interface. Once you click it, the image part that is covered by the cropping rectangle will be cut out from the initial picture and will become the new picture.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_crop_cancel" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Crop - Cancel</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Crop</strong> button, the <strong>Cancel</strong> button will be displayed in the lower part of the interface. Click it to cancel the crop operation. It will also close the Crop fieldset.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_resize" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Resize</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Resize</strong> button to change the size of the image (proportionally or not, depending on the <strong>Constrain</strong> value). Use the two text boxes (<strong>Width</strong> and <strong>Height</strong>) that show in the lower part of the interface to set the new image dimensions (in pixels) and then click the <strong>Apply</strong> button displayed at the bottom to resize the image as established.</p>
+		<p><strong>Note:</strong> When resizing an image, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_resize_width" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Resize - Width</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Resize</strong> button, the <strong>Width</strong> text box will be displayed in the lower part of the interface. Use it to specify the new width (in pixels) of the image.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_resize_height" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Resize - Height</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Resize</strong> button, the <strong>Height</strong> text box will be displayed in the lower part of the interface. Use it to specify the new height (in pixels) of the image.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_resize_constrain" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Resize - Constrain</strong></div>
+  <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+	  <p>After clicking the <strong>Resize</strong> button, the <strong>Constrain</strong> control will be displayed in the lower part of the interface, uniting somehow the <strong>Width</strong> and <strong>Height</strong> text boxes. It only has two appearances (symbols), namely <strong>chain</strong> and <strong>x</strong>. They alternate according to your mouse-clicks. If you are resizing an image and you want to do it:</p>
+        <ol>
+          <li>proportionally, make sure the <strong>chain</strong> symbol is displayed. Once you enter one of the dimensions, the other one will be automatically calculated so to maintain the proportion.</li>
+          <li>not proportionally (independent dimensions), make sure the <strong>Constrain</strong> control displays the <strong>x</strong> symbol.</li>
+        </ol>
+  </div>
+</div>
+
+
+<div id="topic_image_editor_resize_apply" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Resize - Apply</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Resize</strong> button, the <strong>Apply</strong> button will be displayed in the lower part of the interface. Once you click it, the image will be resized to the new dimensions established.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_resize_cancel" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Resize - Cancel</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Resize</strong> button, the <strong>Cancel</strong> button will be displayed in the lower part of the interface. Click it to cancel the resize operation. It will also close the Resize fieldset.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_rotate_left" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Rotate Left</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Rotate left</strong> button if you want to rotate the current image to the left.</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_rotate_right" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Rotate Right</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Rotate right </strong> button if you want to rotate the current image to the right.</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_flip_v" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Flip Vertically</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Flip vertically</strong> button to flip the image with 180 degrees vertically (the new image shown will be the old one seen in a horizontal mirror).</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_flip_h" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Flip Horizontally</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Flip horizontally</strong> button to flip the image with 180 degrees horizontally (the new image shown will be the old one seen in a vertical mirror).</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_blur" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Blur</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Blur</strong> button to give the current image a blurry effect.</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_sharpen" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Sharpen</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Sharpen</strong> button to give the current image a sharp effect.</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_more_contrast" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Increase Contrast</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Increase contrast</strong> button to secure more contrast in the current image.</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_less_contrast" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Decrease Contrast</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Decrease contrast</strong> button to secure less contrast in the current image.</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_more_brightness" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Increase Brightness</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Increase brightness</strong> button to secure more brightness in the current image.</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_less_brightness" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Decrease Brightness</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Decrease brightness</strong> button to secure less brightness in the current image.</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_compress" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Compress Image</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Compress image</strong> button to modify the image quality in order for its size (in kb) to decrease.</p>
+		<p><strong>Note:</strong> If you finalize the operation, the changes will take place server-side (the image on the server will be modified).</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_compress_quality" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Compress Image - Quality</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Compress image</strong> button, the <strong>Quality</strong> text box will be displayed in the lower part of the interface. Use it to specify the quality of the compressed image as percents (1-99) from the initial image quality.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_compress_apply" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Compress Image - Apply</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Compress image</strong> button, the <strong>Apply</strong> button will be displayed in the lower part of the interface. Once you click it, the image will be compressed according to the quality established.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_compress_cancel" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Compress Image - Cancel</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>After clicking the <strong>Compress image</strong> button, the <strong>Cancel</strong> button will be displayed in the lower part of the interface. Click it to cancel the compress operation. It will also close the Compress fieldset.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_zoom_in" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Zoom In</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Zoom In</strong> button to expand the image proportionally. Each click will increase the image a little more.</p>
+		<p><strong>Note:</strong> Zooming-in is not a server-side operation.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_zoom_out" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Zoom Out</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>Click the <strong>Zoom Out</strong> button to diminish the image proportionally. Each click will decrease the image a little more.</p>
+		<p><strong>Note:</strong> Zooming-out is not a server-side operation.</p>
+    </div>
+</div>
+
+
+<div id="topic_image_editor_reset_zoom" class="topic_hidden">
+    <div class="title"><strong>Image Editor: Reset Zoom</strong></div>
+    <div class="content">
+		<p>The Image Editor window is displayed when, while having an image selected, you click the Edit Image option in the right-click contextual menu. The selected image can be either in page or in the files area of the Remote File Explorer window (where there also is an <strong>Edit Image</strong> button).</p>
+		<p>The <strong>Reset Zoom</strong> button becomes active only after you clicked the <strong>Zoom In</strong> and <strong>Zoom Out</strong> buttons for an unequal number of times (the image size is no longer the initial one). Once you click the <strong>Reset Zoom</strong> button, the image will be brought to its original size.</p>
+    </div>
+</div>
+
+
+<div id="topic_" class="topic_hidden">
+    <div class="title"><strong>Title</strong></div>
+    <div class="content">
+		<p>TEXT</p>
+		<p>TEXT</p>
+    </div>
+</div>
+
+
+
+<div class="footer">
+	  <input id="closeme" type="button" class="ktml_button" value="Close" onClick="window.close()"/>
+</div>
+
+</body>
+</html>

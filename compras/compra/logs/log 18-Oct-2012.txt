@@ -1,0 +1,5 @@
+Usuario: CRISTINA Data/Hora: 18-10-2012 (9:25) - Pedido: 1363 -   Acao = baixar_pedido -  
+Usuario: CRISTINA Data/Hora: 18-10-2012 (9:25) - Pedido: 1364 -   Acao = comprar_produto - Produto: 38 
+Usuario: CRISTINA Data/Hora: 18-10-2012 (9:25) - Pedido: 1364 -   Acao = comprar_produto - Produto: 1470 
+Usuario: CARLOS Data/Hora: 18-10-2012 (12:56) - Pedido: 1373 -   Acao = manutencao_produto - Produto: 1483 
+Usuario: CRISTINA Data/Hora: 18-10-2012 (14:30) - Pedido: 1359 -   Acao = comprar_produto - Produto: 1263 

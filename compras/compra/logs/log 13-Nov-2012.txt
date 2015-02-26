@@ -1,0 +1,4 @@
+Usuario:  Data/Hora: 13-11-2012 (14:29) - Pedido: 1415 -   Acao = comprar_produto - Produto: 202 
+Usuario:  Data/Hora: 13-11-2012 (14:30) - Pedido: 1397 -   Acao = baixar_pedido -  
+Usuario:  Data/Hora: 13-11-2012 (14:30) - Pedido: 1405 -   Acao = comprar_produto - Produto: 1515 
+Usuario:  Data/Hora: 13-11-2012 (14:31) - Pedido: 1407 -   Acao = comprar_produto - Produto: 119 

@@ -1,0 +1,90 @@
+{include file="topo.html"}
+<script language="javascript" type="text/javascript">
+function validar(form){
+	if(form.prioridade.value == "")
+	{
+		alert("O campo Prioridade nÃ£o pode ser nulo")
+		form.prioridade.focus()
+	return false	
+	}
+	
+	if(form.setor.value == "")
+	{
+		alert("O campo Setor nÃ£o pode ser nulo")
+		form.setor.focus()
+	return false	
+	}
+	if(form.solicitante.value == "")
+	{
+		alert("O campo Solicitante nÃ£o pode ser nulo")
+		form.solicitante.focus()
+	return false	
+	}
+        return true;
+	}
+</script>
+</head>
+
+<body>
+    <form action="" method="post" name="formulario" id="formulario" enctype="multipart/form-data" onsubmit="return validar(this)">
+        <input type="hidden" id="id" name="id" value="{$id|default:''}" />
+  <div class="acao_pagina">Pedido de Compras</div>
+  <table border="0" align="center" class="KT_tngtable" style="border:1px solid #006;">
+      <tr>
+          <th>Cod.</th>
+          <td>{$id|default:''}</td>
+      </tr>
+    <tr>
+      <th>Prioridade:</th>
+      <td>   
+        <select name="prioridade" id="prioridade">
+            <option value="1">BAIXA</option>
+          <option value="2">MEDIA</option>
+          <option value="3">ALTA</option>
+                    {if $prioridade ne ''} 
+                    <option value="{$prioridade}" selected="selected">{$prioridade}</option>
+                    {/if}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>Setor:</th>
+      <td>
+          <select name="setor" id="setor">
+            <option value="">Selecione</option>
+            {foreach from=$listaSetor item=set}
+                <option value="{$set.id_setor}" {if $setor|default:'' eq $set.setor}selected{/if}>{$set.setor}</option>
+            {/foreach}
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <th>Solicitante:</th>
+      <td><input value="{$solicitante|default:''}" type="text" name="solicitante" id="solicitante" size="70"/></td>
+    </tr>
+	<tr>
+      <th>Numero Ordem Interna:</th>
+      <td><label>
+        <input name="osi" type="text" id="osi" class="int" value="{$osi|default:''}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th valign="top">Descri&ccedil;&atilde;o:</th>
+      <td><textarea name="obs" id="obs" cols="45" rows="5">{$obs|default:''}</textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+     {if $id|default:'' eq ''}
+        <input type="submit" name="acao" value="Salvar" class="botao" />
+     {else}
+        <input name="acao" type="submit" class="botao"  value="Editar" />
+   	<a href="ProdutoPedido.php?incluir&id={$id}" rel="superbox[iframe][800x500]"><input type="button" value="Itens" /></a>
+        <a href="?visualizar&id={$id}" rel="superbox[iframe][800x500]"><input type="button" value="Visualizar" /></a>
+     {/if}
+     <input type="button" name="acao" value="Voltar" id="voltar" class="botao" /></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>

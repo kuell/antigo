@@ -1,0 +1,6 @@
+Usuario: WILLIAN Data/Hora: 25-06-2012 (10:16) - Pedido: 1028 -   Acao = manutencao_produto - Produto: 333 
+Usuario: WILLIAN Data/Hora: 25-06-2012 (10:16) - Pedido: 1028 -   Acao = manutencao_produto - Produto: 333 
+Usuario: WILLIAN Data/Hora: 25-06-2012 (10:16) - Pedido: 1028 -   Acao = manutencao_produto - Produto: 333 
+Usuario: CRISTINA Data/Hora: 25-06-2012 (13:06) - Pedido: 1023 -   Acao = baixar_pedido -  
+Usuario: CRISTINA Data/Hora: 25-06-2012 (13:06) - Pedido: 1024 -   Acao = baixar_pedido -  
+Usuario: CRISTINA Data/Hora: 25-06-2012 (13:12) - Pedido: 1026 -   Acao = comprar_produto - Produto: 1222 

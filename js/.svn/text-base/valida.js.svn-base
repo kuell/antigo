@@ -1,0 +1,23 @@
+// JavaScript Document
+function validaform(form){
+            var erro=0;
+            var legenda;
+            var obrigatorio;           
+            for (i=0;i<form.length;i++){
+                        obrigatorio = form[i].lang;
+                        if (obrigatorio==1){
+                                   if (form[i].value == ""){
+                                               var nome = form[i].name;
+                                               mudarCorCampo(form[i], 'red');
+                                               legenda=document.getElementById(nome);
+                                               legenda.style.color="red";
+                                               erro++;
+                                   }
+                        }
+            }
+            if(erro>=1){
+                        alert("Existe(m) " + erro + " campo(s) obrigatório(s) vazio(s)! ")
+                        return false;
+            } else
+                        return true;
+}

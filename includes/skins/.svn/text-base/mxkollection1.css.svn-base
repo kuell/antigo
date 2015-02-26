@@ -1,0 +1,6 @@
+@import url("common.css");
+@import url("formal/nav.css");
+@import url("formal/wdg.css");
+@import url("formal/tng.css");
+@import url("formal/nxt.css");
+@import url("formal/cal.css");@import url("../../css/project1.css");

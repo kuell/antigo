@@ -1,0 +1,390 @@
+$(function(){
+
+$("input").blur(function(){
+				muda = $(this).val().toUpperCase()
+						$(this).val(muda)
+									   })
+$("textarea").blur(function(){
+				muda = $(this).val().toUpperCase()
+						$(this).val(muda)
+									   })
+$(".numero").bind("keyup blur focus", function(e) {            
+						e.preventDefault();            
+						var expre = /[A-Za-z\.\§\£\@\`\Z\^\~\'\"\!\?\#\$\%\s\¬\_\+\=\.\,\:\;\<\>\|\°\ª\º\]\[\{\}\\ \)\(\*\&\-\/\\]/g;             // REMOVE OS CARACTERES DA EXPRESSAO ACIMA            
+						if ($(this).val().match(expre))               
+						$(this).val($(this).val().replace(expre,''));     
+						}); 
+})
+
+
+function maiusculo(qual)
+{
+uCase = qual.value.toUpperCase();
+qual.value = uCase;
+}
+
+function moeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e){
+    var sep = 0;
+    var key = '';
+    var i = j = 0;
+    var len = len2 = 0;
+    var strCheck = '0123456789';
+    var aux = aux2 = '';
+    var whichCode = (window.Event) ? e.which : e.keyCode;
+    if (whichCode == 13) return true;
+    key = String.fromCharCode(whichCode); // Valor para o código da Chave
+    if (strCheck.indexOf(key) == -1) return false; // Chave inválida
+    len = objTextBox.value.length;
+    for(i = 0; i < len; i++)
+        if ((objTextBox.value.charAt(i) != '0') && (objTextBox.value.charAt(i) != SeparadorDecimal)) break;
+    aux = '';
+    for(; i < len; i++)
+        if (strCheck.indexOf(objTextBox.value.charAt(i))!=-1) aux += objTextBox.value.charAt(i);
+    aux += key;
+    len = aux.length;
+    if (len == 0) objTextBox.value = '';
+    if (len == 1) objTextBox.value = '0'+ SeparadorDecimal + '0' + aux;
+    if (len == 2) objTextBox.value = '0'+ SeparadorDecimal + aux;
+    if (len > 2) {
+        aux2 = '';
+        for (j = 0, i = len - 3; i >= 0; i--) {
+            if (j == 3) {
+                aux2 += SeparadorMilesimo;
+                j = 0;
+            }
+            aux2 += aux.charAt(i);
+            j++;
+        }
+        objTextBox.value = '';
+        len2 = aux2.length;
+        for (i = len2 - 1; i >= 0; i--)
+        objTextBox.value += aux2.charAt(i);
+        objTextBox.value += SeparadorDecimal + aux.substr(len - 2, len);
+    }
+    return false;
+}
+
+//Limpa campos
+function limpa(objeto) {
+if(objeto.value="")
+	objeto.value = ""}
+// Limpar
+
+//------->Telefone
+
+function telefone(objeto){ 
+   if(objeto.value.length == 0)
+     objeto.value = '(' + objeto.value;
+
+   if(objeto.value.length == 3)
+      objeto.value = objeto.value + ')';
+
+ if(objeto.value.length == 8)
+     objeto.value = objeto.value + '-';
+}
+
+function minusculo(qual)
+{
+uCase = qual.value.toLowerCase();
+qual.value = uCase;
+}
+
+//-----> máscara cnpj:
+
+function CNPJ(campo,tammax) {
+
+var vr = campo.value;
+
+vr = vr.replace( "-", "" );
+
+vr = vr.replace( "/", "" );
+
+vr = vr.replace( ".", "" );
+
+vr = vr.replace( ".", "" );
+
+var tam = vr.length;
+
+
+
+if (tam < tammax) { tam = vr.length + 1 ; }
+
+
+
+tam = tam - 1;
+
+if ( (tam > 2) && (tam <= 5) ) {
+
+vr = vr.substr( 0, tam - 1 ) + '-' + vr.substr( tam - 1, tam ) ; }
+
+if ( (tam >= 6) && (tam <= 8) ) {
+
+vr = vr.substr( 0, tam - 5 ) + '/' + vr.substr( tam - 5, 4 ) + '-' + vr.substr( tam - 1, tam ) ; }
+
+if ( (tam >= 9) && (tam <= 11) ) {
+
+vr = vr.substr( 0, tam - 8 ) + '.' + vr.substr( tam - 8, 3 ) + '/' + vr.substr( tam - 5, 4 ) + '-' + vr.substr( tam - 1, tam ) ; }
+
+if ( (tam >= 12) && (tam < 14) ) {
+
+vr = vr.substr( 0, tam - 11 ) + '.' + vr.substr( tam - 11, 3 ) + '.' + vr.substr( tam - 8, 3 ) + '/' + vr.substr( tam - 5, 4 ) + '-' + vr.substr( tam - 1, tam ) ; }
+
+
+
+campo.value = vr; 
+
+}
+
+
+
+//-----> máscara cpf: 
+
+function CPF(campo,tammax) {
+
+
+
+var vr = campo.value;
+
+vr = vr.replace( "-", "" );
+
+vr = vr.replace( ".", "" );
+
+vr = vr.replace( ".", "" );
+
+var tam = vr.length;
+
+
+
+if (tam < tammax) { tam = vr.length + 1; }
+
+
+
+tam = tam - 1;
+
+if ( (tam > 2) && (tam <= 11) ) {
+
+vr = vr.substr( 0, tam - 1 ) + '-' + vr.substr( tam - 1, tam ); }
+
+if ( (tam == 10) ) {
+
+vr = vr.substr( 0, tam - 7 ) + '.' + vr.substr( tam - 7, 3 ) + '.' + vr.substr( tam - 4, tam ); }
+
+
+
+campo.value = vr;
+
+}
+
+//-----> máscara cep:
+
+function CEP(campo,tammax) {
+
+
+
+var vr = campo.value;
+
+vr = vr.replace( "-", "" );
+
+vr = vr.replace( ".", "" );
+
+var tam = vr.length;
+
+
+
+if (tam < tammax) { tam = vr.length + 1; }
+
+
+
+tam = tam - 1;
+
+if ( (tam > 2) && (tam <= 8) ) {
+
+vr = vr.substr( 0, tam - 2 ) + '-' + vr.substr( tam - 2, tam ); }
+
+if ( (tam == 7) ) {
+
+vr = vr.substr( 0, tam - 5 ) + '.' + vr.substr( tam - 5, tam ); }
+
+
+
+campo.value = vr;
+
+}
+
+
+//-----> máscara data:
+
+function m_DATA(campo,tammax,tecla) {
+
+
+
+if(typeof(tecla) == 'undefined')
+
+var tecla = window.event;
+
+var codigo = (tecla.which ? tecla.which : tecla.keyCode ? tecla.keyCode : tecla.charCode);
+
+
+
+var vr = campo.value;
+
+vr = vr.replace( "-", "" );
+
+vr = vr.replace( "-", "" );
+
+var tam = vr.length;
+
+
+
+if (tam < tammax) { tam = vr.length + 1; }
+
+if (codigo == 8) { tam = tam - 1; }
+
+
+
+tam = tam - 1;
+
+if ( (tam >= 2) && (tam < 3) ) {
+
+vr = vr.substr( 0, tam - 0 ) + '-' + vr.substr( tam - 0, 2 ); }
+
+if ( (tam >= 3) && (tam < 4) ) {
+
+vr = vr.substr( 0, tam - 1 ) + '-' + vr.substr( tam - 1, 2 ); }
+
+if (tam == 4) {
+
+vr = vr.substr( 0, tam - 2 ) + '-' + vr.substr( tam - 2, 2 ) + '/' + vr.substr( tam - 0, 5 ); }
+
+if (tam == 5) {
+
+vr = vr.substr( 0, tam - 3 ) + '-' + vr.substr( tam - 3, 2 ) + '/' + vr.substr( tam - 1, 6 ); }
+
+if (tam == 6) {
+
+vr = vr.substr( 0, tam - 4 ) + '-' + vr.substr( tam - 4, 2 ) + '/' + vr.substr( tam - 2, 7 ); }
+
+if (tam == 7) {
+
+vr = vr.substr( 0, tam - 5 ) + '-' + vr.substr( tam - 5, 2 ) + '/' + vr.substr( tam - 3, 8 ); }
+
+
+
+campo.value = vr;
+
+}
+
+function DATA(campo,tammax,tecla) {
+
+
+
+if(typeof(tecla) == 'undefined')
+
+var tecla = window.event;
+
+var codigo = (tecla.which ? tecla.which : tecla.keyCode ? tecla.keyCode : tecla.charCode);
+
+
+
+var vr = campo.value;
+
+vr = vr.replace( "-", "" );
+
+vr = vr.replace( "-", "" );
+
+var tam = vr.length;
+
+
+
+if (tam < tammax) { tam = vr.length + 1; }
+
+if (codigo == 8) { tam = tam - 1; }
+
+
+
+tam = tam - 1;
+
+if ( (tam >= 27) && (tam < 3) ) {
+
+vr = vr.substr( 0, tam - 0 ) + '-' + vr.substr( tam - 0, 2 ); }
+
+if ( (tam >= 3) && (tam < 4) ) {
+
+vr = vr.substr( 0, tam - 1 ) + '-' + vr.substr( tam - 1, 2 ); }
+
+if (tam == 4) {
+
+vr = vr.substr( 0, tam - 2 ) + '-' + vr.substr( tam - 2, 2 ) + '-' + vr.substr( tam - 0, 5 ); }
+
+if (tam == 5) {
+
+vr = vr.substr( 0, tam - 3 ) + '-' + vr.substr( tam - 3, 2 ) + '-' + vr.substr( tam - 1, 6 ); }
+
+if (tam == 6) {
+
+vr = vr.substr( 0, tam - 4 ) + '-' + vr.substr( tam - 4, 2 ) + '-' + vr.substr( tam - 2, 7 ); }
+
+if (tam == 7) {
+
+vr = vr.substr( 0, tam - 5 ) + '-' + vr.substr( tam - 5, 2 ) + '-' + vr.substr( tam - 3, 8 ); }
+
+
+
+campo.value = vr;
+
+}
+
+
+//-----> máscara hora:
+
+function HORA(campo,tammax,tecla) {
+
+
+
+if(typeof(tecla) == 'undefined')
+
+var tecla = window.event;
+
+var codigo = (tecla.which ? tecla.which : tecla.keyCode ? tecla.keyCode : tecla.charCode);
+
+
+
+var vr = campo.value;
+
+vr = vr.replace( ":", "" );
+
+vr = vr.replace( ":", "" );
+
+var tam = vr.length;
+
+
+
+if (tam < tammax) { tam = vr.length + 1; }
+
+if (codigo == 8) { tam = tam - 1; }
+
+
+
+tam = tam - 1;
+
+if ( (tam >= 2) && (tam < 3) ) {
+
+vr = vr.substr( 0, tam - 0 ) + ':' + vr.substr( tam - 0, 2 ); }
+
+if ( (tam >= 3) && (tam < 4) ) {
+
+vr = vr.substr( 0, tam - 1 ) + ':' + vr.substr( tam - 1, 2 ); }
+
+if (tam == 4) {
+
+vr = vr.substr( 0, tam - 2 ) + ':' + vr.substr( tam - 2, 2 ) + ':' + vr.substr( tam - 0, 5 ); }
+
+if (tam == 5) {
+
+vr = vr.substr( 0, tam - 3 ) + ':' + vr.substr( tam - 3, 2 ) + ':' + vr.substr( tam - 1, 6 ); }
+
+
+
+campo.value = vr;
+
+}

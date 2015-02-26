@@ -1,0 +1,40 @@
+{include file="topo.html"}
+</head>
+<script type="text/javascript">
+    function abre(){
+        setor = document.getElementById('setor').value;
+        freq = document.getElementById('freq').value;
+        window.open("frequencia.php?setor="+setor+"&freq="+freq, "Print", "channelmode=yes");  
+    }
+</script>
+<body>
+<div class="acao_pagina">Lista de frequencia de compras</div>
+<br />
+<form id="form1" name="form1" method="get" action="">
+    <table width="auto" border="0" align="center" class="KT_tngtable">
+        <tr>
+            <th>Setor: </th>
+            <td>
+                <select id="setor" name="setor">
+                    <option value="">Todos ...</option>
+                    {foreach from=$setor item=row}
+                        <option value="{$row.id_setor}">{$row.setor}</option>
+                    {/foreach}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th width="108" scope="row">Frequencia Maior:</th>
+            <td width="108" scope="row"><label>
+                    <input type="text" name="freq" id="freq" value="5" />
+                </label></td>
+        </tr>
+        <tr>
+            <th colspan="2" scope="row">
+                <input type="button" name="Button" id="button" value="Gerar"  onclick="abre()" />
+            </th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

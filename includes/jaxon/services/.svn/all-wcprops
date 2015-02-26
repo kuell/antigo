@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/sig/!svn/ver/2/includes/jaxon/services
+END
+service.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/sig/!svn/ver/2/includes/jaxon/services/service.php
+END
+service.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/sig/!svn/ver/2/includes/jaxon/services/service.class.php
+END
+serviceutils.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sig/!svn/ver/2/includes/jaxon/services/serviceutils.class.php
+END
+ajaxservice.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sig/!svn/ver/2/includes/jaxon/services/ajaxservice.class.php
+END

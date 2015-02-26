@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_avaliacao" value="name:COD;datatype:int,name:DATA;datatype:date,name:AGENTE;datatype:string,name:SETOR;datatype:string,name:AVALIACAO;datatype:string,name:QUANTIDADE;datatype:int,name:HORA;datatype:time,name:DESC_NC;datatype:blob,name:CATEG_DESC;datatype:string,name:SUB_DESC;datatype:string,name:DESC_ITEM;datatype:string" />
+	<infoitem key="UD_nc_controle" value="name:ID_REGISTRO;datatype:int,name:CATEGORIA;datatype:int,name:SUB_CATEGORIA;datatype:int,name:ITEM;datatype:int,name:DESC_NC;datatype:string,name:QTD;datatype:int,name:ID_NC;datatype:int" />
+</info>

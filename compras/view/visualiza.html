@@ -1,0 +1,59 @@
+{include file="topo.html"}
+<script type="text/javascript">
+$(function(){
+		   $("#print button").click(function(){
+			$(this).css("display","none")
+			window.print() });
+		   });
+</script>
+</head>
+
+<body class="prev">        
+        <table width="95%" class="KT_tngtable">
+            <tr>
+                <td style="text-align: center" colspan="8">
+                    <img align="left" src="../logo/Logo.JPG" width="150" height="75" />
+                    <p><h1>Frizelo Frigorificos Ltda</h1></p>
+                    <h2>Pedido de Compra No. {$id}</h2>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">Solicitante:</th>
+                <td colspan="2">{$solicitante}</td>
+                <th colspan="2">Data:</th>
+                <td colspan="2">{$data}</td>
+            </tr>
+            <tr>
+                <th colspan="2">Setor:</th>
+                <td colspan="2">{$setor}</td>
+                <th colspan="2">No. da Ordem Interna:</th>
+                <td colspan="2">{$osi}</td>
+            </tr>
+            <tr>
+                <th colspan="2">Observa&ccedil;&atilde;o:</th>
+                <td colspan="6">{$obs}</td>
+            </tr>
+            <tr>
+                <th>Cod.</th>
+                <th colspan="2">Descri&ccedil;&atilde;o</th>
+                <th>Qtd. Pedido</th>
+                <th>Qtd.<br />Estoque</th>   
+                <th>Sub-Total</th>
+                <th>U.M.</th>                                              
+                <th>Status </th>
+            <tr>
+                {foreach from=$produtos item=row}
+            <tr style="background: {cycle values='#EEE,#FFF'}">
+                <td>{$row.prodId}</td>
+                <td colspan="2">{$row.produto}</td>
+                <td>{$row.qtd|string_format:"%.2f"}</td>
+                <td>{$row.qtdEstoque|string_format:"%.2f"}</td>
+                <td>{$row.qtd + $row.qtdEstoque|string_format:"%2.2f"}</td>
+                <td>{$row.unidade}</td>
+                <td>{$row.status}</td>
+            </tr>
+            {/foreach}
+        </table>
+        <div align="center" id="print"><button>Print</button></div>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+
+{include file='topo.html'}
+<script type="text/javascript">
+    function abre(){
+        
+        setor = document.getElementById('setor').value
+        datai = document.getElementById('datai').value
+        dataf = document.getElementById('dataf').value
+        produto = document.getElementById('produto').value
+        
+        window.open("view_ProdutoPedido.php?setor="+setor+"&status="+form1.status.value+"&datai="+datai+"&dataf="+dataf+"&prod="+produto, "Print", "channelmode=yes");
+    }
+</script>
+</head>
+
+<body>
+    <div class="acao_pagina">Relatorio por Produtos</div>
+    <br />
+    <form id="form1" name="form1" method="get" action="">
+        <table width="auto" border="0" align="center" class="KT_tngtable">
+            <tr>
+                <th scope="row">Periodo:</th>
+                <td>
+                    <input type="text" class="data" name="datai" id="datai" value="{$smarty.now|date_format:"01/%m/%Y"}" />
+                    a
+                    <input type="text" name="dataf" class="data" id="dataf" value="{$smarty.now|date_format:"%d/%m/%Y"}" />
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Setor:</th>
+                <td>
+                    <select name="setor" id="setor">
+                        <option value="">Selecione ...</option>
+                        {foreach from=$setor item=row}
+                        <option value="{$row.id_setor}">{$row.setor}</option>
+                        {/foreach}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th width="42" scope="row">Produto: </th>
+                <td width="176">
+                    <select name="produto" id="produto">
+                        <option value="">TODOS ...</option>
+                        {foreach from=$produtos item=prd}
+                            <option value="{$prd.PRO_ID}">{$prd.PRO_DESCRICAO}</option>
+                        {/foreach}
+                    </select>
+                </td>
+            </tr>
+             <tr>
+                <th width="42" scope="row">Status: </th>
+                <td width="176">
+                    <select name="status" id="status">
+                        <option value="">TODOS ...</option>
+                            <option value="REQUISITADO">REQUISITADO</option>
+                            <option value="COMPRADO">COMPRADO</option>
+                            <option value="RECEBIDO">RECEBIDO</option>
+                            
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2" scope="row">
+                    <input type="button" name="button" id="button" value="Gerar" onclick="abre()" />
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

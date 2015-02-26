@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_registros" value="name:COD;datatype:int,name:DATA;datatype:date,name:AGENTE;datatype:string,name:SETOR;datatype:string,name:AVALIACAO;datatype:string,name:QUANTIDADE;datatype:int,name:HORA;datatype:time" />
+</info>

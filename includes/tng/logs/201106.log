@@ -1,0 +1,36 @@
+=== BEGIN MESSAGE ===
+Client IP:
+  127.0.0.1
+
+Host:
+  localhost
+
+Requested URI:
+  http://localhost/tudo/gerencial/usuario/usuario_form.php
+
+Date:
+  2011-06-01 17:49:02
+
+Error:
+  An error occurred while inserting the records.<br />Could not create account.
+
+Developer Details:
+  tNG_multipleInsert error.<br />An error occurred while inserting the records. (MINS_ERROR)<br />
+
+tNG Execution Trace:
+  tNG_multipleInsert.executeTransaction
+    STARTER.Trigger_Default_Starter
+    tNG_multipleInsert.doTransaction
+      tNG_multipleInsert.prepareSQL
+        tNG_insert.doTransaction
+          BEFORE.Trigger_Default_FormValidation
+          BEFORE.Trigger_CheckPasswords*
+          ERROR.Trigger_Default_Insert_RollBack
+  tNG_multipleUpdate.executeTransaction
+    STARTER.Trigger_Default_Starter
+  tNG_multipleInsert.getRecordset
+  tNG_insert.getFakeRsArr
+  tNG_insert.getLocalRecordset
+  tNG_insert.getFakeRecordset
+  tNG_multipleInsert.getFakeRecordset
+=== END MESSAGE ===

@@ -1,0 +1,9 @@
+Usuario: CRISTINA Data/Hora: 27-10-2011 (8:41) - Pedido: 339 -   Acao = comprar_produto - Produto: 144 
+Usuario: CRISTINA Data/Hora: 27-10-2011 (8:41) - Pedido: 332 -   Acao = comprar_produto - Produto: 651 
+Usuario: JURACY Data/Hora: 27-10-2011 (10:46) - Pedido: 360 -   Acao = manutencao_produto - Produto: 134 
+Usuario: JURACY Data/Hora: 27-10-2011 (10:47) - Pedido: 360 -   Acao = manutencao_produto - Produto: 527 
+Usuario: JURACY Data/Hora: 27-10-2011 (12:07) - Pedido: 360 -   Acao = manutencao_produto - Produto: 528 
+Usuario: JURACY Data/Hora: 27-10-2011 (12:07) - Pedido: 360 -   Acao = manutencao_produto - Produto: 528 
+Usuario: JURACY Data/Hora: 27-10-2011 (12:09) - Pedido: 360 -   Acao = manutencao_produto - Produto: 695 
+Usuario: JURACY Data/Hora: 27-10-2011 (12:14) - Pedido: 360 -   Acao = manutencao_produto - Produto: 594 
+Usuario: CRISTINA Data/Hora: 27-10-2011 (15:51) - Pedido: 333 -   Acao = comprar_produto - Produto: 652 

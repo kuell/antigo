@@ -1,0 +1,6 @@
+Usuario: WILLIAN Data/Hora: 15-10-2011 (8:18) - Pedido: 320 -   Acao = manutencao_produto - Produto: 43 
+Usuario: WILLIAN Data/Hora: 15-10-2011 (8:19) - Pedido: 320 -   Acao = manutencao_produto - Produto: 218 
+Usuario: WILLIAN Data/Hora: 15-10-2011 (8:19) - Pedido: 320 -   Acao = manutencao_produto - Produto: 218 
+Usuario: WILLIAN Data/Hora: 15-10-2011 (8:19) - Pedido: 320 -   Acao = manutencao_produto - Produto: 218 
+Usuario: WILLIAN Data/Hora: 15-10-2011 (8:19) - Pedido: 320 -   Acao = manutencao_produto - Produto: 43 
+Usuario: WILLIAN Data/Hora: 15-10-2011 (8:28) - Pedido: 320 -   Acao = manutencao_produto - Produto: 6 

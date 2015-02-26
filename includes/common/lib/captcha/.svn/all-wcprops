@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/sig/!svn/ver/2/includes/common/lib/captcha
+END
+captcha.png
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/sig/!svn/ver/2/includes/common/lib/captcha/captcha.png
+END
+KT_Captcha.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/sig/!svn/ver/2/includes/common/lib/captcha/KT_Captcha.php
+END
+KT_Captcha.config.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sig/!svn/ver/2/includes/common/lib/captcha/KT_Captcha.config.php
+END
+KT_CaptchaImage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sig/!svn/ver/2/includes/common/lib/captcha/KT_CaptchaImage.class.php
+END

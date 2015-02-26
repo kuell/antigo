@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/sig/!svn/ver/2/includes/kore/js/dataprovider
+END
+dataprovider.js
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sig/!svn/ver/2/includes/kore/js/dataprovider/dataprovider.js
+END
+htmlprocessor.js
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sig/!svn/ver/2/includes/kore/js/dataprovider/htmlprocessor.js
+END
+jsonprovider.js
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sig/!svn/ver/2/includes/kore/js/dataprovider/jsonprovider.js
+END
+xmlprovider.js
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/sig/!svn/ver/2/includes/kore/js/dataprovider/xmlprovider.js
+END
+htmlprovider.js
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sig/!svn/ver/2/includes/kore/js/dataprovider/htmlprovider.js
+END
+transporter.js
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/sig/!svn/ver/2/includes/kore/js/dataprovider/transporter.js
+END

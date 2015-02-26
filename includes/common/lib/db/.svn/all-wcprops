@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/sig/!svn/ver/2/includes/common/lib/db
+END
+KT_Recordset.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sig/!svn/ver/2/includes/common/lib/db/KT_Recordset.class.php
+END
+KT_Connection.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sig/!svn/ver/2/includes/common/lib/db/KT_Connection.class.php
+END
+KT_Db.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/sig/!svn/ver/2/includes/common/lib/db/KT_Db.php
+END
+KT_FakeRecordset.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sig/!svn/ver/2/includes/common/lib/db/KT_FakeRecordset.class.php
+END

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="teste" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5931540885517843"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="setor" class="java.lang.String">
+		<defaultValueExpression><![CDATA[15]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ordem_externa_vew.`id_OSE`,
+     ordem_externa_vew.`data_envio`,
+     ordem_externa_vew.`descricao`,
+     ordem_externa_vew.`id_prestadora`,
+     ordem_externa_vew.`acao`,
+     ordem_externa_vew.`empresa`,
+     ordem_externa_vew.`preco_servico`,
+     ordem_externa_vew.`data_receb`,
+     ordem_externa_vew.`requisitante`,
+     ordem_externa_vew.`status`,
+     ordem_externa_vew.`equipamento`,
+     ordem_externa_vew.`id_Equipamento`,
+     ordem_externa_vew.`id_Requisitante`,
+     ordem_externa_vew.`id_status`,
+     ordem_externa_vew.`Num_orcamento`,
+     setor.`setor` AS setor_Equip,
+     equipamento.`setor` AS equipamento_setor
+FROM
+     `ordem_externa_vew` ordem_externa_vew INNER JOIN `equipamento` equipamento ON ordem_externa_vew.`id_Equipamento` = equipamento.`id_equipamento`
+     INNER JOIN `setor` setor ON equipamento.`setor` = setor.`id_setor`
+WHERE
+      equipamento.`setor` = $P{setor}]]>
+	</queryString>
+	<field name="id_OSE" class="java.lang.Integer"/>
+	<field name="data_envio" class="java.sql.Date"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="id_prestadora" class="java.lang.Integer"/>
+	<field name="acao" class="java.lang.String"/>
+	<field name="empresa" class="java.lang.String"/>
+	<field name="preco_servico" class="java.lang.Double"/>
+	<field name="data_receb" class="java.lang.String"/>
+	<field name="requisitante" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="equipamento" class="java.lang.String"/>
+	<field name="id_Equipamento" class="java.lang.Integer"/>
+	<field name="id_Requisitante" class="java.lang.Integer"/>
+	<field name="id_status" class="java.lang.Integer"/>
+	<field name="Num_orcamento" class="java.lang.String"/>
+	<field name="setor_Equip" class="java.lang.String"/>
+	<field name="equipamento_setor" class="java.lang.Integer"/>
+	<variable name="resultado" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{preco_servico}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="82" splitType="Stretch">
+			<image>
+				<reportElement x="8" y="8" width="100" height="50"/>
+				<imageExpression class="java.lang.String"><![CDATA["../../logo/logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="108" y="21" width="302" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATORIO DE ORDENS DE SERVIÇO EXTERNAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="68" width="42" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="68" width="54" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Envio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="68" width="66" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equip.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="68" width="53" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Setor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="68" width="66" height="14"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Orçameneto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="68" width="66" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="68" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="81" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="267" y="68" width="66" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa]]></text>
+			</staticText>
+			<textField pattern="EEEEE, dd &apos;de&apos; MMMMM &apos;de&apos; yyyy.">
+				<reportElement x="472" y="49" width="83" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="368" y="69" width="46" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="267" y="1" width="102" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="SansSerif" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="42" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{id_OSE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" mode="Transparent" x="489" y="0" width="60" height="11" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="SansSerif" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{preco_servico}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="97" y="0" width="92" height="13" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="SansSerif" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{equipamento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="189" y="0" width="63" height="13" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="SansSerif" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{setor_Equip}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="415" y="1" width="57" height="11" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="SansSerif" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Num_orcamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="42" y="0" width="54" height="13" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="SansSerif" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{data_envio}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="369" y="1" width="46" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="SansSerif" size="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23">
+			<textField>
+				<reportElement x="449" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{resultado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

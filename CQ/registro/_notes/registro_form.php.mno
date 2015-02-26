@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_agente" value="name:id_funcionario;datatype:int,name:nome;datatype:string" />
+	<infoitem key="UD_setor" value="name:id_setor;datatype:int,name:setor;datatype:string,name:encarregado;datatype:string" />
+	<infoitem key="UD_avaliacao" value="name:ID_AVAL;datatype:int,name:DESC_AVAL;datatype:string,name:setor;datatype:int" />
+	<infoitem key="UD_registro" value="name:ID_REGISTRO;datatype:int,name:DATA;datatype:date,name:HORA;datatype:time,name:AGENTE;datatype:int,name:AVALIACAO;datatype:int,name:CATEGORIA;datatype:int,name:SUB_CATEGORIA;datatype:int,name:ITEM;datatype:int,name:DESC_NC;datatype:blob,name:QUANTIDADE;datatype:int,name:setor;datatype:int" />
+</info>

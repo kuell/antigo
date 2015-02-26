@@ -1,0 +1,17 @@
+Usuario: DENISE Data/Hora: 21-11-2011 (8:40) - Pedido: 315 -   Acao = comprar_produto - Produto: 639 
+Usuario: DIEGO Data/Hora: 21-11-2011 (8:41) - Pedido: 223 -   Acao = comprar_produto - Produto: 408 
+Usuario: DIEGO Data/Hora: 21-11-2011 (8:42) - Pedido: 326 -   Acao = comprar_produto - Produto: 202 
+Usuario: DIEGO Data/Hora: 21-11-2011 (8:42) - Pedido: 362 -   Acao = comprar_produto - Produto: 312 
+Usuario: DIEGO Data/Hora: 21-11-2011 (8:43) - Pedido: 286 -   Acao = comprar_produto - Produto: 583 
+Usuario:  Data/Hora: 21-11-2011 (9:24) - Pedido: 406 -   Acao = comprar_produto - Produto: 102 
+Usuario:  Data/Hora: 21-11-2011 (9:26) - Pedido: 379 -   Acao = comprar_produto - Produto: 511 
+Usuario:  Data/Hora: 21-11-2011 (9:26) - Pedido: 379 -   Acao = comprar_produto - Produto: 320 
+Usuario:  Data/Hora: 21-11-2011 (9:27) - Pedido: 307 -   Acao = comprar_produto - Produto: 632 
+Usuario:  Data/Hora: 21-11-2011 (9:27) - Pedido: 392 -   Acao = comprar_produto - Produto: 192 
+Usuario:  Data/Hora: 21-11-2011 (9:27) - Pedido: 392 -   Acao = comprar_produto - Produto: 744 
+Usuario:  Data/Hora: 21-11-2011 (9:27) - Pedido: 392 -   Acao = comprar_produto - Produto: 745 
+Usuario:  Data/Hora: 21-11-2011 (9:27) - Pedido: 398 -   Acao = comprar_produto - Produto: 750 
+Usuario:  Data/Hora: 21-11-2011 (9:27) - Pedido: 398 -   Acao = comprar_produto - Produto: 657 
+Usuario:  Data/Hora: 21-11-2011 (9:28) - Pedido: 392 -   Acao = comprar_produto - Produto: 746 
+Usuario:  Data/Hora: 21-11-2011 (9:28) - Pedido: 407 -   Acao = comprar_produto - Produto: 256 
+Usuario:  Data/Hora: 21-11-2011 (9:28) - Pedido: 392 -   Acao = comprar_produto - Produto: 110 

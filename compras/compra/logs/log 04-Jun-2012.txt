@@ -1,0 +1,17 @@
+Usuario:  Data/Hora: 04-06-2012 (10:16) - Pedido: 940 -   Acao = comprar_produto - Produto: 1145 
+Usuario:  Data/Hora: 04-06-2012 (10:16) - Pedido: 940 -   Acao = comprar_produto - Produto: 1144 
+Usuario:  Data/Hora: 04-06-2012 (10:17) - Pedido: 939 -   Acao = comprar_produto - Produto: 174 
+Usuario:  Data/Hora: 04-06-2012 (10:17) - Pedido: 931 -   Acao = comprar_produto - Produto: 133 
+Usuario:  Data/Hora: 04-06-2012 (10:20) - Pedido: 939 -   Acao = comprar_produto - Produto: 570 
+Usuario:  Data/Hora: 04-06-2012 (11:19) - Pedido: 933 -   Acao = comprar_produto - Produto: 666 
+Usuario:  Data/Hora: 04-06-2012 (11:19) - Pedido: 929 -   Acao = comprar_produto - Produto: 196 
+Usuario:  Data/Hora: 04-06-2012 (11:19) - Pedido: 942 -   Acao = comprar_produto - Produto: 186 
+Usuario:  Data/Hora: 04-06-2012 (11:20) - Pedido: 945 -   Acao = comprar_produto - Produto: 100 
+Usuario:  Data/Hora: 04-06-2012 (11:20) - Pedido: 942 -   Acao = comprar_produto - Produto: 410 
+Usuario:  Data/Hora: 04-06-2012 (13:30) - Pedido: 939 -   Acao = comprar_produto - Produto: 92 
+Usuario:  Data/Hora: 04-06-2012 (13:30) - Pedido: 939 -   Acao = comprar_produto - Produto: 95 
+Usuario:  Data/Hora: 04-06-2012 (13:31) - Pedido: 939 -   Acao = comprar_produto - Produto: 96 
+Usuario:  Data/Hora: 04-06-2012 (13:31) - Pedido: 939 -   Acao = comprar_produto - Produto: 566 
+Usuario:  Data/Hora: 04-06-2012 (13:31) - Pedido: 939 -   Acao = comprar_produto - Produto: 173 
+Usuario: CARLOS Data/Hora: 04-06-2012 (14:50) - Pedido: 951 -   Acao = manutencao_produto - Produto: 592 
+Usuario: CARLOS Data/Hora: 04-06-2012 (14:51) - Pedido: 951 -   Acao = manutencao_produto - Produto: 592 

@@ -1,0 +1,11 @@
+Usuario: DIEGO Data/Hora: 30-08-2011 (14:58) - Pedido: 231 -   Acao = comprar_produto - Produto: 180 
+Usuario: DIEGO Data/Hora: 30-08-2011 (14:58) - Pedido: 231 -   Acao = comprar_produto - Produto: 95 
+Usuario: CRISTINA Data/Hora: 30-08-2011 (15:20) - Pedido: 231 -   Acao = comprar_produto - Produto: 92 
+Usuario: CRISTINA Data/Hora: 30-08-2011 (15:20) - Pedido: 221 -   Acao = comprar_produto - Produto: 388 
+Usuario: CRISTINA Data/Hora: 30-08-2011 (15:21) - Pedido: 232 -   Acao = comprar_produto - Produto: 232 
+Usuario: CRISTINA Data/Hora: 30-08-2011 (15:21) - Pedido: 238 -   Acao = comprar_produto - Produto: 315 
+Usuario: CRISTINA Data/Hora: 30-08-2011 (15:22) - Pedido: 239 -   Acao = comprar_produto - Produto: 450 
+Usuario: CRISTINA Data/Hora: 30-08-2011 (15:22) - Pedido: 234 -   Acao = baixar_pedido -  
+Usuario: CRISTINA Data/Hora: 30-08-2011 (15:22) - Pedido: 235 -   Acao = baixar_pedido -  
+Usuario: CRISTINA Data/Hora: 30-08-2011 (15:22) - Pedido: 236 -   Acao = baixar_pedido -  
+Usuario: CRISTINA Data/Hora: 30-08-2011 (15:23) - Pedido: 226 -   Acao = baixar_pedido -  

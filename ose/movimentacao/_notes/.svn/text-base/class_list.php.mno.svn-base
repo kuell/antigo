@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rs_ordem" value="name:id_OSE;datatype:int,name:data_envio;datatype:date,name:descricao;datatype:blob,name:baixa;datatype:int,name:id_prestadora;datatype:int,name:acao;datatype:string,name:empresa;datatype:string,name:preco_servico;datatype:real,name:data_receb;datatype:string,name:requisitante;datatype:string,name:status;datatype:string,name:equipamento;datatype:string,name:equip_status;datatype:string,name:id_Equipamento;datatype:int,name:id_Requisitante;datatype:int,name:id_status;datatype:int,name:Num_orcamento;datatype:string,name:setor;datatype:string,name:Dias_Apos;datatype:int,name:doc_orcamento;datatype:string,name:data_envio;datatype:string" />
+</info>

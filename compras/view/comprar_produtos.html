@@ -1,0 +1,80 @@
+{include file="topo.html"}
+<script type="text/javascript">
+    function acao(ped,prod,desc,faz){
+        if(confirm("::: "+faz+" ::: \n Produto: "+prod+" - "+desc+"\n Pedido: "+ped)){
+            location = "?comprarProduto&"+faz+"&idPedido="+ped+"&idProduto="+prod
+        }
+        return false;
+    }
+</script>
+</head>
+<body>
+    <div class="acao_pagina">Compra por Produtos</div>
+    <form action="" id="form1" method="POST" name="form1">
+        <table align="center" class="KT_tngtable">
+            <tr>
+                <th scope="row">Pedido: </th>
+                <td>
+                    <input type="text" name="pedido" id="pedido" class="int" value="{$smarty.post.pedido|default:''}" />
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Ordem Interna: </th>
+                <td>
+                    <input type="text" name="osi" id="osi" class="int" value="{$smarty.post.osi|default:''}" />
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Produto: </th>
+                <td>
+                    <input type="text" size="40" name="prod" id="prod" value="{$smarty.post.prod|default:''}" />
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2" scope="row">
+                    <input type="hidden" name="template" value="{$smarty.template}" />
+                    <input name="acao" type="submit" id="acao" value="Buscar" />
+                </th>
+            </tr>
+        </table>
+    </form>
+    <table align="center" class="KT_tngtable">
+        <tr>
+            <th>Pedido</th>
+            <th>Produto</th>
+            <th>Qtd. Pedido</th>
+            <th>Qtd. Estoque</th>
+            <th>Sub-Total</th>
+            <th>Ordem Interna</th>
+            <th>Prioridade</th>
+            <th colspan="3">Comprar</th>
+        </tr>
+        {foreach from=$produtos item=row}
+        <tr {if $row.prioridade eq " ALTA"}class="prio_auta"{/if}>
+            <td>{$row.pcId}</td>
+            <td>{$row.prodId} - {$row.produto}</td>
+            <td>{$row.qtd|string_format:'%.2f'}</td>
+            <td>{$row.qtdEstoque|string_format:'%.2f'}</td>
+            <td>{($row.qtdEstoque+$row.qtd)|string_format:'%.2f'}</td>
+            <td>{$row.osi}</td>
+            <td>{$row.prioridade}</td>
+            <td>
+                <a href="?incluir&id={$row.pcId}" rel="superbox[iframe][800x500]">
+                    <img src="../img/manutencao.gif" alt="" width="16" height="16" border="0" title="Editar produto nos Pedidos" />
+                </a>
+            </td>
+            <td>
+                <a href="#" onclick="acao('{$row.pcId}','{$row.prodId}','{$row.produto}','Comprar')">
+                    <img src="../img/comprar.png" alt="" width="16" height="16" border="0" title="Comprar produto?" />
+                </a>
+            </td>
+            <td>
+                <a href="PedidoCompra.php?visualizar&id={$row.pcId}" rel="superbox[iframe][730x500]">
+                    <img src="../img/print.png" width="16" height="16" border="0" title="Visualizar Pedido" /> 
+                </a>
+            </td>
+        </tr>
+        {/foreach}
+    </table>
+</body>
+</html>

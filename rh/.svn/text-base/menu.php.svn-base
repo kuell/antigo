@@ -1,0 +1,30 @@
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryMenuBarVertical.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+<!--
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<ul id="MenuBar1" class="MenuBarVertical">
+  <li><a href="#">Menu</a></li>
+  <li><a href="#" class="MenuBarItemSubmenu">Digita&ccedil;&atilde;o</a>
+    <ul>
+      <li><a href="Curriculum/lista.php" title="Digitacao de Curriculuns" target="conteudo">Curriculum</a></li>
+    </ul>
+  </li>
+  <li><a href="#" class="MenuBarItemSubmenu">Relatorios</a>
+    <ul>
+      <li><a href="#">Relatorio SIF</a></li>
+      <li><a href="relatorio/buscas/pesq_fefa.php" target="conteudo">Relatorio FEFA</a></li>
+    </ul>
+  </li>
+  <li><a href="#" onclick="history.back()">Sair</a></li>
+</ul>
+<script type="text/javascript">
+<!--
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+//-->
+</script>

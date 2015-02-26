@@ -1,0 +1,62 @@
+<?php 
+	// Iniciando a session
+		session_start(); 
+		session_register("numero"); 
+		// Verificando se a variavel está setada
+		if (isset($numero)) { 
+			print($numero); 
+		} 
+?>
+<script type="text/javascript">
+function modal(pUrl, pWidth, pHeight) {
+	if (window.showModalDialog) {
+		return window.showModalDialog(pUrl, window,
+		  "dialogWidth:" + pWidth + "px;dialogHeight:" + pHeight + "px");
+	} else {
+		try {
+			netscape.security.PrivilegeManager.enablePrivilege(
+			  "UniversalBrowserWrite");
+			window.open(pUrl, "wndModal", "width=" + pWidth
+			  + ",height=" + pHeight + ",resizable=no,modal=yes");
+			return true;
+		}
+		catch (e) {
+			alert("Script não confiável, não é possível abrir janela modal.");
+			return false;
+		}
+	}
+}
+
+</script>
+<div>
+	<ul id="menu">
+         <li><a href="#">Cadastro</a>
+         <ul class="submenu">
+               <li> <a href="../paginas/setor/setor_list.php" target="conteudo" title="setor">Setor</a> </li>
+              <li> <a href="../paginas/equipamento/equip_list.php" target="conteudo" >Equipamento</a></li>
+              <li> <a href="../paginas/servico/servico_list.php" target="conteudo" title="ação">Serviço</a> </li>
+           </ul>
+  		</li>
+        <li><a href="#">Movimento</a>
+            <ul class="submenu">
+             <li> <a href="movimentacao/mov_list.php" target="conteudo" title="Ordem Externa">Ordem Interna</a> </li>
+          </ul>
+      </li>
+      <?php if($_SESSION['kt_login_level'] !== '2') { ?>
+         <li><a href="#" title="Baixa">Baixar</a>
+          <ul class="submenu">
+            <li> <a href="movimentacao/conclui/mov_list_conc.php" title="Listagem de ordens externas" target="conteudo">Ordem Interna </a></li>
+		  </ul>
+      </li>
+      <li><a href="#">Relatorios</a>
+           <ul class="submenu">
+              <li><a href="relatorio/forms/geral_status.php" target="conteudo">Por Status</a></li>
+              <li><a href="#">Por Setor</a></li>
+              <li><a href="#">Por Solicitante</a></li>
+           </ul>
+         </li>
+      <?php }; ?>  
+        <li><a href="#" onclick="modal('../suporte/suporte.php','700', '500')">Suporte</a></li>
+        <li><a href="../index2.php" onclick="sair()">Sair</a></li>
+</ul>
+</div>

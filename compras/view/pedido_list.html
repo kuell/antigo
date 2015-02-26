@@ -1,0 +1,75 @@
+{include file="topo.html"}
+<script type="text/javascript">
+	function excluir_pedido(id){
+		if(confirm("Deseja realmente excluir este pedido? \n Ao excluir este pedido, todos os produtos contidos nele também serão excluidos! \n\n\
+                            Deseja realmente fazer isso?")){
+			location.href = '?excluir&id='+id
+			}
+			return false
+		}
+</script>
+</head>
+<body>
+<div class="acao_pagina">Requisição de Pedidos de Compra</div>
+<form id="form1" name="form1" method="POST" action="">
+    <table border="0" align="center" class="KT_tngtable" >
+        <tr>
+            <th>Cod. do Pedido :</th>
+            <td>
+                <input name="idPedido" type="text" id="idPedido" value="{$smarty.post.idPedido|default:''}" />
+                <input name="template" type="hidden" id="template" value="{$smarty.template}" />
+            </td>
+            
+        </tr>
+        <tr>
+            <th>No. Ordem Interna :</th>
+            <td><input name="osi" type="text" id="osi" value="{$smarty.post.osi|default:''}" /></td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <input type="submit" name="acao" id="acao" value="Buscar" />
+            </th>
+        </tr>
+    </table>
+</form>
+<br /><form action="funcao.php" method="post" id="form_list">
+  <table width="auto%" border="0" align="center" class="KT_tngtable">
+    <tr>
+      <th>Pedido</th>
+      <th>Data/Hora</th>
+      <th>No. Ordem interna</th>
+      <th>Solicitante</th>
+      <th>Setor</th>
+      <th>Status</th>
+      <th>Prioridade</th>
+      <th colspan="3"><a href="?Incluir">
+        Adicionar
+      </a></th>
+    </tr>
+    {foreach from=$pedidos item=row}
+    <tr>
+      <td>{$row.id}</td>
+      <td>{$row.data|date_format:"%d/%m/%Y"} {$row.data|date_format:"%H:%M:%S"}</td>
+      <td>{$row.osi}</td>
+      <td>{$row.solicitante}</td>
+      <td>{$row.setor}</td>
+      <td>{$row.status}</td>
+      <td>{$row.prioridade}</td>
+        
+        {if $smarty.session.kt_login_level ne 1 || $row.status eq 'RECEBIDO'}
+      <td><img src="../img/bloqueado.gif" width="16" height="16" title="Bloqueado"/></td>
+      <td><img src="../img/bloqueado.gif" width="16" height="16" title="Bloqueado" /></td>
+        {else}
+      <td><a href="?editar&id={$row.id}"> <img src="../img/edit.gif" width="16" height="16" border="0" /></a></td>
+      <td><a href="#" onclick="excluir_pedido('{$row.id}')"><img title="Excluir" src="../includes/qub/images/delete.gif" width="16" height="16" border="0" /></a></td>
+        {/if}
+      <td><a href="?visualizar&id={$row.id}" rel="superbox[iframe][700x500]"><img src="../img/print.png" alt="" width="16" height="16" border="0" /></a></td>
+    </tr>
+   {/foreach}
+    <tr>
+      <th colspan="14"></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+	font: 11px Arial, Helvetica, sans-serif;
+	background: #ffffff url(../img/main-bg.gif) repeat;
+	padding: 0;
+	margin: 0;
+}
+img {
+	border: none;
+}
+
+/* dock - top */
+.Painel {
+	width:100%;
+	height: auto; 
+	z-index:10;
+}
+.Sistemas {
+	background:#FFF;
+	height: auto;
+	padding-left: 20px;
+	float:left;
+	width:79.9%;
+	border:#036 2px solid outset;
+}
+.Sistemas table{
+	width:100%;
+	}
+.atualiza {
+	width: 18%;
+	background:#CCC;
+	height: 100%;
+	font: oblique 12px Arial, Helvetica, sans-serif;
+	float:right;
+}
+.Sistemas img {
+	border: none; 
+	margin: 5px 5px 0px; 
+	width: 100%; 
+}
+.Sistemas span {
+	text-align:center;
+}
+
+/* dock2 - bottom */
+#dock2 {
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
+	left: 0px;
+}
+#itens {
+	font: bold 12px Arial, Helvetica, sans-serif;
+	width: 50px; 
+	height:90px;
+	color: #000; 
+	text-align: center;
+	text-decoration: none;
+	float:left;
+	padding: 30px 30px 30px 30px;
+}
+#itens span{
+	font:10px Verdana, Geneva, sans-serif;
+}
+#itens:hover{
+	width:50px;
+	height:50px;
+	background:#D6EDFE;
+}

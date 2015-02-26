@@ -1,0 +1,228 @@
+<?php
+   error_reporting(0);
+  require_once("../../Connections/conn.php");
+  mysql_select_db($database_conn, $conn);
+ // $cData =strftime("%d/%m/%Y" );
+  require("../../bibliotecas/fpdf/fpdf.php");
+  class PDF extends FPDF {
+    function Header() {
+      $this->Image("../logo/Logo.JPG",10,4,25,15,"JPG");
+      $this->SetFont("Arial","B",14);
+      $this->Cell(60);
+      $this->Cell(90,6,"Peri Alimentos Ltda.",0,0,"C");
+      $this->Ln(6);
+      $this->Cell(75);
+      $this->SetFont("Arial","B",10);
+      $this->Cell(60,5,"Relatorio Geral de Ordens Externas",0,1,"C");
+      $fill=0;
+    }
+
+    function Footer() {
+      $this->SetY(-15);
+      $this->SetFont("Arial","I",8);
+      $this->Cell(0,10,"Página ".$this->PageNo()."/{nb}",0,0,"C");
+    }
+
+    function Dados() {
+		$data1 = date('Y-m-1');
+	if(isset($_REQUEST['data_1'])){
+		$data1 = date('Y-m-d', strtotime($_REQUEST['data_1']));
+		}
+	if($_REQUEST['data_2'] == ""){
+		$data2 = date('Y-m-d');
+	}else{
+		$data2 = date('Y-m-d', strtotime($_REQUEST['data_2']));
+		}
+	if($_REQUEST['setor'] == ""){
+		$setor = "%";
+	}else{
+		$setor = $_REQUEST['setor'];
+		}
+	if($_REQUEST['requisit'] == ""){
+		$requisitante = "%";
+	}else{
+		$requisitante = $_REQUEST['requisit'];
+		}
+	if($_REQUEST['status'] == ""){
+		$stats = "%";
+	}else{
+		$stats = $_REQUEST['status'];
+		}
+	if($_REQUEST['equip'] == ""){
+		$equip = "%";
+	}else{
+		$equip = $_REQUEST['equip'];
+		}
+      
+      //$w=array(10,15,45,25,50,30,25,15,15,15,15,15);
+
+      
+	  $sqlStatus = "Select status from ordem_externa_vew where status like '%$stats%' AND data_envio between '$data1' and '$data2' and  setor like '%$setor%' and requisitante like '%$requisitante%' and equipamento like '%$equip%' group by status";
+	  $qrStatus = mysql_query($sqlStatus) or die (mysql_error());
+
+	  while($status = mysql_fetch_assoc($qrStatus)){
+	  $this->SetTextColor(300);
+      $this->SetFillColor(100,100,100);
+      $this->SetFont("Arial","IB",8);
+  	  $w=array(260);
+	  $this->Cell($w[0],6,"------> ".$status["status"]." <------","LRTB",0,"C", 1);
+	  $statusVar = $status["status"];
+	  $this->Ln();
+	  $filtro = "data_envio between '$data1' and '$data2' and  setor like '%$setor%' and requisitante like '%$requisitante%' and equipamento like '%$equip%'";
+	// Corpo do Relatorio
+	
+	$header=array("Cod","Data/Envio","Empresa","Requisitante","Equipamento","Setor","Serviço","Nº Orç.","Data/Volta","Nota F.", "Valor");
+      $this->SetFillColor(255);
+      $this->SetTextColor(0);
+      $this->SetDrawColor(120,120,120);
+      $this->SetLineWidth(.1);
+      $this->SetFont("Arial","B",7);
+      $w=array(10,15,45,25,50,30,25,15,15,15,15);
+      for($i=0;$i<count($header);$i++)
+         $this->Cell($w[$i],4,$header[$i],1,0,"C",1);
+      $this->Ln(4);
+	$sql = "select 
+    `ordem_externa`.`id_OSE` AS `id_OSE`,
+    `ordem_externa`.`data_envio` AS `data_envio`,
+   `empresas`.`nome` AS `empresa`,
+    `requisitante`.`nome` AS `requisitante`,
+    ucase(`equipamento`.`equipamento`) AS `equipamento`,
+    `setor`.`setor` AS `setor`,
+    `acao`.`acao` AS `acao`,
+    `ordem_externa`.`preco_servico` AS `preco_servico`,
+    date_format(`ordem_externa`.`data_receb`,_latin1'%d/%m/%Y') AS `data_receb`,
+    `status`.`status` AS `status`,
+    `ordem_externa`.`Num_orcamento` AS `Num_orcamento`,
+	`ordem_externa`.`num_nota` as nota,
+    (to_days(now()) - to_days(`ordem_externa`.`data_envio`)) AS `Dias_Apos`,
+		(Select 	
+			sum(`ordem_externa_vew`.`preco_servico`) 
+		from
+			`ordem_externa_vew` where status = 'APROVADO' and ".$filtro.") as total_aprovados,
+		(Select 	
+			sum(`ordem_externa_vew`.`preco_servico`) 
+		from
+			`ordem_externa_vew` where status like 'ESPERANDO OR%' and ".$filtro.") as total_esperando,
+		(Select 	
+			sum(`ordem_externa_vew`.`preco_servico`) 
+		from
+			`ordem_externa_vew` where status like 'ESPERANDO AP%' and ".$filtro.") as total_aguardando,
+		(Select 	
+			sum(`ordem_externa_vew`.`preco_servico`) 
+		from
+			`ordem_externa_vew` where status = 'RECEBIDO' and ".$filtro.") as total_recebido,
+		(Select 	
+			sum(`ordem_externa_vew`.`preco_servico`) 
+		from
+			`ordem_externa_vew` where status = 'REPROVADO' and ".$filtro.") as total_reprovado,
+					(Select 	
+						count(id_OSE) as total
+					from
+						`ordem_externa_vew` where status = 'RECEBIDO' and data_envio between '$data1' and '$data2' and  setor like '%$setor%' and requisitante like '%$requisitante%' and equipamento like '%$equip%') as reg_recebido,
+					(Select 	
+						count(id_OSE) as total
+					from
+						`ordem_externa_vew` where status = 'REPROVADO' and data_envio between '$data1' and '$data2' and  setor like '%$setor%' and requisitante like '%$requisitante%' and equipamento like '%$equip%') as reg_reprovado,
+					(Select 	
+						count(id_OSE) as total
+					from
+						`ordem_externa_vew` where status = 'APROVADO' and data_envio between '$data1' and '$data2' and  setor like '%$setor%' and requisitante like '%$requisitante%' and equipamento like '%$equip%') as reg_aprovado,
+					(Select 	
+						count(*) as total
+					from
+						`ordem_externa_vew` where status like 'ESPERANDO APRO%' and data_envio between '$data1' and '$data2' and  setor like '%$setor%' and requisitante like '%$requisitante%' and equipamento like '%$equip%') as reg_aguardando,
+					(Select 	
+						count(*) 
+					from
+						`ordem_externa_vew` where status like 'ESPERANDO OR%' and data_envio between '$data1' and '$data2' and  setor like '%$setor%' and requisitante like '%$requisitante%' and equipamento like '%$equip%') as reg_esperando
+					
+						
+  from 
+    ((((((`acao` join `ordem_externa` on((`acao`.`id_acao` = `ordem_externa`.`id_servico`))) join `empresas` on((`ordem_externa`.`id_prestadora` = `empresas`.`id_empresa`))) join `requisitante` on((`ordem_externa`.`id_Requisitante` = `requisitante`.`id_requisitante`))) join `status` on((`ordem_externa`.`status` = `status`.`id_status`))) join `equipamento` on((`ordem_externa`.`id_Equipamento` = `equipamento`.`id_equipamento`)))																			join `setor` on((`equipamento`.`setor` = `setor`.`id_setor`))) 
+	where
+		status.status = '$statusVar' AND ordem_externa.data_envio between '$data1' and '$data2' and  `setor`.`setor` like '%$setor%' and `requisitante`.`nome` like '%$requisitante%' and `equipamento`.`equipamento` like '%$equip%'
+  order by 
+    `ordem_externa`.`id_OSE`, status
+";
+      $qr=mysql_query($sql) or die ("Erro(1):".$sql."<br>".mysql_error());
+      $this->SetDrawColor(200,200,200);
+      $this->SetLineWidth(.1);
+      $this->SetFont("Arial","",5);
+	  $w=array(10,15,45,25,50,30,25,15,15,15,15);
+      $fill=0;
+      while ($res=mysql_fetch_array($qr)) {
+		$this->SetFillColor(240,270,243);
+        $this->Cell($w[0],4,$res["id_OSE"],"LRTB",0,"C",$fill);
+        $this->Cell($w[1],4,(date('d/m/Y', strtotime($res["data_envio"]))),"LRTB",0,"L",$fill);
+        $this->Cell($w[2],4,$res["empresa"],"LRTB",0,"L",$fill);
+        $this->Cell($w[3],4,$res["requisitante"],"LRTB",0,"L",$fill);
+        $this->Cell($w[4],4,$res["equipamento"],"LRTB",0,"L",$fill);
+        $this->Cell($w[5],4,$res["setor"],"LRTB",0,"L",$fill);
+        $this->Cell($w[6],4,$res["acao"],"LRTB",0,"L",$fill);
+        $this->Cell($w[7],4,$res["Num_orcamento"],"LRTB",0,"L",$fill);
+        $this->Cell($w[8],4,$res["data_receb"],"LRTB",0,"L",$fill);
+        $this->Cell($w[9],4,$res["nota"],"LRTB",0,"L",$fill);
+		$this->Cell($w[10],4,('R$ '.number_format($res["preco_servico"], 2, ',', '.')),"LRTB",0,"R",$fill);
+		
+		$total_aprovados = $res["total_aprovados"];
+		$total_reprovado = $res["total_reprovado"];
+		$total_esperando = $res["total_esperando"];
+		$total_aguardando = $res["total_aguardando"];
+		$total_recebido = $res["total_recebido"];
+		
+		$reg_aprovados = $res["reg_aprovado"];
+		$reg_reprovado = $res["reg_reprovado"];
+		$reg_esperando = $res["reg_esperando"];
+		$reg_aguardando = $res["reg_aguardando"];
+		$reg_recebido = $res["reg_recebido"];
+        
+		$this->Ln();
+        $fill=!$fill;
+      }
+	  }
+	 // $this->Cell(array_sum($w),0,"","T");
+	  $this->SetDrawColor(200,200,200);
+      $this->SetLineWidth(0);
+      $this->SetFont("Arial","B",10);
+	  $w=array(50,50,50,);
+	  $this->Cell($w[0],4,"","T",0,"");
+	  $this->Ln();
+	  $this->Cell($w[1],4,"Totais","TLBR",0,"C",0);
+	  $this->Cell($w[2],4,"Custo","TRLB",0,"C", 0);
+	  $this->Cell($w[2],4,"Registro","TRLB",0,"C", 0);
+	  $this->Ln();
+	  $this->Cell($w[1],4,"Aprovados = ","TL",0,"R",0);
+	  $this->Cell($w[2],4,('R$ '.number_format($total_aprovados, 2, ',', '.')),0,"R", 0);
+	  $this->Cell($w[1],4,$reg_aprovados,"R",0,"R",0);
+	   $this->Ln();
+	  $this->Cell($w[1],4,"Recebido = ","L",0,"R",0);
+	  $this->Cell($w[2],4,('R$ '.number_format($total_recebido, 2, ',', '.')),0,"R", 0);
+	  $this->Cell($w[1],4,$reg_recebido,"R",0,"R",0,1);
+      $this->Ln();
+	  $this->Cell($w[1],4,"Reprovados = ","L",0,"R",0);
+	  $this->Cell($w[2],4,('R$ '.number_format($total_reprovado, 2, ',', '.')),0,"R", 0);
+	  $this->Cell($w[1],4,$reg_reprovado,"R",0,"R",0);
+	  $this->Ln();
+	  $this->Cell($w[1],4,"Espernado Orçamento = ","L",0,"R",0);
+	  $this->Cell($w[2],4,('R$ '.number_format($total_esperando, 2, ',', '.')),0,"R", 0);
+	  $this->Cell($w[1],4,$reg_esperando,"R",0,"R",0,1);
+	  $this->Ln();
+	  $this->Cell($w[1],4,"Aguardndo Aprovação = ","L",0,"R",0);
+	  $this->Cell($w[2],4,('R$ '.number_format($total_aguardando, 2, ',', '.')),0,"R",0);
+	  $this->Cell($w[1],4,$reg_aguardando,"R",0,"R",0);
+	  $this->Ln();
+	  $this->Cell($w[1],4,"Geral = ",1,"R",0);
+	  $this->Cell($w[2],4,('R$ '.number_format(($total_reprovado + $total_aprovados+$total_recebido+$total_esperando+$total_aguardando), 2, ',', '.')),1,"R", 0);
+	  $this->Cell($w[2],4,$reg_reprovado + $reg_aprovados+$reg_recebido+$reg_esperando+$reg_aguardando,1,"R", 0);
+	
+	  }
+  }
+
+  $pdf=new PDF("L","mm","A4");
+  $pdf->AliasNbPages();
+  $pdf->SetAuthor("rstuma@gmail.com");
+  $pdf->AddPage();
+  $pdf->Dados();
+  $pdf->Output();
+?>
+

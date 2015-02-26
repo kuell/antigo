@@ -1,0 +1,93 @@
+{include file='topo.html'}
+<script type="text/javascript">
+    function acao(faz, id){
+        if(confirm("Deseja "+faz+" o pedido: "+id)){
+            location = "?"+faz+"&id="+id
+        }
+    }
+</script>
+
+</head>
+
+<body>
+    <div class="acao_pagina">Comprar por Pedidos</div>
+    <form action="" method="POST" name="form1">
+        
+        <table border="0" align="center" class="KT_tngtable">
+            <tr>
+                <th>Pedido:</th>
+                <td>
+                    <input type="text" name="idPedido" id="idPedido" class="int" value="{$smarty.post.idPedido|default:''}" />
+                </td>
+            </tr>
+            <tr>
+                <th>Cod. Osi:</th>
+                <td>
+                    <input type="text" name="osi" id="osi" class="int" value="{$smarty.post.osi|default:''}" />
+                    <input type="hidden" name="template" value="{$smarty.template}" />
+                </td>
+            </tr>
+            
+            <tr>
+                <th colspan="2"><input type="submit" value="Buscar" name="acao" id="buscar" /> </th>  
+            </tr>
+        </table>
+    </form>
+<br /><table width="auto%" border="0" align="center" class="KT_tngtable">
+    <tr>
+        <th scope="col">Cod</th>
+        <th scope="col">Data/Pedido</th>
+        <th scope="col">No. Req.</th>
+        <th scope="col">Setor</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Prioridade</th>
+        <th scope="col">Status</th>
+        <th colspan="4" scope="col">&nbsp;</th>
+    </tr>
+    {foreach from=$pedidos item=row}
+    <tr>
+        <td>{$row.id}</td>
+        <td>{$row.data|date_format:"%d/%m/%Y"}</td>
+        <td>{$row.osi}</td>
+        <td>{$row.setor}</td>
+        <td>{$row.solicitante}</td>
+        <td>{$row.prioridade}</td>
+        <td>{$row.status}</td>
+        <td>
+            <a href="ProdutoPedido.php?incluir&id={$row.id}" rel="superbox[iframe][800x500]">
+                <img src="../img/manutencao.gif" width="16" height="16" border="0" title="Manuten&ccedil;&atilde;o no Pedido!" />
+            </a>
+        </td>
+        
+        <td>
+            {if $row.status eq 'RECEBIDO'}
+            <img src="../img/bloqueado.gif" />
+            {else}
+            <a href="#" onclick="acao('Comprar','{$row.id}')">
+                <img src="../img/comprar.png" width="16" height="16" border="0" title="Comprar pedido" onclick="baixar(<?php echo $row_pedido['pc_id']; ?>)" />
+            </a>
+            {/if}
+        </td>
+        
+        <td>
+            <a href="?visualizar&id={$row.id}" rel="superbox[iframe][700x500]">
+                <img src="../img/print.png" width="16" height="16" border="0" title="Visualizar Pedido." />
+            </a>
+        </td>
+        <td>
+            {if $row.status eq 'RECEBIDO'}
+            <img src="../img/bloqueado.gif" />
+            {else}
+            <a href="#" onclick="acao('Reprovar','{$row.id}')">
+                <img src="../img/reprova.png" alt="" width="16" height="16" border="0" title="Reprovar Pedido?" />
+            </a>
+            {/if}
+        </td>
+    </tr>
+    {/foreach}
+    <tr>
+        <th colspan="11"></th>
+    </tr>
+</table>
+</body>
+</html>

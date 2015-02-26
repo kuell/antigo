@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/sig/!svn/ver/2/includes/mailtemplates
+END
+activate.html
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/sig/!svn/ver/2/includes/mailtemplates/activate.html
+END
+forgot.html
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/sig/!svn/ver/2/includes/mailtemplates/forgot.html
+END
+welcome.html
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/sig/!svn/ver/2/includes/mailtemplates/welcome.html
+END

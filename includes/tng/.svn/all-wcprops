@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/sig/!svn/ver/2/includes/tng
+END
+tNG_multipleDelete.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/sig/!svn/ver/2/includes/tng/tNG_multipleDelete.class.php
+END
+tNG_logoutTransaction.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/sig/!svn/ver/2/includes/tng/tNG_logoutTransaction.class.php
+END
+tNG_multipleInsert.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/sig/!svn/ver/2/includes/tng/tNG_multipleInsert.class.php
+END
+tNG.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/sig/!svn/ver/2/includes/tng/tNG.class.php
+END
+tNG_log.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/sig/!svn/ver/2/includes/tng/tNG_log.class.php
+END
+tNG_update.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/sig/!svn/ver/2/includes/tng/tNG_update.class.php
+END
+tNG.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/sig/!svn/ver/2/includes/tng/tNG.inc.php
+END
+tNG_dispatcher.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/sig/!svn/ver/2/includes/tng/tNG_dispatcher.class.php
+END
+tNG_error.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/sig/!svn/ver/2/includes/tng/tNG_error.class.php
+END
+tNG_multiple.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/sig/!svn/ver/2/includes/tng/tNG_multiple.class.php
+END
+tNG_multipleUpdate.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/sig/!svn/ver/2/includes/tng/tNG_multipleUpdate.class.php
+END
+tNG_delete.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/sig/!svn/ver/2/includes/tng/tNG_delete.class.php
+END
+tNG_insert.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/sig/!svn/ver/2/includes/tng/tNG_insert.class.php
+END
+tNG_fields.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/sig/!svn/ver/2/includes/tng/tNG_fields.class.php
+END
+tNG_login.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/sig/!svn/ver/2/includes/tng/tNG_login.class.php
+END
+tNG_config.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/sig/!svn/ver/2/includes/tng/tNG_config.inc.php
+END
+tNG_import.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/sig/!svn/ver/2/includes/tng/tNG_import.class.php
+END
+tNG_custom.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/sig/!svn/ver/2/includes/tng/tNG_custom.class.php
+END
+tNG_functions.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/sig/!svn/ver/2/includes/tng/tNG_functions.inc.php
+END

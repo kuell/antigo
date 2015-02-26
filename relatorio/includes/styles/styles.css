@@ -1,0 +1,14 @@
+.nxtdisabled {  color: #999999}
+.nxtbody {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
+.nxta {  font-family: Arial, Helvetica, sans-serif; text-decoration: none; font-size: 12px}
+.nxttitle {  font-family: Arial, Helvetica, sans-serif; text-decoration: none; font-size: 14px}
+.nxttd {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; border-color: black #000000 #000000 black; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 0px}
+.nxtth {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: #66CCFF; border-color: black #000000 #000000 black; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 0px; text-align: left}
+.nxtthl { font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: #66CCFF; border-color: black #000000 #000000 black; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 0px ; font-weight: bold}
+.nxttable {  border-color: #000000 black black; border-style: solid; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 1px}
+.disabledInput {	background-color: #66FFFF;	clip:  rect(   );	border-top-width: 1px;	border-right-width: 1px;	border-bottom-width: 1px;	border-left-width: 1px;	border-top-style: solid;	border-right-style: solid;	border-bottom-style: solid;	border-left-style: solid;	border-top-color: #000000;	border-right-color: #666666;	border-bottom-color: #666666;	border-left-color: #000000;}
+.nxtinput {  font-size: 9pt; font-family: Arial, Helvetica, sans-serif; margin-top: 0px; margin-bottom: 0px}
+.nxterror {  color: #FF0000}
+.nxtbutton {  font-size: 9pt; font-family: Arial, Helvetica, sans-serif; margin-top: 0px; margin-bottom: 0px}
+.nxterror {  color: #990000}
+.nxtmd {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; }

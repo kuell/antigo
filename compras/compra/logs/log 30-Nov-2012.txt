@@ -1,0 +1,9 @@
+Usuario:  Data/Hora: 30-11-2012 (7:30) - Pedido: 1469 -   Acao = comprar_produto - Produto: 95 
+Usuario:  Data/Hora: 30-11-2012 (7:30) - Pedido: 1469 -   Acao = comprar_produto - Produto: 96 
+Usuario:  Data/Hora: 30-11-2012 (7:30) - Pedido: 1469 -   Acao = comprar_produto - Produto: 92 
+Usuario:  Data/Hora: 30-11-2012 (7:30) - Pedido: 1469 -   Acao = comprar_produto - Produto: 181 
+Usuario:  Data/Hora: 30-11-2012 (8:03) - Pedido: 1409 -   Acao = comprar_produto - Produto: 921 
+Usuario:  Data/Hora: 30-11-2012 (8:03) - Pedido: 1409 -   Acao = comprar_produto - Produto: 923 
+Usuario:  Data/Hora: 30-11-2012 (11:57) - Pedido: 1422 -   Acao = comprar_produto - Produto: 864 
+Usuario:  Data/Hora: 30-11-2012 (12:13) - Pedido: 1455 -   Acao = comprar_produto - Produto: 296 
+Usuario:  Data/Hora: 30-11-2012 (12:13) - Pedido: 1459 -   Acao = comprar_produto - Produto: 1114 

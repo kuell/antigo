@@ -1,0 +1,4 @@
+Usuario: CRISTINA Data/Hora: 05-03-2012 (6:59) - Pedido: 683 -   Acao = comprar_produto - Produto: 962 
+Usuario: CRISTINA Data/Hora: 05-03-2012 (6:59) - Pedido: 683 -   Acao = comprar_produto - Produto: 710 
+Usuario: NAUDER Data/Hora: 05-03-2012 (8:27) - Pedido: 692 -   Acao = manutencao_produto - Produto: 384 
+Usuario: CRISTINA Data/Hora: 05-03-2012 (15:48) - Pedido: 683 -   Acao = comprar_produto - Produto: 964 

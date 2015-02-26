@@ -1,0 +1,1 @@
+Usuario:  Data/Hora: 09-10-2012 (12:05) - Pedido: 1341 -   Acao = comprar_produto - Produto: 24 

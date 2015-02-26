@@ -1,0 +1,15 @@
+Usuario: WILLIAN Data/Hora: 17-10-2011 (8:34) - Pedido: 320 -   Acao = manutencao_produto - Produto: 45 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:34) - Pedido: 320 -   Acao = manutencao_produto - Produto: 6 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:34) - Pedido: 320 -   Acao = manutencao_produto - Produto: 384 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:34) - Pedido: 320 -   Acao = manutencao_produto - Produto: 221 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:34) - Pedido: 320 -   Acao = manutencao_produto - Produto: 45 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:34) - Pedido: 320 -   Acao = manutencao_produto - Produto: 44 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:34) - Pedido: 320 -   Acao = manutencao_produto - Produto: 54 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:35) - Pedido: 320 -   Acao = manutencao_produto - Produto: 53 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:35) - Pedido: 320 -   Acao = manutencao_produto - Produto: 43 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:35) - Pedido: 320 -   Acao = manutencao_produto - Produto: 47 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:35) - Pedido: 320 -   Acao = manutencao_produto - Produto: 222 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:35) - Pedido: 320 -   Acao = manutencao_produto - Produto: 218 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:35) - Pedido: 320 -   Acao = manutencao_produto - Produto: 49 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:35) - Pedido: 320 -   Acao = manutencao_produto - Produto: 55 
+Usuario: WILLIAN Data/Hora: 17-10-2011 (9:36) - Pedido: 320 -   Acao = manutencao_produto - Produto: 225 

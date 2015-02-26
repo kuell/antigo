@@ -1,0 +1,510 @@
+input, textarea, select {	
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */
+} 
+
+a:active {
+	color: ; /* active link color */
+}
+
+a:link {
+	color: ; /* link color */
+}
+
+a:visited {
+	color: ; /* visited link color */
+}
+
+/* Menu */
+ul.ewMenuBarVertical {
+	list-style-type: none;
+	list-style-position: outside;
+	padding: 2px;
+	margin: 0 0 0 6px;
+}
+
+ul.ewMenuBarVertical ul,li {
+	list-style-type: none;
+	list-style-position: outside;
+	padding: 0;
+	margin: 0 0 0 6px;
+	white-space: nowrap;
+}
+
+/* template layout */
+.ewLayout {
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */
+	width: 100%;
+	height: 100%;
+}
+
+.ewHeaderRow {
+	background-color: #FF6600; /* background color */	
+}
+
+.ewContentTable {
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */	
+	width: 100%;
+	height: 100%;	
+}
+
+.ewMenuColumn {
+	background-color: #F1F1F1; /* background color */
+	width: auto;
+	vertical-align: top;
+	padding: 1px;
+}
+
+.ewContentColumn {
+	background-color: inherit; /* background color */
+	vertical-align: top;
+	padding: 10px;
+}
+
+.ewFooterRow {
+	background-color: #FF6600; /* background color */
+	color: #FFFFFF; /* footer font color */
+	padding: 10px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.ewFooterText {
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */	
+}
+
+.ewForm {
+	margin: 0;
+	padding: 0;
+}
+
+.ewGrid {
+	border-collapse: separate;
+}
+
+.ewGridContent {
+	padding: 0;	
+	border: 1px solid #9F9F9F; /* grid border */			
+}
+
+/* grid pager panel */
+.ewGridUpperPanel, .ewGridLowerPanel {
+	padding: 3px;	
+	border-left: 0;
+	border-right: 0;	
+	background-color: inherit; /* grid header color */
+	color: #284775;	 /* grid header font color */
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */			
+}
+
+.ewGridUpperPanel {
+	border-top: 0px;
+	border-bottom: 1px solid;
+	border-color: #9F9F9F; 
+}
+
+.ewGridMiddlePanel {
+	border: 0;	
+}
+
+.ewGridLowerPanel {
+	border-top: 1px solid;
+	border-bottom: 0px; 
+	border-color: #CFCFCF; 
+}
+
+.ewGridUpperPanel td, .ewGridLowerPanel td {
+	color: #284775;	 /* grid header font color */
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */			
+}
+
+.ewPager td {
+	white-space: nowrap;	
+}
+
+.ewTabContent {
+	padding: 0;
+	border: 0;
+}
+
+.ewMultiColumnTable {
+	border: 0;
+}
+
+.ewMultiColumnTable td {
+	padding: 10px;
+}
+
+/* main table */
+.ewTable {
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	empty-cells: show;
+	width: auto;
+	font-family: Arial; /* font name */
+	font-size: 7pt;
+}
+
+.ewTableSeparate {	
+	border-collapse: separate;		
+}
+
+.ewTable td {
+	padding: 3px; /* cell padding */
+	border-bottom: 0px solid; /* border width, horizontal grid line */
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 1px solid; /* border width, vertical grid line */
+	border-color: #CFCFCF;  /* border color */
+}
+
+.ewTableAddOpt {
+	border: 1;
+	border-spacing: 1;
+	font-family: Arial; /* font name */
+	font-size: 10pt;
+}
+
+.ewTableAddOpt td {
+	padding: 3px; /* cell padding */
+	border: 0;
+}
+	
+.ewTable .ewTableHeader, .ewTable .ewTableHeader td {
+	background-color: #5D7B9D;	/* header bgcolor */
+	color: #FFFFFF; /* header font color */
+	border-bottom: 1px solid; /* header border width */
+	border-right: 1px solid; /* header border width */
+	border-color: #9F9F9F; /* header border color */	
+	background-image: url(../phprptimages/professional.png); /* header bg image */
+	background-repeat: repeat-x;		
+	vertical-align: top; 	
+}
+
+.ewPointer {
+	cursor: pointer;
+}
+
+.ewTableHeader a:link, .ewTableHeader a:active, .ewTableHeader a:visited {	
+	color: #FFFFFF; /* header font color */
+	text-decoration: none;	
+}
+
+.ewTableHeaderBtn {
+	width: 100%;
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */				
+}
+
+.ewTableHeader .ewTableHeaderBtn td {
+	background: transparent;
+	padding: 0;
+	border: 0;
+	white-space: nowrap;		
+}
+
+/* main table row color */
+.ewTableRow {
+	background-color: #FFFFFF;  /* alt row color 1 */
+	color: inherit;
+}
+
+/* main table alternate row color */
+.ewTableAltRow {
+	background-color: #F7F6F3; /* alt row color 2 */
+	color: inherit;	
+}
+
+/* main table last row */
+.ewTableLastRow td {
+	border-bottom: 0px;
+}
+
+/* main table footer */
+.ewTableFooter {
+	background-color: #EAEAEA; /* footer color */
+	color: inherit;
+}
+
+/* table for export to HTML */
+.ewExportTable {
+    border-collapse: collapse;
+    empty-cells: show; 
+}
+
+.ewExportTable td {
+    padding: 3px; /* cell padding */
+    border: 1px solid #C0C0C0;
+}
+
+.ewItemTable td {
+	color: inherit; /* text color */
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */
+	border: 0px;
+	padding: 2px;
+	vertical-align: top; 
+}
+
+/* separator */
+.ewSeparator {
+    color: gray;
+}
+
+/* message */
+.ewMessage {
+	color: red; /* message color */
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */	
+}
+
+/* required field indicator */
+.ewRequired {
+	color: red; /* message color */
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */	
+}
+
+/* highlight */
+.ewHighlightSearch {
+	font-weight: bold;
+	background-color: yellow;
+}
+
+/* template */
+.ewTemplate {
+	display: none;
+}
+
+/* popup filter */
+
+.ewPopup {
+	position: absolute;
+	width: 200px; 
+	display: block; 
+	visibility: hidden; 
+	border: 1px solid #333333;
+	background-color: #EAEAEA;
+}
+
+.ewPopupSizeGrip {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 9px;
+	height: 9px;
+	cursor: se-resize;
+}
+
+.ewPopupHorizRule {
+	border: 0;
+	color: #9E9E9E;
+	background-color: #9E9E9E;
+	height: 1px;
+	width: 100%;
+	text-align: center;
+}
+
+/* classes for report */
+
+/* exteneded filter */
+.ewRptSearch {
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */
+	border: 0px;
+	border-collapse: collapse;
+}
+
+.ewRptSearch td {
+	border: 0px;
+	padding: 2px;
+}
+
+.ewRptSearchOpr {
+	font-family: Arial; /* font name */
+	font-size: 7pt; /* font size */
+	color: maroon;
+}
+
+.ewInputCleared {
+	background-color: #FFFFCC; /* background color */
+}
+
+/* group 1 */
+.ewTable .ewRptGrpHeader1 {
+	color: inherit;
+	background-color: inherit;
+	border-bottom: 1px solid; /* header border width */
+	border-right: 1px solid; /* header border width */	
+	font-weight: bold;		
+}
+
+.ewRptGrpHeader1 a:link, .ewRptGrpHeader1 a:active, .ewRptGrpHeader1 a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ewRptGrpField1 {
+	background-color: inherit;	
+}
+
+.ewRptGrpSummary1 {
+	color: inherit;
+	background-color: #7F9DBF;	
+}
+
+/* group 2 */
+.ewTable .ewRptGrpHeader2 {
+	color: inherit;
+	background-color: inherit;
+	border-bottom: 1px solid; /* header border width */
+	border-right: 1px solid; /* header border width */	
+	font-weight: bold;
+}
+
+.ewRptGrpHeader2 a:link, .ewRptGrpHeader2 a:active, .ewRptGrpHeader2 a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ewRptGrpField2 {
+	background-color: inherit;
+}
+
+.ewRptGrpSummary2 {
+	color: inherit;
+	background-color: inherit;	
+} 
+
+/* group 3 */
+.ewTable .ewRptGrpHeader3 {
+	color: inherit;
+	background-color: inherit;
+	border-bottom: 1px solid; /* header border width */
+	border-right: 1px solid; /* header border width */	
+	font-weight: bold;	
+}
+
+.ewRptGrpHeader3 a:link, .ewRptGrpHeader3 a:active, .ewRptGrpHeader3 a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ewRptGrpField3 {
+	background-color: inherit;
+}
+
+.ewRptGrpSummary3 {
+	color: inherit;
+	background-color: #7F9DBF;	
+}
+
+/* group 4 */
+.ewTable .ewRptGrpHeader4 {
+	color: inherit;
+	background-color: inherit;
+	border-bottom: 1px solid; /* header border width */
+	border-right: 1px solid; /* header border width */	
+	font-weight: bold;	
+}
+
+.ewRptGrpHeader4 a:link, .ewRptGrpHeader4 a:active, .ewRptGrpHeader4 a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ewRptGrpField4 {
+	background-color: inherit;
+}
+
+.ewRptGrpSummary4 {
+	color: inherit;
+	background-color: inherit;	
+}
+
+/* group 5 */
+.ewTable .ewRptGrpHeader5 {
+	color: inherit;
+	background-color: inherit;
+	border-bottom: 1px solid; /* header border width */
+	border-right: 1px solid; /* header border width */	
+	font-weight: bold;	
+}
+
+.ewRptGrpHeader5 a:link, .ewRptGrpHeader5 a:active, .ewRptGrpHeader5 a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ewRptGrpField5 {
+	background-color: inherit;
+}
+
+.ewRptGrpSummary5 {
+	color: inherit;
+	background-color: #7F9DBF;	
+}
+
+/* group 6 */
+.ewTable .ewRptGrpHeader6 {
+	color: inherit;
+	background-color: inherit;
+	border-bottom: 1px solid; /* header border width */
+	border-right: 1px solid; /* header border width */	
+	font-weight: bold;	
+}
+
+.ewRptGrpHeader6 a:link, .ewRptGrpHeader6 a:active, .ewRptGrpHeader6 a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ewRptGrpField6 {
+	background-color: inherit;
+}
+
+.ewRptGrpSummary6 {
+	color: inherit;
+	background-color: inherit;	
+}
+
+.ewRptGrpAggregate {
+	font-weight: bold;
+}
+
+.ewRptPageSummary {
+	color: inherit; /* page summary text color */	
+	background-color: inherit; /* page total background color */	
+}
+
+.ewRptGrandSummary {
+	color: inherit; /* grand summary text color */
+	background-color: inherit; /* grand summary background color */	
+}
+
+/* for crosstab report only */
+
+.ewRptColHeaderRow td {
+	border-bottom: 1px solid; /* header border width */
+}
+
+/* YUI Button */
+.yui-skin-sam .yui-button button, .yui-skin-sam .yui-button a {   
+  font-size: 7pt; /* font size */
+}
+
+/* YUI Panel */
+.yui-skin-sam .yui-panel .hd {    
+	font-size: 7pt; /* font size */
+	line-height: 2.5;     
+}
+
+.ewLangForm {
+	text-align: right;
+}

@@ -1,0 +1,2 @@
+Usuario: GABRIEL Data/Hora: 22-12-2012 (14:31) - Pedido: 1521 -   Acao = manutencao_produto - Produto: 1280 
+Usuario: GABRIEL Data/Hora: 22-12-2012 (14:49) - Pedido: 1521 -   Acao = manutencao_produto - Produto: 219 

@@ -1,0 +1,77 @@
+<?php require_once('../../Connections/conn.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+mysql_select_db($database_conn, $conn);
+$query_taxa = "SELECT * FROM taxamov";
+$taxa = mysql_query($query_taxa, $conn) or die(mysql_error());
+$row_taxa = mysql_fetch_assoc($taxa);
+$totalRows_taxa = mysql_num_rows($taxa);
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="../../includes/skins/mxkollection3.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="acao_pagina">
+  Controle de Movimento de Taxas
+</div>
+<table border="0" align="center" class="KT_tngtable">
+  <tr>
+    <th>Cod</th>
+    <th>Data</th>
+    <th>Corretor</th>
+    <th>Tipo Movimento</th>
+    <th>Valor</th>
+    <th colspan="2"><a href="mtx_f.php">Adicionar</a></th>
+  </tr>
+  <?php do { ?>
+    <tr>
+      <td><?php echo $row_taxa['Cod']; ?></td>
+      <td><?php echo date("d-m-Y", strtotime($row_taxa['data'])); ?></td>
+      <td><?php echo $row_taxa['cor_cod']." - ". $row_taxa['cor_nome']; ?></td>
+      <td><?php echo $row_taxa['tipo_movimento']; ?></td>
+      <td><?php echo $row_taxa['TipoMov']; ?></td>
+      <td><div align="center"><a href="mtx_f.php?cod=<?php echo $row_taxa['Cod']; ?>"><img src="../../img/edit.png" width="16" height="16" /></a></div></td>
+      <td><div align="center"><img src="../../img/delete.png" alt="" width="16" height="16" /></div></td>
+    </tr>
+    <?php } while ($row_taxa = mysql_fetch_assoc($taxa)); ?>
+</table>
+</body>
+</html>
+<?php
+mysql_free_result($taxa);
+?>

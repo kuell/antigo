@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="recibo_osi" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.000000000000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select
+    `ordem_interna`.`id_osi` AS `id_osi`,
+    date_format(`ordem_interna`.`data_pedido`,_latin1'%d/%m%/%Y') AS `data_pedido`,
+    `funcionario`.`login` AS `requisitante`,
+    `requisitante`.`nome` AS `responsavel`,
+    `acao`.`acao` AS `acao`,
+    `equipamento`.`equipamento` AS `equipamento`,
+    `setor`.`setor` AS `setor`,
+    `ordem_interna`.`prazo_conclusao` AS `prazo_conclusao`,
+    date_format((`ordem_interna`.`data_pedido` + interval `ordem_interna`.`prazo_conclusao` day), '%d/%m/%Y') AS `data_entrega`,
+    `ordem_interna`.`obs` AS `obs`,
+    `int_status`.`int_status` AS `status`
+  from
+    ((((((`requisitante` join `ordem_interna` on((`requisitante`.`id_requisitante` = `ordem_interna`.`responsavel`))) join `funcionario` on((`ordem_interna`.`requisitante` = `funcionario`.`id_funcionario`))) join `acao` on((`ordem_interna`.`servico` = `acao`.`id_acao`))) join `equipamento` on((`ordem_interna`.`equipamento` = `equipamento`.`id_equipamento`))) join `setor` on((`ordem_interna`.`setor` = `setor`.`id_setor`))) join `int_status` on((`ordem_interna`.`status` = `int_status`.`id_status_int`)))
+WHERE
+     id_osi = $P{id}]]>
+	</queryString>
+	<field name="id_osi" class="java.lang.Long"/>
+	<field name="data_pedido" class="java.lang.String"/>
+	<field name="requisitante" class="java.lang.String"/>
+	<field name="responsavel" class="java.lang.String"/>
+	<field name="acao" class="java.lang.String"/>
+	<field name="equipamento" class="java.lang.String"/>
+	<field name="setor" class="java.lang.String"/>
+	<field name="prazo_conclusao" class="java.lang.Integer"/>
+	<field name="data_entrega" class="java.sql.Date"/>
+	<field name="obs" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="752" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Left" onErrorType="Icon">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="15" width="121" height="74"/>
+				<imageExpression class="java.lang.String"><![CDATA["../../logo/logo.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Top" onErrorType="Icon">
+				<reportElement mode="Opaque" x="0" y="413" width="121" height="74" forecolor="#000000" backcolor="#FFFFFF"/>
+				<graphicElement fill="Solid"/>
+				<imageExpression class="java.lang.String"><![CDATA["../../logo/logo.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="90" width="572" height="80"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="110" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="286" y="110" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="286" y="130" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="183" width="572" height="178"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="90" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="130" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="286" y="90" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="150" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="286" y="150" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="183" width="572" height="56"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="508" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="286" y="528" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="490" y="413" width="82" height="74"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="528" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="286" y="548" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="490" y="15" width="82" height="74"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="488" width="572" height="80"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="15" width="572" height="74"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="548" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="286" y="508" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="488" width="143" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="121" y="413" width="369" height="74"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="581" width="572" height="171"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="286" y="488" width="143" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="110" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prazo para entrega:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="90" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de emissão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="130" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data para entrega:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="286" y="90" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsavel:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="286" y="130" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Setor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="286" y="150" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="150" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solicitante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="286" y="110" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serviço à executar:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="90" width="133" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{data_pedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="110" width="133" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{prazo_conclusao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="150" width="133" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{requisitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="90" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{responsavel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="110" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{acao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="130" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{setor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="150" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{equipamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="170" width="572" height="13" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição do Serviço:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="15" width="369" height="42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ordem de Serviço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="57" width="369" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Manutenção e Conservação Industrial)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="19" width="71" height="13"/>
+				<textElement/>
+				<text><![CDATA[Numeração de controle]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="490" y="57" width="82" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{id_osi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="130" width="133" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{data_entrega}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="508" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{acao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="121" y="413" width="369" height="42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ordem de Serviço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="548" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solicitante:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="581" width="572" height="15"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{obs}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="183" width="572" height="15"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{obs}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="496" y="417" width="71" height="13"/>
+				<textElement/>
+				<text><![CDATA[Numeração de controle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="508" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prazo para entrega:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="455" width="369" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Manutenção e Conservação Industrial)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="286" y="528" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Setor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="286" y="508" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serviço à executar:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="286" y="548" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="286" y="488" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsavel:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="488" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de emissão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="528" width="143" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data para entrega:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="568" width="572" height="13" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição do Serviço:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="335" width="179" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Solicitante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="335" width="178" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Responsavel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="199" y="335" width="179" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Encarregado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="199" y="727" width="179" height="19"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Encarregado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="727" width="179" height="19"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Solicitante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="727" width="178" height="19"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Responsavel]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="488" width="133" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{data_pedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="548" width="133" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{requisitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="488" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{responsavel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="528" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{setor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="548" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{equipamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="528" width="133" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{data_entrega}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="455" width="82" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{id_osi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="508" width="133" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{prazo_conclusao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="707" width="179" height="19"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{responsavel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="707" width="179" height="19"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{setor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="315" width="179" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{responsavel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="315" width="179" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{requisitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="315" width="179" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{setor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="707" width="179" height="19"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{requisitante}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="396" width="572" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="7" y="312" width="179" height="1"/>
+			</line>
+			<line>
+				<reportElement x="389" y="311" width="179" height="1"/>
+			</line>
+			<line>
+				<reportElement x="199" y="312" width="179" height="1"/>
+			</line>
+			<line>
+				<reportElement x="199" y="704" width="179" height="1"/>
+			</line>
+			<line>
+				<reportElement x="7" y="704" width="179" height="1"/>
+			</line>
+			<line>
+				<reportElement x="389" y="703" width="179" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement mode="Transparent" x="121" y="15" width="369" height="74"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="413" width="572" height="74"/>
+			</rectangle>
+		</band>
+	</detail>
+</jasperReport>

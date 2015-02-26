@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rs_status" value="name:status;datatype:string" />
+	<infoitem key="UD_rs_setor" value="name:id_setor;datatype:int,name:setor;datatype:string,name:encarregado;datatype:string" />
+	<infoitem key="UD_rs_requisit" value="name:nome;datatype:string" />
+	<infoitem key="UD_rs_equip" value="name:equipamento;datatype:string" />
+</info>

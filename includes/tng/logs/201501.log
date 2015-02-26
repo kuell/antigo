@@ -1,0 +1,74 @@
+=== BEGIN MESSAGE ===
+Client IP:
+  10.1.1.251
+
+Host:
+  10.1.1.3
+
+Requested URI:
+  http://10.1.1.3/paginas/Empresa/empresa_form.php
+
+Date:
+  2015-01-06 08:36:03
+
+Error:
+  An error occurred while inserting the records.<br />SQL error: Column 'cnpj_cpf' cannot be null.
+
+Developer Details:
+  tNG_multipleInsert error.<br />An error occurred while inserting the records. (MINS_ERROR)<br />SQL error: INSERT INTO empresas (nome, responsavel, endereco, bairro, complemento, cidade, estado, telefone_comercial, telefone_celular, telefone_fax, cnpj_cpf, inscricao_estadual, email, cep) values ('TORNEARIA GENESIS', 'PAULO OU SERGIO', 'AV DR GUTENRAM / PROXIMO AO CLUBE BOM DEMAIS TERMINAL AERO RANCHO', 'AERO RANCHO', null, 'CAMPO GRANDE ', 'MS', '3380-7977', '9216-2972', null, null, null, null, null). (SQL_ERROR)
+
+tNG Execution Trace:
+  tNG_multipleInsert.executeTransaction
+    STARTER.Trigger_Default_Starter
+    tNG_multipleInsert.doTransaction
+      tNG_multipleInsert.prepareSQL
+        tNG_insert.doTransaction
+          BEFORE.Trigger_Default_FormValidation
+          tNG_insert.prepareSQL
+          tNG_insert.executeTransaction - execute sql*
+          ERROR.Trigger_Default_Insert_RollBack
+  tNG_multipleUpdate.executeTransaction
+    STARTER.Trigger_Default_Starter
+  tNG_multipleInsert.getRecordset
+  tNG_insert.getFakeRsArr
+  tNG_insert.getLocalRecordset
+  tNG_insert.getFakeRecordset
+  tNG_multipleInsert.getFakeRecordset
+=== END MESSAGE ===
+=== BEGIN MESSAGE ===
+Client IP:
+  10.1.1.62
+
+Host:
+  10.1.1.3
+
+Requested URI:
+  http://10.1.1.3/paginas/Empresa/empresa_form.php
+
+Date:
+  2015-01-16 13:51:04
+
+Error:
+  An error occurred while inserting the records.<br />SQL error: Column 'cnpj_cpf' cannot be null.
+
+Developer Details:
+  tNG_multipleInsert error.<br />An error occurred while inserting the records. (MINS_ERROR)<br />SQL error: INSERT INTO empresas (nome, responsavel, endereco, bairro, complemento, cidade, estado, telefone_comercial, telefone_celular, telefone_fax, cnpj_cpf, inscricao_estadual, email, cep) values ('ENGENHEIRO ELETRECISTA ALEX', 'ALEX', 'ALEX', 'ALEX ', null, 'CAMPO GRANDE ', 'MS', null, null, null, null, null, null, null). (SQL_ERROR)
+
+tNG Execution Trace:
+  tNG_multipleInsert.executeTransaction
+    STARTER.Trigger_Default_Starter
+    tNG_multipleInsert.doTransaction
+      tNG_multipleInsert.prepareSQL
+        tNG_insert.doTransaction
+          BEFORE.Trigger_Default_FormValidation
+          tNG_insert.prepareSQL
+          tNG_insert.executeTransaction - execute sql*
+          ERROR.Trigger_Default_Insert_RollBack
+  tNG_multipleUpdate.executeTransaction
+    STARTER.Trigger_Default_Starter
+  tNG_multipleInsert.getRecordset
+  tNG_insert.getFakeRsArr
+  tNG_insert.getLocalRecordset
+  tNG_insert.getFakeRecordset
+  tNG_multipleInsert.getFakeRecordset
+=== END MESSAGE ===

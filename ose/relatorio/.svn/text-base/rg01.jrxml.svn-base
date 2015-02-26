@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rg01" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.1000000000000045"/>
+	<property name="ireport.x" value="149"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="data_1" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="data_2" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ordem_externa.`id_OSE` AS ordem_externa_id_OSE,
+     date_format(ordem_externa.`data_envio`, '%d/%m/%y') AS ordem_externa_data_envio,
+     ordem_externa.`num_orc` AS ordem_externa_num_orc,
+     ordem_externa.`preco_servico` AS ordem_externa_preco_servico,
+     ordem_externa.`Num_orcamento` AS ordem_externa_Num_orcamento,
+     requisitante.`nome` AS requisitante_nome,
+     equipamento.`equipamento` AS equipamento_equipamento,
+     empresas.`nome` AS empresas_nome,
+     acao.`acao` AS acao_acao,
+     setor.`setor` AS setor_setor
+FROM
+     `requisitante` requisitante INNER JOIN `ordem_externa` ordem_externa ON requisitante.`id_requisitante` = ordem_externa.`id_Requisitante`
+     INNER JOIN `equipamento` equipamento ON ordem_externa.`id_Equipamento` = equipamento.`id_equipamento`
+     INNER JOIN `empresas` empresas ON ordem_externa.`id_prestadora` = empresas.`id_empresa`
+     INNER JOIN `acao` acao ON ordem_externa.`id_servico` = acao.`id_acao`
+     INNER JOIN `setor` setor ON equipamento.`setor` = setor.`id_setor`
+where data_envio between "$P{data_1}" and "$P{data_2}"]]>
+	</queryString>
+	<field name="ordem_externa_id_OSE" class="java.lang.Integer"/>
+	<field name="ordem_externa_data_envio" class="java.sql.Date"/>
+	<field name="ordem_externa_num_orc" class="java.lang.Integer"/>
+	<field name="ordem_externa_preco_servico" class="java.lang.Double"/>
+	<field name="ordem_externa_Num_orcamento" class="java.lang.String"/>
+	<field name="requisitante_nome" class="java.lang.String"/>
+	<field name="equipamento_equipamento" class="java.lang.String"/>
+	<field name="empresas_nome" class="java.lang.String"/>
+	<field name="acao_acao" class="java.lang.String"/>
+	<field name="setor_setor" class="java.lang.String"/>
+	<variable name="ordem_externa_preco_servico_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{ordem_externa_preco_servico}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="64">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="53" width="32" height="11" backcolor="#CCCCCC"/>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[COD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="32" y="53" width="70" height="11" backcolor="#CCCCCC"/>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DATA/ENVIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="102" y="53" width="116" height="11" backcolor="#CCCCCC"/>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[EQUIPAMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="334" y="53" width="100" height="11" backcolor="#CCCCCC"/>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SERVIÇO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="218" y="53" width="116" height="11" backcolor="#CCCCCC"/>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SETOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="434" y="53" width="100" height="11" backcolor="#CCCCCC"/>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[REQUISITANTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="534" y="53" width="115" height="11" backcolor="#CCCCCC"/>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[EMPRESA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="649" y="53" width="68" height="11" backcolor="#CCCCCC"/>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ORÇAMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="717" y="53" width="85" height="11" backcolor="#CCCCCC"/>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PREÇO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="53" width="802" height="11"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="375" height="26"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATORIO GERAL DE ORDEM EXTERNA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="673" y="0" width="106" height="16"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="78" y="26" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.sql.Time"><![CDATA[$P{data_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="26" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.sql.Time"><![CDATA[$P{data_2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="12">
+			<textField>
+				<reportElement x="0" y="0" width="32" height="11"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ordem_externa_id_OSE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="0" width="70" height="11"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{ordem_externa_data_envio}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="102" y="0" width="116" height="11"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{equipamento_equipamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="0" width="100" height="11"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{acao_acao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="0" width="116" height="11"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{setor_setor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="100" height="11"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{requisitante_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="534" y="0" width="113" height="11"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empresas_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="649" y="0" width="68" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ordem_externa_Num_orcamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="717" y="0" width="85" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ordem_externa_preco_servico}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="18">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="18" backcolor="#999999"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="631" y="0" width="71" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total = ]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="702" y="0" width="100" height="18"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA["R$ "+$V{ordem_externa_preco_servico_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

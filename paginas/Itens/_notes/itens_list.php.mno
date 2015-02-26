@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_itens" value="name:id_item;datatype:int,name:setor;datatype:string,name:desc_item;datatype:string" />
+	<infoitem key="UD_setor" value="name:id_item;datatype:int,name:setor;datatype:string,name:desc_item;datatype:string" />
+</info>

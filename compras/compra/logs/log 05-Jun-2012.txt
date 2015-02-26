@@ -1,0 +1,13 @@
+Usuario: CRISTINA Data/Hora: 05-06-2012 (13:54) - Pedido: 951 -   Acao = comprar_produto - Produto: 144 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (13:54) - Pedido: 951 -   Acao = comprar_produto - Produto: 252 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (13:54) - Pedido: 951 -   Acao = comprar_produto - Produto: 593 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (13:54) - Pedido: 951 -   Acao = comprar_produto - Produto: 330 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (13:55) - Pedido: 951 -   Acao = comprar_produto - Produto: 566 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (13:55) - Pedido: 951 -   Acao = comprar_produto - Produto: 591 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (13:55) - Pedido: 951 -   Acao = comprar_produto - Produto: 124 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (13:56) - Pedido: 951 -   Acao = comprar_produto - Produto: 592 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (14:07) - Pedido: 951 -   Acao = comprar_produto - Produto: 141 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (14:08) - Pedido: 951 -   Acao = comprar_produto - Produto: 173 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (14:08) - Pedido: 951 -   Acao = comprar_produto - Produto: 597 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (14:08) - Pedido: 951 -   Acao = comprar_produto - Produto: 174 
+Usuario: CRISTINA Data/Hora: 05-06-2012 (16:29) - Pedido: 946 -   Acao = comprar_produto - Produto: 815 

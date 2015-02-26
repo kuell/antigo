@@ -1,0 +1,137 @@
+@charset "latin1";
+/* CSS Document */
+/*Estilo da Pagina*/
+
+body{
+	color: inherit; /* text color */
+	font-family: Arial; /* font name */
+	font-size: 10pt; /* font size */
+	margin: 0; /* top right bottom left */
+	height: 100%;
+	}
+a{
+	text-decoration:none;
+	color:#006;
+	}
+/*Fim do estilo da Pagina*/
+/*Estilo do Titulo*/
+.acao_pagina{
+	border:solid 1px;
+	border-color:#00F;
+	font:18px "Arial", Helvetica, sans-serif;
+	background:#D2D2D2;
+	text-align:center;
+}
+/*Fim do Estilo do Titulo*/
+/*Estilo dos conteudos*/
+.lista_conteudo{
+	position:absolute;
+	width:100%;
+	height:auto;
+	z-index:2;
+	left: 1px;
+	top: 122px;
+	}
+.lista_conteudo table th{
+	background:#5E7289;
+	color:#FFFFFF;
+	text-decoration:none;
+	text-align:left;
+	font-weight: bold;
+	font:12px;
+	}
+.lista_conteudo table tr:hover{
+	background:#CCC;
+	cursor:default;
+	}
+.lista_conteudo table{
+	border:1px solid #5E7289;
+	font:10px Verdana, Geneva, sans-serif;
+	background:#FFF;
+	}
+/*fim do estilo conteudo*/
+/*Botões*/
+.div_botoes{
+	azimuth:center;
+	background:#CCC;
+	text-align:center;
+	border:2px solid #CCC;
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	}
+body {
+	font: 11px Arial, Helvetica, sans-serif;
+	background: #ffffff url(images/main-bg.gif);
+	padding: 0;
+	margin: 0;
+}
+img {
+	border: none;
+}
+
+/* dock - top */
+.dock {
+	position: relative; 
+	height: 50px; 
+	text-align: center;
+}
+.dock-container {
+	position: absolute;
+	height: 50px;
+	background: url(images/dock-bg2.gif);
+	padding-left: 20px;
+}
+a.dock-item {
+	display: block;
+	width: 40px;
+	color: #000;
+	position: absolute;
+	top: 0px;
+	text-align: center;
+	text-decoration: none;
+	font: bold 12px Arial, Helvetica, sans-serif;
+}
+.dock-item img {
+	border: none; 
+	margin: 5px 10px 0px; 
+	width: 100%; 
+}
+.dock-item span {
+	display: none; 
+	padding-left: 20px;
+}
+
+/* dock2 - bottom */
+#dock2 {
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
+	left: 0px;
+}
+.dock-container2 {
+	position: absolute;
+	height: 50px;
+	background: url(images/dock-bg.gif);
+	padding-left: 20px;
+}
+a.dock-item2 {
+	display: block; 
+	font: bold 12px Arial, Helvetica, sans-serif;
+	width: 40px; 
+	color: #000; 
+	bottom: 0px; 
+	position: absolute;
+	text-align: center;
+	text-decoration: none;
+}
+.dock-item2 span {
+	display: none;
+	padding-left: 20px;
+}
+.dock-item2 img {
+	border: none; 
+	margin: 5px 10px 0px; 
+	width: 100%; 
+}

@@ -1,0 +1,5 @@
+Usuario: CRISTINA Data/Hora: 01-08-2012 (7:59) - Pedido: 1120 -   Acao = comprar_produto - Produto: 202 
+Usuario: THIAGO Data/Hora: 01-08-2012 (9:42) - Pedido: 1129 -   Acao = manutencao_produto - Produto: 1284 
+Usuario: CARLOS Data/Hora: 01-08-2012 (9:46) - Pedido: 1126 -   Acao = manutencao_produto - Produto: 20 
+Usuario: THIAGO Data/Hora: 01-08-2012 (9:49) - Pedido: 1130 -   Acao = manutencao_produto - Produto: 1 
+Usuario:  Data/Hora: 01-08-2012 (10:43) - Pedido: 1131 -   Acao = manutencao_produto - Produto: 304 

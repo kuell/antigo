@@ -1,0 +1,12 @@
+Usuario: CRISTINA Data/Hora: 28-12-2011 (5:59) - Pedido: 483 -   Acao = comprar_produto - Produto: 108 
+Usuario: CRISTINA Data/Hora: 28-12-2011 (5:59) - Pedido: 477 -   Acao = comprar_produto - Produto: 821 
+Usuario: CRISTINA Data/Hora: 28-12-2011 (5:59) - Pedido: 481 -   Acao = comprar_produto - Produto: 826 
+Usuario: CRISTINA Data/Hora: 28-12-2011 (5:59) - Pedido: 481 -   Acao = comprar_produto - Produto: 606 
+Usuario: WILLIAN Data/Hora: 28-12-2011 (8:42) - Pedido: 484 -   Acao = manutencao_produto - Produto: 827 
+Usuario: WILLIAN Data/Hora: 28-12-2011 (8:42) - Pedido: 484 -   Acao = manutencao_produto - Produto: 828 
+Usuario: WILLIAN Data/Hora: 28-12-2011 (8:42) - Pedido: 484 -   Acao = manutencao_produto - Produto: 829 
+Usuario:  Data/Hora: 28-12-2011 (13:56) - Pedido: 484 -   Acao = comprar_produto - Produto: 829 
+Usuario:  Data/Hora: 28-12-2011 (13:56) - Pedido: 484 -   Acao = comprar_produto - Produto: 71 
+Usuario:  Data/Hora: 28-12-2011 (13:56) - Pedido: 484 -   Acao = comprar_produto - Produto: 830 
+Usuario:  Data/Hora: 28-12-2011 (13:56) - Pedido: 485 -   Acao = comprar_produto - Produto: 41 
+Usuario:  Data/Hora: 28-12-2011 (14:09) - Pedido: 484 -   Acao = comprar_produto - Produto: 828 

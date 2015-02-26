@@ -1,0 +1,2 @@
+Usuario: NAUDER Data/Hora: 15-03-2012 (9:30) - Pedido: 729 -   Acao = manutencao_produto - Produto: 31 
+Usuario: NAUDER Data/Hora: 15-03-2012 (10:20) - Pedido: 732 -   Acao = manutencao_produto - Produto: 815 

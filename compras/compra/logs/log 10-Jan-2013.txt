@@ -1,0 +1,1 @@
+Usuario: TIAGO Data/Hora: 10-01-2013 (12:37) - Pedido: 1 -   Acao = comprar_produto - Produto: 221 

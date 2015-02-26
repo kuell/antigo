@@ -1,0 +1,3 @@
+Usuario: CRISTINA Data/Hora: 18-06-2012 (10:48) - Pedido: 997 -   Acao = baixar_pedido -  
+Usuario: CRISTINA Data/Hora: 18-06-2012 (10:48) - Pedido: 953 -   Acao = comprar_produto - Produto: 56 
+Usuario: CRISTINA Data/Hora: 18-06-2012 (10:48) - Pedido: 953 -   Acao = comprar_produto - Produto: 171 

@@ -1,0 +1,55 @@
+@charset "latin1";
+/* CSS Document */
+html{
+	height: 100%;
+	padding: 15px 0;
+	}
+body{
+	background:#999;
+	text-align:center;
+	margin: 0;
+	padding: 0;
+	top: auto;
+	
+	}
+table{
+	background:#FFF;
+	}
+table th{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:#03F;
+	color:#FFF;
+	width: auto;
+	text-align: left;
+		}
+table tr{
+	width:auto;
+	font-size: 11px;
+	background-color: #CCC;
+	}
+.titulo{
+	padding: 0 0 0 0;
+	background-color: #303;
+	color: #FFF;
+	}
+.menu{
+	float:left;
+	background:#CCC;
+	width: 15%;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	height: 90%;
+	}
+.conteudo{
+	float:right;
+	background:#CCC;
+	width: 100%;
+	margin: 0;
+	position: absolute;
+	height: 94%;
+	left: 0;
+	background-color: #333333;
+	top: 37px;
+	}

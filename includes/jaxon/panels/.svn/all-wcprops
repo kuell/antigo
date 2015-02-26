@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/sig/!svn/ver/2/includes/jaxon/panels
+END
+panels.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/sig/!svn/ver/2/includes/jaxon/panels/panels.inc.php
+END
+mx_ajax_request.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/sig/!svn/ver/2/includes/jaxon/panels/mx_ajax_request.php
+END
+Panel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/sig/!svn/ver/2/includes/jaxon/panels/Panel.class.php
+END
+PanelController.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sig/!svn/ver/2/includes/jaxon/panels/PanelController.class.php
+END

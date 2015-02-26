@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/sig/!svn/ver/2/includes/tng/triggers
+END
+tNG_ThrowError.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sig/!svn/ver/2/includes/tng/triggers/tNG_ThrowError.class.php
+END
+tNG_LinkedTrans.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sig/!svn/ver/2/includes/tng/triggers/tNG_LinkedTrans.class.php
+END
+tNG_FileUpload.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sig/!svn/ver/2/includes/tng/triggers/tNG_FileUpload.class.php
+END
+tNG_DynamicMedia.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sig/!svn/ver/2/includes/tng/triggers/tNG_DynamicMedia.class.php
+END
+tNG_Email.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/sig/!svn/ver/2/includes/tng/triggers/tNG_Email.class.php
+END
+tNG_DynamicThumbnail.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sig/!svn/ver/2/includes/tng/triggers/tNG_DynamicThumbnail.class.php
+END
+tNG_FieldCompare.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sig/!svn/ver/2/includes/tng/triggers/tNG_FieldCompare.class.php
+END
+tNG_SetOrderField.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sig/!svn/ver/2/includes/tng/triggers/tNG_SetOrderField.class.php
+END
+tNG_ManyToMany.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sig/!svn/ver/2/includes/tng/triggers/tNG_ManyToMany.class.php
+END
+tNG_CheckDetailRecord.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sig/!svn/ver/2/includes/tng/triggers/tNG_CheckDetailRecord.class.php
+END
+tNG_MFileUpload.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sig/!svn/ver/2/includes/tng/triggers/tNG_MFileUpload.class.php
+END
+tNG_ChkForbiddenWords.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sig/!svn/ver/2/includes/tng/triggers/tNG_ChkForbiddenWords.class.php
+END
+tNG_EmailRecordset.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/sig/!svn/ver/2/includes/tng/triggers/tNG_EmailRecordset.class.php
+END
+tNG_MImageUpload.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sig/!svn/ver/2/includes/tng/triggers/tNG_MImageUpload.class.php
+END
+tNG_Download.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/sig/!svn/ver/2/includes/tng/triggers/tNG_Download.class.php
+END
+tNG_EmailPageSection.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sig/!svn/ver/2/includes/tng/triggers/tNG_EmailPageSection.class.php
+END
+tNG_Logout.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/sig/!svn/ver/2/includes/tng/triggers/tNG_Logout.class.php
+END
+tNG_FormValidation.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/sig/!svn/ver/2/includes/tng/triggers/tNG_FormValidation.class.php
+END
+tNG_DeleteDetailRec.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sig/!svn/ver/2/includes/tng/triggers/tNG_DeleteDetailRec.class.php
+END
+tNG_RestrictAccess.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/sig/!svn/ver/2/includes/tng/triggers/tNG_RestrictAccess.class.php
+END
+tNG_FileListRecordset.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sig/!svn/ver/2/includes/tng/triggers/tNG_FileListRecordset.class.php
+END
+tNG_UserLoggedIn.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sig/!svn/ver/2/includes/tng/triggers/tNG_UserLoggedIn.class.php
+END
+tNG_ImageUpload.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sig/!svn/ver/2/includes/tng/triggers/tNG_ImageUpload.class.php
+END
+tNG_CheckMasterRecord.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sig/!svn/ver/2/includes/tng/triggers/tNG_CheckMasterRecord.class.php
+END
+tNG_CheckTableField.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sig/!svn/ver/2/includes/tng/triggers/tNG_CheckTableField.class.php
+END
+tNG_MtmFakeRs.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sig/!svn/ver/2/includes/tng/triggers/tNG_MtmFakeRs.class.php
+END
+.tidyconf
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/sig/!svn/ver/2/includes/tng/triggers/.tidyconf
+END
+tNG_DeleteFolder.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sig/!svn/ver/2/includes/tng/triggers/tNG_DeleteFolder.class.php
+END
+tNG_defTrigg.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/sig/!svn/ver/2/includes/tng/triggers/tNG_defTrigg.inc.php
+END
+tNG_MuploadHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sig/!svn/ver/2/includes/tng/triggers/tNG_MuploadHelper.class.php
+END
+tNG_Redirect.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/sig/!svn/ver/2/includes/tng/triggers/tNG_Redirect.class.php
+END
+tNG_FileDelete.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sig/!svn/ver/2/includes/tng/triggers/tNG_FileDelete.class.php
+END
+tNG_Captcha.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/sig/!svn/ver/2/includes/tng/triggers/tNG_Captcha.class.php
+END
+tNG_CheckUnique.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sig/!svn/ver/2/includes/tng/triggers/tNG_CheckUnique.class.php
+END
+tNG_TidyContent.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sig/!svn/ver/2/includes/tng/triggers/tNG_TidyContent.class.php
+END
+tNG_TidyContent.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sig/!svn/ver/2/includes/tng/triggers/tNG_TidyContent.inc.php
+END

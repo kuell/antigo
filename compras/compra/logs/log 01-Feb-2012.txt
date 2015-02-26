@@ -1,0 +1,3 @@
+Usuario: WILLIAN Data/Hora: 01-02-2012 (8:03) - Pedido: 577 -   Acao = manutencao_produto - Produto: 640 
+Usuario: THIAGO Data/Hora: 01-02-2012 (8:48) - Pedido: 578 -   Acao = manutencao_produto - Produto: 55 
+Usuario: THIAGO Data/Hora: 01-02-2012 (8:49) - Pedido: 578 -   Acao = manutencao_produto - Produto: 381 

@@ -1,0 +1,2 @@
+Usuario:  Data/Hora: 06-01-2012 (10:02) - Pedido: 497 -   Acao = comprar_produto - Produto: 627 
+Usuario:  Data/Hora: 06-01-2012 (10:02) - Pedido: 497 -   Acao = comprar_produto - Produto: 650 

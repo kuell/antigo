@@ -1,0 +1,96 @@
+=== BEGIN MESSAGE ===
+Client IP:
+  186.219.223.237
+
+Host:
+  189.31.140.171
+
+Requested URI:
+  http://189.31.140.171/login.php
+
+Date:
+  2014-11-28 16:42:33
+
+Error:
+  SQL error: Table 'sig.funcionario' doesn't exist.
+
+Developer Details:
+  SQL error: SELECT funcionario.*, id_funcionario AS kt_login_id, login AS kt_login_user, senha AS kt_login_password  FROM funcionario WHERE login='TIAGO'. (SQL_ERROR)
+
+tNG Execution Trace:
+  tNG_login.executeTransaction
+    STARTER.Trigger_Default_Starter
+    tNG_login.doTransaction
+      BEFORE.Trigger_Default_FormValidation
+      tNG_login.prepareSQL
+      tNG_login.executeTransaction - execute sql*
+  tNG_login.getRecordset
+  tNG_login.getFakeRsArr
+  tNG_login.getLocalRecordset
+  tNG_login.getFakeRecordset
+  tNG_login.getFakeRecordset
+=== END MESSAGE ===
+=== BEGIN MESSAGE ===
+Client IP:
+  186.219.223.237
+
+Host:
+  189.31.140.171
+
+Requested URI:
+  http://189.31.140.171/login.php
+
+Date:
+  2014-11-28 16:42:37
+
+Error:
+  SQL error: Table 'sig.funcionario' doesn't exist.
+
+Developer Details:
+  SQL error: SELECT funcionario.*, id_funcionario AS kt_login_id, login AS kt_login_user, senha AS kt_login_password  FROM funcionario WHERE login='TIAGO'. (SQL_ERROR)
+
+tNG Execution Trace:
+  tNG_login.executeTransaction
+    STARTER.Trigger_Default_Starter
+    tNG_login.doTransaction
+      BEFORE.Trigger_Default_FormValidation
+      tNG_login.prepareSQL
+      tNG_login.executeTransaction - execute sql*
+  tNG_login.getRecordset
+  tNG_login.getFakeRsArr
+  tNG_login.getLocalRecordset
+  tNG_login.getFakeRecordset
+  tNG_login.getFakeRecordset
+=== END MESSAGE ===
+=== BEGIN MESSAGE ===
+Client IP:
+  186.219.223.237
+
+Host:
+  189.31.140.171
+
+Requested URI:
+  http://189.31.140.171/login.php
+
+Date:
+  2014-11-28 16:42:41
+
+Error:
+  SQL error: Table 'sig.funcionario' doesn't exist.
+
+Developer Details:
+  SQL error: SELECT funcionario.*, id_funcionario AS kt_login_id, login AS kt_login_user, senha AS kt_login_password  FROM funcionario WHERE login='TIAGO'. (SQL_ERROR)
+
+tNG Execution Trace:
+  tNG_login.executeTransaction
+    STARTER.Trigger_Default_Starter
+    tNG_login.doTransaction
+      BEFORE.Trigger_Default_FormValidation
+      tNG_login.prepareSQL
+      tNG_login.executeTransaction - execute sql*
+  tNG_login.getRecordset
+  tNG_login.getFakeRsArr
+  tNG_login.getLocalRecordset
+  tNG_login.getFakeRecordset
+  tNG_login.getFakeRecordset
+=== END MESSAGE ===

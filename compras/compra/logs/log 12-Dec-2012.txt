@@ -1,0 +1,7 @@
+Usuario: DIEGO Data/Hora: 12-12-2012 (6:54) - Pedido: 1506 -   Acao = comprar_produto - Produto: 1112 
+Usuario: DIEGO Data/Hora: 12-12-2012 (6:54) - Pedido: 1506 -   Acao = comprar_produto - Produto: 1563 
+Usuario: DIEGO Data/Hora: 12-12-2012 (6:54) - Pedido: 1506 -   Acao = comprar_produto - Produto: 82 
+Usuario: DIEGO Data/Hora: 12-12-2012 (6:54) - Pedido: 1506 -   Acao = comprar_produto - Produto: 86 
+Usuario: DIEGO Data/Hora: 12-12-2012 (6:54) - Pedido: 1506 -   Acao = comprar_produto - Produto: 1111 
+Usuario: DIEGO Data/Hora: 12-12-2012 (6:55) - Pedido: 1506 -   Acao = comprar_produto - Produto: 817 
+Usuario: DIEGO Data/Hora: 12-12-2012 (7:29) - Pedido: 1502 -   Acao = comprar_produto - Produto: 1562 

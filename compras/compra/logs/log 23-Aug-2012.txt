@@ -1,0 +1,2 @@
+Usuario: WILLIAN Data/Hora: 23-08-2012 (10:11) - Pedido: 1195 -   Acao = manutencao_produto - Produto: 119 
+Usuario: CRISTINA Data/Hora: 23-08-2012 (14:34) - Pedido: 1188 -   Acao = baixar_pedido -  

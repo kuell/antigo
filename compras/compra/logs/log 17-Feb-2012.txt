@@ -1,0 +1,5 @@
+Usuario:  Data/Hora: 17-02-2012 (13:14) - Pedido: 596 -   Acao = baixar_pedido -  
+Usuario:  Data/Hora: 17-02-2012 (13:21) - Pedido: 629 -   Acao = comprar_produto - Produto: 269 
+Usuario:  Data/Hora: 17-02-2012 (13:21) - Pedido: 629 -   Acao = comprar_produto - Produto: 270 
+Usuario:  Data/Hora: 17-02-2012 (13:21) - Pedido: 629 -   Acao = comprar_produto - Produto: 272 
+Usuario:  Data/Hora: 17-02-2012 (13:21) - Pedido: 614 -   Acao = comprar_produto - Produto: 913 
