@@ -1,7 +1,9 @@
 <?php
 
 require ('../../Connections/conect_mysqli.php');
+require ('../../Connections/connect_pgsql.php');
 require ('../../class/CustoProducao.class.php');
+require ('../../class/Interno.class.php');
 require ("../../bibliotecas/fpdf/fpdf.php");
 
 class PDF extends FPDF {
@@ -94,6 +96,8 @@ class PDF extends FPDF {
 		$this->Cell(35, 3.5, number_format($custo->maoDeObraDireta/$custo->kgProduzido, 3, ',', '.'), 1, 0, "R", 1);
 		$this->Ln();
 
+		arsort($custo->rh['DIRETO']);
+
 		foreach ($custo->rh['DIRETO'] as $key => $val) {
 			$this->Cell(60, 3.5, strtoupper(utf8_decode($key)), 1, 0, "L", 0);
 			$this->Cell(30, 3.5, number_format($val, 2, ',', '.'), 1, 0, "R");
@@ -135,6 +139,8 @@ class PDF extends FPDF {
 		$this->Cell(30, 3.5, number_format($custo->maoDeObraIndireta/$custo->abatePeso, 3, ',', '.'), 1, 0, "R", 1);
 		$this->Cell(35, 3.5, number_format($custo->maoDeObraIndireta/$custo->kgProduzido, 3, ',', '.'), 1, 0, "R", 1);
 		$this->Ln();
+
+		arsort($custo->rh['INDIRETO']);
 
 		foreach ($custo->rh['INDIRETO'] as $key => $val) {
 			$this->Cell(60, 3.5, strtoupper(utf8_decode($key)), 1, 0, "L", 0);

@@ -36,8 +36,6 @@ class CustoProducao extends Connect {
                         `ProdKg`('$datai', '$dataf') as KgProd,
                         `Taxa`('$datai', '$dataf') as taxa,
 						`CustoComercial`('$datai', '$dataf') as custoComercial";
-		//	echo $sql;
-		//	die;
 
 		$this->dados = $this->executeSql($sql)->fetch_object();
 		$this->rh    = $this->getValoresRh();
@@ -109,11 +107,20 @@ class CustoProducao extends Connect {
 	}
 
 	function getValoresRh() {
+		//Pega horas dos internos //
+		$i                     = new Interno();
+		$interno_balanco       = $i->horas_trabalhadas_setor(1, $this->datai, $this->dataf);
+		$interno_produtividade = $i->horas_trabalhadas_produtividade($this->datai, $this->dataf);
+
+		//-- Fim pega hora dos internos //
+
 		$sql = "Select
+					a.interno_setor as interno_setor,
                     a.`setor`,
                     a.tipo_custo,
                     sum(c.`horas_trabalhadas`) as horaTrab,
-                    `custoHoraSetor`('$this->datai', '$this->dataf', a.id_setor) as custoHora
+                    f_rh_balanco_valor_item(a.id_setor, 12, ('$this->datai' - interval 1 month), ('$this->dataf' - interval 1 month)) as balanco_remuneracao_bruta,
+                    f_rh_balanco_valor_item(a.id_setor, 1, ('$this->datai' - interval 1 month), ('$this->dataf' - interval 1 month)) as balanco_horas_trab
                 from
                     setor a
                     inner join `rh_produtividade` c on(a.`id_setor` = c.`setor`)
@@ -123,10 +130,14 @@ class CustoProducao extends Connect {
                         a.id_setor
                 order by
                         (`custoHoraSetor`('$this->datai', '$this->dataf', a.id_setor) * sum(c.`horas_trabalhadas`)) desc";
+
 		$qr = $this->executeSql($sql);
 
 		while ($rs = $qr->fetch_object()) {
-			$return[$rs->tipo_custo][$rs->setor] = round($rs->horaTrab*$rs->custoHora, 2);
+			$custoHora         = $rs->balanco_remuneracao_bruta/($rs->balanco_horas_trab+$this->getHorasInt($interno_balanco[$rs->interno_setor]));
+			$horas_trabalhadas = $rs->horaTrab+$this->getHorasInt($interno_produtividade[$rs->interno_setor]);
+
+			$return[$rs->tipo_custo][$rs->setor] = $custoHora*$horas_trabalhadas;
 		}
 
 		return $return;
@@ -156,6 +167,15 @@ class CustoProducao extends Connect {
 		}
 
 		return $result;
+	}
+
+	function getHorasInt($hora) {
+		if (!$hora) {
+			return 0;
+		} else {
+			$r = explode(':', $hora);
+			return $r[0].'.'.$r[1];
+		}
 	}
 }
 ?>

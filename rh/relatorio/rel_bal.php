@@ -174,6 +174,10 @@ class PDF extends FPDF {
 			$this->Cell($w[1], 5, number_format($val->faltas, 2, ',', '.'), 'RBT', 0, 'R', 0);
 			$this->Ln();
 
+			$this->Cell($w[0], 5, 'FERIAS', 'LBT', 0, 'L', 0);
+			$this->Cell($w[1], 5, number_format($val->ferias, 2, ',', '.'), 'RBT', 0, 'R', 0);
+			$this->Ln();
+
 			$this->Cell($w[0], 5, 'ACIDENTES E AFASTAMENTOS', 'LBT', 0, 'L', 0);
 			$this->Cell($w[1], 5, number_format($val->acidAfast, 2, ',', '.'), 'RBT', 0, 'R', 0);
 			$this->Ln();
@@ -200,6 +204,10 @@ class PDF extends FPDF {
 
 			$this->Cell($w[0], 5, utf8_decode('REMUNERAÇÃO BRUTA'), 'LBT', 0, 'L', 0);
 			$this->Cell($w[1], 5, number_format($val->remBruta, 2, ',', '.'), 'RBT', 0, 'R', 0);
+			$this->Ln();
+
+			$this->Cell($w[0], 5, utf8_decode('QUANTIDADE DE FUNCIONARIOS TEMPORARIOS DESLIGADOS'), 'LBT', 0, 'L', 0);
+			$this->Cell($w[1], 5, number_format($val->funcTempoDesl, 2, ',', '.'), 'RBT', 0, 'R', 0);
 			$this->Ln();
 
 			// --- Variaveis --- ///

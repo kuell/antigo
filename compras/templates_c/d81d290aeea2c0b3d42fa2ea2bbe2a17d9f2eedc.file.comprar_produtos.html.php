@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2014-11-28 10:40:30
+<?php /* Smarty version Smarty-3.1.12, created on 2015-02-27 08:32:51
          compiled from "view/comprar_produtos.html" */ ?>
 <?php /*%%SmartyHeaderCode:13503390345478895e9bfd11-20968811%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd81d290aeea2c0b3d42fa2ea2bbe2a17d9f2eedc' => 
     array (
       0 => 'view/comprar_produtos.html',
-      1 => 1417177385,
+      1 => 1424972964,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_5478895eae41b7_39447816',
   'variables' => 
   array (
     'produtos' => 0,
     'row' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_5478895eae41b7_39447816',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5478895eae41b7_39447816')) {function content_5478895eae41b7_39447816($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("topo.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
