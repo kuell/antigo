@@ -270,7 +270,7 @@ class PDF extends FPDF {
 			$this->Cell($w[1], 5, 'R$ '.number_format(($val->remBruta/$val->pesoAbate), 5, ',', '.'), 'RBT', 0, 'R', 0);
 			$this->Ln();
 			$this->Cell($w[0], 5, utf8_decode('SALARIO MEDIO POR SETOR'), 'LBT', 0, 'L', 0);
-			$this->Cell($w[1], 5, number_format($val->remBruta/$totalFuncionarios, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+			$this->Cell($w[1], 5, 'R$ '.number_format($val->remBruta/$totalFuncionarios, 2, ',', '.'), 'RBT', 0, 'R', 0);
 			$this->Ln();
 
 		}
