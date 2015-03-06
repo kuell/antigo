@@ -1,7 +1,4 @@
 $(function(){
-
-	$(".valor").maskMoney({symbol:"R$ ",decimal:",", thousands: "." });
-	$(".qtd").maskMoney({symbol:"",decimal:",", thousands: "." });
 	$(".negativo").maskMoney({symbol:"",decimal:",", thousands: ".", allowNegative: true });
 	
 	$("select").css("background","#FFF");
