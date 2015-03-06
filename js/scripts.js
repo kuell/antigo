@@ -43,6 +43,6 @@ $(function(){
     $(".cnpj_cpf").blur(function(){
         qtd = $(this).val().length; 
     });
-    $(".valor").maskMoney({symbol:"R$ ",decimal:",", thousands: "." });
+    
     $(".qtd").maskMoney({symbol:"",decimal:",", thousands: "." });
 });
