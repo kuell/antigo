@@ -1,26 +1,23 @@
-<?php 
-	require("../../Connections/conn.php");
+<?php
+require ("../../Connections/conn.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<?php 	
-	if($_REQUEST["data"] == ""){
-		$data = date('d-m-Y');
-	}
-	else{
-		$data= date('d-m-Y', strtotime($_REQUEST['data']));
-	}
-	
+<?php
+if ($_REQUEST["data"] == "") {
+	$data = date('d-m-Y');
+} else {
+	$data = date('d-m-Y', strtotime($_REQUEST['data']));
+}
+
 ?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Movimentação Almoxarifado</title>
 <script type="text/javascript" src="../../js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="../../bibliotecas/mascara.js"></script>
+<script type="text/javascript"  src="../../js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="../../js/scripts.js"></script>
 <script type="text/javascript">
-	$(function(){
-			   $(".data").mask("99-99-9999");
-			   })
 	function func(){
 		data = document.getElementById('data').value
 		window.open('operacao.php?data='+data+'&id=0', 'Print', 'channelmode=yes')
@@ -31,7 +28,7 @@
 
 <body>
 <div class="acao_pagina">Movimentação do Almoxarifado</div>
-<div><form id="form1" name="form1" method="post" action="?data=<?php echo $data ?>&">
+<div><form id="form1" name="form1" method="post" action="?data=<?php echo $data?>&">
   <table width="auto%" border="0" align="center" class="KT_tngtable">
     <tr>
       <th scope="row">Data:</th>
@@ -60,11 +57,11 @@
     <th>Estoque Atual</th>
     <th>Valor Atual</th>
   </tr>
-   
-  <?php
-  
-	$sql = "
-		SELECT 
+
+<?php
+
+$sql = "
+		SELECT
 			  mov_almox.`id` as cod,
 			  `data`,
 			  `grupo`.descricao as descricao,
@@ -77,27 +74,23 @@
 			  (select quantidade from estoque_atual where id = grupo.id) as estoque,
 			  estoque_atual,
 			  valor_atual
-			FROM 
+			FROM
 			  `mov_almox` left outer join grupo on (mov_almox.grupo = grupo.id)
 			";
-	$qr = mysql_query($sql) or die (mysql_error());
-	while($linha = mysql_fetch_assoc($qr)){
-		?>
-  <tr>
-    <td><?php echo $linha['cod']; ?></td>
-    <td><?php echo date('d/m/Y', strtotime($linha['data'])); ?></td>
-    <td><?php echo $linha['descricao']; ?></td>
-    <td><?php if($linha['tipo'] == 'ctfe'){echo 'Contagem Fisica Entrada';}
-		  elseif($linha['tipo'] == 'ctfs'){echo 'Contagem Fisica Saida';}
-		  elseif($linha['tipo'] == 'deventrada'){echo 'Devolução de entrada';}
-		  elseif($linha['tipo'] == 'devsaida'  ){echo 'Devolução de saida';}
-		  else {echo $linha['tipo'];} ?></td>
-    <td><?php echo number_format($linha['qtd'],2,',','.'); ?></td>
-    <td><?php echo number_format($linha['val'],2,',','.'); ?></td>
-    <td><?php echo number_format($linha['estoque_atual'],2,',','.'); ?></td>
-    <td><?php echo number_format($linha['valor_atual'],2,',','.'); ?></td>
-  </tr>
-  <?php } ?>
+$qr = mysql_query($sql) or die(mysql_error());
+while ($linha = mysql_fetch_assoc($qr)) {
+	?>
+	  <tr>
+	    <td><?php echo $linha['cod'];?></td>
+	    <td><?php echo date('d/m/Y', strtotime($linha['data']));?></td>
+	    <td><?php echo $linha['descricao'];?></td>
+	    <td><?php if ($linha['tipo'] == 'ctfe') {echo 'Contagem Fisica Entrada';} elseif ($linha['tipo'] == 'ctfs') {echo 'Contagem Fisica Saida';} elseif ($linha['tipo'] == 'deventrada') {echo 'Devolução de entrada';} elseif ($linha['tipo'] == 'devsaida') {echo 'Devolução de saida';} else {echo $linha['tipo'];}?></td>
+	    <td><?php echo number_format($linha['qtd'], 2, ',', '.');?></td>
+	    <td><?php echo number_format($linha['val'], 2, ',', '.');?></td>
+	    <td><?php echo number_format($linha['estoque_atual'], 2, ',', '.');?></td>
+	    <td><?php echo number_format($linha['valor_atual'], 2, ',', '.');?></td>
+	  </tr>
+	<?php }?>
 </table>
 </body>
 </html>
