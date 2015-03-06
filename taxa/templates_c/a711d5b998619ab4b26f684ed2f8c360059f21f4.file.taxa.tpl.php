@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-02-27 08:45:06
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-06 08:42:37
          compiled from "view/taxa.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:193233494754cbb87f685b69-89964008%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a711d5b998619ab4b26f684ed2f8c360059f21f4' => 
     array (
       0 => 'view/taxa.tpl',
-      1 => 1424972965,
+      1 => 1425645755,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54cbb87f78c2f4_49012905')) {function content_54cbb87f78c2f4_49012905($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig_antigo/antigo/includes/smarty/libs/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_54cbb87f78c2f4_49012905')) {function content_54cbb87f78c2f4_49012905($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sigAntigo/sig2/includes/smarty/libs/plugins/modifier.date_format.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("../../view/topo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <?php if ((($tmp = @$_smarty_tpl->tpl_vars['op']->value)===null||$tmp==='' ? '' : $tmp)==''){?>
@@ -44,7 +44,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     })
             }
             return false;
-        }    
+        }   
+
+    function getAjuste(){
+        window.open('Ajustes.php?'+$('form').serialize(), 'Print', 'channelmode=yes, scrollbars=1');
+    } 
+
     </script>
     
 <div class="well form-search">
@@ -52,6 +57,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <fieldset>
         <legend>Controle de taxas</legend>
             <label>Data:</label>
+            <<?php ?>?php !empty($_GET['datai'])? echo $_GET['datai']: echo date('d/m/Y'); ?<?php ?>>
                 <input type="text" name="datai" value="<?php echo (($tmp = @$_GET['datai'])===null||$tmp==='' ? (smarty_modifier_date_format(time(),"%d/%m/%Y")) : $tmp);?>
 " class="data">
                 <input type="text" name="dataf" value="<?php echo (($tmp = @$_GET['dataf'])===null||$tmp==='' ? (smarty_modifier_date_format(time(),"%d/%m/%Y")) : $tmp);?>
@@ -71,7 +77,8 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
             <?php } ?>
             </select>
             
-            <input name="acao" value="Buscar" type="submit" class="btn" />            
+            <input name="acao" value="Buscar" type="submit" class="btn" />
+            <button value="Buscar" type="button" class="btn" onclick="getAjuste()">Ajustes</button>            
     </fieldset>
 </form>
 </div>
