@@ -4,6 +4,7 @@ $(function(){
         decimal:",", 
         thousands: "."
     });
+    $(".qtd").maskMoney({symbol:"",decimal:",", thousands: "." });
     $(".fone").mask("(99) 9999-9999");
     $(".hora").mask("99:99");
     $("#voltar").click(function(){
@@ -43,6 +44,5 @@ $(function(){
     $(".cnpj_cpf").blur(function(){
         qtd = $(this).val().length; 
     });
-    
-    $(".qtd").maskMoney({symbol:"",decimal:",", thousands: "." });
+
 });
