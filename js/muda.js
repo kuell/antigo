@@ -33,12 +33,13 @@ $("input[type=submit]").css("background","url(../includes/skins/aqua/images/butt
 })
 
 function maiusculo(qual)
-{
-uCase = qual.value.toUpperCase();
-qual.value = uCase;
-}
+	{
+		uCase = qual.value.toUpperCase();
+		qual.value = uCase;
+	}
+
 function minusculo(qual)
-{
-uCase = qual.value.toLowerCase();
-qual.value = uCase;
-}
+	{
+		uCase = qual.value.toLowerCase();
+		qual.value = uCase;
+	}
