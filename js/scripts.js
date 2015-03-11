@@ -2,9 +2,15 @@ $(function(){
     $(".valor").maskMoney({
         symbol:"R$ ",
         decimal:",", 
-        thousands: "."
+        thousands: ".",
+        allowZero:true
     });
-    $(".qtd").maskMoney({symbol:"",decimal:",", thousands: "." });
+    $(".qtd").maskMoney({
+        symbol:"",
+        decimal:",", 
+        thousands: ".",
+        allowZero:true
+    });
     $(".fone").mask("(99) 9999-9999");
     $(".hora").mask("99:99");
     $("#voltar").click(function(){
