@@ -114,8 +114,8 @@ class PDF extends FPDF {
 
 	function Dados() {
 		########		RESULTADOS INDUSTRIAIS		########
-		$mes = date("m", strtotime($_GET['data1']));
-		$ano = date("Y", strtotime($_GET['data1']));
+		$data = explode('/', $_GET['data1']);
+		print_r($data);
 
 		$sql = "Select
               distinct(a.data),
@@ -140,8 +140,8 @@ class PDF extends FPDF {
               a.`data`";
 
 		$qr      = mysql_query($sql) or die("Erro Sql Dados".mysql_error());
-		$custoRH = $this->calcHora($mes, $ano);
-		$energia = $this->energia($mes, $ano);
+		$custoRH = $this->calcHora($data[1], $data[2]);
+		$energia = $this->energia($data[1], $data[2]);
 
 		while ($res = mysql_fetch_object($qr)) {
 			$result[$res->data]['pesoAbate']      = $res->pesoAbate;

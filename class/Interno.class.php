@@ -28,16 +28,21 @@ class Interno extends ConnectPgsql {
 	}
 	public function horas_trabalhadas_setor($id, $datai, $dataf) {
 		$sql = sprintf("Select
-					c.id,
-					sum(a.saida - a.entrada) as horasTrabalhadas
-				from
-					interno_frequencias a
-					inner join internos b on a.interno_id = b.id
-					inner join setors c on b.setor_id = c.id
-				where
-					a.data between date('%s') - interval '1' month and date('%s') - interval '1' month
-				group by
-					c.id", $datai, $dataf);
+							c.id,
+							sum(a.saida - a.entrada) as horasTrabalhadas
+						from
+							interno_frequencias a
+							inner join internos b on a.interno_id = b.id
+							inner join setors c on b.setor_id = c.id
+						where
+							extract(month from a.data)
+								between (month from date('%s') - interval '1' month) and
+										(month from date('%s') - interval '1' month) and
+							extract(year from a.data)
+								between (year from date('%s') - interval '1' month) and
+										(year from date('%s') - interval '1' month)
+						group by
+							c.id", $datai, $dataf);
 
 		$res = $this->RunSelect($sql);
 
