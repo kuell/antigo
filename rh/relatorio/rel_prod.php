@@ -67,29 +67,37 @@ class PDF extends FPDF {
 		$this->Ln(5);
 		$this->Cell($w[0], 4, 'SETOR', 1, 0, 'C', 1);
 		$this->Cell($w[1], 4, 'HRS TRABALHADAS', 1, 0, 'C', 1);
-		//	$this->Cell($w[1], 4, 'HRS TRAB. INTERNOS', 1, 0, 'C', 1);
+//		$this->Cell($w[1], 4, 'HRS TRAB. INTERNOS', 1, 0, 'C', 1);
 		$this->Cell($w[1], 4, 'CUSTO PADRAO HORA ', 1, 0, 'C', 1);
 		$this->Cell($w[1], 4, 'TOTAL', 1, 0, 'C', 1);
 		$this->Ln();
+		
+		$this->SetFillColor(230);
 
 		while ($val = $res->fetch_object()) {
+			$fill = 0;
+			if($interno[$val->interno_setor] != 0){
+//				echo $interno[$val->interno_setor];
+				$fill = 1;
+			}			
 
-			$this->Cell($w[0], 4, $val->setor, 1, 0, 'L', 0);
-			$this->Cell($w[1], 4, number_format($val->horas_trabalhadas, 2, ',', '.'), 1, 0, 'R', 0);
-			//	$this->Cell($w[1], 4, number_format(doubleval($interno[$val->interno_setor]), 2, ',', '.'), 1, 0, 'R', 0);
+			$this->Cell($w[0], 4, $val->setor, 1, 0, 'L',  $fill);
+			$this->Cell($w[1], 4, number_format($val->horas_trabalhadas, 2, ',', '.'), 1, 0, 'R', $fill);
+//			$this->Cell($w[1], 4, number_format(doubleval($interno[$val->interno_setor]), 2, ',', '.'), 1, 0, 'R', 0);
 
 			$custoHora = ($val->remBruta/(doubleval($interno[$val->interno_setor])+$val->hTrabBal));
 
-			$this->Cell($w[1], 4, 'R$ '.number_format($custoHora, 2, ',', '.'), 1, 0, 'R', 0);
+			$this->Cell($w[1], 4, 'R$ '.number_format($custoHora, 2, ',', '.'), 1, 0, 'R', $fill);
 
-			$this->Cell($w[1], 4, 'R$ '.number_format(($custoHora*$val->horas_trabalhadas), 2, ',', '.'), 1, 0, 'R', 0);
+			$this->Cell($w[1], 4, 'R$ '.number_format(($custoHora*$val->horas_trabalhadas), 2, ',', '.'), 1, 0, 'R', $fill);
 			$this->Ln();
 
 			$totalHorasTrab         = $totalHorasTrab+$val->horas_trabalhadas;
 			$totalHorasTrabInternos = $totalHorasTrabInternos+$interno[$val->interno_setor];
 			$total                  = $total+($custoHora*$val->horas_trabalhadas);
 		}
-
+		
+		$this->SetFillColor(200);
 		$this->Cell($w[0], 4, "TOTAIS", 0, 0, 'L', 1);
 		$this->Cell($w[1], 4, number_format($totalHorasTrab, 2, ',', '.'), 0, 0, 'R', 1);
 		//$this->Cell($w[1], 4, number_format($totalHorasTrabInternos, 2, ',', '.'), 0, 0, 'R', 1);

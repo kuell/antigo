@@ -36,13 +36,13 @@ class Interno extends ConnectPgsql {
 							inner join setors c on b.setor_id = c.id
 						where
 							extract(month from a.data)
-								between (month from date('%s') - interval '1' month) and
-										(month from date('%s') - interval '1' month) and
+								between extract(month from date('%s') - interval '1' month) and
+									extract(month from date('%s') - interval '1' month) and
 							extract(year from a.data)
-								between (year from date('%s') - interval '1' month) and
-										(year from date('%s') - interval '1' month)
+								between extract(year from date('%s') - interval '1' month) and
+										extract(year from date('%s') - interval '1' month)
 						group by
-							c.id", $datai, $dataf);
+							c.id", $datai, $dataf, $datai, $dataf);
 
 		$res = $this->RunSelect($sql);
 
