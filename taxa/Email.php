@@ -55,6 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript">
+        function abre(arquivo){
+            open('uploads/'+arquivo, 'Print', 'channelmode=true');
+        }
+
 		$(function(){
 			$.get('rel_taxa.php?salvar=1', {cor: '<?php echo $cor;?>', datai: '<?php echo $_GET["datai"];?>', dataf: '<?php echo $_GET["dataf"];?>'}, function(data){
 				window.console.log(data)
@@ -68,10 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 location = 'Taxa.php?rel'
             });
 		})
-
-        function abre(url){
-            window.open(url, 'Print', 'channelmode=true');
-        }
 
 	</script>
 </head>
@@ -120,10 +120,10 @@ Segue Anexo. </textarea>
     </div>
 
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">Arquivo:</label>
+        <label for="name" class="col-sm-2 control-label">Arquivo anexo:</label>
         <div class="col-sm-10">
-        <a href="#" onclick="abre('uploads/<?php echo $nomeArquivo;?>')"><?php echo $nomeArquivo;
-?></a>
+        <button class="btn btn-primary" onclick="abre('<?php echo $nomeArquivo;?>')" type="button"><?php echo $nomeArquivo;
+?></button>
         <input type="hidden" name="arquivo" value="<?php echo $nomeArquivo;?>">
         </div>
     </div>
