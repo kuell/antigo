@@ -45,8 +45,8 @@
             <tr>
                 <td>{$row.pcId}</td>
                 <td>{$row.prodId} - {$row.produto}</td>
-                <td>{$row.data|date_format:"%d/%m/%Y"}</td>
-                <td>{$row.dataCompra|date_format:"%d/%m/%Y"}</td>
+                <td>{($row.data|date_format:"%d/%m/%Y")}</td>
+                <td>{($row.dataCompra|date_format:"%d/%m/%Y")}</td>
                 <td>{$row.status}</td>
                 <td>
                     <a href="#" onclick="acao('Receber','{$row.prodId}', '{$row.pcId}', '{$row.produto}')">

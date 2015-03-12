@@ -53,7 +53,7 @@
         <tr {if $row.prioridade eq " ALTA"}class="prio_auta"{/if}>
             <td>{$row.pcId}</td>
             <td>{$row.prodId} - {$row.produto}</td>
-            <td>{$row.qtd|string_format:'%.2f'}</td>
+            <td>{($row.qtd|string_format:'%.2f')}</td>
             <td>{$row.qtdEstoque|string_format:'%.2f'}</td>
             <td>{($row.qtdEstoque+$row.qtd)|string_format:'%.2f'}</td>
             <td>{$row.osi}</td>

@@ -12,7 +12,7 @@ $(function(){
         <table width="95%" class="KT_tngtable">
             <tr>
                 <td style="text-align: center" colspan="8">
-                    <img align="left" src="../logo/Logo.JPG" width="150" height="75" />
+                    <img align="left" src="../logo/Logo.jpg" width="150" height="75" />
                     <p><h1>Frizelo Frigorificos Ltda</h1></p>
                     <h2>Pedido de Compra No. {$id}</h2>
                 </td>
@@ -46,7 +46,7 @@ $(function(){
             <tr style="background: {cycle values='#EEE,#FFF'}">
                 <td>{$row.prodId}</td>
                 <td colspan="2">{$row.produto}</td>
-                <td>{$row.qtd|string_format:"%.2f"}</td>
+                <td>{($row.qtd|string_format:"%.2f")}</td>
                 <td>{$row.qtdEstoque|string_format:"%.2f"}</td>
                 <td>{$row.qtd + $row.qtdEstoque|string_format:"%2.2f"}</td>
                 <td>{$row.unidade}</td>

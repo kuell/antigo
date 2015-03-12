@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-03-02 08:03:27
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 15:01:10
          compiled from "view/pedido_form.html" */ ?>
 <?php /*%%SmartyHeaderCode:1775828126547c5d0819bff3-90253788%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '095eee45c07dae5bf7450309f5bb9a17753c2af0' => 
     array (
       0 => 'view/pedido_form.html',
-      1 => 1424972964,
+      1 => 1426186864,
       2 => 'file',
     ),
   ),
@@ -125,7 +125,7 @@ $_smarty_tpl->tpl_vars['set']->_loop = true;
      <?php }else{ ?>
         <input name="acao" type="submit" class="botao"  value="Editar" />
    	<a href="ProdutoPedido.php?incluir&id=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-" rel="superbox[iframe][800x500]"><input type="button" value="Itens" /></a>
+" rel="superbox[iframe][900x500]"><input type="button" value="Itens" /></a>
         <a href="?visualizar&id=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 " rel="superbox[iframe][800x500]"><input type="button" value="Visualizar" /></a>
      <?php }?>

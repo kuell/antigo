@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-02-27 10:08:05
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 15:44:18
          compiled from "view/rel_status.html" */ ?>
 <?php /*%%SmartyHeaderCode:14670756525478981c719211-38067823%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '45adacda872338ffb5ab39ceeaebf108c727b480' => 
     array (
       0 => 'view/rel_status.html',
-      1 => 1424972964,
+      1 => 1426189457,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5478981c9d72f1_84090175')) {function content_5478981c9d72f1_84090175($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig_antigo/antigo/includes/smarty/libs/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_5478981c9d72f1_84090175')) {function content_5478981c9d72f1_84090175($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sigAntigo/sig2/includes/smarty/libs/plugins/modifier.date_format.php';
 ?>
 <?php echo $_smarty_tpl->getSubTemplate ('topo.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
@@ -51,7 +51,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <tr>
                 <th scope="row">Periodo:</th>
                 <td>
-                    <input type="text" class="data" name="datai" id="datai" value="<?php echo smarty_modifier_date_format(time(),"01/%m/%Y");?>
+                    <input type="text" class="data" name="datai" id="datai" value="<?php echo (smarty_modifier_date_format(time(),"01/%m/%Y"));?>
 " />
                     a
                     <input type="text" name="dataf" class="data" id="dataf" value="<?php echo smarty_modifier_date_format(time(),"%d/%m/%Y");?>

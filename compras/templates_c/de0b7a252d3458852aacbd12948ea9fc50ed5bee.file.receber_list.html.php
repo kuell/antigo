@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-03-02 08:31:10
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 15:45:39
          compiled from "view/receber_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:13511476585478896568e684-88439158%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'de0b7a252d3458852aacbd12948ea9fc50ed5bee' => 
     array (
       0 => 'view/receber_list.html',
-      1 => 1424972964,
+      1 => 1426189440,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54788965708358_83282570')) {function content_54788965708358_83282570($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig_antigo/antigo/includes/smarty/libs/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_54788965708358_83282570')) {function content_54788965708358_83282570($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sigAntigo/sig2/includes/smarty/libs/plugins/modifier.date_format.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("topo.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <script type="text/javascript">
@@ -83,9 +83,9 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                 <td><?php echo $_smarty_tpl->tpl_vars['row']->value['prodId'];?>
  - <?php echo $_smarty_tpl->tpl_vars['row']->value['produto'];?>
 </td>
-                <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['row']->value['data'],"%d/%m/%Y");?>
+                <td><?php echo (smarty_modifier_date_format($_smarty_tpl->tpl_vars['row']->value['data'],"%d/%m/%Y"));?>
 </td>
-                <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['row']->value['dataCompra'],"%d/%m/%Y");?>
+                <td><?php echo (smarty_modifier_date_format($_smarty_tpl->tpl_vars['row']->value['dataCompra'],"%d/%m/%Y"));?>
 </td>
                 <td><?php echo $_smarty_tpl->tpl_vars['row']->value['status'];?>
 </td>

@@ -49,7 +49,7 @@
     {foreach from=$pedidos item=row}
     <tr>
       <td>{$row.id}</td>
-      <td>{$row.data|date_format:"%d/%m/%Y"} {$row.data|date_format:"%H:%M:%S"}</td>
+      <td>{($row.data|date_format:"%d/%m/%Y")} {($row.data|date_format:"%H:%M:%S")}</td>
       <td>{$row.osi}</td>
       <td>{$row.solicitante}</td>
       <td>{$row.setor}</td>

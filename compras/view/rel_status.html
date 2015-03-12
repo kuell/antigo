@@ -21,7 +21,7 @@
             <tr>
                 <th scope="row">Periodo:</th>
                 <td>
-                    <input type="text" class="data" name="datai" id="datai" value="{$smarty.now|date_format:"01/%m/%Y"}" />
+                    <input type="text" class="data" name="datai" id="datai" value="{($smarty.now|date_format:"01/%m/%Y")}" />
                     a
                     <input type="text" name="dataf" class="data" id="dataf" value="{$smarty.now|date_format:"%d/%m/%Y"}" />
                 </td>

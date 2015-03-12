@@ -1,16 +1,15 @@
 {include file="topo.html"}
-
 <script type="text/javascript">
     {literal}
     $(function(){
-	$("#produto").blur(function(){
-            var produto = $("#produto").val();
-            
-	$.post("?acao=verifica_produto",  {prodId: produto, acao: 'verifica'}, function(valor){
-				verifica(valor);		
-	
-		   }); 
-        });
+    	$("#produto").blur(function(){
+                var produto = $("#produto").val();
+                
+    	$.post("?acao=verifica_produto",  {prodId: produto, acao: 'verifica'}, function(valor){
+    				verifica(valor);		
+    	
+    		   }); 
+            });
       });  
       function verifica(val){
         if(val != 0){
@@ -68,19 +67,18 @@ function validar(form){
 <div class="acao_pagina" >Produtos do Pedido {$idPedido}</div>
 
     {if $idProduto|default:'' eq ''}
-    <div class="form_incluir" style="margin:0 0; padding:0 0;">
+  <div class="form_incluir" style="margin:0 0; padding:0 0; width = 900px; ">
     <form action="" method="POST" name="form1" onsubmit="return validar(this)">
     <input name="idPedido" type="hidden" id="idPedido" value="{$idPedido}" />
-    <table width="100%" border="0" align="center" class="KT_tngtable" bgcolor="#FFFFFF" style="margin:0 0; padding:0 0;">
+    <table border="0" align="center" class="KT_tngtable" bgcolor="#FFFFFF" style="margin:0 0; padding:0 0;">
       <tr>
-        <th scope="col" colspan="5">Produto</th>
+        <th scope="col">Produto</th>
         <th scope="col">Quantidade</th>
         <th colspan="4" scope="col">Qtd. Estoque</th>
       </tr>
       <tr>
-          <td scope="col" colspan="5">
-          <select name="produto" id="produto" tabindex="10">
-                 <option value="">Selecione ...</option>
+          <td scope="col">
+          <select size="10" name="produto" id="produto">
              {foreach from=$produtos item=row}
                 <option value="{$row.PRO_ID}">{$row.PRO_DESCRICAO} - {$row.PRO_ID|string_format:'%05d'}</option>
             {/foreach}
@@ -93,12 +91,11 @@ function validar(form){
           <input name="estoque" type="text" class="valor" id="estoque" />
       </td>
       <td scope="col" colspan="2">
-          <input type="submit" name="acao" id="acao" value="Incluir" />
+          <input  type="submit" name="acao" id="acao" value="Incluir" />
       </td>
       </tr>
       <tr>
-        <th> Cod</th>
-        <th colspan="4">Descri&ccedil;&atilde;o</th>
+        <th>Cod. / Descri&ccedil;&atilde;o</th>
         <th>Qtd. Pedido</th>
         <th>Qtd. Estoque</th>
         <th>Sub-Total</th>
@@ -106,8 +103,7 @@ function validar(form){
       </tr>
           {foreach from=$prodPed item=prd}
         <tr>
-          <td>{$prd.prodId}</td>
-          <td colspan="4">{$prd.produto}</td>
+          <td>{$prd.prodId} - {$prd.produto}</td>
           <td>{$prd.qtd|string_format:'%.2f'}</td>
           <td>{$prd.qtdEstoque|string_format:'%.2f'}</td>
           <td>{($prd.qtd + $prd.qtdEstoque)|string_format:'%.2f'}</td>

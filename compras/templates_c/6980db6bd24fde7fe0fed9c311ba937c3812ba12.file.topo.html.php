@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-02-27 08:32:52
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 15:46:07
          compiled from "view/topo.html" */ ?>
 <?php /*%%SmartyHeaderCode:1195788269547889515b1fc7-90279173%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6980db6bd24fde7fe0fed9c311ba937c3812ba12' => 
     array (
       0 => 'view/topo.html',
-      1 => 1424972964,
+      1 => 1426189563,
       2 => 'file',
     ),
   ),
@@ -34,8 +34,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/modal/jquery.superbox-min.js"></script>
 <script type="text/javascript" src="../js/jquery.ui.js"></script>
-<script type="text/javascript" src="../js/mascara.js"></script>
+<script type="text/javascript" src="../js/jquery.maskMoney.js"></script>
+<script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
 <script type="text/javascript" src="../js/scripts.js"></script>
+  <link rel="stylesheet" type="text/css" href="../js/chosen_v1.4.1/chosen.css">
+
+  <script src="../js/chosen_v1.4.1/chosen.jquery.min.js" type="text/javascript"></script>
+  <script src="../js/chosen_v1.4.1/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+
+
+
 <script type="text/javascript">
     $(function(){
         $.superbox.settings = {
@@ -48,6 +56,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				closeTxt: "<button>Sair</button>"
                             };		   
 	$.superbox();
+
+	$('#produto').chosen(
+            {
+              allow_single_deselect:true,
+              no_results_text: "Nenhum valor encontrado para o nome: ",
+              allow_single_deselect: true
+            }
+          );
+
     })
 
 </script>

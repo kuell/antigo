@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-02-27 08:32:51
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 15:52:41
          compiled from "view/comprar_produtos.html" */ ?>
 <?php /*%%SmartyHeaderCode:13503390345478895e9bfd11-20968811%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd81d290aeea2c0b3d42fa2ea2bbe2a17d9f2eedc' => 
     array (
       0 => 'view/comprar_produtos.html',
-      1 => 1424972964,
+      1 => 1426189949,
       2 => 'file',
     ),
   ),
@@ -91,7 +91,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
             <td><?php echo $_smarty_tpl->tpl_vars['row']->value['prodId'];?>
  - <?php echo $_smarty_tpl->tpl_vars['row']->value['produto'];?>
 </td>
-            <td><?php echo sprintf('%.2f',$_smarty_tpl->tpl_vars['row']->value['qtd']);?>
+            <td><?php echo (sprintf('%.2f',$_smarty_tpl->tpl_vars['row']->value['qtd']));?>
 </td>
             <td><?php echo sprintf('%.2f',$_smarty_tpl->tpl_vars['row']->value['qtdEstoque']);?>
 </td>

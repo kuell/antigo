@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-02-27 08:56:33
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 15:43:15
          compiled from "view/visualiza.html" */ ?>
 <?php /*%%SmartyHeaderCode:113832378254788953cbae18-90856960%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ad18a4beca40e2e0c1a45ed435a63fbd97283b41' => 
     array (
       0 => 'view/visualiza.html',
-      1 => 1424972964,
+      1 => 1426189392,
       2 => 'file',
     ),
   ),
@@ -30,7 +30,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54788953dcc101_45077997')) {function content_54788953dcc101_45077997($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include '/var/www/sig_antigo/antigo/includes/smarty/libs/plugins/function.cycle.php';
+<?php if ($_valid && !is_callable('content_54788953dcc101_45077997')) {function content_54788953dcc101_45077997($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include '/var/www/sigAntigo/sig2/includes/smarty/libs/plugins/function.cycle.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("topo.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <script type="text/javascript">
@@ -46,7 +46,7 @@ $(function(){
         <table width="95%" class="KT_tngtable">
             <tr>
                 <td style="text-align: center" colspan="8">
-                    <img align="left" src="../logo/Logo.JPG" width="150" height="75" />
+                    <img align="left" src="../logo/Logo.jpg" width="150" height="75" />
                     <p><h1>Frizelo Frigorificos Ltda</h1></p>
                     <h2>Pedido de Compra No. <?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 </h2>
@@ -93,7 +93,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
 </td>
                 <td colspan="2"><?php echo $_smarty_tpl->tpl_vars['row']->value['produto'];?>
 </td>
-                <td><?php echo sprintf("%.2f",$_smarty_tpl->tpl_vars['row']->value['qtd']);?>
+                <td><?php echo (sprintf("%.2f",$_smarty_tpl->tpl_vars['row']->value['qtd']));?>
 </td>
                 <td><?php echo sprintf("%.2f",$_smarty_tpl->tpl_vars['row']->value['qtdEstoque']);?>
 </td>

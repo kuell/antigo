@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-03-02 08:03:34
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 15:29:34
          compiled from "view/produto_pedido.html" */ ?>
 <?php /*%%SmartyHeaderCode:199351215454804cadb9c485-84249080%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d60b9460f8c12aa44bf7ffbd1558dc36d4cb99e' => 
     array (
       0 => 'view/produto_pedido.html',
-      1 => 1424972964,
+      1 => 1426188563,
       2 => 'file',
     ),
   ),
@@ -34,17 +34,35 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_54804cadd4a1a3_68428987')) {function content_54804cadd4a1a3_68428987($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("topo.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
+  
+  <link rel="stylesheet" type="text/css" href="../js/chosen_v1.4.1/docsupport/style.css">
+  <link rel="stylesheet" type="text/css" href="../js/chosen_v1.4.1/docsupport/prism.css">
+  <link rel="stylesheet" type="text/css" href="../js/chosen_v1.4.1/chosen.css">
+
+  <script src="../js/chosen_v1.4.1/chosen.jquery.min.js" type="text/javascript"></script>
+  <script src="../js/chosen_v1.4.1/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+
+
+
 <script type="text/javascript">
     
     $(function(){
-	$("#produto").blur(function(){
-            var produto = $("#produto").val();
-            
-	$.post("?acao=verifica_produto",  {prodId: produto, acao: 'verifica'}, function(valor){
-				verifica(valor);		
-	
-		   }); 
-        });
+      $('#produto').chosen(
+            {
+              allow_single_deselect:true,
+              no_results_text: "Nenhum valor encontrado para o nome: ",
+              allow_single_deselect: true
+            }
+          );
+
+    	$("#produto").blur(function(){
+                var produto = $("#produto").val();
+                
+    	$.post("?acao=verifica_produto",  {prodId: produto, acao: 'verifica'}, function(valor){
+    				verifica(valor);		
+    	
+    		   }); 
+            });
       });  
       function verifica(val){
         if(val != 0){
@@ -103,20 +121,19 @@ function validar(form){
 </div>
 
     <?php if ((($tmp = @$_smarty_tpl->tpl_vars['idProduto']->value)===null||$tmp==='' ? '' : $tmp)==''){?>
-    <div class="form_incluir" style="margin:0 0; padding:0 0;">
+  <div class="form_incluir" style="margin:0 0; padding:0 0; width = 900px; ">
     <form action="" method="POST" name="form1" onsubmit="return validar(this)">
     <input name="idPedido" type="hidden" id="idPedido" value="<?php echo $_smarty_tpl->tpl_vars['idPedido']->value;?>
 " />
-    <table width="100%" border="0" align="center" class="KT_tngtable" bgcolor="#FFFFFF" style="margin:0 0; padding:0 0;">
+    <table border="0" align="center" class="KT_tngtable" bgcolor="#FFFFFF" style="margin:0 0; padding:0 0;">
       <tr>
-        <th scope="col" colspan="5">Produto</th>
+        <th scope="col">Produto</th>
         <th scope="col">Quantidade</th>
         <th colspan="4" scope="col">Qtd. Estoque</th>
       </tr>
       <tr>
-          <td scope="col" colspan="5">
-          <select name="produto" id="produto" tabindex="10">
-                 <option value="">Selecione ...</option>
+          <td scope="col">
+          <select size="10" name="produto" id="produto" class="chosen-select">
              <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['produtos']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value){
@@ -136,12 +153,11 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
           <input name="estoque" type="text" class="valor" id="estoque" />
       </td>
       <td scope="col" colspan="2">
-          <input type="submit" name="acao" id="acao" value="Incluir" />
+          <input  type="submit" name="acao" id="acao" value="Incluir" />
       </td>
       </tr>
       <tr>
-        <th> Cod</th>
-        <th colspan="4">Descri&ccedil;&atilde;o</th>
+        <th>Cod. / Descri&ccedil;&atilde;o</th>
         <th>Qtd. Pedido</th>
         <th>Qtd. Estoque</th>
         <th>Sub-Total</th>
@@ -154,8 +170,7 @@ $_smarty_tpl->tpl_vars['prd']->_loop = true;
 ?>
         <tr>
           <td><?php echo $_smarty_tpl->tpl_vars['prd']->value['prodId'];?>
-</td>
-          <td colspan="4"><?php echo $_smarty_tpl->tpl_vars['prd']->value['produto'];?>
+ - <?php echo $_smarty_tpl->tpl_vars['prd']->value['produto'];?>
 </td>
           <td><?php echo sprintf('%.2f',$_smarty_tpl->tpl_vars['prd']->value['qtd']);?>
 </td>

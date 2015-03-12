@@ -11,10 +11,10 @@
 <script type="text/javascript" src="../js/jquery-1.3.1.js"></script>
     
 <script type="text/javascript" src="../includes/skins/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.maskMoney.js"></script>
 <script type="text/javascript" src="../js/modal/jquery.superbox-min.js"></script>
 <script type="text/javascript" src="../js/jquery.ui.js"></script>
 
-<script type="text/javascript" src="../js/mascara.js"></script>
 <script type="text/javascript" src="../js/scripts.js"></script> 
 
 <script type="text/javascript">
