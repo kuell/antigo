@@ -68,10 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 location = 'Taxa.php?rel'
 
             });
-            $('#submit').click(function(){
-                alert('Ola')
-                $('#myModal').modal('show')
-            })
 		})
 
         function abre(url){
