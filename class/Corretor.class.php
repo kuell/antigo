@@ -23,16 +23,16 @@ class Corretor extends Connect {
 
 		while ($val = $dados->fetch_object()) {
 			$res[date('d/m/Y', strtotime($val->data))][$val->grupo][] =
-				(object) [
-							'id'			=> $val->id,
-							'descricao' 	=> $val->item,
-						  	'peso'			=> number_format($val->peso,2,',','.'),
-						  	'qtd'			=> $val->qtd,
-							'valor'			=> number_format($val->valor,2,',','.'),
-							'tipo'			=> $val->tipo];
+			(object) [
+				'id'        => $val->id,
+				'descricao' => $val->item,
+				'peso'      => number_format($val->peso, 2, ',', '.'),
+				'qtd'       => $val->qtd,
+				'valor'     => number_format($val->valor, 2, ',', '.'),
+				'tipo'      => $val->tipo];
 		}
 
-	return $res;
+		return $res;
 
 	}
 }

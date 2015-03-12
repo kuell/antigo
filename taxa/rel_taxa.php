@@ -231,6 +231,16 @@ $pdf = new Rel("P", "mm", "A4");
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->Dados();
-$pdf->Output();
+
+if (empty($_GET['salvar'])) {
+	$pdf->Output();
+} else {
+	$cor   = $_GET['cor'];
+	$datai = str_replace('/', '_', $_GET['datai']);
+	$dataf = str_replace('/', '_', $_GET['dataf']);
+	$salva = $_GET['salvar'];
+
+	$pdf->Output('uploads/'.$cor.'_'.$datai.'_'.$dataf.'.pdf');
+}
 
 ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-02-27 08:45:18
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 08:40:44
          compiled from "view/rel_taxas.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18732506254cbb8811369a5-90221544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '64f248d7f63d40ebac827304b1626d1c61e894cf' => 
     array (
       0 => 'view/rel_taxas.tpl',
-      1 => 1424972965,
+      1 => 1426164023,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54cbb88116b045_32647756')) {function content_54cbb88116b045_32647756($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig_antigo/antigo/includes/smarty/libs/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_54cbb88116b045_32647756')) {function content_54cbb88116b045_32647756($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sigAntigo/sig2/includes/smarty/libs/plugins/modifier.date_format.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("../../view/topo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <div class="well form-search">
@@ -43,7 +43,7 @@ $_smarty_tpl->tpl_vars['corr']->_loop = true;
 ?>
                 <option value="<?php echo $_smarty_tpl->tpl_vars['corr']->value['cor_id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['corr']->value['cor_cod'];?>
- - <?php echo $_smarty_tpl->tpl_vars['corr']->value['cor_nome'];?>
+ - <?php echo utf8_encode($_smarty_tpl->tpl_vars['corr']->value['cor_nome']);?>
 </option>
             <?php } ?>
         </select>
@@ -52,21 +52,35 @@ $_smarty_tpl->tpl_vars['corr']->_loop = true;
   <div class="control-group">
     <label class="control-label">Data: </label>
     <div class="controls">
-        <input type="text" id="dataI" class="validate[required] data" value="<?php echo smarty_modifier_date_format(time(),"01/%m/%Y");?>
+        <input type="text" id="dataI" class="data" value="<?php echo (smarty_modifier_date_format(time(),"01/%m/%Y"));?>
 "> até
-        <input type="text" id="dataF" class="validate[required] data" value="<?php echo smarty_modifier_date_format(time(),"%d/%m/%Y");?>
+        <input type="text" id="dataF" class="data" value="<?php echo (smarty_modifier_date_format(time(),"%d/%m/%Y"));?>
 ">
     </div>
   </div>
   <div class="control-group">
     <div class="controls">
-        <button type="button" class="btn" onclick="window.open('rel_taxa.php?cor='+document.getElementById('cor').value+'&datai='+document.getElementById('dataI').value+'&dataf='+document.getElementById('dataF').value,'Print', 'channelmode=yes')">Buscar</button>
+        <button type="button" class="btn btn-primary" onclick="window.open('rel_taxa.php?cor='+document.getElementById('cor').value+'&datai='+document.getElementById('dataI').value+'&dataf='+document.getElementById('dataF').value,'Print', 'channelmode=yes')">Buscar</button>
+        <button class="btn btn-success" type="button" onclick="getEmail()">
+          <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+          Eviar por e-mail
+         </button>
     </div>
   </div>
     </fieldset>
 </form>
     
 </div>
+<script type="text/javascript">
+  function getEmail(){
+    var cor = document.getElementById('cor').value
+    var datai = document.getElementById('dataI').value
+    var dataf = document.getElementById('dataF').value
+
+    window.location = 'Email.php?cor='+cor+'&datai='+datai+'&dataf='+dataf;
+  }
+
+</script>
 
 <?php echo $_smarty_tpl->getSubTemplate ("../../view/rodape.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>
