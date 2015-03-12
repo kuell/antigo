@@ -17,8 +17,8 @@ $user    = $usuario->getUsuario($_SESSION['kt_login_id']);
 $corretor = new Corretor($_GET['cor']);
 
 $cor         = $_GET['cor'];
-$datai       = implode('_', array_reverse(explode('/', $_GET['datai'])));
-$dataf       = implode('_', array_reverse(explode('/', $_GET['dataf'])));
+$datai       = implode('_', explode('/', $_GET['datai']));
+$dataf       = implode('_', explode('/', $_GET['dataf']));
 $nomeArquivo = $cor.'_'.$datai.'_'.$dataf.'.pdf';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$.get('rel_taxa.php?salvar=1', {cor: '<?php echo $cor;?>', datai: '<?php echo $datai;?>', dataf: '<?php echo $dataf;?>'}, function(data){
+			$.get('rel_taxa.php?salvar=1', {cor: '<?php echo $cor;?>', datai: '<?php echo $_GET["datai"];?>', dataf: '<?php echo $_GET["dataf"];?>'}, function(data){
 				window.console.log(data)
 			});
             $('#voltar').click(function() {
@@ -74,6 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             })
 		})
 
+        function abre(url){
+            window.open(url, 'Print', 'channelmode=true');
+        }
 
 	</script>
 </head>
@@ -116,15 +119,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="form-group">
         <label for="message" class="col-sm-2 control-label">Mensagem</label>
         <div class="col-sm-10">
-            <textarea class="form-control" rows="5" name="message">Ola <?php echo $corretor->nome;?>,
+            <textarea class="form-control" rows="5" name="message">Olá <?php echo $corretor->nome;?>,
 Segue Anexo. </textarea>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">Arquivos:</label>
+        <label for="name" class="col-sm-2 control-label">Arquivo:</label>
         <div class="col-sm-10">
-        <a href="uploads/<?php echo $nomeArquivo;?>" target="_blank"><?php echo $nomeArquivo;
+        <a href="#" onclick="abre('uploads/<?php echo $nomeArquivo;?>')"><?php echo $nomeArquivo;
 ?></a>
         <input type="hidden" name="arquivo" value="<?php echo $nomeArquivo;?>">
         </div>
