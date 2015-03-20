@@ -28,6 +28,8 @@ class Almoxarifado extends Connect {
 			$this->qtd,
 			$this->valor,
 			$_SESSION['kt_login_user']);
+		echo $sql;
+		die;
 
 		$res = $this->connection->executeSql($sql);
 

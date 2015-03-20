@@ -17,6 +17,7 @@ function incluir() {
 	$almox->setTipo($_REQUEST['tipo']);
 	$almox->setQtd($_REQUEST['qtd']);
 	$almox->setValor($_REQUEST['valor']);
+	print_r($almox);
 	print_r($almox->save());
 }
 function delete() {

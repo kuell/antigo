@@ -45,7 +45,7 @@ $almox = new Almoxarifado();
 							  tipo: tipo,
 							  data: dt
 		}, function(data){
-				$('#'+tipo).addClass('invisible');
+
 		})
 	}
 
