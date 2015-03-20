@@ -24,6 +24,8 @@ $almox = new Almoxarifado();
 	function envia(tipo, grupo){
 		form  = $('#'+tipo+''+grupo).serializeArray();
 
+		console.log(form);
+
 		dt = '<?php echo $_GET['data'];?>'
 		qt = form[0].value
 		val = form[1].value
@@ -35,7 +37,7 @@ $almox = new Almoxarifado();
 								qtd: qt,
 								valor: val},
 			function(data) {
-
+				console.log(data)
 		});
 
 	}
@@ -49,7 +51,7 @@ $almox = new Almoxarifado();
 							  tipo: tipo,
 							  data: dt
 		}, function(data){
-
+			console.log(data)
 		})
 	}
 
