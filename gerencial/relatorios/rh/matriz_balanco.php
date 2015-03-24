@@ -8,6 +8,9 @@ class PDF extends FPDF {
 
 	function Header() {
 		//$this->Image("../../logo/Logo.JPG", 6, 5, 35, 15, "JPG");
+
+		$d = explode('/', $_GET['data1']);
+
 		$this->SetFont("Arial", "B", 20);
 		$this->Cell(1);
 		$this->Cell(40, 11, "", "TLR", 0, "C");
@@ -16,7 +19,7 @@ class PDF extends FPDF {
 		$this->Cell(1);
 		$this->SetFont("Arial", "B", 12);
 		$this->Cell(40, 11, "", "BLR", 0, "C");
-		$this->Cell('', 11, utf8_decode("MATRIZ DO BALANÇO - "), "RLB", 0, "C");
+		$this->Cell('', 11, utf8_decode("MATRIZ DO BALANÇO - ".$d['2']), "RLB", 0, "C");
 		$this->Ln(15);
 		$fill = 0;
 
@@ -58,36 +61,36 @@ class PDF extends FPDF {
 		$sql = "Select
 					a.id_setor,
 					a.setor,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes <= 6 and setor = a.id_setor and item = 1) as hTrabSem1,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes <= 6 and setor = a.id_setor and item = 2) as hPotSem1,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes = 6 and setor = a.id_setor and item = 7) as regAtivoSem1,
-					(select sum(peso) from rh_info where ano = 2014 and mes <= 6) as abatePesoSem1,
-					(select sum(fat) from rh_info where ano = 2014 and mes <= 6) as faturamentoSem1,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes <=6 and setor = a.id_setor and item in (5,4) ) as faltaAcidenteSem1,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes <= 6 and setor = a.id_setor and item = 6) as feriasSem1,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes <= 6 and setor = a.id_setor and item = 12) as remunSem1,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes <= 6 and setor = a.id_setor and item = 3) as hSupSem1,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes <= 6 and setor = a.id_setor and item = 10) as admitidoSem1,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes <= 6 and setor = a.id_setor and item = 10) as demitidoSem1,
+					(select sum(valor) from rh_balanco where ano = $ano and mes <= 6 and setor = a.id_setor and item = 1) as hTrabSem1,
+					(select sum(valor) from rh_balanco where ano = $ano and mes <= 6 and setor = a.id_setor and item = 2) as hPotSem1,
+					(select sum(valor) from rh_balanco where ano = $ano and mes = 6 and setor = a.id_setor and item = 7) as regAtivoSem1,
+					(select sum(peso) from rh_info where ano = $ano and mes <= 6) as abatePesoSem1,
+					(select sum(fat) from rh_info where ano = $ano and mes <= 6) as faturamentoSem1,
+					(select sum(valor) from rh_balanco where ano = $ano and mes <=6 and setor = a.id_setor and item in (5,4) ) as faltaAcidenteSem1,
+					(select sum(valor) from rh_balanco where ano = $ano and mes <= 6 and setor = a.id_setor and item = 6) as feriasSem1,
+					(select sum(valor) from rh_balanco where ano = $ano and mes <= 6 and setor = a.id_setor and item = 12) as remunSem1,
+					(select sum(valor) from rh_balanco where ano = $ano and mes <= 6 and setor = a.id_setor and item = 3) as hSupSem1,
+					(select sum(valor) from rh_balanco where ano = $ano and mes <= 6 and setor = a.id_setor and item = 10) as admitidoSem1,
+					(select sum(valor) from rh_balanco where ano = $ano and mes <= 6 and setor = a.id_setor and item = 10) as demitidoSem1,
 
 
-					(select sum(valor) from rh_balanco where ano = 2014 and mes > 6 and setor = a.id_setor and item = 1) as hTrabSem2,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes > 6 and setor = a.id_setor and item = 2) as hPotSem2,
-					(select	valor from rh_balanco where	valor <> 0 and setor = a.id_setor and item = 7 and ano = 2014 order by id desc limit 1) as regAtivoSem2,
-					(select sum(peso) from rh_info where ano = 2014 and mes > 6) as abatePesoSem2,
-					(select sum(fat) from rh_info where ano = 2014 and mes > 6) as faturamentoSem2,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes > 6 and setor = a.id_setor and item in (5,4) ) as faltaAcidenteSem2,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes > 6 and setor = a.id_setor and item = 6) as feriasSem2,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes > 6 and setor = a.id_setor and item = 12) as remunSem2,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes > 6 and setor = a.id_setor and item = 3) as hSupSem2,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes > 6  and setor = a.id_setor and item = 10) as admitidoSem2,
-					(select sum(valor) from rh_balanco where ano = 2014 and mes > 6  and setor = a.id_setor and item = 11) as demitidoSem2
+					(select sum(valor) from rh_balanco where ano = $ano and mes > 6 and setor = a.id_setor and item = 1) as hTrabSem2,
+					(select sum(valor) from rh_balanco where ano = $ano and mes > 6 and setor = a.id_setor and item = 2) as hPotSem2,
+					(select	valor from rh_balanco where	valor <> 0 and setor = a.id_setor and item = 7 and ano = $ano order by id desc limit 1) as regAtivoSem2,
+					(select sum(peso) from rh_info where ano = $ano and mes > 6) as abatePesoSem2,
+					(select sum(fat) from rh_info where ano = $ano and mes > 6) as faturamentoSem2,
+					(select sum(valor) from rh_balanco where ano = $ano and mes > 6 and setor = a.id_setor and item in (5,4) ) as faltaAcidenteSem2,
+					(select sum(valor) from rh_balanco where ano = $ano and mes > 6 and setor = a.id_setor and item = 6) as feriasSem2,
+					(select sum(valor) from rh_balanco where ano = $ano and mes > 6 and setor = a.id_setor and item = 12) as remunSem2,
+					(select sum(valor) from rh_balanco where ano = $ano and mes > 6 and setor = a.id_setor and item = 3) as hSupSem2,
+					(select sum(valor) from rh_balanco where ano = $ano and mes > 6  and setor = a.id_setor and item = 10) as admitidoSem2,
+					(select sum(valor) from rh_balanco where ano = $ano and mes > 6  and setor = a.id_setor and item = 11) as demitidoSem2
 
 				from
 					setor a
 				where
 					a.rh = 1";
-					
+
 		$qr = mysql_query($sql) or die(mysql_error()."<br /> ".$sql);
 
 		$this->SetFillColor(150);

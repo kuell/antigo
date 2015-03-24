@@ -5,11 +5,14 @@ mysql_select_db($database_conn, $conn);
 $cData = strftime("%d/%m/%Y");
 require ("../../bibliotecas/fpdf/fpdf.php");
 
-define("mes1", date('m', strtotime($_REQUEST['data1'])));
-define('ano1', date('Y', strtotime($_REQUEST['data1'])));
+$d1 = explode('/', $_REQUEST['data1']);
+$d2 = explode('/', $_REQUEST['data2']);
 
-define("mes2", date('m', strtotime($_REQUEST['data2'])));
-define('ano2', date('Y', strtotime($_REQUEST['data2'])));
+define("mes1", $d1[1]);
+define('ano1', $d1[2]);
+
+define("mes2", $d2[2]);
+define('ano2', $d2[2]);
 
 class PDF extends FPDF {
 

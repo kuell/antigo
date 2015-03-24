@@ -27,7 +27,8 @@ class PDF extends FPDF {
 	function info($setor, $ano) {
 		$conn = new mysqli('localhost', 'root', 'aporedux', 'sig');
 		$sql  = sprintf("call p_rh_balanco_analise_global(%s, %s)", $setor, $ano);
-		$qr   = $conn->query($sql) or die('Erro na obtensao dos dados'.$sql);
+
+		$qr = $conn->query($sql) or die('Erro na obtensao dos dados'.$sql);
 
 		while ($res = $qr->fetch_object()) {
 			$val[$res->mes] = (object) [
@@ -354,7 +355,7 @@ $pdf->AliasNbPages();
 
 $pdf->AddPage();
 
-$d = explode('-', $_GET['data1']);
+$d = explode('/', $_GET['data1']);
 
 if (empty($_GET['setor'])) {
 	$_GET['setor'] = 'null';
