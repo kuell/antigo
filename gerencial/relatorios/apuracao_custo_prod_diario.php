@@ -73,7 +73,9 @@ class PDF extends FPDF {
 		$this->SetFillColor(210);
 		$this->SetTextColor(0);
 
-		$ultimoDia = date('t', date("t", mktime(0, 0, 0, date('m'), '01', date('Y'))));
+		$dt        = explode('/', $_GET['data1']);
+		$ultimoDia = cal_days_in_month(CAL_GREGORIAN, $dt[1], $dt[2]);
+
 		$d         = implode('-', array_reverse(explode('/', $_GET['data1'])));
 
 		$custo = new CustoProducao($d, $d);

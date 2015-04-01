@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-02-27 08:48:16
+<?php /* Smarty version Smarty-3.1.12, created on 2015-04-01 13:58:32
          compiled from "view/taxaItem.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:55520298554f06790597287-39726320%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '00cf11d58de8dcab97a7123cf490f9ee66aabc17' => 
     array (
       0 => 'view/taxaItem.tpl',
-      1 => 1424972965,
+      1 => 1427911047,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_54f067906b27e9_24821311',
   'variables' => 
   array (
     'taxa' => 0,
@@ -24,10 +26,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'it' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_54f067906b27e9_24821311',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54f067906b27e9_24821311')) {function content_54f067906b27e9_24821311($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig_antigo/antigo/includes/smarty/libs/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_54f067906b27e9_24821311')) {function content_54f067906b27e9_24821311($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig/includes/smarty/libs/plugins/modifier.date_format.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("../../view/topo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 

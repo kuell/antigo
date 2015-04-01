@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-02-27 08:48:14
+<?php /* Smarty version Smarty-3.1.12, created on 2015-04-01 13:58:32
          compiled from "view/taxaGrupo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:38552876054f0678e46bbc0-91798643%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9353773347e2f9c9fb63c81da2f027d2e4237196' => 
     array (
       0 => 'view/taxaGrupo.tpl',
-      1 => 1424972965,
+      1 => 1427911047,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_54f0678e53cd60_63175550',
   'variables' => 
   array (
     'grupo' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'i' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_54f0678e53cd60_63175550',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_54f0678e53cd60_63175550')) {function content_54f0678e53cd60_63175550($_smarty_tpl) {?><?php if ((($tmp = @$_GET['lanc'])===null||$tmp==='' ? '' : $tmp)==''){?>
     <?php echo $_smarty_tpl->getSubTemplate ("../../view/topo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>

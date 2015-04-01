@@ -19,6 +19,8 @@ class Balanco {
 	}
 
 	public function getCustoRhDia() {
+		$this->dataf = $this->datai;
+
 		$sql = sprintf("Select
 					b.data,
 					a.id_setor,
@@ -33,6 +35,7 @@ class Balanco {
 					year(b.data) = year('%s')
 				group by
 					b.data, b.setor", $this->datai, $this->datai);
+
 		$rs = $this->conn->executeSql($sql);
 
 		while ($val = $rs->fetch_object()) {
@@ -56,9 +59,13 @@ class Balanco {
 		
 		$hrTrab        = $this->getItem($setor, 1);
 		$remBruta      = $this->getItem($setor, 12);
-		$hrTrabInterno = doubleval($i->getHorasTrabalhadasBalanco($interno_setor, $this->datai, $this->dataf));
-		
-		echo $hTrabInterno;
+
+		if(!empty($interno_setor)){
+			$hrTrabInterno = doubleval($i->getHorasTrabalhadasBalanco($interno_setor, $this->datai, $this->dataf));
+		}
+		else{
+			$hrTrabInterno = 0;
+		}	
 
 		$totalHorasTrabalhadas = $hrTrab+$hrTrabInterno;
 				
@@ -74,7 +81,7 @@ class Balanco {
 		$sql = sprintf("SELECT sum(valor) as res
 						FROM rh_balanco
 						WHERE 	ano BETWEEN year('%s' - interval 1 month) and year('%s' - interval 1 month) and
-								mes BETWEEN month('%s' - interval - 1 month) and month('%s' - interval - 1 month) and
+								mes BETWEEN month('%s' - interval 1 month) and month('%s' - interval 1 month) and
 								item = %s and setor = %s", $this->datai, $this->dataf, $this->datai, $this->dataf, $item, $setor);
 		$res = $this->conn->executeSql($sql)->fetch_object();
 		return $res->res;

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 14:19:16
+<?php /* Smarty version Smarty-3.1.12, created on 2015-04-01 13:58:24
          compiled from "view/taxa.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:193233494754cbb87f685b69-89964008%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a711d5b998619ab4b26f684ed2f8c360059f21f4' => 
     array (
       0 => 'view/taxa.tpl',
-      1 => 1426184212,
+      1 => 1427911047,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54cbb87f78c2f4_49012905')) {function content_54cbb87f78c2f4_49012905($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sigAntigo/sig2/includes/smarty/libs/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_54cbb87f78c2f4_49012905')) {function content_54cbb87f78c2f4_49012905($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig/includes/smarty/libs/plugins/modifier.date_format.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("../../view/topo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <?php if ((($tmp = @$_smarty_tpl->tpl_vars['op']->value)===null||$tmp==='' ? '' : $tmp)==''){?>

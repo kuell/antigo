@@ -31,8 +31,8 @@ class Taxa {
 							taxaitens a
 							inner join taxa b on(a.idTaxa = b.id)
 						where
-							month(b.data) = month('2014-12-01') and
-							year(b.data) = year('2014-12-01')
+							month(b.data) = month('%s') and
+							year(b.data) = year('%s')
 						group by
 							b.data, a.tipo", $this->datai, $this->datai);
 		$rs = $this->conn->executeSql($sql);
@@ -44,7 +44,7 @@ class Taxa {
 				$this->taxas[$val->data] = $result[$val->data]['c']-$result[$val->data]['d'];
 			}
 		}
-
+		
 		return $this->taxas;
 	}
 }

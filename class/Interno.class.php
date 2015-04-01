@@ -68,7 +68,7 @@ class Interno {
 							a.data between '%s' and '%s' and
 							b.setor_id = %s
 						", $datai, $dataf, $setor);
-			
+		
 			$rs = $this->connPgsql->RunSelect($sql);	
 
 			return $rs[0]->res;
