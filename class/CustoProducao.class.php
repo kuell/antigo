@@ -90,8 +90,8 @@ class CustoProducao {
 
 	public function apuracaoDiaria() {
 		$abate       = new Abate($this->datai, $this->dataf);
-		$producao    = new IndProducao($this->datai, $this->dataf);
-		$faturamento = new Faturamento($this->datai, $this->data);
+		$producao    = new IndProducao($this->datai, $this->datai);
+		$faturamento = new Faturamento($this->datai, $this->datai);
 		$taxa        = new Taxa($this->datai, $this->dataf);
 		$almox       = new Almoxarifado($this->datai, $this->dataf);
 		$rh          = new Balanco($this->datai, $this->dataf);
@@ -108,7 +108,6 @@ class CustoProducao {
 
 		$this->faturamento->custoComercial = $this->getCustoComercialDia();
 		$this->taxa->taxa                  = $taxa->getTaxaDia();
-
 		$this->almox->energia    = $almox->getEnergiaDia();
 		$this->almox->oleoDiesel = $almox->getOleoDieselDia();
 		$this->almox->servicos   = $almox->getServicosDia();

@@ -87,8 +87,13 @@ class Interno {
 
 		$rs = $this->connPgsql->RunSelect($sql);
 
-		return $rs[0]->res;
-
+//		print_r($rs);
+		if(!empty($rs[0]->res)){
+			return $rs[0]->res;
+		}	
+		else{
+			return 0;
+		}
 	}
 }
 
