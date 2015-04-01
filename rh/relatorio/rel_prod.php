@@ -85,10 +85,10 @@ class PDF extends FPDF {
 
 		foreach ($setors->lista('where rh = 1') as $setor) {
 			$hTrab        = $produtividade->getHorasTrabalhadas($setor['id_setor']);
-			$hTrabInterno = doubleval($i->getHorasTrabalhadas($setor['interno_setor'], $this->getData($datai), $this->getData($dataf)));
-			$custoHora    = $balanco->getCustoHora($setor['id_setor']);
+			$hTrabInterno = doubleval($i->getHorasTrabalhadas($setor['interno_setor'], $datai, $dataf));
+			$custoHora    = $balanco->getCustoHora($setor['id_setor'], $setor['interno_setor']);
 
-			$this->Cell($w[0], 4, $setor['setor'], 1, 0, 'L', $fill);
+			$this->Cell($w[0], 4,$setor['id_setor'].' - '. $setor['setor'], 1, 0, 'L', $fill);
 
 			$this->Cell($w[1], 4, number_format($hTrab, 2, ',', '.'), 1, 0, 'R', $fill);
 			$this->Cell($w[1], 4, number_format($hTrabInterno, 2, ',', '.'), 1, 0, 'R', $fill);

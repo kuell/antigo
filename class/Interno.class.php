@@ -55,7 +55,11 @@ class Interno {
 	}
 
 	public function getHorasTrabalhadas($setor, $datai, $dataf) {
-		$sql = sprintf("Select
+		if(empty($setor)){
+			return 0;
+		}
+		else{
+			$sql = sprintf("Select
 							coalesce(sum(a.saida - a.entrada), interval '00:00:00' minute) as res
 						from
 							interno_frequencias a
@@ -64,9 +68,11 @@ class Interno {
 							a.data between '%s' and '%s' and
 							b.setor_id = %s
 						", $datai, $dataf, $setor);
-		$rs = $this->connPgsql->RunSelect($sql);
+			
+			$rs = $this->connPgsql->RunSelect($sql);	
 
-		return $rs[0]->res;
+			return $rs[0]->res;
+		}
 	}
 
 	public function getHorasTrabalhadasBalanco($setor, $datai, $dataf) {

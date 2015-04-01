@@ -47,6 +47,7 @@ class Produtividade extends Interno {
 							setor = %s and
 							data between '%s' and '%s'", $setor, $this->datai, $this->dataf);
 
+		
 		$res = $this->conn->executeSql($sql)->fetch_object();
 
 		return $res->res;

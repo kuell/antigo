@@ -57,6 +57,8 @@ class Balanco {
 		$hrTrab        = $this->getItem($setor, 1);
 		$remBruta      = $this->getItem($setor, 12);
 		$hrTrabInterno = doubleval($i->getHorasTrabalhadasBalanco($interno_setor, $this->datai, $this->dataf));
+		
+		echo $hTrabInterno;
 
 		$totalHorasTrabalhadas = $hrTrab+$hrTrabInterno;
 				
