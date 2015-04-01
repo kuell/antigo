@@ -4,6 +4,9 @@ require ('../../Connections/conect_mysqli.php');
 require ('../../Connections/connect_pgsql.php');
 require ('../../class/CustoProducao.class.php');
 require ('../../class/Interno.class.php');
+require ('../../rh/class/Produtividade.class.php');
+require ('../../rh/class/Balanco.class.php');
+require ('../../class/Setor.class.php');
 require ("../../bibliotecas/fpdf/fpdf.php");
 
 class PDF extends FPDF {
@@ -29,14 +32,15 @@ class PDF extends FPDF {
 	}
 
 	function getData($data) {
-		$d = explode('-', $data);
+		$d = explode('/', $data);
 
 		return $d[2].'-'.$d[1].'-'.$d[0];
 	}
 
 	function Dados($datai, $dataf) {
 
-		$custo = new CustoProducao($this->getData($datai), $this->getData($dataf));
+		$c     = new CustoProducao($this->getData($datai), $this->getData($dataf));
+		$custo = $c->getValores();
 
 		$this->SetFont("times", "", 7);
 		$this->SetFillColor(200);
@@ -219,7 +223,8 @@ if ($_GET['tipoArquivo'] == 'pdf') {
 
 	// Instanciamos a classe
 	$objPHPExcel = new PHPExcel();
-	$custo       = new CustoProducao('2014-12-01', '2014-12-31');
+	$custos      = new CustoProducao('2014-12-01', '2014-12-31');
+	$custo       = $custos->getValores();
 
 	// Definimos o estilo da fonte
 	$objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);

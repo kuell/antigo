@@ -1,16 +1,16 @@
-<?php 
-	
-	if(isset($_REQUEST['funcao'])){
-		mysql_close();
-		session_destroy();
-		header("Location: login.php");
-	}
-	
-		session_start();
-		require("Connections/conn.php");
-		mysql_select_db($database_conn, $conn);
-		$sql = "Select * from acess_sistem where funcionario = '".$resultado = $_SESSION['kt_login_id']."'";
-		$qr = mysql_query($sql) or die (mysql_error());
+<?php
+
+if (isset($_REQUEST['funcao'])) {
+	mysql_close();
+	session_destroy();
+	header("Location: login.php");
+}
+
+session_start();
+require ("Connections/conn.php");
+mysql_select_db($database_conn, $conn);
+$sql = "Select * from acess_sistem where funcionario = '".$resultado = $_SESSION['kt_login_id']."'";
+$qr  = mysql_query($sql) or die(mysql_error());
 
 ?>
 
@@ -22,15 +22,9 @@
 <link href="css/doc.css" rel="stylesheet" type="text/css" />
 
 <script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/queryLoader.js" type="text/javascript"></script>
-<link href="css/queryLoader.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" defer="defer"> 
-		QueryLoader.selectorPreload = "body";
-		QueryLoader.init();
-</script> 
 </head>
 <body>
-<div align="center" class="dock">Ola <?php echo $_SESSION['kt_login_user']; ?>, seja bem vindo!</div>
+<div align="center" class="dock">Ola <?php echo $_SESSION['kt_login_user'];?>, seja bem vindo!</div>
 <div>Escolha o Sistema</div>
 
 </div>
@@ -38,21 +32,23 @@
 	<div class="Sistemas" align="center">
 	  <table border="0">
 	    <tr>
-	      <th scope="col">  <?php while($resultado = mysql_fetch_assoc($qr)){ ?>
-            <div id="itens"><a href="<?php echo $resultado['url'] ?>"><img width="50px" height="50px" src="img/<?php echo $resultado['icone'] ?>" align="absbottom" /></a><br /><span><?php echo $resultado['Sistema']; ?></span></div>
-          <?php } ?>
-         <a href="?funcao=1"><div id="itens"><img width="50px" height="50px" src="img/sair.png" align="absbottom" /><span>Sair</span></div></a>
+	      <th scope="col">  <?php while ($resultado = mysql_fetch_assoc($qr)) {?>
+									    <div id="itens">
+									       	<a href="<?php echo $resultado['url']?>">
+									       		<img width="40px" height="50px" src="img/<?php echo $resultado['icone']?>" align="absbottom" />
+									       	</a>
+										    <br />
+										    <span>
+	<?php echo $resultado['Sistema'];?>
+	</span>
+									    </div>
+	<?php }?>
+         <a href="?funcao=1">
+         	<div id="itens"><img width="50px" height="50px" src="img/sair.png" align="absbottom" /><span>Sair</span></div></a>
           </th>
         </tr>
       </table>
   </div>
-<div class="atualiza"><div style="background:#666; color:#FFF;">Atualiza��es</div>
-	<ul>
-    	<li>21/09/2011 - Layout do sistema.</li>
-		<li>15/01/2012 - Os usuarios sem nivel apropriado n�o poder�o exlcuir nem alterar os pedidos de compra ja salvos no sistema.</li>
-    
-    </ul>
-</div>
 </div>
 
 </body>

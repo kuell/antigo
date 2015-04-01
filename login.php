@@ -1,10 +1,10 @@
-<?php require_once('Connections/conn.php'); ?>
+<?php require_once ('Connections/conn.php');?>
 <?php
 // Load the common classes
-require_once('includes/common/KT_common.php');
+require_once ('includes/common/KT_common.php');
 
 // Load the tNG classes
-require_once('includes/tng/tNG.inc.php');
+require_once ('includes/tng/tNG.inc.php');
 
 // Make a transaction dispatcher instance
 $tNGs = new tNG_dispatcher("");
@@ -36,8 +36,8 @@ $loginTransaction->addColumn("kt_login_rememberme", "CHECKBOX_1_0_TYPE", "POST",
 $tNGs->executeTransactions();
 
 // Get the transaction recordset
-$rscustom = $tNGs->getRecordset("custom");
-$row_rscustom = mysql_fetch_assoc($rscustom);
+$rscustom           = $tNGs->getRecordset("custom");
+$row_rscustom       = mysql_fetch_assoc($rscustom);
 $totalRows_rscustom = mysql_num_rows($rscustom);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -68,35 +68,39 @@ $totalRows_rscustom = mysql_num_rows($rscustom);
 </head>
 <body>
 <div id="conteudo">
-<form method="post" id="form1" class="KT_tngformerror" action="<?php echo KT_escapeAttribute(KT_getFullUri()); ?>"></p>
+<form method="post" id="form1" class="KT_tngformerror" action="<?php echo KT_escapeAttribute(KT_getFullUri());?>"></p>
   <div id="apDiv1" align="center">
     <h1>Acesso ao Sistema</h1>
     <table cellpadding="2" cellspacing="0" class="KT_tngtable" align="center">
       <tr>
         <td class="KT_th"><label for="kt_login_user">Usuario:</label></td>
-        <td><input type="text" name="kt_login_user"  onkeyup="maiusculo(this)" id="kt_login_user" value="<?php echo KT_escapeAttribute($row_rscustom['kt_login_user']); ?>" size="32" />
-          <?php echo $tNGs->displayFieldHint("kt_login_user");?> <?php echo $tNGs->displayFieldError("custom", "kt_login_user"); ?></td>
+        <td><input type="text" name="kt_login_user"  onkeyup="maiusculo(this)" id="kt_login_user" value="<?php echo KT_escapeAttribute($row_rscustom['kt_login_user']);?>" size="32" />
+<?php echo $tNGs->displayFieldHint("kt_login_user");
+?> <?php echo $tNGs->displayFieldError("custom", "kt_login_user");
+?></td>
       </tr>
       <tr>
         <td class="KT_th"><label for="kt_login_password">Senha:</label></td>
         <td><input type="password" name="kt_login_password" id="kt_login_password" onkeyup="maiusculo(this)" value="" size="32" />
-          <?php echo $tNGs->displayFieldHint("kt_login_password");?> <?php echo $tNGs->displayFieldError("custom", "kt_login_password"); ?></td>
+<?php echo $tNGs->displayFieldHint("kt_login_password");
+?> <?php echo $tNGs->displayFieldError("custom", "kt_login_password");
+?></td>
       </tr>
       <tr>
         <td class="KT_th"><label for="kt_login_rememberme">Relembrar-me:</label></td>
-        <td><input  <?php if (!(strcmp(KT_escapeAttribute($row_rscustom['kt_login_rememberme']),"1"))) {echo "checked";} ?> type="checkbox" name="kt_login_rememberme" id="kt_login_rememberme" value="1" />
-          <?php echo $tNGs->displayFieldError("custom", "kt_login_rememberme"); ?></td>
+        <td><input  <?php if (!(strcmp(KT_escapeAttribute($row_rscustom['kt_login_rememberme']), "1"))) {echo "checked";}?>type="checkbox" name="kt_login_rememberme" id="kt_login_rememberme" value="1" />
+<?php echo $tNGs->displayFieldError("custom", "kt_login_rememberme");?></td>
       </tr>
       <tr class="KT_buttons">
         <td colspan="2"><input type="submit" name="kt_login1" id="kt_login1" value="Login" /></td>
       </tr>
     </table>
   </div>
-  <?php
-	echo $tNGs->getLoginMsg();
+<?php
+echo $tNGs->getLoginMsg();
 ?>
   <?php
-	echo $tNGs->getErrorMsg();
+echo $tNGs->getErrorMsg();
 ?>
 </form>
 </div>

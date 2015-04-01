@@ -1,10 +1,10 @@
 <?php
 
 class ConnectPgsql {
-	private $host = "127.0.0.1";
-	private $dbname = "internos";
-	private $user = "postgres";
-	private $port = "5432";
+	private $host     = "127.0.0.1";
+	private $dbname   = "internos";
+	private $user     = "postgres";
+	private $port     = "5432";
 	private $password = "aporedux";
 	private $conn;
 

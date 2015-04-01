@@ -1,5 +1,5 @@
-<?php 
-		session_start(); 
+<?php
+session_start();
 ?>
 <div id="menu-container">
 	<ul>
@@ -14,6 +14,7 @@
             <ul class="menu-sub-item">
              <li> <a href="movimento/producao_busca.php" target="pagina">Digitação de Produção</a></li>
              <li> <a href="movimento/fat_busca.php" target="pagina">Digitação do Faturamento</a></li>
+             <li> <a href="movimento/intercarnes_busca.php" target="pagina">Digitação Intercarnes</a></li>
           </ul>
       </li>
         <li class="menu-main-item"><a href="#">Relatorios</a>

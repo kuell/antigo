@@ -1,5 +1,7 @@
 <?php
 require ("../../Connections/conn.php");
+require ('../../Connections/conect_mysqli.php');
+require ('../../class/FatIntercarnes.class.php');
 mysql_select_db($database_conn, $conn);
 session_start();
 
@@ -125,6 +127,20 @@ function incluir_fat() {
 	mysql_query($sql) or die("Erro: ".mysql_error()."/n ".$sql);
 
 	echo 'R$ '.number_format($total_venda, 2, ',', '.');
+}
+
+function intercarnes_incluir() {
+	$data = explode('/', $_POST['data']);
+
+	$int = new FatIntercarnes();
+
+	$int->setProduto($_POST['produto']);
+	$int->setMes($data[1]);
+	$int->setAno($data[2]);
+	$int->setValor($_POST['valor']);
+
+	return $int->save();
+
 }
 
 ?>

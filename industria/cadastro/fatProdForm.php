@@ -1,12 +1,31 @@
-<?php require_once ('../../Connections/conn.php');?>
+<?php
+
+require "../../Connections/conect_mysqli.php";
+require "../class/FatProduto.class.php";
+
+$p = new FatProduto();
+if ($_GET['id']) {
+	$produto = $p->produto($_GET['id']);
+} else {
+	$produto = $p;
+}
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=latin1" />
 <title>Untitled Document</title>
-<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<script language="javascript" src="/js/jquery.min.js"></script>
-<script language="javascript" src="/js/script.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../../css/calendario.css">
+  <script type="text/javascript" src="../../js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../js/jquery.ui.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../js/jquery.maskedinput.js"></script>
+  <script type="text/javascript" src="../../js/jquery.maskMoney.js"></script>
+  <script type="text/javascript" src="../../js/scripts.js"></script>
 </head>
 
 <body>
@@ -15,12 +34,8 @@
   <input type="hidden" name="funcao" id="funcao" />
   <table width="auto%" border="0" align="center" class="KT_tngtable">
     <tr>
-      <th scope="col">Codigo Produ&ccedil;&atilde;o:</th>
-      <td scope="col"><input name="cod_prod" type="text" class="ewRptGrpSummary1" id="cod_prod" onblur="busca()" value="<?php
-if (!$row_produto['cod_prod']) {
-	echo $_REQUEST['id'];
-} else {
-	echo $row_produto['cod_prod'];}?>" readonly="readonly" /></td>
+      <th>Codigo Produção</th>
+      <td><input name="cod_prod" type="text" class="form-control" onblur="busca()" value="<?php echo $produto->getCodProd()?>" readonly="readonly" /></td>
     </tr>
     <tr>
       <th scope="col">Codigo Faturamento:</th>
@@ -61,11 +76,11 @@ o do Faturamento:</th>
         <label>
 <?php if (!$_REQUEST['cod']) {?>
 	<input type="hidden" value="adicionar_fat" name="funcao"/>
-	<input type="submit" name="button" id="button" value="Incluir" />
+																			<input type="submit" name="button" id="button" value="Incluir" />
 	<?php } else {?>
-         <input type="submit" name="button3" id="button3" value="Atualizar" />
+	<input type="submit" name="button3" id="button3" value="Atualizar" />
 	<?php }?>
-			<input type="button" name="button2" id="button2" value="Voltar"  onclick="document.location = 'fat_prod_l.php'"/>
+<input type="button" name="button2" id="button2" value="Voltar"  onclick="document.location = 'fat_prod_l.php'"/>
       </div></th>
     </tr>
   </table>

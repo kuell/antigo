@@ -31,7 +31,7 @@ $(function(){
             changeMonth: true
         });
     
-    $("input[type=text], textarea").blur(function(){
+    $("input[type=text], textarea, password").blur(function(){
         muda = $(this).val().toUpperCase()
         $(this).val(muda)
     })

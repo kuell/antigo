@@ -16,10 +16,17 @@ class Connect {
 	}
 
 	public function executeSql($sql, $returno = 'array') {
-		$qr = $this->con->query($sql) or die('Erro na instrução ou na conexão!<br />'.$sql."<br>");
-		$this->con->close();
-
+		$qr = $this->con->query($sql) or die($this->erro($sql));
 		return $qr;
 
+	}
+	public function erro($sql) {
+		$erro = (object) [
+			'sql'    => $sql,
+			'erro'   => $this->con->error,
+			'outros' => $this->con
+		];
+
+		return print_r($erro);
 	}
 }

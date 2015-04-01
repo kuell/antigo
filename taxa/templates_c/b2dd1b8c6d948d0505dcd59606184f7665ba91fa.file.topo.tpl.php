@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-03-20 11:36:18
+<?php /* Smarty version Smarty-3.1.12, created on 2015-03-25 09:31:35
          compiled from "/var/www/sigAntigo/sig2/view/topo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:128714336654cbb87f791040-69700229%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b2dd1b8c6d948d0505dcd59606184f7665ba91fa' => 
     array (
       0 => '/var/www/sigAntigo/sig2/view/topo.tpl',
-      1 => 1426865771,
+      1 => 1426865821,
       2 => 'file',
     ),
   ),
@@ -36,10 +36,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
 <script type="text/javascript" src="../js/modal/jquery.superbox-min.js"></script>
 <script type="text/javascript" src="../js/jquery.ui.js"></script>
-<link rel="stylesheet" type="text/css" href="../js/chosen_v1.4.1/chosen.css">
-
-  <script src="../js/chosen_v1.4.1/chosen.jquery.min.js" type="text/javascript"></script>
-  <script src="../js/chosen_v1.4.1/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript" src="../js/scripts.js"></script> 
 

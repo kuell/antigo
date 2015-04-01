@@ -8,6 +8,10 @@ class Balanco extends Connect {
 		$this->connect = new Connect();
 	}
 
+	public function balanco($mes, $ano) {
+
+	}
+
 }
 
 ?>
