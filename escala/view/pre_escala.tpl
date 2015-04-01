@@ -26,7 +26,7 @@
         {foreach from=$dia item=d}
             <tr>
                 <td><div class="well">
-                   {if $d.0|default:"" ne ""}
+                   {if ($d.0|default:"" ne "")}
                     {$d.0|default:""}    
                     <div>
                         Domingo

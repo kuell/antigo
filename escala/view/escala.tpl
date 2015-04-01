@@ -21,7 +21,7 @@ function exclui(id,data){
             <div class="control-group">
                 <label class="control-label" >Data: </label>   
                 <div class="controls"> 
-                    <input type="text" name="data" {if $smarty.get.id|default:"" ne ""} readonly {else}class="data" {/if} value="{$data|date_format:"%d/%m/%Y"}" />                   
+                    <input type="text" name="data" {if ($smarty.get.id|default:"" ne "")} readonly {else}class="data" {/if} value="{$data|date_format:"%d/%m/%Y"}" />                   
                 </div>
             </div>
                 <div class="control-group">

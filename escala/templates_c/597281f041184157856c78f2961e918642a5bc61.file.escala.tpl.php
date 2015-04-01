@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-02-28 09:49:54
+<?php /* Smarty version Smarty-3.1.12, created on 2015-04-01 13:18:04
          compiled from "view/escala.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:63309550754f1c782a15f66-42767400%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '597281f041184157856c78f2961e918642a5bc61' => 
     array (
       0 => 'view/escala.tpl',
-      1 => 1424972964,
+      1 => 1427908678,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_54f1c782bf5fc4_00122136',
   'variables' => 
   array (
     'op' => 0,
@@ -31,10 +33,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'row' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_54f1c782bf5fc4_00122136',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54f1c782bf5fc4_00122136')) {function content_54f1c782bf5fc4_00122136($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig_antigo/antigo/includes/smarty/libs/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_54f1c782bf5fc4_00122136')) {function content_54f1c782bf5fc4_00122136($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sigAntigo/sig2/includes/smarty/libs/plugins/modifier.date_format.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("../../view/topo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
@@ -59,7 +59,7 @@ function exclui(id,data){
             <div class="control-group">
                 <label class="control-label" >Data: </label>   
                 <div class="controls"> 
-                    <input type="text" name="data" <?php if ((($tmp = @$_GET['id'])===null||$tmp==='' ? '' : $tmp)!=''){?> readonly <?php }else{ ?>class="data" <?php }?> value="<?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['data']->value,"%d/%m/%Y");?>
+                    <input type="text" name="data" <?php if (((($tmp = @$_GET['id'])===null||$tmp==='' ? '' : $tmp)!='')){?> readonly <?php }else{ ?>class="data" <?php }?> value="<?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['data']->value,"%d/%m/%Y");?>
 " />                   
                 </div>
             </div>
