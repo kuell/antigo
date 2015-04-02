@@ -16,10 +16,6 @@ class Produtividade extends Interno {
 		$this->dataf = $dataf;
 	}
 
-	public function getCustoRhDia() {
-
-	}
-
 	public function getCustoRh() {
 		$setors  = new Setor();
 		$balanco = new Balanco($this->datai, $this->dataf);
@@ -47,7 +43,6 @@ class Produtividade extends Interno {
 							setor = %s and
 							data between '%s' and '%s'", $setor, $this->datai, $this->dataf);
 
-		
 		$res = $this->conn->executeSql($sql)->fetch_object();
 
 		return $res->res;

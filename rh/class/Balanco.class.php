@@ -18,6 +18,35 @@ class Balanco {
 		$this->dataf    = $dataf;
 	}
 
+	public function getCustoRhPorTipoCusto() {
+
+		$sql = sprintf("Select
+						a.id_setor,
+						a.tipo_custo,
+						a.setor,
+						a.interno_setor,
+						sum(b.horas_trabalhadas) as hTrab
+					from
+						setor a
+						left join rh_produtividade b on a.id_setor = b.setor
+					where
+						b.data between '%s' and '%s'
+					group by
+						b.setor", $this->datai, $this->dataf);
+
+		$rs = $this->conn->executeSql($sql);
+
+		while ($val = $rs->fetch_object()) {
+			$custo = $this->getCustoHora($val->id_setor, $val->interno_setor)*$val->hTrab;
+
+			$this->setor[$val->tipo_custo][$val->setor] = $custo;
+		}
+
+		arsort($this->setor);
+
+		return $this->setor;
+	}
+
 	public function getCustoRhDia() {
 		$this->dataf = $this->datai;
 
@@ -48,7 +77,7 @@ class Balanco {
 			} else {
 				$return[$val->data] = ($val->hTrab*$custoHora[$val->id_setor])+$return[$val->data];
 			}
-			
+
 		}
 
 		return $return;
@@ -56,19 +85,18 @@ class Balanco {
 
 	public function getCustoHora($setor, $interno_setor = null) {
 		$i = new Interno();
-		
-		$hrTrab        = $this->getItem($setor, 1);
-		$remBruta      = $this->getItem($setor, 12);
 
-		if(!empty($interno_setor)){
+		$hrTrab   = $this->getItem($setor, 1);
+		$remBruta = $this->getItem($setor, 12);
+
+		if (!empty($interno_setor)) {
 			$hrTrabInterno = doubleval($i->getHorasTrabalhadasBalanco($interno_setor, $this->datai, $this->dataf));
-		}
-		else{
+		} else {
 			$hrTrabInterno = 0;
-		}	
+		}
 
 		$totalHorasTrabalhadas = $hrTrab+$hrTrabInterno;
-				
+
 		if ($totalHorasTrabalhadas) {
 			return $remBruta/$totalHorasTrabalhadas;
 		} else {
@@ -86,13 +114,12 @@ class Balanco {
 		$res = $this->conn->executeSql($sql)->fetch_object();
 		return $res->res;
 	}
-	
-	public function getSetor($id){
+
+	public function getSetor($id) {
 		$sql = sprintf("Select * from setor where id_setor = %s", $id);
 
 		return $this->setor = $this->conn->executeSql($sql)->fetch_object();
 	}
-
 
 }
 

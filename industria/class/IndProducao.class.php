@@ -21,14 +21,37 @@ class IndProducao {
 
 	public function getKgProduzido() {
 		$sql = sprintf("select
-                    sum(a.peso) as peso
-                from
-                    `ind_producao` a
-                where
-                    a.`data_producao` between '%s' and '%s'", $this->datai, $this->dataf);
-		$rs = $this->conn->executeSql($sql)->fetch_object();
+		                    sum(a.peso) as peso
+		                from
+		                    ind_producao a
+		                where
+		                    a.data_producao between '%s' and '%s'", $this->datai, $this->dataf);
 
+		$rs = $this->conn->executeSql($sql)->fetch_object();
 		return $rs->peso;
+	}
+
+	public function getVpc() {
+		$sql = sprintf("Select
+							a.cod,
+							a.descricao,
+							a.tipo,
+							sum(c.peso) * f_fat_valor_unitario(c.data_producao, c.data_producao, a.cod) as valorTotal
+						from
+							ind_produtos a
+							left join ind_producao c on a.cod = c.produto
+						where
+							c.data_producao between '%s' and '%s' and
+							a.ativo = 1
+						group by
+							a.id", $this->datai, $this->dataf);
+
+		$rs = $this->conn->executeSql($sql);
+
+		while ($val = $rs->fetch_object()) {
+			$this->vpc = $val->valorTotal+$this->vpc;
+		}
+		return $this->vpc;
 	}
 
 	public function getVpcDia() {

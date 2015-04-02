@@ -22,9 +22,6 @@ class Faturamento {
 		$res = $this->conn->executeSql($sql)->fetch_object();
 		return $res->res;
 	}
-	public function faturamentoTotalDia() {
-		$sql = "";
-	}
 
 	public function getCustoVendaDia() {
 		$sql = sprintf("Select

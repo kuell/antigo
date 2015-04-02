@@ -76,7 +76,7 @@ class PDF extends FPDF {
 		$dt        = explode('/', $_GET['data1']);
 		$ultimoDia = cal_days_in_month(CAL_GREGORIAN, $dt[1], $dt[2]);
 
-		$d         = implode('-', array_reverse(explode('/', $_GET['data1'])));
+		$d = implode('-', array_reverse(explode('/', $_GET['data1'])));
 
 		$custo = new CustoProducao($d, $d);
 		$custo->apuracaoDiaria();
@@ -89,7 +89,10 @@ class PDF extends FPDF {
 			$diaSemana = date('w', strtotime($data));
 
 			if ($diaSemana == 0) {
-				$this->SetFillColor(210, 250, 201);
+				$this->SetFillColor(175, 200, 210);
+				$f = 1;
+			} else if ($diaSemana == 6) {
+				$this->SetFillColor(220, 250, 210);
 				$f = 1;
 			} else {
 				$this->SetFillColor(210);

@@ -15,7 +15,7 @@ class Taxa {
 		$this->conn  = new Connect();
 	}
 
-	public function getTaxa() {
+	public function getTaxas() {
 		$sql = sprintf("select `Taxa`('%s', '%s') as res", $this->datai, $this->dataf);
 
 		$res = $this->conn->executeSql($sql)->fetch_object();
@@ -44,7 +44,7 @@ class Taxa {
 				$this->taxas[$val->data] = $result[$val->data]['c']-$result[$val->data]['d'];
 			}
 		}
-		
+
 		return $this->taxas;
 	}
 }

@@ -6,114 +6,84 @@ class CustoProducao {
 	public $producao;
 	public $faturamento;
 	public $rh;
-
-	public $rendimento;
-	public $precoMedio;
-	public $kgMedioPorCabeca;
-	public $kgMedioProduzidoPorCabeca;
-	public $valorMedioProduzidoPorCabeca;
-	public $valorProducaoCorrente;
-	public $taxas;
-	public $custoComercial;
-	public $maoDeObraDireta;
-	public $consumoMaterialProdutivo;
-	public $energia;
-	public $maoDeObraIndireta;
-	public $consumoDiversos;
-	public $servicosGerais;
-	public $oleoDiesel;
-	public $datai, $dataf;
-	public $dados;
-
 	public $almox;
-	public $subTotalDireto;
-	public $subTotalIndireto;
 
 	public function __construct($datai, $dataf) {
 		$this->datai = $datai;
 		$this->dataf = $dataf;
 
-		$this->conn = new Connect();
+		$this->conn        = new Connect();
+		$this->abate       = new Abate($this->datai, $this->dataf);
+		$this->producao    = new IndProducao($this->datai, $this->dataf);
+		$this->faturamento = new Faturamento($this->datai, $this->datai);
+		$this->taxa        = new Taxa($this->datai, $this->dataf);
+		$this->almox       = new Almoxarifado($this->datai, $this->dataf);
+		$this->rh          = new Balanco($this->datai, $this->dataf);
 	}
-	/*
-	public function getValores() {
-	$sql = "select
-	`AbateQtd`('$this->datai', '$this->dataf') as qtdAbate,
-	`AbatePeso`('$this->datai', '$this->dataf') as pesoAbate,
-	`ProdKg`('$this->datai', '$this->dataf') as KgProd,
-	`Taxa`('$this->datai', '$this->dataf') as taxa,
-	`CustoComercial`('$this->datai', '$this->dataf') as custoComercial";
+	public function apuracaoPorData() {
+		$this->abate = $this->abate->getAbate();
 
-	$this->dados = $this->conn->executeSql($sql)->fetch_object();
-	$this->rh    = $this->getValoresRh();
-	$this->almox = $this->getValoresAlmox();
+		$this->producao->pesoProduzido               = $this->producao->getKgProduzido();
+		$this->producao->rendimento                  = ($this->producao->pesoProduzido*100)/$this->abate->peso;
+		$this->producao->vpc                         = $this->producao->getVpc();
+		$this->producao->valorMedio                  = $this->producao->vpc/$this->producao->pesoProduzido;
+		$this->producao->pesoMedioPorAnimal          = !($this->abate->peso/$this->abate->qtd)?0:($this->abate->peso/$this->abate->qtd);
+		$this->producao->pesoMedioProduzidoPorAnimal = $this->producao->pesoMedioPorAnimal*$this->producao->rendimento/100;
+		$this->producao->valorMedioPorAnimal         = $this->producao->pesoMedioProduzidoPorAnimal*$this->producao->valorMedio;
 
-	$this->abateQtd              = $this->dados->qtdAbate;
-	$this->abatePeso             = $this->dados->pesoAbate;
-	$this->kgProduzido           = $this->dados->KgProd;
-	$this->taxas                 = $this->dados->taxa;
-	$this->valorProducaoCorrente = $this->getValorProducaoCorrente($this->datai, $this->dataf);
+		$this->taxa->taxas                 = $this->taxa->getTaxas();
+		$this->faturamento->custoComercial = $this->faturamento->getCustoComercial();
 
-	$this->rendimento                = round(($this->kgProduzido*100)/$this->abatePeso, 2);
-	$this->kgMedioPorCabeca          = round($this->abatePeso/$this->abateQtd, 2);
-	$this->kgMedioProduzidoPorCabeca = round(($this->kgMedioPorCabeca*$this->rendimento/100), 2);
-	//	$this->precoMedio                   = round($this->valorProducaoCorrente/$this->kgProduzido, 2);
-	$this->valorMedioProduzidoPorCabeca = round($this->kgMedioProduzidoPorCabeca*$this->precoMedio, 2);
+		$rh = $this->rh->getCustoRhPorTipoCusto();
 
-	$this->custoComercial    = $this->dados->custoComercial;
-	$this->maoDeObraDireta   = array_sum($this->rh['DIRETO']);
-	$this->maoDeObraIndireta = array_sum($this->rh['INDIRETO']);
+		$this->rh->direto          = $rh['DIRETO'];
+		$this->rh->maoDeObraDireta = array_sum($rh['DIRETO']);
 
-	$this->energia        = !empty($this->almox['DIRETO']['ENERGIA'])?$this->almox['DIRETO']['ENERGIA']:0;
-	$this->oleoDiesel     = $this->almox['INDIRETO']['OLEO DIESEL'];
-	$this->servicosGerais = $this->almox['INDIRETO']['SERVICOS'];
+		$this->rh->indireto          = $rh['INDIRETO'];
+		$this->rh->maoDeObraIndireta = array_sum($rh['INDIRETO']);
 
-	unset($this->almox['DIRETO']['ENERGIA']);
-	unset($this->almox['INDIRETO']['OLEO DIESEL']);
-	unset($this->almox['INDIRETO']['SERVICOS']);
+		$almox = $this->almox->getCustoAlmoxPorTipo();
 
-	$this->consumoDiversos          = array_sum($this->almox['INDIRETO']);
-	$this->consumoMaterialProdutivo = array_sum($this->almox['DIRETO']);
+		$this->almox->energia    = $almox['DIRETO']['ENERGIA'];
+		$this->almox->servicos   = $almox['INDIRETO']['SERVICOS'];
+		$this->almox->oleoDiesel = $almox['INDIRETO']['OLEO DIESEL'];
 
-	$this->subTotalDireto =
+		unset($almox['DIRETO']['ENERGIA']);
+		unset($almox['INDIRETO']['SERVICOS']);
+		unset($almox['INDIRETO']['OLEO DIESEL']);
 
-	$this->taxas+
-	$this->custoComercial+
-	$this->maoDeObraDireta+
-	$this->consumoMaterialProdutivo+
-	$this->energia;
+		$this->almox->consumoMaterialProdutivo = array_sum($almox['DIRETO']);
+		$this->almox->produtivo                = $almox['DIRETO'];
 
-	$this->subTotalIndireto = $this->servicosGerais+$this->oleoDiesel+$this->maoDeObraIndireta+$this->consumoDiversos;
-	return $this;
+		$this->almox->consumoDiversos = array_sum($almox['INDIRETO']);
+		$this->almox->diversos        = $almox['INDIRETO'];
+
+		$this->subTotalDireto = $this->taxa->taxas+$this->faturamento->custoComercial+$this->rh->maoDeObraDireta+$this->almox->consumoMaterialProdutivo+$this->almox->energia;
+
+		$this->subTotalIndireto = $this->maoDeObraIndireta+$this->consumoDiversos+$this->almox->servicos+$this->almox->oleoDiesel;
+
+		return $this;
 	}
-	 */
 
 	public function apuracaoDiaria() {
-		$abate       = new Abate($this->datai, $this->dataf);
-		$producao    = new IndProducao($this->datai, $this->datai);
-		$faturamento = new Faturamento($this->datai, $this->datai);
-		$taxa        = new Taxa($this->datai, $this->dataf);
-		$almox       = new Almoxarifado($this->datai, $this->dataf);
-		$rh          = new Balanco($this->datai, $this->dataf);
+		$this->abate = $this->abate->getAbateDia();
 
-		$this->abate = $abate->getAbateDia();
-
-		$this->producao->pesoProduzido               = $producao->getPesoProduzidoDia();
+		$this->producao->pesoProduzido               = $this->producao->getPesoProduzidoDia();
 		$this->producao->rendimento                  = $this->getRendimentoDia();
-		$this->producao->vpc                         = $producao->getVpcDia();
+		$this->producao->vpc                         = $this->producao->getVpcDia();
 		$this->producao->valorMedio                  = $this->getPrecoMedioDia();
 		$this->producao->pesoMedioPorAnimal          = $this->getPesoMedioPorAnimalDia();
 		$this->producao->pesoMedioProduzidoPorAnimal = $this->getPesoMedioProduzidoPorAnimalDia();
 		$this->producao->valorMedioPorAnimal         = $this->getValorMedioPorAnimalDia();
 
 		$this->faturamento->custoComercial = $this->getCustoComercialDia();
-		$this->taxa->taxa                  = $taxa->getTaxaDia();
-		$this->almox->energia    = $almox->getEnergiaDia();
-		$this->almox->oleoDiesel = $almox->getOleoDieselDia();
-		$this->almox->servicos   = $almox->getServicosDia();
-		$this->almox->custo      = $almox->getCustoAlmoxDia();
+		$this->taxa->taxa                  = $this->taxa->getTaxaDia();
+		$this->almox->energia              = $this->almox->getEnergiaDia();
+		$this->almox->oleoDiesel           = $this->almox->getOleoDieselDia();
+		$this->almox->servicos             = $this->almox->getServicosDia();
+		$this->almox->custo                = $this->almox->getCustoAlmoxDia();
 
-		$this->rh->rh = $rh->getCustoRhDia();
+		$this->rh->rh = $this->rh->getCustoRhDia();
 
 		return $this;
 

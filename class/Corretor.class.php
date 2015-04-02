@@ -1,14 +1,17 @@
 <?php
 
 class Corretor extends Connect {
+	private $conn;
 	public $id;
 	public $codigo_interno;
 	public $nome;
 	public $situacao;
 
 	public function __construct($id) {
+		$this->conn = new Connect();
+
 		$sql   = sprintf("Select * from corretor where cor_id = %s", $id);
-		$dados = $this->executeSql($sql)->fetch_object();
+		$dados = $this->conn->executeSql($sql)->fetch_object();
 
 		$this->id             = $dados->cor_id;
 		$this->codigo_interno = $dados->cor_cod;
@@ -19,7 +22,7 @@ class Corretor extends Connect {
 
 	public function getTaxaAjustes($datai, $dataf) {
 		$sql   = sprintf("call p_taxa_ajuste_corretor(%s, '%s', '%s')", $this->id, $datai, $dataf);
-		$dados = $this->executeSql($sql);
+		$dados = $this->conn->executeSql($sql);
 
 		while ($val = $dados->fetch_object()) {
 			$res[date('d/m/Y', strtotime($val->data))][$val->grupo][] =

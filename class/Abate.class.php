@@ -80,6 +80,29 @@ class Abate extends Connect {
 		return $this;
 	}
 
+	public function getAbate() {
+		$sql = sprintf("Select
+							sum(a.`qtd`) as qtd,
+							sum(a.peso) as peso
+						from
+						  `taxaitens` a
+						  inner join `taxa_item` b on(a.`idItem` = b.`id`)
+						  inner join `taxa` c on(a.`idTaxa` = c.`id`)
+						where
+							c.data between '%s' and '%s' and
+							b.sexo in(1,0)
+						", $this->datai, $this->dataf);
+
+		$rs = $this->conn->executeSql($sql);
+
+		while ($val = $rs->fetch_object()) {
+			$this->peso = $val->peso;
+			$this->qtd  = $val->qtd;
+		}
+
+		return $this;
+	}
+
 }
 
 ?>
