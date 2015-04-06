@@ -15,7 +15,7 @@
 		function digitar(){
 			data = $('#data').val()
 
-			open('intercarnes_movimento.php?data='+data, 'Digitar', 'channelmode=yes');
+			open('pauta_fiscal_movimento.php?data='+data, 'Digitar', 'channelmode=yes, scrollbars=1');
 		}
 
 	</script>
@@ -23,7 +23,7 @@
 <body>
 <div class="col-md-12">
 	<div class="col-md-12 well well-sm">
-		<h3>Digitação Intercarnes</h3>
+		<h3>Digitação Pauta Fiscal</h3>
 	</div>
 	<div class="col-md-2">
 		Data da Digitação:

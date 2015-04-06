@@ -15,6 +15,7 @@ session_start();
              <li> <a href="movimento/producao_busca.php" target="pagina">Digitação de Produção</a></li>
              <li> <a href="movimento/fat_busca.php" target="pagina">Digitação do Faturamento</a></li>
              <li> <a href="movimento/intercarnes_busca.php" target="pagina">Digitação Intercarnes</a></li>
+             <li> <a href="movimento/pauta_fiscal_busca.php" target="pagina">Digitação Pauta Fiscal</a></li>
           </ul>
       </li>
         <li class="menu-main-item"><a href="#">Relatorios</a>

@@ -1,30 +1,32 @@
 <?php
 
 class FatIntercarnes extends Connect {
-	public $conn;
+	protected $conn;
 	private $id;
 	private $mes;
 	private $ano;
 	private $produto;
 	private $valor;
 
-	function __construct() {
-		//	session_start();
+	public function __construct($mes, $ano) {
+		$this->conn = new Connect();
+		$this->mes  = $mes;
+		$this->ano  = $ano;
 	}
 
 	public function save() {
+
 		$sql = sprintf("SELECT count(*) as res from fat_intercarnes where produto_id = %s and mes = %s and ano = %s",
 			$this->produto,
 			$this->mes,
 			$this->ano);
 
-		$this->conn = new Connect();
-		$res        = $this->conn->executeSql($sql)->fetch_object();
+		$res = $this->conn->executeSql($sql)->fetch_object();
 
 		if ($res->res == 0) {
-			$this->insert();
+			return $this->insert();
 		} else {
-			$this->update();
+			return $this->update();
 		}
 	}
 
@@ -44,9 +46,8 @@ class FatIntercarnes extends Connect {
 			$this->ano,
 			$this->produto,
 			$this->valor);
-		echo $sql;
 
-		$this->conn->executeSql($sql);
+		return $this->conn->executeSql($sql);
 	}
 
 	/**
@@ -67,50 +68,6 @@ class FatIntercarnes extends Connect {
 	 */
 	public function setId($id) {
 		$this->id = $id;
-
-		return $this;
-	}
-
-	/**
-	 * Gets the value of mes.
-	 *
-	 * @return mixed
-	 */
-	public function getMes() {
-		return $this->mes;
-	}
-
-	/**
-	 * Sets the value of mes.
-	 *
-	 * @param mixed $mes the mes
-	 *
-	 * @return self
-	 */
-	public function setMes($mes) {
-		$this->mes = $mes;
-
-		return $this;
-	}
-
-	/**
-	 * Gets the value of ano.
-	 *
-	 * @return mixed
-	 */
-	public function getAno() {
-		return $this->ano;
-	}
-
-	/**
-	 * Sets the value of ano.
-	 *
-	 * @param mixed $ano the ano
-	 *
-	 * @return self
-	 */
-	public function setAno($ano) {
-		$this->ano = $ano;
 
 		return $this;
 	}

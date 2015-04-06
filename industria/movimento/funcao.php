@@ -1,7 +1,9 @@
 <?php
 require ("../../Connections/conn.php");
 require ('../../Connections/conect_mysqli.php');
-require ('../../class/FatIntercarnes.class.php');
+require ('../class/FatIntercarnes.class.php');
+require ('../class/PautaFiscal.class.php');
+
 mysql_select_db($database_conn, $conn);
 session_start();
 
@@ -132,14 +134,24 @@ function incluir_fat() {
 function intercarnes_incluir() {
 	$data = explode('/', $_POST['data']);
 
-	$int = new FatIntercarnes();
+	$int = new FatIntercarnes($data[1], $data[2]);
 
 	$int->setProduto($_POST['produto']);
-	$int->setMes($data[1]);
-	$int->setAno($data[2]);
 	$int->setValor($_POST['valor']);
 
-	return $int->save();
+	echo $int->save();
+
+}
+
+function pauta_incluir() {
+	$data = explode('/', $_POST['data']);
+
+	$pauta = new PautaFiscal($data[1], $data[2]);
+
+	$pauta->setProduto($_POST['produto']);
+	$pauta->setValor($_POST['valor']);
+
+	echo $pauta->save();
 
 }
 

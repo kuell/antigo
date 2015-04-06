@@ -1,12 +1,12 @@
 <?php
 require '../../Connections/conect_mysqli.php';
 require '../class/FatProduto.class.php';
-require '../class/FatIntercarnes.class.php';
+require '../class/PautaFiscal.class.php';
 
 $data = explode('/', $_GET['data']);
 
 $p     = new FatProduto();
-$inter = new FatIntercarnes($data[1], $data[2]);
+$pauta = new PautaFiscal($data[1], $data[2]);
 
 $produtos = $p->lista('where ativo = 1');
 
@@ -28,19 +28,19 @@ $produtos = $p->lista('where ativo = 1');
 	<script type="text/javascript">
 		function envia(id){
 			valor = $('#valor'+id).val();
-			data = "<?php echo $_GET['data'];?>"
+			data = '<?php echo $_GET['data'];?>'
 
 			$.post('funcao.php',{produto: id,
 								 valor: valor,
 								 data: data,
-								 funcao: 'intercarnes_incluir'
+								 funcao: 'pauta_incluir'
 								 },function(data){
 								 	console.log(data);
 								 	if(data == '1'){
 								 		$('#action'+id).html('<div class="label label-success">Gravado</div>').removeClass('hidden');
 								 	}
 								 	else{
-								 		$('#action'+id).html('<div class="label label-danger">Erro</div>').removeClass('hidden');
+								 		$('#action'+id).html('<div class="label label-danger">Erro</div>');
 								 	}
 								 });
 
@@ -49,7 +49,7 @@ $produtos = $p->lista('where ativo = 1');
 </head>
 <body>
 <div class="well well-sm">
-	<h3>Digitação Intercarnes</h3>
+	<h3>Digitação Pauta Fiscal</h3>
 	<span><?php echo $_GET['data']?></span>
 </div>
 <div class="col-md-9">
@@ -62,18 +62,18 @@ $produtos = $p->lista('where ativo = 1');
 		</thead>
 		<tbody>
 <?php while ($produto = $produtos->fetch_array()) {?>
-					<tr>
-						<td><?php echo $produto['descricao'];?></td>
-						<td><input type="text" value="<?php echo $inter->getValor($produto['id'])?>" class="form-control valor" id="valor<?php echo $produto['id'];?>" ></td>
-						<td>
-							<button class="btn btn-primary" onclick="envia(<?php echo $produto['id']?>)">
-								envia
-							</button>
-						</td>
-						<td class="hidden" id="action<?php echo $produto['id'];?>">
+						<tr>
+							<td><?php echo $produto['descricao'];?></td>
+							<td><input type="text" value="<?php echo $pauta->getValor($produto['id'])?>" class="form-control valor" id="valor<?php echo $produto['id'];?>" ></td>
+							<td >
+								<button class="btn btn-primary" onclick="envia(<?php echo $produto['id']?>)">
+									envia
+								</button>
+							</td>
+							<td class="hidden" id="action<?php echo $produto['id'];?>">
 
-						</td>
-					</tr>
+							</td>
+						</tr>
 	<?php }?>
 		</tbody>
 	</table>
