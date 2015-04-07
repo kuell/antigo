@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=latin1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 <title>SIG - Sistema Interno de Gerenciamento</title>
 <link rel="shortcut icon" href="http://10.1.1.3/img/favicon.ico" />
 <link rel="icon" href="http://10.1.1.3/img/favicon.ico" />
@@ -11,13 +11,13 @@
    padding:0;
 }
 h1{
-	font:italic 3em Georgia, "Times New Roman", Times, serif; 
-	text-align:center; 
-	margin:0 0 0 0; 
-	background:#111; 
-	color:#fff; 
-	padding:15px 5px; 
-	letter-spacing:-0.04em; 
+	font:italic 3em Georgia, "Times New Roman", Times, serif;
+	text-align:center;
+	margin:0 0 0 0;
+	background:#111;
+	color:#fff;
+	padding:15px 5px;
+	letter-spacing:-0.04em;
 	text-shadow:1px 1px 5px #fff;}
 </style>
 </head>

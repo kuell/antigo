@@ -57,7 +57,7 @@ class PDF extends FPDF {
 		$this->SetFont("Arial", "I", 7);
 		$this->Cell(0, 4, 'Processado em '.date('d/m/Y'), 0, 0, "C");
 	}
-	function getDados($mes = 7, $ano = 2014) {
+	function getDados($mes, $ano) {
 		$sql = "Select
 					a.id_setor,
 					a.setor,
@@ -136,14 +136,14 @@ class PDF extends FPDF {
 		return $result;
 	}
 
-	function Dados() {
+	function Dados($mes, $ano) {
 		$w = array(10, 20, 22, 40, 50, 60, 70, 80, 90, 100);
 		$this->SetFont("Arial", "", 8);
 		$this->SetTextColor(0);
 		$this->SetDrawColor(1);
 		$this->SetFillColor(200);
 
-		$dados = $this->getDados();
+		$dados = $this->getDados($mes, $ano);
 
 		$sql = "select * from setor where rh = 'SIM' order by setor";
 		$qr  = mysql_query($sql) or die("Erro na consulta dos setores: ".mysql_error());
@@ -163,7 +163,7 @@ class PDF extends FPDF {
 			$this->cell($w[2], 5, $dados[$setor['id_setor']]['salarioSetor_sem2'], 'TR', 0, 'R');
 			$this->Ln();
 
-			$this->Cell($w[4], 4, utf8_decode('1º SEMESTRE 2014'), "LBR", 0, "L", 1);
+			$this->Cell($w[4], 4, utf8_decode('1º SEMESTRE '.$ano), "LBR", 0, "L", 1);
 			$this->cell($w[2], 4, $dados[$setor['id_setor']]['taxa_ocupacao_sem1'], 'LB', 0, 'R', 1);
 			$this->cell($w[2], 4, $dados[$setor['id_setor']]['faltasAcidente_sem1'], 'B', 0, 'R', 1);
 			$this->cell($w[2], 4, $dados[$setor['id_setor']]['ferias_sem1'], 'RB', 0, 'R', 1);
@@ -185,7 +185,10 @@ $pdf = new PDF("L", "mm", "A4");
 $pdf->AliasNbPages();
 $pdf->SetMargins(3, 2, 3, 1);
 $pdf->AddPage();
-$pdf->Dados();
+
+$data = explode('/', $_GET['data1']);
+
+$pdf->Dados($data[1], $data[2]);
 $pdf->Output();
 
 ?>

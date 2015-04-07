@@ -22,7 +22,7 @@ class PDF extends FPDF {
 	}
 
 	function getFiltro($data, $tipo) {
-		$d = explode('-', $data);
+		$d = explode('/', $data);
 
 		switch ($tipo) {
 			case 'mes':
@@ -59,27 +59,24 @@ class PDF extends FPDF {
 		$qr = mysql_query($sql) or die(mysql_error());
 
 		while ($res = mysql_fetch_assoc($qr)) {
-			if($res['interno_atual'] == 0 or $res['interno_demitidos'] == 0 or $res['interno_inicial'] == 0){
+			if ($res['interno_atual'] == 0 or $res['interno_demitidos'] == 0 or $res['interno_inicial'] == 0) {
 				$internoAdmitidos = 0;
-			}
-			else{
+			} else {
 				$internoAdmitidos = $res['interno_atual']+$res['interno_demitidos']-$res['interno_inicial'];
 			}
-			
-			if(($res['interno_atual']-$res['interno_inicial']) == 0 or $res['interno_inicial'] == 0){
+
+			if (($res['interno_atual']-$res['interno_inicial']) == 0 or $res['interno_inicial'] == 0) {
 				$internoEvolucao = 0;
-				}
-			else{
+			} else {
 				$internoEvolucao = ($res['interno_atual']-$res['interno_inicial'])/$res['interno_inicial']*100;
 			}
-			
-			if(($res['atual']-$res['inicial']) == 0 or $res['inicial'] == 0 ){
+
+			if (($res['atual']-$res['inicial']) == 0 or $res['inicial'] == 0) {
 				$evolucao = 0;
-			}
-			else{
+			} else {
 				$evolucao = ($res['atual']-$res['inicial'])/$res['inicial']*100;
 			}
-					
+
 			$result[$res['id_setor']] = array(
 				'interno_inicial'   => number_format($res['interno_inicial'], 0),
 				'interno_demitidos' => number_format($res['interno_demitidos'], 0),

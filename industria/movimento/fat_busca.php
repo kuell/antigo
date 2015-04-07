@@ -1,3 +1,10 @@
+
+<?php
+
+include ('../../class/Verifica.class.php');
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,7 +19,7 @@
 		}
 	$(function(){
 			$(".data").mask("99-99-9999");
-			   
+
 			   })
 </script>
 </head>
@@ -24,7 +31,7 @@
   <tr>
     <th scope="col">Data:</th>
     <td scope="col"><label>
-      <input name="data" type="text" id="data" value="<?php echo date("d-m-Y") ?>" class="data" />
+      <input name="data" type="text" id="data" value="<?php echo date("d-m-Y")?>" class="data" />
     </label></td>
   </tr>
   <tr>

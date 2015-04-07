@@ -50,6 +50,8 @@ $totalRows_rscustom = mysql_num_rows($rscustom);
 <script src="includes/common/js/utility.js" type="text/javascript"></script>
 <script src="includes/skins/style.js" type="text/javascript"></script>
 <script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery.maskMoney.js" type="text/javascript"></script>
+<script src="js/jquery.maskedinput.js" type="text/javascript"></script>
 <script src="js/muda.js" type="text/javascript"></script>
 
 <?php echo $tNGs->displayValidationRules();?>
