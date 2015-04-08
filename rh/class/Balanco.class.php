@@ -10,6 +10,7 @@ class Balanco {
 	public $ano;
 	public $item;
 	public $valor;
+	public $usuario;
 
 	public $custo;
 	public $setor;
@@ -217,9 +218,9 @@ class Balanco {
 		$res = $this->conn->executeSql($sql)->fetch_object();
 
 		if ($res->res == 0) {
-			$sql = sprintf("insert into rh_balanco_internos(mes, ano, setor, item, valor) values(%s, %s, %s, %s, %s)", $this->mes, $this->ano, $this->setor, $this->item, $this->valor);
+			$sql = sprintf("insert into rh_balanco_internos(mes, ano, setor, item, valor, usuario, data_hora_atualizacao) values(%s, %s, %s, %s, %s, '%s', now())", $this->mes, $this->ano, $this->setor, $this->item, $this->valor, $this->usuario);
 		} else {
-			$sql = sprintf("update rh_balanco_internos set valor = %s where mes = %s and ano = %s and item = %s)", $this->valor, $this->mes, $this->ano, $this->setor, $this->item);
+			$sql = sprintf("update rh_balanco_internos set valor = %s, usuario = '%s', data_hora_atualizacao = now() where mes = %s and ano = %s and item = %s", $this->valor, $this->usuario, $this->mes, $this->ano, $this->setor, $this->item);
 		}
 
 		return $rs = $this->conn->executeSql($sql);

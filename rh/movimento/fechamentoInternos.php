@@ -5,9 +5,12 @@ require ("../../class/Interno.class.php");
 require ('../../class/Setor.class.php');
 require ("../class/Balanco.class.php");
 
-$i        = new Interno();
-$internos = $i->fechamentoBalanco($_GET['mes'], $_GET['ano']);
-$balanco  = new Balanco(null, null);
+session_start();
+
+$i                = new Interno();
+$internos         = $i->fechamentoBalanco($_GET['mes'], $_GET['ano']);
+$balanco          = new Balanco(null, null);
+$balanco->usuario = $_SESSION['kt_login_user'];
 
 foreach ($internos as $val) {
 	$balanco->setor = $val['setor'];
