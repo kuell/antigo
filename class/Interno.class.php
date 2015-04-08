@@ -18,13 +18,14 @@ class Interno {
 
 		while ($setor = $setors->fetch_object()) {
 			$res[] = [
-				'setor' => $setor->id_setor,
-				'mes'   => $mes,
-				'ano'   => $ano,
-				'item'  => [
-					1      => (double) $this->getHorasTrabalhadas($setor->interno_setor, $datai, $dataf),
-					2      => (double) $this->getQtdInternos($setor->interno_setor, $datai, $dataf)*25*7.20,
-					3      => (double) $this->getHoraSuplementar($setor->interno_setor, $datai, $dataf)
+				'setor'     => $setor->id_setor,
+				'setorNome' => $setor->setor,
+				'mes'       => $mes,
+				'ano'       => $ano,
+				'item'      => [
+					1          => (double) $this->getHorasTrabalhadas($setor->interno_setor, $datai, $dataf),
+					2          => (double) $this->getQtdInternos($setor->interno_setor, $datai, $dataf)*25*7.20,
+					3          => (double) $this->getHoraSuplementar($setor->interno_setor, $datai, $dataf)
 
 				]
 			];

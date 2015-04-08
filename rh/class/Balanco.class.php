@@ -223,7 +223,9 @@ class Balanco {
 			$sql = sprintf("update rh_balanco_internos set valor = %s, usuario = '%s', data_hora_atualizacao = now() where mes = %s and ano = %s and item = %s", $this->valor, $this->usuario, $this->mes, $this->ano, $this->setor, $this->item);
 		}
 
-		return $rs = $this->conn->executeSql($sql);
+		$rs = $this->conn->executeSql($sql);
+
+		return $rs;
 	}
 }
 
