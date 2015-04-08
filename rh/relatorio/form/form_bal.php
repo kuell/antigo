@@ -47,8 +47,9 @@ $totalRows_setor = mysql_num_rows($setor);
 	<script type="text/javascript">
     	$(function(){
 			$(".data").mask("99-9999");
-				   })
-		function abre(pagina){
+		})
+
+	function abre(pagina){
 			data = document.getElementById('data').value
 			setor = document.getElementById('setor').value
 
@@ -75,7 +76,7 @@ $totalRows_setor = mysql_num_rows($setor);
 <?php
 do {
 	?>
-			          <option value="<?php echo utf8_encode($row_setor['id_setor'])?>"><?php echo strtoupper(utf8_encode($row_setor['setor']))?></option>
+					          <option value="<?php echo utf8_encode($row_setor['id_setor'])?>"><?php echo strtoupper(utf8_encode($row_setor['setor']))?></option>
 	<?php
 } while ($row_setor = mysql_fetch_assoc($setor));
 $rows = mysql_num_rows($setor);

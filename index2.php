@@ -20,7 +20,7 @@ $usuario = new Usuario($_SESSION['kt_login_id']);
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf8; no-cache" />
 <title>Untitled Document</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="bibliotecas/ionicons/css/ionicons.min.css">
@@ -85,20 +85,20 @@ $usuario = new Usuario($_SESSION['kt_login_id']);
 <?php foreach ($usuario->getSistemas() as $sistema) {
 	?>
 
-						<div class="col-sm-4 col-md-2 thumbnail">
-						  <img src="img/<?php echo $sistema->icone?>">
-						  <div class="caption">
-						    <h4></h4>
-						    <p><?php echo strtolower(lcfirst(utf8_decode($sistema->nome)))?></p>
-						    <p>
-						    	<a href="<?php echo $sistema->url?>" class="btn btn-info col-md-12" role="button">
-						    		Acessar
-						    		<i class="glyphicon glyphicon-share-alt" ></i>
-						    	</a>
-						    </p>
-						  </div>
+							<div class="col-sm-4 col-md-2 thumbnail">
+							  <img src="img/<?php echo $sistema->icone?>">
+							  <div class="caption">
+							    <h4></h4>
+							    <p><?php echo strtolower(lcfirst(utf8_decode($sistema->nome)))?></p>
+							    <p>
+							    	<a href="<?php echo $sistema->url?>" class="btn btn-info col-md-12" role="button">
+							    		Acessar
+							    		<i class="glyphicon glyphicon-share-alt" ></i>
+							    	</a>
+							    </p>
+							  </div>
 
-						</div>
+							</div>
 
 	<?php }?>
 

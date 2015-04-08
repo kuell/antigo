@@ -17,6 +17,11 @@ class Setor {
 
 		return $res;
 	}
+
+	public function getSetor($id) {
+		return $this->lista(' where id_setor = '.$id)->fetch_object();
+
+	}
 }
 
 ?>

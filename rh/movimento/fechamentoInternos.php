@@ -33,7 +33,7 @@ foreach ($internos as $val) {
 
 	?>
 
-						<div>Setor : <?php echo $val['setorNome'];?></div>
+	<div>Setor : <?php echo $val['setorNome'];?></div>
 
 	<?php
 
@@ -42,7 +42,7 @@ foreach ($internos as $val) {
 		$balanco->valor = $valor;
 
 		?>
-										<div class="col-md-3">Item : <?php echo $itens[$item];?></div>
+		<div class="col-md-3">Item : <?php echo $itens[$item];?></div>
 
 		<?php
 		if ($balanco->saveBalancoInterno() == 1) {

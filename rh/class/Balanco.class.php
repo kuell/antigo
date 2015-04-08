@@ -50,40 +50,66 @@ class Balanco {
 		$this->dataf    = $dataf;
 	}
 
-	public function getBalanco() {
-		$i = new Interno();
+	public function getBalanco($setor = null) {
+		if (empty($setor)) {
 
-		$this->info                         = $this->getInfo();
-		$this->horas_trabalhadas['c']       = $this->getItem(1);
-		$this->horas_trabalhadas['i']       = (double) $i->getHorasTrabalhadas('all', $this->datai, $this->dataf);
-		$this->horas_potenciais['c']        = $this->getItem(2);
-		$this->horas_potenciais['i']        = $i->getQtdInternos($this->datai, $this->dataf)*25*7.20;
-		$this->horas_suplementares['c']     = $this->getItem(3);
-		$this->horas_suplementares['i']     = (double) $i->getHoraSuplementar($this->datai, $this->dataf);
-		$this->falta                        = $this->getItem(4);
-		$this->ferias                       = $this->getItem(6);
-		$this->acidenteAfastamento          = $this->getItem(5);
-		$this->qtdFuncRegistradoAtivo       = $this->getItem(7);
-		$this->qtdFuncTemporarios           = $this->getItem(8);
-		$this->pestadoresServico            = $this->getItem(9);
-		$this->admitidos                    = $this->getItem(10);
-		$this->demitidos                    = $this->getItem(11);
-		$this->remBruta                     = $this->getItem(12);
-		$this->qtdFuncTemporariosDesligados = $this->getItem(16);
-		$this->taxaOcupacaoHora             = array_sum($this->horas_trabalhadas)/array_sum($this->horas_potenciais)*100;
-		$this->taxaDesocupacaoHora          = (array_sum($this->horas_potenciais)-array_sum($this->horas_trabalhadas))/array_sum($this->horas_potenciais)*100;
-		$this->taxaFaltas                   = $this->falta/array_sum($this->horas_trabalhadas)*100;
-		$this->taxaAcidenteAfastamentos     = $this->acidenteAfastamento/array_sum($this->horas_potenciais)*100;
-		$this->taxaFerias                   = $this->ferias/array_sum($this->horas_potenciais)*100;
-		$this->taxaAbsenteismoTotal         = $this->taxaFerias+$this->taxaFaltas+$this->taxaAcidenteAfastamentos;
-		$this->taxaRemHora                  = $this->remBruta/array_sum($this->horas_trabalhadas);
-		$this->taxaHoraSuplementar          = array_sum($this->horas_suplementares)/array_sum($this->horas_trabalhadas)*100;
-		$this->taxaAdmissao                 = ($this->admitidos*100)/$this->qtdFuncRegistradoAtivo;
-		$this->taxaDemissao                 = ($this->demitidos*100)/$this->qtdFuncRegistradoAtivo;
-		$this->taxaReposicao                = (($this->admitidos-$this->demitidos)*100)/$this->qtdFuncRegistradoAtivo;
-		$this->taxaTotalFolhaFat            = $this->remBruta/$this->info->fat*100;
-		$this->taxaSalarioPorPeso           = $this->remBruta/$this->info->peso;
-		$this->taxaSalarioMedioSetor        = $this->remBruta/($this->qtdFuncRegistradoAtivo+$this->qtdFuncTemporarios+$this->pestadoresServico);
+			$i = new Interno();
+
+			$this->info                         = $this->getInfo();
+			$this->horas_trabalhadas['c']       = $this->getItemAtual(1);
+			$this->horas_trabalhadas['i']       = $this->getItemAtualInterno(1);
+			$this->horas_potenciais['c']        = $this->getItemAtual(2);
+			$this->horas_potenciais['i']        = $this->getItemAtualInterno(2);
+			$this->horas_suplementares['c']     = $this->getItemAtual(3);
+			$this->horas_suplementares['i']     = $this->getItemAtualInterno(3);
+			$this->falta                        = $this->getItemAtual(4);
+			$this->ferias                       = $this->getItemAtual(6);
+			$this->acidenteAfastamento          = $this->getItemAtual(5);
+			$this->qtdFuncRegistradoAtivo       = $this->getItemAtual(7);
+			$this->qtdFuncTemporarios           = $this->getItemAtual(8);
+			$this->pestadoresServico            = $this->getItemAtual(9);
+			$this->admitidos                    = $this->getItemAtual(10);
+			$this->demitidos                    = $this->getItemAtual(11);
+			$this->remBruta                     = $this->getItemAtual(12);
+			$this->qtdFuncTemporariosDesligados = $this->getItemAtual(16);
+		} else {
+			$setors      = new Setor();
+			$this->setor = $setors->getSetor($setor);
+
+			$this->info                         = $this->getInfo();
+			$this->horas_trabalhadas['c']       = $this->getItemAtual(1, $this->setor->id_setor);
+			$this->horas_trabalhadas['i']       = $this->getItemAtualInterno(1, $this->setor->id_setor);
+			$this->horas_potenciais['c']        = $this->getItemAtual(2, $this->setor->id_setor);
+			$this->horas_potenciais['i']        = $this->getItemAtualInterno(2, $this->setor->id_setor);
+			$this->horas_suplementares['c']     = $this->getItemAtual(3, $this->setor->id_setor);
+			$this->horas_suplementares['i']     = $this->getItemAtualInterno(3, $this->setor->id_setor);
+			$this->falta                        = $this->getItemAtual(4, $this->setor->id_setor);
+			$this->ferias                       = $this->getItemAtual(6, $this->setor->id_setor);
+			$this->acidenteAfastamento          = $this->getItemAtual(5, $this->setor->id_setor);
+			$this->qtdFuncRegistradoAtivo       = $this->getItemAtual(7, $this->setor->id_setor);
+			$this->qtdFuncTemporarios           = $this->getItemAtual(8, $this->setor->id_setor);
+			$this->pestadoresServico            = $this->getItemAtual(9, $this->setor->id_setor);
+			$this->admitidos                    = $this->getItemAtual(10, $this->setor->id_setor);
+			$this->demitidos                    = $this->getItemAtual(11, $this->setor->id_setor);
+			$this->remBruta                     = $this->getItemAtual(12, $this->setor->id_setor);
+			$this->qtdFuncTemporariosDesligados = $this->getItemAtual(16, $this->setor->id_setor);
+
+		}
+
+		$this->taxaOcupacaoHora         = array_sum($this->horas_trabalhadas)/array_sum($this->horas_potenciais)*100;
+		$this->taxaDesocupacaoHora      = (array_sum($this->horas_potenciais)-array_sum($this->horas_trabalhadas))/array_sum($this->horas_potenciais)*100;
+		$this->taxaFaltas               = $this->falta/array_sum($this->horas_trabalhadas)*100;
+		$this->taxaAcidenteAfastamentos = $this->acidenteAfastamento/array_sum($this->horas_potenciais)*100;
+		$this->taxaFerias               = $this->ferias/array_sum($this->horas_potenciais)*100;
+		$this->taxaAbsenteismoTotal     = $this->taxaFerias+$this->taxaFaltas+$this->taxaAcidenteAfastamentos;
+		$this->taxaRemHora              = $this->remBruta/array_sum($this->horas_trabalhadas);
+		$this->taxaHoraSuplementar      = array_sum($this->horas_suplementares)/array_sum($this->horas_trabalhadas)*100;
+		$this->taxaAdmissao             = ($this->admitidos*100)/$this->qtdFuncRegistradoAtivo;
+		$this->taxaDemissao             = ($this->demitidos*100)/$this->qtdFuncRegistradoAtivo;
+		$this->taxaReposicao            = (($this->admitidos-$this->demitidos)*100)/$this->qtdFuncRegistradoAtivo;
+		$this->taxaTotalFolhaFat        = $this->remBruta/$this->info->fat*100;
+		$this->taxaSalarioPorPeso       = $this->remBruta/$this->info->peso;
+		$this->taxaSalarioMedioSetor    = $this->remBruta/($this->qtdFuncRegistradoAtivo+$this->qtdFuncTemporarios+$this->pestadoresServico);
 
 		return $this;
 	}
@@ -187,6 +213,44 @@ class Balanco {
 							FROM rh_balanco
 							WHERE 	ano BETWEEN year('%s' - interval 1 month) and year('%s' - interval 1 month) and
 									mes BETWEEN month('%s' - interval 1 month) and month('%s' - interval 1 month) and
+									item = %s and setor = %s", $this->datai, $this->dataf, $this->datai, $this->dataf, $item, $setor);
+		}
+
+		$res = $this->conn->executeSql($sql)->fetch_object();
+		return $res->res;
+	}
+
+	public function getItemAtual($item, $setor = null) {
+		if ($setor == null) {
+			$sql = sprintf("SELECT sum(valor) as res
+							FROM rh_balanco
+							WHERE 	ano BETWEEN year('%s') and year('%s') and
+									mes BETWEEN month('%s') and month('%s') and
+									item = %s", $this->datai, $this->dataf, $this->datai, $this->dataf, $item);
+		} else {
+			$sql = sprintf("SELECT sum(valor) as res
+							FROM rh_balanco
+							WHERE 	ano BETWEEN year('%s') and year('%s') and
+									mes BETWEEN month('%s') and month('%s') and
+									item = %s and setor = %s", $this->datai, $this->dataf, $this->datai, $this->dataf, $item, $setor);
+		}
+
+		$res = $this->conn->executeSql($sql)->fetch_object();
+		return $res->res;
+	}
+
+	public function getItemAtualInterno($item, $setor = null) {
+		if ($setor == null) {
+			$sql = sprintf("SELECT sum(valor) as res
+							FROM rh_balanco_internos
+							WHERE 	ano BETWEEN year('%s') and year('%s') and
+									mes BETWEEN month('%s') and month('%s') and
+									item = %s", $this->datai, $this->dataf, $this->datai, $this->dataf, $item);
+		} else {
+			$sql = sprintf("SELECT sum(valor) as res
+							FROM rh_balanco_internos
+							WHERE 	ano BETWEEN year('%s') and year('%s') and
+									mes BETWEEN month('%s') and month('%s') and
 									item = %s and setor = %s", $this->datai, $this->dataf, $this->datai, $this->dataf, $item, $setor);
 		}
 
