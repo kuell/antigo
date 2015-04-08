@@ -27,6 +27,6 @@ class Connect {
 			'outros' => $this->con
 		];
 
-		return print_r($erro);
+		return $erro;
 	}
 }

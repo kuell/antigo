@@ -6,6 +6,10 @@ class Balanco {
 	private $conn;
 	private $datai;
 	private $dataf;
+	public $mes;
+	public $ano;
+	public $item;
+	public $valor;
 
 	public $custo;
 	public $setor;
@@ -205,6 +209,20 @@ class Balanco {
 		$rs  = $this->conn->executeSql($sql);
 
 		return $rs->fetch_object();
+	}
+
+	public function saveBalancoInterno() {
+
+		$sql = sprintf("Select count(*) as res from rh_balanco_internos where mes = %s and ano = %s and setor = %s and item = %s", $this->mes, $this->ano, $this->setor, $this->item);
+		$res = $this->conn->executeSql($sql)->fetch_object();
+
+		if ($res->res == 0) {
+			$sql = sprintf("insert into rh_balanco_internos(mes, ano, setor, item, valor) values(%s, %s, %s, %s, %s)", $this->mes, $this->ano, $this->setor, $this->item, $this->valor);
+		} else {
+			$sql = sprintf("update rh_balanco_internos set valor = %s where mes = %s and ano = %s and item = %s)", $this->valor, $this->mes, $this->ano, $this->setor, $this->item);
+		}
+
+		return $rs = $this->conn->executeSql($sql);
 	}
 }
 
