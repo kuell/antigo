@@ -55,10 +55,22 @@ class Interno {
 	}
 
 	public function getHorasTrabalhadas($setor, $datai, $dataf) {
-		if(empty($setor)){
+		if (empty($setor)) {
 			return 0;
-		}
-		else{
+		} elseif ($setor == 'all') {
+			$sql = sprintf("Select
+							coalesce(sum(a.saida - a.entrada), interval '00:00:00' minute) as res
+						from
+							interno_frequencias a
+							inner join internos b on a.interno_id = b.id
+						where
+							a.data between '%s' and '%s'
+						", $datai, $dataf);
+
+			$rs = $this->connPgsql->RunSelect($sql);
+
+			return $rs[0]->res;
+		} else {
 			$sql = sprintf("Select
 							coalesce(sum(a.saida - a.entrada), interval '00:00:00' minute) as res
 						from
@@ -68,8 +80,8 @@ class Interno {
 							a.data between '%s' and '%s' and
 							b.setor_id = %s
 						", $datai, $dataf, $setor);
-		
-			$rs = $this->connPgsql->RunSelect($sql);	
+
+			$rs = $this->connPgsql->RunSelect($sql);
 
 			return $rs[0]->res;
 		}
@@ -93,14 +105,41 @@ class Interno {
 
 		$rs = $this->connPgsql->RunSelect($sql);
 
-//		print_r($rs);
-		if(!empty($rs[0]->res)){
+		if (!empty($rs[0]->res)) {
 			return $rs[0]->res;
-		}	
-		else{
+		} else {
 			return 0;
 		}
 	}
+
+	public function getQtdInternos($datai, $dataf) {
+		$sql = sprintf("Select
+							coalesce(count(distinct(b.nome)), 0) as res
+						from
+							interno_frequencias a
+							inner join internos b on a.interno_id = b.id
+						where
+							a.data between '%s' and '%s' and
+							b.situacao = true", $datai, $dataf);
+
+		$rs = $this->connPgsql->RunSelect($sql);
+
+		return $rs[0]->res;
+	}
+	public function getHoraSuplementar($datai, $dataf) {
+		$sql = sprintf("select
+							coalesce(sum((a.saida - a.entrada) - interval '7:20:00'),interval '0') as res
+						from
+							interno_frequencias a
+						where
+							(a.saida - a.entrada) - interval '7:20:00' > interval '00:00:00' and
+							a.data between '%s' and '%s'", $datai, $dataf);
+
+		$rs = $this->connPgsql->RunSelect($sql);
+
+		return $rs[0]->res;
+	}
+
 }
 
 ?>

@@ -1,25 +1,19 @@
 <?php
-error_reporting(0);
-require_once ("../../Connections/conn.php");
-mysql_select_db($database_conn, $conn);
-$cData = strftime("%d/%m/%Y");
-require ("../../bibliotecas/fpdf/fpdf.php");
 
-$d1 = explode('/', $_REQUEST['data1']);
-$d2 = explode('/', $_REQUEST['data2']);
-
-define("mes1", $d1[1]);
-define('ano1', $d1[2]);
-
-define("mes2", $d2[2]);
-define('ano2', $d2[2]);
+require "../../Connections/conect_mysqli.php";
+require "../../bibliotecas/fpdf/fpdf.php";
+require "../../Connections/connect_pgsql.php";
+require "../../class/Setor.class.php";
+require "../../class/Interno.class.php";
+require "../../rh/class/Balanco.class.php";
 
 class PDF extends FPDF {
 
 	function Header() {
-		date_default_timezone_set("Brazil/East");
-		define('hora', date("H")-1);
-		//      $this->Image("../../logo/Logo.JPG",13,13,35,15,"JPG");
+
+		$data = explode('/', $_GET['data1']);
+
+		$this->image("../../logo/Logo.jpg", 6, 6, 35, 15, "JPG");
 		$this->SetFont("Arial", "B", 20);
 		$this->Cell(1);
 		$this->Cell(40, 11, "", "TLR", 0, "C");
@@ -28,7 +22,7 @@ class PDF extends FPDF {
 		$this->Cell(1);
 		$this->SetFont("Arial", "B", 12);
 		$this->Cell(40, 11, "", "BLR", 0, "C");
-		$this->Cell(149, 11, utf8_decode("Relatorio Geral do Balanço RH Ref: ".mes1.'/'.ano1.' à '.mes2.'/'.ano2), "RLB", 0, "C");
+		$this->Cell(149, 11, utf8_decode("Relatorio Geral do Balanço RH Ref: ".$data[1].'/'.$data[2]), "RLB", 0, "C");
 		$this->Ln(15);
 		$fill = 0;
 	}
@@ -37,191 +31,165 @@ class PDF extends FPDF {
 		$this->SetY(-15);
 		$this->SetFont("Arial", "I", 8);
 		$this->SetDrawColor(200);
-		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()."/{nb} \ Processado em ".date('d-m-Y '.hora.':i'), 0, 0, "C");
+		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()."/{nb} \ Processado em ".date('d-m-Y h:i'), 0, 0, "C");
 	}
-
 	function Dados() {
-		$sqlAbate = "select sum(qtd) as qtd,
-							sum(peso) as peso,
-							sum(fat) as fat
-					from rh_info
-					where mes between '".mes1."' and '".mes2."' and
-						  ano between '".ano1."' and '".ano2."'";
 
-		$qrAbate = mysql_query($sqlAbate) or die(mysql_error());
-		$Abate   = mysql_fetch_assoc($qrAbate);
+		$datai = implode('-', array_reverse(explode('/', $_GET['data1'])));
+		$dataf = implode('-', array_reverse(explode('/', $_GET['data2'])));
 
-		define("qtdAbate", $Abate['qtd']);
-		define("pesoAbate", $Abate['peso']);
-		define("faturamento", $Abate['fat']);
+		$bal     = new Balanco($datai, $dataf);
+		$balanco = $bal->getBalanco();
 
-		// SETOR
 		$fundo = 0;
+		$w     = array(170, 20);
 
 		$this->SetFont('Arial', 'I', 9);
 		$this->SetFillColor(180);
-		$this->SetDrawColor(230);
+		$this->SetDrawColor(210);
 		$this->SetFillColor(200);
 		$this->Cell(190, 5, 'RESUMO GERAL', 1, 0, 'C', 1);
 		$this->Ln(7);
 
-		$sqlItem = "select * from rh_item where por_setor = 1";
-		$qrItem  = mysql_query($sqlItem) or die(mysql_error());
-		$w       = array(100, 20);
 		$this->SetFont("Arial", "B", 9);
-		//ITEM
-
-		//Informações Gerais
 		$this->SetFillColor(230);
+
 		$this->Cell(190, 4, utf8_decode('INDICADORES GERAIS'), 1, 0, 'C', 1);
 		$this->Ln();
-		$this->SetFillColor(249);
+
 		$this->Cell($w[0], 5, 'Qtd. Abate', 'LBT', 0, 'L', 1);
-		$this->Cell($w[1], 5, number_format(qtdAbate, 2, ',', '.'), 'RBT', 0, 'R', 1);
+		$this->Cell($w[1], 5, number_format($balanco->info->qtd, 0, ',', '.'), 'RBT', 0, 'R', 1);
 		$this->Ln();
 		$this->Cell($w[0], 5, 'Peso Abate', 'LBT', 0, 'L', 1);
-		$this->Cell($w[1], 5, number_format(pesoAbate, 2, ',', '.'), 'RBT', 0, 'R', 1);
+		$this->Cell($w[1], 5, number_format($balanco->info->peso, 2, ',', '.'), 'RBT', 0, 'R', 1);
 		$this->Ln();
 		$this->Cell($w[0], 5, 'Faturamento Bruto', 'LBT', 0, 'L', 1);
-		$this->Cell($w[1], 5, number_format(faturamento, 2, ',', '.'), 'RBT', 0, 'R', 1);
+		$this->Cell($w[1], 5, number_format($balanco->info->fat, 2, ',', '.'), 'RBT', 0, 'R', 1);
 		$this->Ln();
-		while ($item = mysql_fetch_assoc($qrItem)) {
-			$this->SetFont("Arial", "I", 9);
 
-			if ($item['id'] == "7" or $item['id'] == "9") {
-			} else {
+		$this->SetFont("Arial", "I", 9);
 
-				$this->Cell($w[0], 5, utf8_decode($item['descricao']), 'LBT', 0, 'L', 0);
-
-				$sqlValor = "
-						Select
-							sum(valor) as valor,
-							(Select sum(valor) as valor	from rh_balanco	where mes = '".mes2."' and ano = '".ano2."' and	item = '7') as qtd_reg,
-							(Select sum(valor) as valor	from rh_balanco	where mes = '".mes2."' and ano = '".ano2."' and	item = '9') as prest_serv
-						from
-							rh_balanco
-						where
-							mes between '".mes1."' and '".mes2."' and
-							ano between '".ano1."' and '".ano2."' and
-							item = '".$item['id']."'
-				";
-
-				$qrValor = mysql_query($sqlValor) or die('Erro 01'.mysql_error());
-				//VALOR
-				$valor = mysql_fetch_assoc($qrValor);
-
-				$this->Cell($w[1], 5, number_format($valor['valor'], 2, ',', '.'), 'RBT', 0, 'R', 0);
-
-				$this->Ln();
-			}
-		}
-		$this->Cell($w[0], 5, utf8_decode("QUANTIDADE DE FUNCIONARIOS REGISTRADOS ATIVOS"), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format($valor['qtd_reg'], 2, ',', '.'), 'RBT', 0, 'R', 0);
-
+		$this->Cell($w[0], 5, utf8_decode("HORAS TRABALHADAS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->horas_trabalhadas['c'], 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("HORAS TRABALHADAS INTERNOS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->horas_trabalhadas['i'], 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("TOTAL HORAS TRABALHADAS"), 'LBT', 0, 'L', 1);
+		$this->Cell($w[1], 5, number_format($balanco->horas_trabalhadas['i']+$balanco->horas_trabalhadas['c'], 2, ',', '.'), 'RBT', 0, 'R', 1);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("HORAS POTENCIAIS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->horas_potenciais['c'], 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("HORAS POTENCIAIS INTERNOS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->horas_potenciais['i'], 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("TOTAL HORAS POTENCIAIS"), 'LBT', 0, 'L', 1);
+		$this->Cell($w[1], 5, number_format($balanco->horas_potenciais['i']+$balanco->horas_potenciais['c'], 2, ',', '.'), 'RBT', 0, 'R', 1);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("HORAS SUPLEMENTARES"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->horas_suplementares['c'], 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("HORAS SUPLEMENTARES INTERNOS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->horas_suplementares['i'], 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("TOTAL HORAS SUPLEMENTARES"), 'LBT', 0, 'L', 1);
+		$this->Cell($w[1], 5, number_format($balanco->horas_suplementares['i']+$balanco->horas_suplementares['c'], 2, ',', '.'), 'RBT', 0, 'R', 1);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("FALTAS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->falta, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("FERIAS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->ferias, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("ACIDENTES E AFASTAMENTO"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->acidenteAfastamento, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("QTDE. FUNCIONARIOS REGISTRADOS ATIVOS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->qtdFuncRegistradoAtivo, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("QTDE. FUNCIONARIOS TEMPORARIOS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->qtdFuncTemporarios, 2, ',', '.'), 'RBT', 0, 'R', 0);
 		$this->Ln();
 		$this->Cell($w[0], 5, utf8_decode("PRESTADORES DE SERVIÇO"), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format($valor['prest_serv'], 2, ',', '.'), 'RBT', 0, 'R', 0);
-		$this->Ln(5);
+		$this->Cell($w[1], 5, number_format($balanco->pestadoresServico, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("ADMITIDOS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->admitidos, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("DEMITIDOS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->demitidos, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("REMUNERAÇÃO BRUTA"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->remBruta, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("QUANTIDADE DE FUNCIONARIOS TEMPORARIOS DESLIGADOS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->qtdFuncTemporariosDesligados, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln(7);
 
-		$sqlConta = "
-						Select
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '1') as htrab,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '2') as hpot,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '3') as hsup,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '4') as falta,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '5') as acid_afast,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '6') as ferias,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '7') as fun_reg,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '8') as fun_reg_temp,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '9') as prest_serv,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '10') as admitido,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '11') as demitido,
-							(select sum(valor) from rh_balanco where mes between '".mes1."' and '".mes2."' and ano between '".ano1."' and '".ano2."'  and item = '12') as rem_br
-						from
-								rh_balanco	";
-
-		$qrConta = mysql_query($sqlConta) or die('Erro 02 '.$sqlConta.'<br><br><br><br>'.mysql_error());
-		############# -----Indicadores Temporais -----#############
-		$this->SetFont("Arial", "B", 9);
-		$this->SetFillColor(230);
-		$this->Cell(190, 5, utf8_decode('INDICADORES TEMPORAIS'), 1, 0, 'C', 1);
-		$this->SetFont("Arial", "I", 9);
-		$this->SetFillColor(249);
-		$val = mysql_fetch_assoc($qrConta);
-		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('TAXA DE OCUPAÇÃO DE HORAS'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format($val['htrab']/$val['hpot']*100, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
-		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('TX. DE DESOCUPAÇÃO DE HRAS'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format((($val['hpot']-$val['htrab'])/$val['hpot'])*100, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
-		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('FALTAS'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format(($val['falta']/$val['htrab'])*100, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
-		$falta = ($val['falta']/$val['htrab'])*100;
-
-		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('ACIDENTENTES E AFASTAMENTOS'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format($val['acid_afast']/$val['hpot']*100, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
-		$acid_afast = $val['acid_afast']/$val['hpot']*100;
+		$this->Cell(190, 4, utf8_decode('INDICADORES GERAIS'), 1, 0, 'C', 1);
 		$this->Ln();
 
-		$this->Cell($w[0], 5, utf8_decode('FÉRIAS'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format($val['ferias']/$val['hpot']*100, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
-		$ferias = $val['ferias']/$val['hpot']*100;
-		$this->Ln(5);
-		$this->Cell($w[0], 5, utf8_decode('ABSENTEISMO TOTAL'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format(($ferias+$falta+$acid_afast), 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Cell($w[0], 5, utf8_decode("TAXA DE OCUPAÇÃO HORAS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaOcupacaoHora, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
 		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('TAXA DE SUBSTITUIÇÃO DO ABSENTEISMO'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format(('à fazer'), 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Cell($w[0], 5, utf8_decode("TAXA DE DESOCUPAÇÃO HORAS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaDesocupacaoHora, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
 		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('TAXA DE REMUNERAÇÂO HORA'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, 'R$ '.number_format($val['rem_br']/$val['htrab'], 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Cell($w[0], 5, utf8_decode("FALTAS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaFaltas, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
 		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('TAXA DE HORAS SUPLEMENTARES'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format(($val['hsup']/$val['htrab'])*100, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
-		$this->Ln(10);
+		$this->Cell($w[0], 5, utf8_decode("ACIDENTES E AFASTAMENTOS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaAcidenteAfastamentos, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("FÉRIAS"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaFerias, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("ABSENTEÍSMO TOTAL"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaAbsenteismoTotal, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("TAXA DE SUBSTITUIÇÃO DO ABSENTEÍSMO"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format('0', 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("TAXA REMUNERAÇÃO HORA"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, 'R$ '.number_format($balanco->taxaRemHora, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("TAXA DE HORAS EXTRA"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaHoraSuplementar, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Ln(7);
 
-		############# -----Indicadores dimensionais -----#############
-		$this->SetFont("Arial", "B", 9);
-		$this->SetFillColor(230);
-		$this->Cell(190, 5, utf8_decode('INDICADORES DIMENSIONAIS'), 1, 0, 'C', 1);
-		$this->SetFont("Arial", "I", 9);
-		$this->SetFillColor(249);
+		$this->Cell(190, 4, utf8_decode('INDICADORES DIMENSIONAIS'), 1, 0, 'C', 1);
 		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('TAXA DE ADMISSÂO'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format($val['admitido']*100/$val['fun_reg'], 2, ',', '.').' %', 'RBT', 0, 'R', 0);
-		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('TAXA DE DEMISSÃO'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format(($val['demitido']*100/$val['fun_reg']), 2, ',', '.').' %', 'RBT', 0, 'R', 0);
-		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('TAXA DE REPOSIÇÃO'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format(($val['admitido']-$val['demitido'])*100/$val['fun_reg'], 2, ',', '.').' %', 'RBT', 0, 'R', 0);
-		$this->Ln(10);
 
-		############# -----Indicadores de produtividade -----#############
-		$this->SetFont("Arial", "B", 9);
-		$this->SetFillColor(230);
-		$this->Cell(190, 5, utf8_decode('INDICADORES DE PRODUTIVIDADE'), 1, 0, 'C', 1);
-		$this->SetFillColor(249);
-		$this->SetFont("Arial", "I", 9);
+		$this->Cell($w[0], 5, utf8_decode("TAXA DE ADMISSÃO"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaAdmissao, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
 		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('TAXA FOLHA/FATURAMENTO'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, number_format(($val['rem_br']/faturamento)*100, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Cell($w[0], 5, utf8_decode("TAXA DE DEMISSÃO"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaDemissao, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
 		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('SALARIO POR KG'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, 'R$ '.number_format(($val['rem_br']/pesoAbate), 5, ',', '.'), 'RBT', 0, 'R', 0);
-		$this->Ln();
-		$this->Cell($w[0], 5, utf8_decode('SALARIO MEDIO POR SETOR'), 'LBT', 0, 'L', 0);
-		$this->Cell($w[1], 5, 'R$ '.number_format($val['rem_br']/($val['fun_reg']+$val['fun_reg_temp']+$val['prest_serv']), 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Cell($w[0], 5, utf8_decode("TAXA DE REPOSIÇÃO"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaReposicao, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Ln(7);
 
+		$this->Cell(190, 4, utf8_decode('INDICADORES DE PRODUTIVIDADE'), 1, 0, 'C', 1);
+		$this->Ln();
+
+		$this->Cell($w[0], 5, utf8_decode("TAXA FOLHA / FATURAMENTO"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, number_format($balanco->taxaTotalFolhaFat, 2, ',', '.').' %', 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("SALARIO POR PESO"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, 'R$ '.number_format($balanco->taxaSalarioPorPeso, 2, ',', '.'), 'RBT', 0, 'R', 0);
+		$this->Ln();
+		$this->Cell($w[0], 5, utf8_decode("SALARIO MÉDIO POR SETOR"), 'LBT', 0, 'L', 0);
+		$this->Cell($w[1], 5, 'R$ '.number_format($balanco->taxaSalarioMedioSetor, 2, ',', '.'), 'RBT', 0, 'R', 0);
 		$this->Ln();
 
 	}
 }
+
 $pdf = new PDF("P", "mm", "A4");
 $pdf->AliasNbPages();
-
+$pdf->SetMargins(3, 2, 3, 1);
 $pdf->AddPage();
 $pdf->Dados();
 $pdf->Output();

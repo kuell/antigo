@@ -50,7 +50,8 @@ class Almoxarifado {
 						where
 							a.grupo not in(25, 24, 23) and
 							month(a.data) = month('%s') and
-							year(a.data) = year('%s')
+							year(a.data) = year('%s') and
+							a.tipo = 'Saida'
 						group by
 							a.data", $this->datai, $this->datai);
 
@@ -70,7 +71,8 @@ class Almoxarifado {
 							mov_almox a
 						where
 							a.grupo = %s and
-							a.data between '%s' and '%s'
+							a.data between '%s' and '%s' and
+							a.tipo = 'Saida'
 						", $item, $this->datai, $this->datai);
 		$res = $this->conn->executeSql($sql)->fetch_object();
 
@@ -86,7 +88,8 @@ class Almoxarifado {
 						where
 							a.grupo = %s and
 							month(a.data) = month('%s') and
-							year(a.data) = year('%s')
+							year(a.data) = year('%s') and
+							a.tipo = 'Saida'
 						group by
 							a.data", $item, $this->datai, $this->datai);
 		$res = $this->conn->executeSql($sql);
@@ -104,6 +107,7 @@ class Almoxarifado {
 						from
 							mov_almox a
 						where
+							a.tipo = 'Saida' and
 							a.grupo = 25 and
 							a.data between '%s' and '%s'", $item, $this->datai, $this->dataf);
 
@@ -120,7 +124,7 @@ class Almoxarifado {
 						mov_almox a
 						inner join grupo b on a.grupo = b.id
 					where
-						a.tipo = 'saida' and
+						a.tipo = 'Saida' and
 						a.data between '%s' and '%s'
 					group by
 						b.id, b.tipo_custo", $this->datai, $this->dataf);

@@ -6,6 +6,10 @@ if (!empty($_REQUEST['funcao']) && $_REQUEST['funcao'] == 'logout') {
 	mysql_close();
 	session_destroy();
 	header("Location: login.php");
+
+} else if ($_SESSION['kt_login_id']) {
+	session_destroy();
+	header("Location: login.php");
 } else {
 	session_start();
 }
@@ -81,20 +85,20 @@ $usuario = new Usuario($_SESSION['kt_login_id']);
 <?php foreach ($usuario->getSistemas() as $sistema) {
 	?>
 
-		<div class="col-sm-4 col-md-2 thumbnail">
-		  <img src="img/<?php echo $sistema->icone?>">
-		  <div class="caption">
-		    <h4></h4>
-		    <p><?php echo strtolower(lcfirst(utf8_decode($sistema->nome)))?></p>
-		    <p>
-		    	<a href="<?php echo $sistema->url?>" class="btn btn-info col-md-12" role="button">
-		    		Acessar
-		    		<i class="glyphicon glyphicon-share-alt" ></i>
-		    	</a>
-		    </p>
-		  </div>
+						<div class="col-sm-4 col-md-2 thumbnail">
+						  <img src="img/<?php echo $sistema->icone?>">
+						  <div class="caption">
+						    <h4></h4>
+						    <p><?php echo strtolower(lcfirst(utf8_decode($sistema->nome)))?></p>
+						    <p>
+						    	<a href="<?php echo $sistema->url?>" class="btn btn-info col-md-12" role="button">
+						    		Acessar
+						    		<i class="glyphicon glyphicon-share-alt" ></i>
+						    	</a>
+						    </p>
+						  </div>
 
-		</div>
+						</div>
 
 	<?php }?>
 

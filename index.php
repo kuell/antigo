@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf8; no-cache" />
 <title>SIG - Sistema Interno de Gerenciamento</title>
 <link rel="shortcut icon" href="http://10.1.1.3/img/favicon.ico" />
 <link rel="icon" href="http://10.1.1.3/img/favicon.ico" />

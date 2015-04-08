@@ -3,7 +3,7 @@
 /**
  *
  */
-class Setor extends Connect {
+class Setor {
 	private $conn;
 
 	function __construct() {

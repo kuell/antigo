@@ -8,7 +8,7 @@ $data = explode('/', $_GET['data']);
 $p     = new FatProduto();
 $pauta = new PautaFiscal($data[1], $data[2]);
 
-$produtos = $p->lista('where ativo = 1');
+$produtos = $p->lista('where ativo = 1 order by descricao');
 
 ?>
 <!DOCTYPE html>
@@ -62,18 +62,18 @@ $produtos = $p->lista('where ativo = 1');
 		</thead>
 		<tbody>
 <?php while ($produto = $produtos->fetch_array()) {?>
-						<tr>
-							<td><?php echo $produto['descricao'];?></td>
-							<td><input type="text" value="<?php echo $pauta->getValor($produto['id'])?>" class="form-control valor" id="valor<?php echo $produto['id'];?>" ></td>
-							<td >
-								<button class="btn btn-primary" onclick="envia(<?php echo $produto['id']?>)">
-									envia
-								</button>
-							</td>
-							<td class="hidden" id="action<?php echo $produto['id'];?>">
+			<tr>
+				<td><?php echo $produto['descricao'];?></td>
+				<td><input type="text" value="<?php echo $pauta->getValor($produto['id'])?>" class="form-control valor" id="valor<?php echo $produto['id'];?>" ></td>
+				<td >
+					<button class="btn btn-primary" onclick="envia(<?php echo $produto['id']?>)">
+						envia
+					</button>
+				</td>
+				<td class="hidden" id="action<?php echo $produto['id'];?>">
 
-							</td>
-						</tr>
+				</td>
+			</tr>
 	<?php }?>
 		</tbody>
 	</table>

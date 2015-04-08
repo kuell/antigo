@@ -6,16 +6,81 @@ class Balanco {
 	private $conn;
 	private $datai;
 	private $dataf;
-	private $remBruta;
 
 	public $custo;
 	public $setor;
+	public $info;
+	public $horas_trabalhadas;
+	public $horas_potenciais;
+	public $horas_suplementares;
+	public $falta;
+	public $ferias;
+	public $acidenteAfastamento;
+	public $qtdFuncRegistradoAtivo;
+	public $qtdFuncTemporarios;
+	public $pestadoresServico;
+	public $admitidos;
+	public $demitidos;
+	public $remBruta;
+	public $qtdFuncTemporariosDesligados;
+	public $taxaOcupacaoHora;
+	public $taxaDesocupacaoHora;
+	public $taxaFaltas;
+	public $taxaAcidenteAfastamentos;
+	public $taxaFerias;
+	public $taxaAbsenteismoTotal;
+	public $taxaRemHora;
+	public $taxaHoraSuplementar;
+	public $taxaAdmissao;
+	public $taxaDemissao;
+	public $taxaReposicao;
+	public $taxaTotalFolhaFat;
+	public $taxaSalarioPorPeso;
+	public $taxaSalarioMedioSetor;
 
 	public function __construct($datai, $dataf) {
 		$this->conn     = new Connect();
 		$this->connPsql = new ConnectPgsql();
 		$this->datai    = $datai;
 		$this->dataf    = $dataf;
+	}
+
+	public function getBalanco() {
+		$i = new Interno();
+
+		$this->info                         = $this->getInfo();
+		$this->horas_trabalhadas['c']       = $this->getItem(1);
+		$this->horas_trabalhadas['i']       = (double) $i->getHorasTrabalhadas('all', $this->datai, $this->dataf);
+		$this->horas_potenciais['c']        = $this->getItem(2);
+		$this->horas_potenciais['i']        = $i->getQtdInternos($this->datai, $this->dataf)*25*7.20;
+		$this->horas_suplementares['c']     = $this->getItem(3);
+		$this->horas_suplementares['i']     = (double) $i->getHoraSuplementar($this->datai, $this->dataf);
+		$this->falta                        = $this->getItem(4);
+		$this->ferias                       = $this->getItem(6);
+		$this->acidenteAfastamento          = $this->getItem(5);
+		$this->qtdFuncRegistradoAtivo       = $this->getItem(7);
+		$this->qtdFuncTemporarios           = $this->getItem(8);
+		$this->pestadoresServico            = $this->getItem(9);
+		$this->admitidos                    = $this->getItem(10);
+		$this->demitidos                    = $this->getItem(11);
+		$this->remBruta                     = $this->getItem(12);
+		$this->qtdFuncTemporariosDesligados = $this->getItem(16);
+		$this->taxaOcupacaoHora             = array_sum($this->horas_trabalhadas)/array_sum($this->horas_potenciais)*100;
+		$this->taxaDesocupacaoHora          = (array_sum($this->horas_potenciais)-array_sum($this->horas_trabalhadas))/array_sum($this->horas_potenciais)*100;
+		$this->taxaFaltas                   = $this->falta/array_sum($this->horas_trabalhadas)*100;
+		$this->taxaAcidenteAfastamentos     = $this->acidenteAfastamento/array_sum($this->horas_potenciais)*100;
+		$this->taxaFerias                   = $this->ferias/array_sum($this->horas_potenciais)*100;
+		$this->taxaAbsenteismoTotal         = $this->taxaFerias+$this->taxaFaltas+$this->taxaAcidenteAfastamentos;
+		$this->taxaRemHora                  = $this->remBruta/array_sum($this->horas_trabalhadas);
+		$this->taxaHoraSuplementar          = array_sum($this->horas_suplementares)/array_sum($this->horas_trabalhadas)*100;
+		$this->taxaAdmissao                 = ($this->admitidos*100)/$this->qtdFuncRegistradoAtivo;
+		$this->taxaDemissao                 = ($this->demitidos*100)/$this->qtdFuncRegistradoAtivo;
+		$this->taxaReposicao                = (($this->admitidos-$this->demitidos)*100)/$this->qtdFuncRegistradoAtivo;
+		$this->taxaTotalFolhaFat            = $this->remBruta/$this->info->fat*100;
+		$this->taxaSalarioPorPeso           = $this->remBruta/$this->info->peso;
+		$this->taxaSalarioMedioSetor        = $this->remBruta/($this->qtdFuncRegistradoAtivo+$this->qtdFuncTemporarios+$this->pestadoresServico);
+
+		return $this;
 	}
 
 	public function getCustoRhPorTipoCusto() {
@@ -105,12 +170,21 @@ class Balanco {
 
 	}
 
-	public function getItem($setor, $item) {
-		$sql = sprintf("SELECT sum(valor) as res
-						FROM rh_balanco
-						WHERE 	ano BETWEEN year('%s' - interval 1 month) and year('%s' - interval 1 month) and
-								mes BETWEEN month('%s' - interval 1 month) and month('%s' - interval 1 month) and
-								item = %s and setor = %s", $this->datai, $this->dataf, $this->datai, $this->dataf, $item, $setor);
+	public function getItem($item, $setor = null) {
+		if ($setor == null) {
+			$sql = sprintf("SELECT sum(valor) as res
+							FROM rh_balanco
+							WHERE 	ano BETWEEN year('%s' - interval 1 month) and year('%s' - interval 1 month) and
+									mes BETWEEN month('%s' - interval 1 month) and month('%s' - interval 1 month) and
+									item = %s", $this->datai, $this->dataf, $this->datai, $this->dataf, $item);
+		} else {
+			$sql = sprintf("SELECT sum(valor) as res
+							FROM rh_balanco
+							WHERE 	ano BETWEEN year('%s' - interval 1 month) and year('%s' - interval 1 month) and
+									mes BETWEEN month('%s' - interval 1 month) and month('%s' - interval 1 month) and
+									item = %s and setor = %s", $this->datai, $this->dataf, $this->datai, $this->dataf, $item, $setor);
+		}
+
 		$res = $this->conn->executeSql($sql)->fetch_object();
 		return $res->res;
 	}
@@ -121,6 +195,17 @@ class Balanco {
 		return $this->setor = $this->conn->executeSql($sql)->fetch_object();
 	}
 
+	/**
+	 * Gets the value of info.
+	 *
+	 * @return mixed
+	 */
+	public function getInfo() {
+		$sql = sprintf("Select qtd, peso, fat from rh_info where mes between month('%s') and month('%s') and ano between year('%s') and year('%s')", $this->datai, $this->dataf, $this->datai, $this->dataf);
+		$rs  = $this->conn->executeSql($sql);
+
+		return $rs->fetch_object();
+	}
 }
 
 ?>

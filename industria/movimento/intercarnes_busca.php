@@ -15,7 +15,7 @@
 		function digitar(){
 			data = $('#data').val()
 
-			open('intercarnes_movimento.php?data='+data, 'Digitar', 'channelmode=yes');
+			open('intercarnes_movimento.php?data='+data, 'Digitar', 'channelmode=yes, scrollbars=1');
 		}
 
 	</script>
