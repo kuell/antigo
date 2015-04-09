@@ -5,6 +5,7 @@ class Interno {
 
 	public function __construct() {
 		$this->connPgsql = new ConnectPgsql();
+
 	}
 
 	public function fechamentoBalanco($mes, $ano) {

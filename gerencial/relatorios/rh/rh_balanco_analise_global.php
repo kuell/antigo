@@ -22,6 +22,7 @@ class PDF extends FPDF {
 		$this->SetFont("Arial", "I", 8);
 		$this->SetDrawColor(200);
 		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()."/{nb} | Processado em ".date('d-m-Y h:i'), 0, 0, "C");
+
 	}
 
 	function info($setor, $ano) {
