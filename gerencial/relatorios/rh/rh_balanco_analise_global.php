@@ -267,14 +267,18 @@ class PDF extends FPDF {
 		$this->Cell($w[0], 4, utf8_decode('FÉRIAS'), 1, 0, 'L', 0);
 		foreach ($info as $value) {
 			$this->Cell($w[1], 4, number_format(($value->ferias/$value->hTrabalhar)*100, 2, ',', '.').' %', 1, 0, 'R', 0);
-			$ferias = ($value->ferias/$value->hTrabalhar)*100;
+			$ferias = ($value->ferias/$value->hTrabalhar)*100+$ferias;
 		}
 		$this->Cell($w[1], 4, number_format((array_sum($totalFerias)/array_sum($totalHPot))*100, 2, ',', '.').' %', 1, 0, 'R', 0);
 		$this->Ln();
 
 		$this->Cell($w[0], 4, utf8_decode('ABSENTEISMO TOTAL'), 1, 0, 'L', 0);
 		foreach ($info as $value) {
-			$this->Cell($w[1], 4, number_format((($value->ferias+$value->acidAfast+$value->faltas)/$value->hTrabalhadas)*100, 2, ',', '.').' %', 1, 0, 'R', 0);
+			$ferias    = ($value->ferias/$value->hTrabalhar)*100;
+			$faltas    = ($value->faltas/$value->hTrabalhadas)*100;
+			$acidAfast = ($value->acidAfast/$value->hTrabalhar)*100;
+
+			$this->Cell($w[1], 4, number_format(($faltas+$ferias+$acidAfast), 2, ',', '.').' %', 1, 0, 'R', 0);
 		}
 		$this->Cell($w[1], 4, number_format(((array_sum($totalAcidAfast)+array_sum($totalFerias)+array_sum($totalFalta))/array_sum($totalHTrab))*100, 2, ',', '.').' %', 1, 0, 'R', 0);
 		$this->Ln();
@@ -330,21 +334,21 @@ class PDF extends FPDF {
 
 		$this->Cell($w[0], 4, utf8_decode('TAXA FOLHA / FATURAMENTO'), 1, 0, 'L', 0);
 		foreach ($info as $value) {
-			$this->Cell($w[1], 4, number_format(($value->remBruta/$value->faturamento), 2, ',', '.').' %', 1, 0, 'R', 0);
+			$this->Cell($w[1], 4, number_format(($value->remBruta/$value->faturamento)*100, 2, ',', '.').' %', 1, 0, 'R', 0);
 		}
 		$this->Cell($w[1], 4, number_format((array_sum($totalRemBruta)/array_sum($totalFaturamento))*100, 2, ',', '.').' %', 1, 0, 'R', 0);
 		$this->Ln();
 
 		$this->Cell($w[0], 4, utf8_decode('SALARIO POR KG'), 1, 0, 'L', 0);
 		foreach ($info as $value) {
-			$this->Cell($w[1], 4, number_format(($value->remBruta/$value->pesoAbate), 2, ',', '.').' %', 1, 0, 'R', 0);
+			$this->Cell($w[1], 4, 'R$ '.number_format(($value->remBruta/$value->pesoAbate), 2, ',', '.'), 1, 0, 'R', 0);
 		}
 		$this->Cell($w[1], 4, number_format((array_sum($totalRemBruta)/array_sum($totalPesoAbate))*100, 2, ',', '.').' %', 1, 0, 'R', 0);
 		$this->Ln();
 
 		$this->Cell($w[0], 4, utf8_decode('SALARIO MÉDIO POR SETOR'), 1, 0, 'L', 0);
 		foreach ($info as $value) {
-			$this->Cell($w[1], 4, number_format(($value->remBruta/($value->funTemp+$value->regAtivo+$value->prestServ)), 2, ',', '.'), 1, 0, 'R', 0);
+			$this->Cell($w[1], 4, 'R$ '.number_format(($value->remBruta/($value->funTemp+$value->regAtivo+$value->prestServ)), 2, ',', '.'), 1, 0, 'R', 0);
 		}
 		$this->Cell($w[1], 4, '-', 1, 0, 'R', 0);
 		$this->Ln();

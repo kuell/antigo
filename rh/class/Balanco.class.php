@@ -50,6 +50,11 @@ class Balanco {
 		$this->dataf    = $dataf;
 	}
 
+	public function getAnaliseGlobal($ano) {
+		$sql = sprintf('call p_rh_balanco_analise_global(%s, %s)', $this->setor->id_setor, $$ano);
+
+	}
+
 	public function getBalanco($setor = null) {
 		if (empty($setor)) {
 
@@ -182,8 +187,8 @@ class Balanco {
 	public function getCustoHora($setor, $interno_setor = null) {
 		$i = new Interno();
 
-		$hrTrab   = $this->getItem($setor, 1);
-		$remBruta = $this->getItem($setor, 12);
+		$hrTrab   = $this->getItem(1, $setor);
+		$remBruta = $this->getItem(12, $setor);
 
 		if (!empty($interno_setor)) {
 			$hrTrabInterno = doubleval($i->getHorasTrabalhadasBalanco($interno_setor, $this->datai, $this->dataf));
@@ -284,7 +289,7 @@ class Balanco {
 		if ($res->res == 0) {
 			$sql = sprintf("insert into rh_balanco_internos(mes, ano, setor, item, valor, usuario, data_hora_atualizacao) values(%s, %s, %s, %s, %s, '%s', now())", $this->mes, $this->ano, $this->setor, $this->item, $this->valor, $this->usuario);
 		} else {
-			$sql = sprintf("update rh_balanco_internos set valor = %s, usuario = '%s', data_hora_atualizacao = now() where mes = %s and ano = %s and item = %s", $this->valor, $this->usuario, $this->mes, $this->ano, $this->setor, $this->item);
+			$sql = sprintf("update rh_balanco_internos set valor = %s, usuario = '%s', data_hora_atualizacao = now() where mes = %s and ano = %s and setor = %s and item = %s", $this->valor, $this->usuario, $this->mes, $this->ano, $this->setor, $this->item);
 		}
 
 		$rs = $this->conn->executeSql($sql);

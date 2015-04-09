@@ -4,15 +4,11 @@ require ("../../Connections/connect_pgsql.php");
 require ("../../class/Interno.class.php");
 require ('../../class/Setor.class.php');
 require ("../class/Balanco.class.php");
-
 session_start();
-
-$i        = new Interno();
-$internos = $i->fechamentoBalanco($_GET['mes'], $_GET['ano']);
-$balanco  = new Balanco(null, null);
-
-$itens = [1=> 'Horas Trabalhadas', 2=> 'Horas Potenciais', 3=> 'Horas Suplementares'];
-
+$i                = new Interno();
+$internos         = $i->fechamentoBalanco($_GET['mes'], $_GET['ano']);
+$balanco          = new Balanco(null, null);
+$itens            = [1=> 'Horas Trabalhadas', 2=> 'Horas Potenciais', 3=> 'Horas Suplementares'];
 $balanco->usuario = $_SESSION['kt_login_user'];
 ?>
 <!DOCTYPE html>
@@ -30,19 +26,16 @@ foreach ($internos as $val) {
 	$balanco->setor = $val['setor'];
 	$balanco->mes   = $val['mes'];
 	$balanco->ano   = $val['ano'];
-
 	?>
 
-	<div>Setor : <?php echo $val['setorNome'];?></div>
+		<div>Setor : <?php echo $val['setorNome'];?></div>
 
 	<?php
-
 	foreach ($val['item'] as $item => $valor) {
 		$balanco->item  = $item;
 		$balanco->valor = $valor;
-
 		?>
-		<div class="col-md-3">Item : <?php echo $itens[$item];?></div>
+				<div class="col-md-3">Item : <?php echo $itens[$item];?></div>
 
 		<?php
 		if ($balanco->saveBalancoInterno() == 1) {
