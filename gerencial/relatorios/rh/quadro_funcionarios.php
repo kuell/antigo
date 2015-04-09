@@ -7,7 +7,9 @@ mysql_select_db($database_conn, $conn);
 class PDF extends FPDF {
 
 	function Header() {
-		//$this->Image("../../logo/Logo.JPG", 6, 5, 35, 15, "JPG");
+		$data = implode('-', array_reverse(explode('/', $_REQUEST['data1'])));
+
+		$this->Image("../../../logo/Logo.jpg", 6, 5, 35, 15, "JPG");
 		$this->SetFont("Arial", "B", 20);
 		$this->Cell(1);
 		$this->Cell(40, 11, "", "TLR", 0, "C");
@@ -16,7 +18,7 @@ class PDF extends FPDF {
 		$this->Cell(1);
 		$this->SetFont("Arial", "B", 12);
 		$this->Cell(40, 11, "", "BLR", 0, "C");
-		$this->Cell(160, 11, utf8_decode("CONTROLE DO QUADRO DE FUNCIONÁRIOS - ").date('M/Y', strtotime($_REQUEST['data1'])), "RLB", 0, "C");
+		$this->Cell(160, 11, utf8_decode("CONTROLE DO QUADRO DE FUNCIONÁRIOS - ").date('M/Y', strtotime($data)), "RLB", 0, "C");
 		$this->Ln(15);
 		$fill = 0;
 	}
@@ -56,6 +58,7 @@ class PDF extends FPDF {
 						(Select valor from rh_balanco where setor = a.id_setor and ano = %s and mes = %s and item = 7) as atual
 					from
 						setor a ", $ano, $mes, $ano, $mes, $ano, $mes, $ano, $mes, $ano, $mes);
+
 		$qr = mysql_query($sql) or die(mysql_error());
 
 		while ($res = mysql_fetch_assoc($qr)) {
@@ -125,7 +128,7 @@ class PDF extends FPDF {
 		$totalInternoAtual     = 0;
 
 		while ($setor = mysql_fetch_assoc($qr)) {
-			if ($dados[$setor['id_setor']]['interno_inicial'] != 0) {
+			if ($dados[$setor['id_setor']]['interno_atual'] != 0) {
 				$this->Cell($w[4], 4, $setor['setor'], "TLR", 0, "L");
 				$this->cell($w[2], 4, $dados[$setor['id_setor']]['interno_inicial'], 'TRL', 0, 'R');
 				$this->cell($w[2], 4, $dados[$setor['id_setor']]['interno_admitidos'], 'TRL', 0, 'R');
