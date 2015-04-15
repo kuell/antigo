@@ -37,9 +37,10 @@ class PDF extends FPDF {
 
 		$datai = implode('-', array_reverse(explode('/', $_GET['data1'])));
 		$dataf = implode('-', array_reverse(explode('/', $_GET['data2'])));
+		$setor = $_GET['setor'];
 
 		$bal     = new Balanco($datai, $dataf);
-		$balanco = $bal->getBalanco();
+		$balanco = $bal->getBalanco($setor);
 
 		$fundo = 0;
 		$w     = array(170, 20);

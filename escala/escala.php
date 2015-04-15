@@ -80,7 +80,7 @@ $_SESSION['data'] = $data;
 									<label>Horario: </label>
 								</div>
 								<div class="col-md-6">
-									<input type="time" name="hora" class="form-control input-sm" value="05:00">
+									<input type="time" name="hora" class="form-control input-sm hora" value="06:00">
 								</div>
 								<div class="col-md-2">
 									<button class="btn btn-sm btn-info" id="busca"><i class="glyphicon glyphicon-search"></i> Busca</button>

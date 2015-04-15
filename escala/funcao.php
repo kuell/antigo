@@ -43,7 +43,7 @@ function confirma() {
 
 	$pre->confirmar();
 
-	header('Location:  pre_escala.php?dt'.$_SESSION['data']);
+	header('Location:  pre_escala.php?dt='.$_SESSION['data']);
 
 }
 

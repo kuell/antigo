@@ -4,8 +4,10 @@
  */
 class Balanco {
 	private $conn;
-	private $datai;
-	private $dataf;
+
+	public $datai;
+	public $dataf;
+
 	public $mes;
 	public $ano;
 	public $item;
@@ -52,6 +54,13 @@ class Balanco {
 
 	public function getAnaliseGlobal($ano) {
 		$sql = sprintf('call p_rh_balanco_analise_global(%s, %s)', $this->setor->id_setor, $$ano);
+
+	}
+
+	public function matrizBalanco($setor) {
+		$valorAtual = $this->getBalanco($setor);
+
+		return $valorAtual;
 
 	}
 
@@ -275,7 +284,7 @@ class Balanco {
 	 * @return mixed
 	 */
 	public function getInfo() {
-		$sql = sprintf("Select qtd, peso, fat from rh_info where mes between month('%s') and month('%s') and ano between year('%s') and year('%s')", $this->datai, $this->dataf, $this->datai, $this->dataf);
+		$sql = sprintf("Select sum(qtd) as qtd, sum(peso) as peso, sum(fat) as fat from rh_info where mes between month('%s') and month('%s') and ano between year('%s') and year('%s')", $this->datai, $this->dataf, $this->datai, $this->dataf);
 		$rs  = $this->conn->executeSql($sql);
 
 		return $rs->fetch_object();

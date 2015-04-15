@@ -21,7 +21,7 @@
 		}
   function abreParametro(pagina, parametro){
 
-    data1 = document.getElementById('data1').value
+  	 data1 = document.getElementById('data1').value
     data2 = document.getElementById('data2').value
     param = document.getElementById(parametro).value
 
@@ -102,18 +102,27 @@ $sql  = "select * from setor where rh = 1";
 $qr   = $conn->query($sql) or die('Erro na obtensao dos dados'.$sql);
 while ($res = $qr->fetch_object()) {
 	?>
-																			                    <option value="<?php echo utf8_decode($res->id_setor);?>"><?php echo $res->setor;
+							<option value="<?php echo utf8_decode($res->id_setor);?>"><?php echo $res->setor;
 	?></option>
 	<?php }?>
       </select>
     </div>
    </div>
    <div class="col-md-12">
-    <input type="button" class="btn btn-info btn-info" name="matriz" id="matriz" value="Matriz do Balanço" onclick="abre('rh/matriz_balanco.php')" />
-    <input type="button" class="btn btn-default btn-sm" name="Rendimento / Corretor5" id="Rendimento / Corretor5" value="Balanço RH" onclick="abre('rh_balanco_geral.php')" />
-    <input type="button" class="btn btn-primary btn-sm" name="Quadro de Funcionarios" id="Quadro de Funcionarios" value="Quadro de Funcionarios" onclick="abre('rh/quadro_funcionarios.php')" />
-    <input type="button" class="btn btn-danger btn-sm" name="analiseGlobal" id="analiseGlobal" value="Analise Global" onclick="abreParametro('rh/rh_balanco_analise_global.php', 'setor')" />
-   </div>
+    <div class="col-md-3">
+		<input type="button" class="btn btn-info btn-sm" name="matriz" id="matriz" value="Matriz do Balanço" onclick="abreParametro('rh/matriz_balanco.php', 'qtdAnos')" />
+		<input type="text" class="form-control input-sm" placeholder="Quantidade de anos para comparação" id="qtdAnos" value="1" />
+    </div>
+	<div class="col-md-3">
+		<input type="button" class="btn btn-default btn-sm" name="BalancoRH" id="Rendimento / Corretor5" value="Balanço RH" onclick="abreParametro('rh_balanco_geral.php', 'setor')" />
+    </div>
+	<div class="col-md-3">
+		<input type="button" class="btn btn-primary btn-sm" name="Quadro de Funcionarios" id="Quadro de Funcionarios" value="Quadro de Funcionarios" onclick="abre('rh/quadro_funcionarios.php')" />
+	</div>
+	<div class="col-md-3">
+		<input type="button" class="btn btn-danger btn-sm" name="analiseGlobal" id="analiseGlobal" value="Analise Global" onclick="abreParametro('rh/rh_balanco_analise_global.php', 'setor')" />
+	</div>
+</div>
  </div>
 
 </body>
