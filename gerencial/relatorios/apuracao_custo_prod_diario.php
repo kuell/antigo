@@ -49,7 +49,7 @@ class PDF extends FPDF {
 		$this->SetDrawColor(230);
 
 		$col = array(15, 17, 20, 22, 30);
-		$ln  = array(5);
+		$ln  = array(4.5);
 
 		$this->Cell($col[1], $ln[0], "Dia", "RLB", 0, "C", 1);
 		$this->Cell($col[1], $ln[0], "Peso Abate", "RLB", 0, "C", 1);
@@ -106,7 +106,7 @@ class PDF extends FPDF {
 			$this->Cell($col[1], $ln[0], date('d/m/Y', strtotime($data)), "RLB", 0, "C", $f);
 			$this->Cell($col[1], $ln[0], number_format($custo->abate->peso[$data], 2, ',', '.'), "RLB", 0, "R", $f);
 			$this->Cell($col[1], $ln[0], number_format($custo->producao->pesoProduzido[$data], 2, ',', '.'), "RLB", 0, "R", $f);
-			$this->Cell($col[1], $ln[0], number_format($custo->producao->rendimento[$data], 4, ',', '.'), "RLB", 0, "R", $f);
+			$this->Cell($col[1], $ln[0], number_format($custo->producao->rendimento[$data], 4, ',', '.')." %", "RLB", 0, "R", $f);
 			$this->Cell($col[1], $ln[0], number_format($custo->producao->valorMedio[$data], 4, ',', '.'), "RLB", 0, "R", $f);
 			$this->Cell($col[1], $ln[0], number_format($custo->producao->pesoMedioPorAnimal[$data], 2, ',', '.'), "RLB", 0, "R", $f);
 			$this->Cell($col[1], $ln[0], number_format($custo->producao->pesoMedioProduzidoPorAnimal[$data], 2, ',', '.'), "RLB", 0, "R", $f);
@@ -126,6 +126,30 @@ class PDF extends FPDF {
 
 			$this->Ln();
 		}
+
+		$this->SetFillColor(200);
+
+		$this->Cell($col[1], $ln[0], 'Total', "RLB", 0, "C", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->abate->peso), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->producao->pesoProduzido), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->producao->pesoProduzido)*100/array_sum($custo->abate->peso), 4, ',', '.').' %', "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->producao->valorMedio), 4, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->producao->pesoMedioPorAnimal), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->producao->pesoMedioProduzidoPorAnimal), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->producao->valorMedioPorAnimal), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->producao->vpc), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->faturamento->custoComercial), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->taxa->taxa), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->almox->energia), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->almox->oleoDiesel), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->rh->rh), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->almox->custo), 2, ',', '.'), "RLB", 0, "R", $f);
+		$this->Cell($col[1], $ln[0], number_format(array_sum($custo->almox->servicos), 2, ',', '.'), "RLB", 0, "R", $f);
+
+		$total = array_sum($custo->almox->servicos)+array_sum($custo->almox->custo)+array_sum($custo->rh->rh)+array_sum($custo->almox->oleoDiesel)+array_sum($custo->almox->energia)+array_sum($custo->taxa->taxa);
+
+		$this->Cell($col[1], $ln[0], number_format($total, 2, ',', '.'), "RLB", 0, "R", $f);
+
 	}
 }
 $pdf = new PDF("L", "mm", "A4");

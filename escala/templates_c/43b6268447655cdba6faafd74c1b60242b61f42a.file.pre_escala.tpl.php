@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-04-01 15:30:41
+<?php /* Smarty version Smarty-3.1.12, created on 2015-04-10 11:41:33
          compiled from "view/pre_escala.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:182841400454e1d2c2a1de10-15367884%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '43b6268447655cdba6faafd74c1b60242b61f42a' => 
     array (
       0 => 'view/pre_escala.tpl',
-      1 => 1427911359,
+      1 => 1428680491,
       2 => 'file',
     ),
   ),
@@ -41,10 +41,48 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54e1d2c2bf9fd0_46535204')) {function content_54e1d2c2bf9fd0_46535204($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig/includes/smarty/libs/plugins/modifier.date_format.php';
-?><?php echo $_smarty_tpl->getSubTemplate ("../../view/topo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_54e1d2c2bf9fd0_46535204')) {function content_54e1d2c2bf9fd0_46535204($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sigAntigo/sig2/includes/smarty/libs/plugins/modifier.date_format.php';
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="../js/modal/jquery.superbox.css" rel="stylesheet" type="text/css" /> 
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link href="../css/calendario.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../js/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-ui-1.11.4/jquery-ui.js"></script>    
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../js/jquery.maskMoney.js"></script>
+<script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="../js/modal/jquery.superbox-min.js"></script> 
+
+
+<script type="text/javascript" src="../js/scripts.js"></script> 
+
+<script type="text/javascript">
+    $(function(){
+		var availableTags = $.get('?buscaPecuarista' ,function(data) {
+									console.log(data)
+								});
+		$( "#pecuarista" ).autocomplete({
+				source: availableTags
+			});
+		$('#pecuarista').click(function(event) {
+			alert("Ola");
+		});
+
+
+        $.superbox();
+    })
+
+</script>
+</head>
 
 <?php if ((($tmp = @$_smarty_tpl->tpl_vars['op']->value)===null||$tmp==='' ? '' : $tmp)==''){?>
+
 <h1>Pré-Escala de abate</h1>
 <div>
 <table class="table table-striped">
@@ -52,15 +90,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <tr>
           <th colspan="7" >
               <?php $_smarty_tpl->tpl_vars['m'] = new Smarty_variable((smarty_modifier_date_format($_smarty_tpl->tpl_vars['mes']->value,"%m")), null, 0);?>
-            <a class="btn" href="?ref=-1&mes=<?php echo $_smarty_tpl->tpl_vars['m']->value;?>
+            <a class="btn btn-info" href="?ref=-1&mes=<?php echo $_smarty_tpl->tpl_vars['m']->value;?>
 &ano=<?php echo $_smarty_tpl->tpl_vars['ano']->value;?>
-"><i class="icon-chevron-left"></i></a>
-            <a class="btn"><?php echo $_smarty_tpl->tpl_vars['mesNome']->value;?>
+"><< <i class="icon-chevron-left"></i></a>
+            <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['mesNome']->value;?>
  -  <?php echo $_smarty_tpl->tpl_vars['ano']->value;?>
-</a>
-            <a class="btn" href="?ref=1&mes=<?php echo $_smarty_tpl->tpl_vars['m']->value;?>
+" class="disabled">
+            <a class="btn btn-info" href="?ref=1&mes=<?php echo $_smarty_tpl->tpl_vars['m']->value;?>
 &ano=<?php echo $_smarty_tpl->tpl_vars['ano']->value;?>
-"><i class="icon-chevron-right"></i></a>
+"> >><i class="icon-chevron-right"></i></a>
           </th>
         </tr>
         <tr>
@@ -82,7 +120,7 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
             <tr>
                 <td><div class="well">
                    <?php if (((($tmp = @$_smarty_tpl->tpl_vars['d']->value[0])===null||$tmp==='' ? '' : $tmp)!='')){?>
-                    <?php echo (($tmp = @$_smarty_tpl->tpl_vars['d']->value[0])===null||$tmp==='' ? '' : $tmp);?>
+                    <?php echo ((($tmp = @$_smarty_tpl->tpl_vars['d']->value[0])===null||$tmp==='' ? '' : $tmp));?>
     
                     <div>
                         Domingo
@@ -92,7 +130,7 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
                 </td>
                 <td><div class="well">
                     <?php if ((($tmp = @$_smarty_tpl->tpl_vars['d']->value[1])===null||$tmp==='' ? '' : $tmp)!=''){?>
-                    <a class="btn btn-primary btn-large" href="?add=1&data=<?php echo $_smarty_tpl->tpl_vars['ano']->value;?>
+                    <a class="btn btn-primary btn-lg" href="?add=1&data=<?php echo $_smarty_tpl->tpl_vars['ano']->value;?>
 -<?php echo $_smarty_tpl->tpl_vars['m']->value;?>
 -<?php echo $_smarty_tpl->tpl_vars['d']->value[1];?>
 " rel="superbox[iframe][1100x500]">
@@ -200,7 +238,7 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
                 <div class="control-group">
                     <label class="control-label">Pecuarista: </label>
                     <div class="controls">
-                        <input type="text" name="pecuarista" class="input-xxlarge" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['pecuarista']->value)===null||$tmp==='' ? '' : $tmp);?>
+                        <input type="text" name="pecuarista" id="pecuarista" class="input-xxlarge" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['pecuarista']->value)===null||$tmp==='' ? '' : $tmp);?>
 " />
                     </div>
                 </div>
@@ -226,7 +264,7 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
                             <div class="row-fluid">
                              <div class="span3 well">
                             <label>Qtd. Boi</label>                            
-                                <input class="int input-small" type="text" name="qtdBoi" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['qtdBoi']->value)===null||$tmp==='' ? "0" : $tmp);?>
+                                <input class="int form-control" type="text" name="qtdBoi" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['qtdBoi']->value)===null||$tmp==='' ? "0" : $tmp);?>
 "  />
                                 </div>
                                 <div class="span3 well">
@@ -269,46 +307,48 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
             <th>#</th>
          </tr>
         </thead>
-                           <tbody>
-                               <?php  $_smarty_tpl->tpl_vars['pe'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['pe']->_loop = false;
+	       <tbody>
+	           <?php  $_smarty_tpl->tpl_vars['pe'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['pe']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lista']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['pe']->key => $_smarty_tpl->tpl_vars['pe']->value){
 $_smarty_tpl->tpl_vars['pe']->_loop = true;
 ?>
-                               <tr>
-                                   <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['pecuarista'];?>
+	           <tr>
+	               <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['pecuarista'];?>
 </td>
-                                   <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['cor_cod'];?>
+	               <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['cor_cod'];?>
  - <?php echo $_smarty_tpl->tpl_vars['pe']->value['cor_nome'];?>
 </td>
-                                   <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['qtdBoi'];?>
+	               <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['qtdBoi'];?>
 </td>
-                                   <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['qtdVaca'];?>
+	               <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['qtdVaca'];?>
 </td>
-                                   <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['qtdNov'];?>
+	               <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['qtdNov'];?>
 </td>
-                                   <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['qtdTouro'];?>
+	               <td><?php echo $_smarty_tpl->tpl_vars['pe']->value['qtdTouro'];?>
 </td>
-                                   <td>
-                                       <?php if ($_smarty_tpl->tpl_vars['pe']->value['situacao']=="e"){?>
-                                           <i class="icon-lock" title="Para desbloquear é preciso excluir da escala de abate!"></i>
-                                       <?php }else{ ?>
-                                            <a href="?editar=<?php echo $_smarty_tpl->tpl_vars['pe']->value['id'];?>
+	               <td>
+	                   <?php if ($_smarty_tpl->tpl_vars['pe']->value['situacao']=="e"){?>
+	                       <i class="icon-lock" title="Para desbloquear é preciso excluir da escala de abate!"></i>
+	                   <?php }else{ ?>
+	                        <a href="?editar=<?php echo $_smarty_tpl->tpl_vars['pe']->value['id'];?>
 &data=<?php echo $_GET['data'];?>
 " class="icon-pencil" title="Editar!"></a>
-                                            <a href="?del=<?php echo $_smarty_tpl->tpl_vars['pe']->value['id'];?>
+	                        <a href="?del=<?php echo $_smarty_tpl->tpl_vars['pe']->value['id'];?>
 &data=<?php echo $_GET['data'];?>
 " class="icon-remove" title="Remover da pré-escala!"></a>
-                                            <a href="?conf=<?php echo $_smarty_tpl->tpl_vars['pe']->value['id'];?>
+	                        <a href="?conf=<?php echo $_smarty_tpl->tpl_vars['pe']->value['id'];?>
 &data=<?php echo $_GET['data'];?>
 " class="icon-ok" title="Confirmar na escala!"></a>
-                                       <?php }?>
-                                   </td>
-                               </tr>
-                               <?php } ?>
-                           </tbody>
+	                   <?php }?>
+	               </td>
+	           </tr>
+	           <?php } ?>
+	       </tbody>
     </table>
 </div>
+
+
 <?php }?>
 <?php echo $_smarty_tpl->getSubTemplate ("../../view/rodape.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

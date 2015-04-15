@@ -6,17 +6,14 @@ class Corretor extends Connect {
 	public $codigo_interno;
 	public $nome;
 	public $situacao;
+	public $cor;
 
-	public function __construct($id) {
+	public function __construct($id = null) {
 		$this->conn = new Connect();
 
-		$sql   = sprintf("Select * from corretor where cor_id = %s", $id);
-		$dados = $this->conn->executeSql($sql)->fetch_object();
-
-		$this->id             = $dados->cor_id;
-		$this->codigo_interno = $dados->cor_cod;
-		$this->nome           = $dados->cor_nome;
-		$this->situacao       = $dados->cor_ativo;
+		if (!empty($id)) {
+			$this->getCorretor($id);
+		}
 
 	}
 
@@ -37,6 +34,30 @@ class Corretor extends Connect {
 
 		return $res;
 
+	}
+
+	public function lista($param = null) {
+		$sql = sprintf("Select * from corretor where 1 = 1 %s", $param);
+
+		$rs = $this->conn->executeSql($sql);
+
+		while ($res = $rs->fetch_object()) {
+			$return[] = $res;
+		}
+
+		return $return;
+	}
+
+	public function getCorretor($id) {
+		$sql   = sprintf("Select * from corretor where cor_id = %s", $id);
+		$dados = $this->conn->executeSql($sql)->fetch_object();
+
+		$this->id             = $dados->cor_id;
+		$this->codigo_interno = $dados->cor_cod;
+		$this->nome           = $dados->cor_nome;
+		$this->situacao       = $dados->cor_ativo;
+		$this->cor            = $dados->cor;
+		return $this;
 	}
 }
 

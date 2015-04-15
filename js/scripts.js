@@ -22,7 +22,7 @@ $(function(){
             dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
             dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
             dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            monthNames: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
             monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
             nextText: 'Próximo',
             prevText: 'Anterior',
@@ -39,12 +39,16 @@ $(function(){
         muda = $(this).val().toLowerCase()
         $(this).val(muda)
     })
-    $(".int").bind("keyup blur focus", function(e) {            
+    $(".int").bind("keyup blur focus", function(e) {  
+       
         e.preventDefault();         
-        var expre = /[A-Za-z\.\Â§\Â£\@\`\Z\^\~\'\"\!\?\#\$\%\s\Â¬\_\+\=\.\,\:\;\<\>\|\Â°\Âª\Âº\]\[\{\}\\ \)\(\*\&\-\/\\]/g;             // REMOVE OS CARACTERES DA EXPRESSAO ACIMA            
-        if ($(this).val().match(expre))               
+        var expre = /[A-Za-z\.\Â§\Â£\@\`\Z\^\~\'\"\!\?\#\$\%\s\Â¬\_\+\=\.\,\:\;\<\>\|\Â°\Âª\Âº\]\[\{\}\\ \)\(\*\&\-\/\\]/g;             
+		// REMOVE OS CARACTERES DA EXPRESSAO ACIMA            
+        
+		if ($(this).val().match(expre))               
             $(this).val($(this).val().replace(expre,'')); 
     })
+	
     $("input[name=Adicionar]").click(function(){
         $("#lista").hide();
         $("#form").show();

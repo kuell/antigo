@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 15:29:34
+<?php /* Smarty version Smarty-3.1.12, created on 2015-04-13 12:21:30
          compiled from "view/produto_pedido.html" */ ?>
 <?php /*%%SmartyHeaderCode:199351215454804cadb9c485-84249080%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d60b9460f8c12aa44bf7ffbd1558dc36d4cb99e' => 
     array (
       0 => 'view/produto_pedido.html',
-      1 => 1426188563,
+      1 => 1426189609,
       2 => 'file',
     ),
   ),
@@ -33,28 +33,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_54804cadd4a1a3_68428987')) {function content_54804cadd4a1a3_68428987($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("topo.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
-
-  
-  <link rel="stylesheet" type="text/css" href="../js/chosen_v1.4.1/docsupport/style.css">
-  <link rel="stylesheet" type="text/css" href="../js/chosen_v1.4.1/docsupport/prism.css">
-  <link rel="stylesheet" type="text/css" href="../js/chosen_v1.4.1/chosen.css">
-
-  <script src="../js/chosen_v1.4.1/chosen.jquery.min.js" type="text/javascript"></script>
-  <script src="../js/chosen_v1.4.1/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
-
-
-
 <script type="text/javascript">
     
     $(function(){
-      $('#produto').chosen(
-            {
-              allow_single_deselect:true,
-              no_results_text: "Nenhum valor encontrado para o nome: ",
-              allow_single_deselect: true
-            }
-          );
-
     	$("#produto").blur(function(){
                 var produto = $("#produto").val();
                 
@@ -133,7 +114,7 @@ function validar(form){
       </tr>
       <tr>
           <td scope="col">
-          <select size="10" name="produto" id="produto" class="chosen-select">
+          <select size="10" name="produto" id="produto">
              <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['produtos']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value){

@@ -209,13 +209,18 @@ class PDF extends FPDF {
 			$this->cell($w[2], 4, $dados[$setor['id_setor']]['admitidos']+$dados[$setor['id_setor']]['interno_admitidos'], 'TRL', 0, 'R');
 			$this->cell($w[2], 4, $dados[$setor['id_setor']]['demitidos']+$dados[$setor['id_setor']]['interno_demitidos'], 'TRL', 0, 'R');
 			$this->cell($w[2], 4, $dados[$setor['id_setor']]['atual']+$dados[$setor['id_setor']]['interno_atual'], 'TRL', 0, 'R');
-			$this->cell($w[2], 4, $dados[$setor['id_setor']]['evolucao']+$dados[$setor['id_setor']]['interno_evolucao'].' %', 'TRL', 0, 'R');
+			$evolucao = (($dados[$setor['id_setor']]['atual']+$dados[$setor['id_setor']]['interno_atual'])-
+				($dados[$setor['id_setor']]['inicial']+$dados[$setor['id_setor']]['interno_inicial']))/
+			($dados[$setor['id_setor']]['inicial']+$dados[$setor['id_setor']]['interno_inicial']);
+
+			$this->cell($w[2], 4, number_format($evolucao*100, 2, ',', '.').' %', 'TRL', 0, 'R');
 			$this->Ln();
 
 			$totalGeralInicial   = $totalGeralInicial+($dados[$setor['id_setor']]['inicial']+$dados[$setor['id_setor']]['interno_inicial']);
 			$totalGeralAdmitidos = $totalGeralAdmitidos+($dados[$setor['id_setor']]['admitidos']+$dados[$setor['id_setor']]['interno_admitidos']);
 			$totalGeralDemitidos = $totalGeralDemitidos+($dados[$setor['id_setor']]['demitidos']+$dados[$setor['id_setor']]['interno_demitidos']);
 			$totalGeralAtual     = $totalGeralAtual+($dados[$setor['id_setor']]['atual']+$dados[$setor['id_setor']]['interno_atual']);
+
 		}
 
 		$this->Cell($w[4], 4, 'TOTAL', "TLRB", 0, "L", 1);

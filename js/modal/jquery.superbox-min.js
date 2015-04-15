@@ -47,7 +47,7 @@ function z(){
                     }
                 }
         });
-    if(B.search(/^image|gallery|iframe|content|ajax$/)!=-1){
+    if(B.search(/^img|gallery|iframe|content|ajax$/)!=-1){
         D.superbox(B,{
             boxId:C,
             boxClasses:A

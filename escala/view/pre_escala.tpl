@@ -1,5 +1,43 @@
-{include file="../../view/topo.tpl"}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="../js/modal/jquery.superbox.css" rel="stylesheet" type="text/css" /> 
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link href="../css/calendario.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../js/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-ui-1.11.4/jquery-ui.js"></script>    
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../js/jquery.maskMoney.js"></script>
+<script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="../js/modal/jquery.superbox-min.js"></script> 
+
+
+<script type="text/javascript" src="../js/scripts.js"></script> 
+
+<script type="text/javascript">
+    $(function(){
+		var availableTags = $.get('?buscaPecuarista' ,function(data) {
+									console.log(data)
+								});
+		$( "#pecuarista" ).autocomplete({
+				source: availableTags
+			});
+		$('#pecuarista').click(function(event) {
+			alert("Ola");
+		});
+
+        $.superbox();
+    })
+
+</script>
+</head>
+
 {if $op|default:"" eq ""}
+
 <h1>Pré-Escala de abate</h1>
 <div>
 <table class="table table-striped">
@@ -7,9 +45,9 @@
         <tr>
           <th colspan="7" >
               {assign var=m value=($mes|date_format:"%m")}
-            <a class="btn" href="?ref=-1&mes={$m}&ano={$ano}"><i class="icon-chevron-left"></i></a>
-            <a class="btn">{$mesNome} -  {$ano}</a>
-            <a class="btn" href="?ref=1&mes={$m}&ano={$ano}"><i class="icon-chevron-right"></i></a>
+            <a class="btn btn-info" href="?ref=-1&mes={$m}&ano={$ano}"><< <i class="icon-chevron-left"></i></a>
+            <input type="text" value="{$mesNome} -  {$ano}" class="disabled">
+            <a class="btn btn-info" href="?ref=1&mes={$m}&ano={$ano}"> >><i class="icon-chevron-right"></i></a>
           </th>
         </tr>
         <tr>
@@ -27,7 +65,7 @@
             <tr>
                 <td><div class="well">
                    {if ($d.0|default:"" ne "")}
-                    {$d.0|default:""}    
+                    {($d.0|default:"")}    
                     <div>
                         Domingo
                     </div>
@@ -36,7 +74,7 @@
                 </td>
                 <td><div class="well">
                     {if $d.1|default:"" ne ""}
-                    <a class="btn btn-primary btn-large" href="?add=1&data={$ano}-{$m}-{$d.1}" rel="superbox[iframe][1100x500]">
+                    <a class="btn btn-primary btn-lg" href="?add=1&data={$ano}-{$m}-{$d.1}" rel="superbox[iframe][1100x500]">
                         {$d.1|default:""}
                     </a>
                         <div>
@@ -113,7 +151,7 @@
                 <div class="control-group">
                     <label class="control-label">Pecuarista: </label>
                     <div class="controls">
-                        <input type="text" name="pecuarista" class="input-xxlarge" value="{$pecuarista|default:""}" />
+                        <input type="text" name="pecuarista" id="pecuarista" class="input-xxlarge" value="{$pecuarista|default:""}" />
                     </div>
                 </div>
                 <div class="control-group">
@@ -131,7 +169,7 @@
                             <div class="row-fluid">
                              <div class="span3 well">
                             <label>Qtd. Boi</label>                            
-                                <input class="int input-small" type="text" name="qtdBoi" value="{$qtdBoi|default:"0"}"  />
+                                <input class="int form-control" type="text" name="qtdBoi" value="{$qtdBoi|default:"0"}"  />
                                 </div>
                                 <div class="span3 well">
                             <label class="">Qtd. Vaca</label>
@@ -168,28 +206,30 @@
             <th>#</th>
          </tr>
         </thead>
-                           <tbody>
-                               {foreach from=$lista item=pe}
-                               <tr>
-                                   <td>{$pe.pecuarista}</td>
-                                   <td>{$pe.cor_cod} - {$pe.cor_nome}</td>
-                                   <td>{$pe.qtdBoi}</td>
-                                   <td>{$pe.qtdVaca}</td>
-                                   <td>{$pe.qtdNov}</td>
-                                   <td>{$pe.qtdTouro}</td>
-                                   <td>
-                                       {if $pe.situacao eq "e"}
-                                           <i class="icon-lock" title="Para desbloquear é preciso excluir da escala de abate!"></i>
-                                       {else}
-                                            <a href="?editar={$pe.id}&data={$smarty.get.data}" class="icon-pencil" title="Editar!"></a>
-                                            <a href="?del={$pe.id}&data={$smarty.get.data}" class="icon-remove" title="Remover da pré-escala!"></a>
-                                            <a href="?conf={$pe.id}&data={$smarty.get.data}" class="icon-ok" title="Confirmar na escala!"></a>
-                                       {/if}
-                                   </td>
-                               </tr>
-                               {/foreach}
-                           </tbody>
+	       <tbody>
+	           {foreach from=$lista item=pe}
+	           <tr>
+	               <td>{$pe.pecuarista}</td>
+	               <td>{$pe.cor_cod} - {$pe.cor_nome}</td>
+	               <td>{$pe.qtdBoi}</td>
+	               <td>{$pe.qtdVaca}</td>
+	               <td>{$pe.qtdNov}</td>
+	               <td>{$pe.qtdTouro}</td>
+	               <td>
+	                   {if $pe.situacao eq "e"}
+	                       <i class="icon-lock" title="Para desbloquear é preciso excluir da escala de abate!"></i>
+	                   {else}
+	                        <a href="?editar={$pe.id}&data={$smarty.get.data}" class="icon-pencil" title="Editar!"></a>
+	                        <a href="?del={$pe.id}&data={$smarty.get.data}" class="icon-remove" title="Remover da pré-escala!"></a>
+	                        <a href="?conf={$pe.id}&data={$smarty.get.data}" class="icon-ok" title="Confirmar na escala!"></a>
+	                   {/if}
+	               </td>
+	           </tr>
+	           {/foreach}
+	       </tbody>
     </table>
 </div>
+
+
 {/if}
 {include file="../../view/rodape.tpl"}

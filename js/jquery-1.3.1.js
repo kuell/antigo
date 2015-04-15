@@ -1851,7 +1851,7 @@ var Expr = Sizzle.selectors = {
 			return "submit" === elem.type;
 		},
 		image: function(elem){
-			return "image" === elem.type;
+			return "img" === elem.type;
 		},
 		reset: function(elem){
 			return "reset" === elem.type;
