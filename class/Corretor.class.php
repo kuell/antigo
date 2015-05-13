@@ -8,11 +8,21 @@ class Corretor extends Connect {
 	public $situacao;
 	public $cor;
 
-	public function __construct($id = null) {
+	public $datai;
+	public $dataf;
+
+	public function __construct($id = null, $datai = null, $dataf = null) {
 		$this->conn = new Connect();
 
 		if (!empty($id)) {
 			$this->getCorretor($id);
+		}
+
+		if (!empty($datai)) {
+			$this->datai = $datai;
+		}
+		if (!empty($dataf)) {
+			$this->dataf = $dataf;
 		}
 
 	}
@@ -69,13 +79,53 @@ class Corretor extends Connect {
 							inner join taxaitens b on a.id = b.idTaxa
 							inner join taxa_item c on b.idItem = c.id
 						where
-							a.data between '2015-01-01' and '2015-01-31' and
+							a.data between '%s' and '%s' and
 							c.grupo = 1 and
-							a.corretor = %s", $cor);
+							a.corretor = %s", $this->datai, $this->dataf, $cor);
 
 		$abate = $this->conn->executeSql($sql)->fetch_object();
 
 		return $abate;
+	}
+
+	public function expedicao($cor) {
+		$sql = sprintf("select
+							(Select
+								sum(b.valor)
+							from
+								taxa a
+								inner join taxaitens b on a.id = b.idTaxa
+								inner join taxa_item c on c.id = b.idItem
+							where
+								c.fiscal = 1 and
+								a.data between '%s' and '%s' and
+								a.corretor = %s) as valorFiscal,
+
+							(Select
+								sum(b.peso)
+							from
+								taxa a
+								inner join taxaitens b on a.id = b.idTaxa
+								inner join taxa_item c on c.id = b.idItem
+							where
+								c.fiscal = 1 and
+								a.data between '%s' and '%s' and
+								a.corretor = %s) as pesoFiscal,
+
+							(Select
+								sum(b.peso)
+							from
+								taxa a
+								inner join taxaitens b on a.id = b.idTaxa
+								inner join taxa_item c on c.id = b.idItem
+							where
+								c.grupo = 3 and
+								a.data between '%s' and '%s' and
+								a.corretor = %s) as exped", $this->datai, $this->dataf, $cor, $this->datai, $this->dataf, $cor, $this->datai, $this->dataf, $cor);
+
+		$exped = $this->conn->executeSql($sql)->fetch_object();
+
+		return $exped;
 	}
 }
 

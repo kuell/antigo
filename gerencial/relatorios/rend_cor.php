@@ -9,7 +9,7 @@ class PDF extends FPDF {
 	function Header() {
 		date_default_timezone_set("Brazil/East");
 		define('hora', date("H")-1);
-		//      $this->Image("../../logo/Logo.JPG",6,5,35,15,"JPG");
+		$this->Image("../../logo/Logo.jpg", 6, 5, 35, 15);
 		$this->SetFont("Arial", "B", 20);
 		$this->Cell(1);
 		$this->Cell(40, 11, "", "TLR", 0, "C");
@@ -30,15 +30,13 @@ class PDF extends FPDF {
 	}
 
 	function Dados() {
-		// Pega os itens
-		mysql_select_db('sig');
 
 		$datai = implode('-', array_reverse(explode('/', $_GET['data1'])));
 		$dataf = implode('-', array_reverse(explode('/', $_GET['data2'])));
 
 		$producao  = new IndProducao($datai, $dataf);
 		$abate     = new Abate($datai, $dataf);
-		$corretors = new Corretor();
+		$corretors = new Corretor(null, $datai, $dataf);
 
 		$kgProd = $producao->getKgProduzido();
 
@@ -64,7 +62,10 @@ class PDF extends FPDF {
 
 		$this->Ln();
 		$fundo = 0;
-		foreach ($corretors->lista() as $cor) {
+
+		$this->SetDrawColor(200);
+
+		foreach ($corretors->lista('order by cor_nome') as $cor) {
 
 			$corAbate = $corretors->abate($cor->cor_id);
 			if ($corAbate->peso != 0 and $corAbate->qtd != 0) {
@@ -73,28 +74,31 @@ class PDF extends FPDF {
 				$this->SetFillColor(230);
 
 				$this->Cell($w[0], 5, "", 0, 0);
-				$this->Cell($w[1], 4, $cor->cor_nome, 0, 0, "L", $fundo);
-				$this->Cell($w[2], 4, number_format($corAbate->qtd, 2, ',', '.'), 0, 0, "R", $fundo);
-				$this->Cell($w[3], 4, number_format($corAbate->peso, 2, ',', '.'), 0, 0, "R", $fundo);
-				$this->Cell($w[4], 4, number_format($corAbate->peso/$corAbate->qtd, 2, ',', '.'), 0, 0, "R", $fundo);
-				$this->Cell($w[5], 4, number_format((($corAbate->peso*$rendimento)/100), 2, ',', '.'), 0, 0, "R", $fundo);
-				$this->Cell($w[6], 4, number_format((($corAbate->peso/$corAbate->qtd)*$rendimento)/100, 2, ',', '.'), 0, 0, "R", $fundo);
-				$this->Cell($w[7], 4, number_format(($corAbate->peso*$rendimento)/$rendimentoIndustrial, 2, ',', '.'), 0, 0, "R", $fundo);
+				$this->Cell($w[1], 5, $cor->cor_cod.' - '.$cor->cor_nome, 'LTB', 0, "L", $fundo);
+				$this->Cell($w[2], 5, number_format($corAbate->qtd, 2, ',', '.'), 'TB', 0, "R", $fundo);
+				$this->Cell($w[3], 5, number_format($corAbate->peso, 2, ',', '.'), 'TB', 0, "R", $fundo);
+				$this->Cell($w[4], 5, number_format($corAbate->peso/$corAbate->qtd, 2, ',', '.'), 'TB', 0, "R", $fundo);
+				$this->Cell($w[5], 5, number_format((($corAbate->peso*$rendimento)/100), 2, ',', '.'), 'TB', 0, "R", $fundo);
+				$this->Cell($w[6], 5, number_format((($corAbate->peso/$corAbate->qtd)*$rendimento)/100, 2, ',', '.'), 'TB', 0, "R", $fundo);
+				$this->Cell($w[7], 5, number_format(($corAbate->peso*$rendimento)/$rendimentoIndustrial, 2, ',', '.'), 'TBR', 0, "R", $fundo);
 				//
 				$fundo = !$fundo;
 
-				$this->Ln(5);
+				$this->Ln();
 			}
 		}
+
+		$this->SetFillColor(190);
+
 		$fundo = 1;
 		$this->Cell($w[0], 5, '', 0, 0);
-		$this->Cell($w[1], 4, 'TOTAL', 0, 0, "L", $fundo);
-		$this->Cell($w[2], 4, number_format($abate->qtd, 2, ',', '.'), 0, 0, "R", $fundo);
-		$this->Cell($w[3], 4, number_format($abate->peso, 2, ',', '.'), 0, 0, "R", $fundo);
-		$this->Cell($w[4], 4, number_format(($abate->peso/$abate->qtd), 2, ',', '.'), 0, 0, "R", $fundo);
-		$this->Cell($w[5], 4, number_format((($abate->peso*$rendimento)/100), 2, ',', '.'), 0, 0, "R", $fundo);
-		$this->Cell($w[6], 4, number_format(($abate->qtd*$rendimento)/100, 2, ',', '.'), 0, 0, "R", $fundo);
-		$this->Cell($w[7], 4, $res['rendimento'], 0, 0, "R", $fundo);
+		$this->Cell($w[1], 5, 'TOTAL', 0, 0, "L", $fundo);
+		$this->Cell($w[2], 5, number_format($abate->qtd, 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[3], 5, number_format($abate->peso, 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[4], 5, number_format(($abate->peso/$abate->qtd), 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[5], 5, number_format((($abate->peso*$rendimento)/100), 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[6], 5, number_format((($abate->peso*$rendimento)/100)/$abate->qtd, 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[7], 5, $res['rendimento'], 0, 0, "R", $fundo);
 	}
 }
 $pdf = new PDF("L", "mm", "A4");
