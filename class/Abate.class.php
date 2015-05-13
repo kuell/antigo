@@ -34,6 +34,22 @@ class Abate extends Connect {
 		return $rs->peso;
 	}
 
+	public function getAbateCorretorPeso($corId) {
+		$sql = sprintf("Select
+                  	sum(a.`peso`) as peso
+              from
+                  	taxaitens a
+                  	inner join `taxa_item` b on(a.`idItem` = b.`id`)
+                  	inner join `taxa` c on(a.`idTaxa` = c.`id`)
+              where
+					c.corretor = %s and
+                  	c.data BETWEEN '%s' and '%s' and
+                  	b.sexo = 1", $corId, $this->datai, $this->dataf);
+		$rs = $this->conn->executeSql($sql)->fetch_object();
+
+		return $rs->peso;
+	}
+
 	/**
 	 * Gets the value of qtd.
 	 *
@@ -49,6 +65,22 @@ class Abate extends Connect {
               where
                   c.`data` BETWEEN '%s' and '%s' and
                   b.`sexo` = 1", $this->datai, $this->dataf);
+		$rs = $this->conn->executeSql($sql)->fetch_object();
+
+		return $rs->qtd;
+	}
+
+	public function getAbateCorretorQtd($corId) {
+		$sql = sprintf("Select
+                  sum(a.`qtd`) as qtd
+              from
+                  	taxaitens a
+                  	inner join `taxa_item` b on(a.`idItem` = b.`id`)
+                  	inner join `taxa` c on(a.`idTaxa` = c.`id`)
+              where
+					c.corretor = %s and
+                  	c.`data` BETWEEN '%s' and '%s' and
+                  	b.`sexo` = 1", $corId, $this->datai, $this->dataf);
 		$rs = $this->conn->executeSql($sql)->fetch_object();
 
 		return $rs->qtd;

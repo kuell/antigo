@@ -9,6 +9,7 @@ class IndProducao {
 	private $dataf;
 	private $id;
 	private $peso;
+
 	public $pesoProduzido;
 	public $vpc;
 	private $valo_unitario;

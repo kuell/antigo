@@ -59,6 +59,24 @@ class Corretor extends Connect {
 		$this->cor            = $dados->cor;
 		return $this;
 	}
+
+	public function abate($cor) {
+		$sql = sprintf("select
+							sum(b.qtd) as qtd,
+							sum(b.peso) as peso
+						from
+							taxa a
+							inner join taxaitens b on a.id = b.idTaxa
+							inner join taxa_item c on b.idItem = c.id
+						where
+							a.data between '2015-01-01' and '2015-01-31' and
+							c.grupo = 1 and
+							a.corretor = %s", $cor);
+
+		$abate = $this->conn->executeSql($sql)->fetch_object();
+
+		return $abate;
+	}
 }
 
 ?>

@@ -1,5 +1,8 @@
 <?php
-require ("../../Connections/conn.php");
+require ("../../Connections/conect_mysqli.php");
+require ('../../class/Corretor.class.php');
+require ('../../industria/class/IndProducao.class.php');
+require ('../../class/Abate.class.php');
 require ("../../bibliotecas/fpdf/fpdf.php");
 
 class PDF extends FPDF {
@@ -15,7 +18,7 @@ class PDF extends FPDF {
 		$this->Cell(1);
 		$this->SetFont("Arial", "B", 12);
 		$this->Cell(40, 11, "", "BLR", 0, "C");
-		$this->Cell(250, 11, utf8_decode("Relatorio de Rendimentos / Corretor Periodo: ".date('d-m-Y', strtotime(datai))." a ".date('d-m-Y', strtotime(dataf))), "RLB", 0, "C");
+		$this->Cell(250, 11, utf8_decode("Relatorio de Rendimentos / Corretor Periodo: ".$_GET['data1']." a ".$_GET['data2']), "RLB", 0, "C");
 		$this->Ln(15);
 		$fill = 0;
 	}
@@ -30,16 +33,20 @@ class PDF extends FPDF {
 		// Pega os itens
 		mysql_select_db('sig');
 
-		$sql = "	Select
-						*,
-						(Select rendimento from `custoproducaomensal` where	mes = month('".datai."') and  ano = year('".dataf."')) as rendimento,
-						(((Select rendimento from `custoproducaomensal` where	mes = month('".datai."') and  ano = year('".dataf."'))*(select sum(kg_abatido) from rendimento_corretor where mes between month('".datai."') and month('".dataf."') and ano between year('".datai."') and year('".dataf."')))/100) as rendInd
-					from
-						sig.rendimento_corretor
-					where
-						mes between month('".datai."') and month('".dataf."') and
-						ano between year('".datai."') and year('".dataf."')";
-		$qr = mysql_query($sql) or die(mysql_error());
+		$datai = implode('-', array_reverse(explode('/', $_GET['data1'])));
+		$dataf = implode('-', array_reverse(explode('/', $_GET['data2'])));
+
+		$producao  = new IndProducao($datai, $dataf);
+		$abate     = new Abate($datai, $dataf);
+		$corretors = new Corretor();
+
+		$kgProd = $producao->getKgProduzido();
+
+		$abate = $abate->getAbate();
+
+		$rendimento           = ($kgProd*100)/$abate->peso;
+		$rendimentoIndustrial = $abate->peso*$rendimento/100;
+
 		$this->SetFont('Arial', 'I', 9);
 
 		$this->SetFillColor(170);
@@ -57,35 +64,36 @@ class PDF extends FPDF {
 
 		$this->Ln();
 		$fundo = 0;
-		while ($res = mysql_fetch_assoc($qr)) {
-			$this->SetFont('Arial', '', 8);
-			$this->SetFillColor(230);
+		foreach ($corretors->lista() as $cor) {
 
-			$this->Cell($w[0], 5, "", 0, 0);
-			$this->Cell($w[1], 4, $res['cor_cod'].' -    '.$res['cor_nome'], 0, 0, "L", $fundo);
-			$this->Cell($w[2], 4, number_format($res['qtd_abate'], 2, ',', '.'), 0, 0, "R", $fundo);
-			$this->Cell($w[3], 4, number_format($res['kg_abatido'], 2, ',', '.'), 0, 0, "R", $fundo);
-			$this->Cell($w[4], 4, number_format(($res['kg_abatido']/$res['qtd_abate']), 2, ',', '.'), 0, 0, "R", $fundo);
-			$this->Cell($w[5], 4, number_format((($res['kg_abatido']*$res['rendimento'])/100), 2, ',', '.'), 0, 0, "R", $fundo);
-			$this->Cell($w[6], 4, number_format((($res['kg_abatido']/$res['qtd_abate'])*$res['rendimento'])/100, 2, ',', '.'), 0, 0, "R", $fundo);
-			$this->Cell($w[7], 4, number_format(($res['kg_abatido']*$res['rendimento'])/$res['rendInd'], 2, ',', '.'), 0, 0, "R", $fundo);
+			$corAbate = $corretors->abate($cor->cor_id);
+			if ($corAbate->peso != 0 and $corAbate->qtd != 0) {
 
-			$fundo = !$fundo;
+				$this->SetFont('Arial', '', 8);
+				$this->SetFillColor(230);
 
-			$totalAbatido = $res['qtd_abate']+$totalAbatido;
-			$pesoAbatido  = $res['kg_abatido']+$pesoAbatido;
-			$rendimento   = $res['rendimento'];
+				$this->Cell($w[0], 5, "", 0, 0);
+				$this->Cell($w[1], 4, $cor->cor_nome, 0, 0, "L", $fundo);
+				$this->Cell($w[2], 4, number_format($corAbate->qtd, 2, ',', '.'), 0, 0, "R", $fundo);
+				$this->Cell($w[3], 4, number_format($corAbate->peso, 2, ',', '.'), 0, 0, "R", $fundo);
+				$this->Cell($w[4], 4, number_format($corAbate->peso/$corAbate->qtd, 2, ',', '.'), 0, 0, "R", $fundo);
+				$this->Cell($w[5], 4, number_format((($corAbate->peso*$rendimento)/100), 2, ',', '.'), 0, 0, "R", $fundo);
+				$this->Cell($w[6], 4, number_format((($corAbate->peso/$corAbate->qtd)*$rendimento)/100, 2, ',', '.'), 0, 0, "R", $fundo);
+				$this->Cell($w[7], 4, number_format(($corAbate->peso*$rendimento)/$rendimentoIndustrial, 2, ',', '.'), 0, 0, "R", $fundo);
+				//
+				$fundo = !$fundo;
 
-			$this->Ln(5);
+				$this->Ln(5);
+			}
 		}
 		$fundo = 1;
 		$this->Cell($w[0], 5, '', 0, 0);
 		$this->Cell($w[1], 4, 'TOTAL', 0, 0, "L", $fundo);
-		$this->Cell($w[2], 4, number_format($totalAbatido, 2, ',', '.'), 0, 0, "R", $fundo);
-		$this->Cell($w[3], 4, number_format($pesoAbatido, 2, ',', '.'), 0, 0, "R", $fundo);
-		$this->Cell($w[4], 4, number_format(($pesoAbatido/$totalAbatido), 2, ',', '.'), 0, 0, "R", $fundo);
-		$this->Cell($w[5], 4, number_format((($pesoAbatido*$rendimento)/100), 2, ',', '.'), 0, 0, "R", $fundo);
-		$this->Cell($w[6], 4, number_format(($totalAbatido*$rendimento)/100, 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[2], 4, number_format($abate->qtd, 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[3], 4, number_format($abate->peso, 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[4], 4, number_format(($abate->peso/$abate->qtd), 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[5], 4, number_format((($abate->peso*$rendimento)/100), 2, ',', '.'), 0, 0, "R", $fundo);
+		$this->Cell($w[6], 4, number_format(($abate->qtd*$rendimento)/100, 2, ',', '.'), 0, 0, "R", $fundo);
 		$this->Cell($w[7], 4, $res['rendimento'], 0, 0, "R", $fundo);
 	}
 }
