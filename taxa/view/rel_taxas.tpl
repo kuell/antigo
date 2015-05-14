@@ -17,8 +17,8 @@
   <div class="control-group">
     <label class="control-label">Data: </label>
     <div class="controls">
-        <input type="text" id="dataI" class="data" value="{($smarty.now|date_format:"01/%m/%Y")}"> até
-        <input type="text" id="dataF" class="data" value="{($smarty.now|date_format:"%d/%m/%Y")}">
+        <input type="text" id="dataI" class="data" value="{$smarty.now|date_format:"01/%m/%Y"}"> até
+        <input type="text" id="dataF" class="data" value="{$smarty.now|date_format:"%d/%m/%Y"}">
     </div>
   </div>
   <div class="control-group">

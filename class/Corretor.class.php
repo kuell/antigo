@@ -127,6 +127,31 @@ class Corretor extends Connect {
 
 		return $exped;
 	}
+
+	public function item($cor) {
+		$sql = sprintf("Select
+							b.tipo,
+							sum(b.valor) as valor
+						from
+							taxa a
+							inner join taxaitens b on a.id = b.idTaxa
+							inner join taxa_item c on b.idItem = c.id
+						where
+							a.data between '%s' and '%s' and
+							b.tipo not in ('i') and
+							a.corretor = %s
+						group by
+							b.tipo", $this->datai, $this->dataf, $cor);
+
+		$itens = $this->conn->executeSql($sql);
+		$res   = [];
+		while ($item = $itens->fetch_object()) {
+			$res[$item->tipo] = $item->valor;
+		}
+		return $res;
+
+	}
+
 }
 
 ?>
