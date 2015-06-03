@@ -35,7 +35,7 @@
         <legend>Controle de taxas</legend>
             <label>Data:</label>
             <?php !empty($_GET['datai'])? echo $_GET['datai']: echo date('d/m/Y'); ?>
-                <input type="text" name="datai" value="{$smarty.get.datai|default:$smarty.now|date_format:"%d/%m/%Y"}" class="data">
+                <input type="text" name="datai" value="{$smarty.get.datai|default:($smarty.now|date_format:"%d/%m/%Y")}" class="data">
                 <input type="text" name="dataf" value="{$smarty.get.dataf|default:($smarty.now|date_format:"%d/%m/%Y")}" class="data">
             <label>Corretor: </label>
             <select name="cor">

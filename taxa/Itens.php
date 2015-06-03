@@ -37,7 +37,7 @@ $itens = $item->RunSelect('Select * from taxa_item');
 				        <select name="item" id="item">
 
 <?php foreach ($itens as $it) {?>
-			<option value="<?php echo $it['id']?>"><?php echo utf8_decode($it['descricao'])?></option>
+						<option value="<?php echo $it['id']?>"><?php echo utf8_decode($it['descricao'])?></option>
 	<?php }?>
 
 				        </select>
@@ -54,7 +54,7 @@ $itens = $item->RunSelect('Select * from taxa_item');
 
 				<div class="control-group">
 				    <div class="controls well">
-				        <button type="button" name="buscar" class="btn btn-primary">Buscar</button>
+				        <button type="button" name="buscar" id="buscar" class="btn btn-primary">Buscar</button>
 				    </div>
 				</div>
 
@@ -68,6 +68,11 @@ $itens = $item->RunSelect('Select * from taxa_item');
 		$('#buscar').bind('click',  function() {
 			datai = $('#datai').val()
 			dataf = $('#dataf').val()
+			item = $('#item').val()
+		alert("Ola");
+
+			window.open('rel_item.php?datai='+datai+'&dataf='+dataf+'&item='+item, 'Print', 'channelmode=yes')
+
 		});
 
 	})

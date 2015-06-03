@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-06-02 10:52:28
+<?php /* Smarty version Smarty-3.1.12, created on 2015-06-03 13:18:13
          compiled from "view/taxa.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:193233494754cbb87f685b69-89964008%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a711d5b998619ab4b26f684ed2f8c360059f21f4' => 
     array (
       0 => 'view/taxa.tpl',
-      1 => 1433256742,
+      1 => 1433351887,
       2 => 'file',
     ),
   ),
@@ -68,7 +68,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <legend>Controle de taxas</legend>
             <label>Data:</label>
             <<?php ?>?php !empty($_GET['datai'])? echo $_GET['datai']: echo date('d/m/Y'); ?<?php ?>>
-                <input type="text" name="datai" value="<?php echo smarty_modifier_date_format((($tmp = @$_GET['datai'])===null||$tmp==='' ? time() : $tmp),"%d/%m/%Y");?>
+                <input type="text" name="datai" value="<?php echo (($tmp = @$_GET['datai'])===null||$tmp==='' ? (smarty_modifier_date_format(time(),"%d/%m/%Y")) : $tmp);?>
 " class="data">
                 <input type="text" name="dataf" value="<?php echo (($tmp = @$_GET['dataf'])===null||$tmp==='' ? (smarty_modifier_date_format(time(),"%d/%m/%Y")) : $tmp);?>
 " class="data">
