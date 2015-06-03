@@ -1,4 +1,13 @@
-{include file="../../view/topo.tpl"}
+{include file="../../view/topo_novo.tpl"}
+
+<script type="text/javascript">
+	$(function(){
+		$('select[name=cor], select[name=corretor]').chosen()
+
+	})
+
+</script>
+
 {if $op|default:"" eq ""}
     {literal}
     <script>
@@ -19,13 +28,14 @@
 
     </script>
     {/literal}
-<div class="well form-search">
+
+<div class="well col-md-12">
 <form class="form-search" method="GET">
     <fieldset>
         <legend>Controle de taxas</legend>
             <label>Data:</label>
             <?php !empty($_GET['datai'])? echo $_GET['datai']: echo date('d/m/Y'); ?>
-                <input type="text" name="datai" value="{$smarty.get.datai|default:($smarty.now|date_format:"%d/%m/%Y")}" class="data">
+                <input type="text" name="datai" value="{$smarty.get.datai|default:$smarty.now|date_format:"%d/%m/%Y"}" class="data">
                 <input type="text" name="dataf" value="{$smarty.get.dataf|default:($smarty.now|date_format:"%d/%m/%Y")}" class="data">
             <label>Corretor: </label>
             <select name="cor">
@@ -76,8 +86,6 @@
         $(function(){
             $("select[name=corretor]").blur(function(){
                 if($(this).val() == ""){
-                    alert("Este campo deve ser preenchido!")
-                    $(this).focus();
                 }
                 else{
                 $.post("taxa.php", {cor:$(this).val(),
@@ -95,7 +103,7 @@
             
     </script>
 {/literal}
-<div class="">
+<div class="col-md-12">
 <form method="POST" class="form-inline">
     <fieldset>
         <legend>Controle de Taxas</legend>
@@ -134,7 +142,8 @@
        <input class="btn" type="submit" value="{$op|default:""}" name="acao" />  
        
         {if $smarty.get.edit|default:"" ne ""}
-            <a href="?grupo={$smarty.get.edit}" rel="superbox[iframe][900x500]" class="btn btn-primary">Itens</a>  
+            <a href="?grupo={$smarty.get.edit}" rel="superbox[iframe][900x500]" class="btn btn-primary">Itens</a>
+			<a href="?add&data={$data|default:$t.data|date_format:"%d/%m/%Y"}" class="btn btn-success">Adicionar</a> 
         {/if}
        <input class="btn" type="button" value="Visualizar" name="acao" />  
        <input class="btn" type="button" value="Voltar" name="acao" onclick="location = '?data={($t.data|default:$data)|date_format:"%d/%m/%Y"}'" />

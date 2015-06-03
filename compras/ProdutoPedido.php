@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
 			$produto->comprarProduto();
 		}
 
-		$sm->assign("produtos", $produto->select(" and a.status = 'REQUISITADO'", "group by b.`PRO_ID` order by d.prioridade desc, a.pcId"));
+		$sm->assign("produtos", $produto->select(" and a.status = 'REQUISITADO'", "order by d.prioridade desc, a.pcId"));
 		$sm->display("view/comprar_produtos.html");
 	}
 	if (isset($_GET['receberProduto'])) {

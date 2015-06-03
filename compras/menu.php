@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <div id="menu-container">
     <ul>
@@ -16,18 +16,18 @@
                 <li><a href="PedidoCompra.php" target="conteudo">Pedido</a></li>
             </ul>
         </li>
-        <?php if ($_SESSION['kt_login_level'] == 1) { ?>
-            <li class="menu-main-item"><a href="#">Comprar</a>	
-                <ul class="menu-sub-item">
-                    <li><a href="ProdutoPedido.php?comprarProduto" target="conteudo">Por Produto</a></li>
-                    <li><a href="PedidoCompra.php?compraPedido" target="conteudo">Por Pedido</a></li>
-                </ul>
-            </li>
-        <?php } ?>
+<?php if ($_SESSION['kt_login_level'] == 1) {?>
+	<li class="menu-main-item"><a href="#">Comprar</a>
+			                <ul class="menu-sub-item">
+			                    <li><a href="ProdutoPedido.php?comprarProduto" target="conteudo">Por Produto</a></li>
+			                    <li><a href="PedidoCompra.php?compraPedido" target="conteudo">Por Pedido</a></li>
+			                </ul>
+			            </li>
+	<?php }?>
         <li class="menu-main-item"><a href="#">Receber</a>
             <ul class="menu-sub-item">
                 <li><a href="ProdutoPedido.php?receberProduto" target="conteudo">Por produto</a></li>
-       <!--         <li><a href="" target="conteudo">Por Pedido</a></li> -->
+                <!--li><a href="recebe_list.php" target="conteudo">Documento</a></li-->
             </ul>
         </li>
         <li class="menu-main-item"><a href="#">Relatorios</a>

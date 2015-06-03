@@ -6,12 +6,13 @@ class PDF extends FPDF {
 	function Header() {
 		$this->SetFont("Arial", "B", 20);
 		//$this->Cell(1);
-		$this->Cell(43, 10, "", "TLR", 0, "C");
+		$this->Image("../../../logo/Logo.jpg", 13, 12, 30, 15, "JPG");
+		//$this->Cell(43, 10, "", "TLR", 0, "C");
 		$this->Cell(0, 10, "Frizelo Frigorificos Ltda. ", "TLR", 0, "C");
 		$this->Ln(10);
 		//$this->Cell(1);
 		$this->SetFont("Arial", "B", 12);
-		$this->Cell(43, 10, "", "BLR", 0, "C");
+		//$this->Cell(43, 10, "", "BLR", 0, "C");
 		$this->Cell(0, 10, utf8_decode("Analise Global RH Ref: ".date('Y', strtotime($_GET['data1']))), "RLB", 0, "C");
 		$this->Ln(10);
 		$fill = 0;
@@ -114,13 +115,13 @@ class PDF extends FPDF {
 		$this->Cell($w[1], 4, number_format(array_sum($totalPesoAbate), 2, ',', '.'), 1, 0, 'R', 0);
 		$this->Ln();
 
-		$this->Cell($w[0], 4, 'FATURAMENTO', 1, 0, 'L', 0);
-		foreach ($info as $value) {
-			$this->Cell($w[1], 4, number_format($value->faturamento, 2, ',', '.'), 1, 0, 'R', 0);
-			$totalFaturamento[] = $value->faturamento;
-		}
-		$this->Cell($w[1], 4, number_format(array_sum($totalFaturamento), 2, ',', '.'), 1, 0, 'R', 0);
-		$this->Ln();
+		//$this->Cell($w[0], 4, 'FATURAMENTO', 1, 0, 'L', 0);
+		//foreach ($info as $value) {
+		//	$this->Cell($w[1], 4, number_format($value->faturamento, 2, ',', '.'), 1, 0, 'R', 0);
+		//	$totalFaturamento[] = $value->faturamento;
+		//}
+		//$this->Cell($w[1], 4, number_format(array_sum($totalFaturamento), 2, ',', '.'), 1, 0, 'R', 0);
+		//$this->Ln();
 
 		$this->SetFont('Arial', 'I', '7');
 
@@ -333,12 +334,12 @@ class PDF extends FPDF {
 
 		$this->SetFont('Arial', 'I', '7');
 
-		$this->Cell($w[0], 4, utf8_decode('TAXA FOLHA / FATURAMENTO'), 1, 0, 'L', 0);
-		foreach ($info as $value) {
-			$this->Cell($w[1], 4, number_format(($value->remBruta/$value->faturamento)*100, 2, ',', '.').' %', 1, 0, 'R', 0);
-		}
-		$this->Cell($w[1], 4, number_format((array_sum($totalRemBruta)/array_sum($totalFaturamento))*100, 2, ',', '.').' %', 1, 0, 'R', 0);
-		$this->Ln();
+		//$this->Cell($w[0], 4, utf8_decode('TAXA FOLHA / FATURAMENTO'), 1, 0, 'L', 0);
+		//foreach ($info as $value) {
+		//	$this->Cell($w[1], 4, number_format(($value->remBruta/$value->faturamento)*100, 2, ',', '.').' %', 1, 0, 'R', 0);
+		//}
+		//$this->Cell($w[1], 4, number_format((array_sum($totalRemBruta)/array_sum($totalFaturamento))*100, 2, ',', '.').' %', 1, 0, 'R', 0);
+		//$this->Ln();
 
 		$this->Cell($w[0], 4, utf8_decode('SALARIO POR KG'), 1, 0, 'L', 0);
 		foreach ($info as $value) {

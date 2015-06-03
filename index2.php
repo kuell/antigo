@@ -24,7 +24,7 @@ $usuario = new Usuario($_SESSION['kt_login_id']);
 <title>Untitled Document</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="bibliotecas/ionicons/css/ionicons.min.css">
-<script src="https://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <style type="text/css">
 	body {
@@ -85,20 +85,20 @@ $usuario = new Usuario($_SESSION['kt_login_id']);
 <?php foreach ($usuario->getSistemas() as $sistema) {
 	?>
 
-							<div class="col-sm-4 col-md-2 thumbnail">
-							  <img src="img/<?php echo $sistema->icone?>">
-							  <div class="caption">
-							    <h4></h4>
-							    <p><?php echo strtolower(lcfirst(utf8_decode($sistema->nome)))?></p>
-							    <p>
-							    	<a href="<?php echo $sistema->url?>" class="btn btn-info col-md-12" role="button">
-							    		Acessar
-							    		<i class="glyphicon glyphicon-share-alt" ></i>
-							    	</a>
-							    </p>
-							  </div>
+								<div class="col-sm-4 col-md-2 thumbnail">
+								  <img src="img/<?php echo $sistema->icone?>">
+								  <div class="caption">
+								    <h4></h4>
+								    <p><?php echo strtolower(lcfirst(utf8_decode($sistema->nome)))?></p>
+								    <p>
+								    	<a href="<?php echo $sistema->url?>" class="btn btn-info col-md-12" role="button">
+								    		Acessar
+								    		<i class="glyphicon glyphicon-share-alt" ></i>
+								    	</a>
+								    </p>
+								  </div>
 
-							</div>
+								</div>
 
 	<?php }?>
 

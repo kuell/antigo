@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-05-13 12:37:45
+<?php /* Smarty version Smarty-3.1.12, created on 2015-06-02 09:43:27
          compiled from "/var/www/sigAntigo/sig2/view/topo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:128714336654cbb87f791040-69700229%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b2dd1b8c6d948d0505dcd59606184f7665ba91fa' => 
     array (
       0 => '/var/www/sigAntigo/sig2/view/topo.tpl',
-      1 => 1428677384,
+      1 => 1433252577,
       2 => 'file',
     ),
   ),
@@ -28,10 +28,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link href="../includes/skins/mxkollection3.css" rel="stylesheet" type="text/css" />
 <link href="../css/calendario.css" rel="stylesheet" type="text/css" />
 
+
 <link href="../includes/skins/stilo.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/jquery-1.3.1.js"></script>
 <script type="text/javascript" src="../js/jquery.ui.js"></script>    
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
 
 <script type="text/javascript" src="../js/jquery.maskMoney.js"></script>
 <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>

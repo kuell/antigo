@@ -15,6 +15,7 @@
         <li class="menu-main-item"><a>Relatorio</a>
             <ul class="menu-sub-item">
                 <li><a href="Taxa.php?rel" target="pagina">Taxas</a></li>
+				<li><a href="Itens.php" target="pagina">Itens</a></li>
             </ul>
         </li>
         <li class="menu-main-item"><a href="../index2.php">Sair</a></li>

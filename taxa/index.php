@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<div><?php require("menu.php"); ?></div>
+<div><?php require ("menu.php");?></div>
 <div id="conteudo"><iframe height="100%" width="100%" frameborder="0" name="pagina"></iframe></div>
 </body>
 </html>

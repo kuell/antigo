@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-03-12 15:45:39
+<?php /* Smarty version Smarty-3.1.12, created on 2015-06-03 12:46:47
          compiled from "view/receber_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:13511476585478896568e684-88439158%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'de0b7a252d3458852aacbd12948ea9fc50ed5bee' => 
     array (
       0 => 'view/receber_list.html',
-      1 => 1426189440,
+      1 => 1433350000,
       2 => 'file',
     ),
   ),
@@ -108,5 +108,4 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
         </table>
     </div>
 </body>
-</html>
-<?php }} ?>
+</html><?php }} ?>

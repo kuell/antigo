@@ -57,7 +57,7 @@ class PDF extends FPDF {
 	function Footer() {
 		$this->SetY(-15);
 		$this->SetFont("Arial", "I", 7);
-		$this->Cell(0, 4, 'Processado em '.date('d/m/Y'), 0, 0, "C");
+		$this->Cell(0, 4, utf8_decode('Processado em '.date('d/m/Y').' | Filtrado até: '.$_GET['data2']), 0, 0, "C");
 	}
 
 	function Dados() {
@@ -66,7 +66,7 @@ class PDF extends FPDF {
 
 		$ano = date('Y', strtotime($datai));
 
-		$matriz = new Balanco($ano.'-01-01', $ano.'-12-31');
+		$matriz = new Balanco($ano.'-01-01', $dataf);
 		$setors = new Setor();
 
 		$w = array(10, 20, 22, 40, 50, 60, 70, 80, 90, 100);
@@ -96,11 +96,13 @@ class PDF extends FPDF {
 
 			//Comparativos
 			for ($i = ($ano-1); $i >= ($ano-$_GET['qtdAnos']); $i--) {
-				$matriz->datai = $i.'-01-01';
-				$matriz->dataf = $i.'-12-31';
+			//	$matriz->datai = $i.'-01-01';
+			//$matriz->dataf = $i.'-12-31';
 				$this->SetFillColor(200);
-
-				$comparativo = $matriz->matrizBalanco($setor->id_setor);
+				
+				$comp = new Balanco($i.'-01-01', $i.'-12-31');
+				
+				$comparativo = $comp->matrizBalanco($setor->id_setor);
 
 				$this->Cell($w[4], $l[2], 'Ano '.$i, "TLBRR", 0, "L", 1);
 				$this->cell($w[2], $l[2], number_format($comparativo->taxaOcupacaoHora, 2, ',', '.').' %', 'TLBR', 0, 'R', 1);
