@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-04-01 13:58:24
+<?php /* Smarty version Smarty-3.1.12, created on 2015-06-05 15:43:37
          compiled from "/var/www/sig/view/topo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:897077463551c314f2f2c57-15334631%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9da2ac71cc4a9a8d401f271fd0432161c8207d01' => 
     array (
       0 => '/var/www/sig/view/topo.tpl',
-      1 => 1427911047,
+      1 => 1433351864,
       2 => 'file',
     ),
   ),
@@ -28,21 +28,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link href="../includes/skins/mxkollection3.css" rel="stylesheet" type="text/css" />
 <link href="../css/calendario.css" rel="stylesheet" type="text/css" />
 
+
 <link href="../includes/skins/stilo.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/jquery-1.3.1.js"></script>
-    
-<script type="text/javascript" src="../includes/skins/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.ui.js"></script>    
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+
 <script type="text/javascript" src="../js/jquery.maskMoney.js"></script>
 <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
 <script type="text/javascript" src="../js/modal/jquery.superbox-min.js"></script>
-<script type="text/javascript" src="../js/jquery.ui.js"></script>
+
 
 <script type="text/javascript" src="../js/scripts.js"></script> 
 
 <script type="text/javascript">
     $(function(){
         $.superbox();
-        
     })
 
 </script>

@@ -51,7 +51,7 @@
         $escala = new Escala();
         $data = $escala->dbData($_GET['data']);
         $almoco = true;
-        
+	$cafe = true; 
             if(empty($_GET['hora'])){
                 $hora = "05:00";
             }
@@ -105,15 +105,24 @@
             $this->Cell($w[1],$h[0],date("H:i", strtotime($hora." + ".$rg['duracao']." minutes")),"TB",0,"C");
 			$this->Cell($w[3],$h[0],"","TRBL",0,"C");
             $this->Ln();
-            
+           
+            $hora = date("H:i", strtotime($hora." + ".$rg['duracao']." minutes"));
+    
+
             //Soma os totais
-            if($hora >= "11:00" && $almoco == true){
-                $hora = date("H:i", strtotime($hora." + 1 hour"));
+            if($hora >= "10:25" && $almoco == true){
+                $hora = date("H:i", strtotime($hora." + 1 hour + 10 minutes"));
                 $almoco = false;
             }
+	
+	   if($hora >= "07:25" && $cafe == true){
+                $hora = date("H:i", strtotime($hora." + 15 minutes"));
+		$cafe = false;
+           }
             
+
             
-            $hora = date("H:i", strtotime($hora." + ".$rg['duracao']." minutes"));
+           //hora = date("H:i", strtotime($hora." + ".$rg['duracao']." minutes"));
             $totalBoi = $rg['qtdBoi'] + $totalBoi;
             $totalVaca = $rg['qtdVaca'] + $totalVaca;
             $totalNov = $rg['qtdNov'] + $totalNov;

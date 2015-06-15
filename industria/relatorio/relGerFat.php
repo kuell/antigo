@@ -18,7 +18,7 @@ class PDF extends FPDF {
       $this->Cell(1);
 	  $this->SetFont("Arial","B",12);
   	  $this->Cell(40,11,"","BLR",0,"C");
-      $this->Cell(250,11,utf8_decode("Relatorio de Controle de Faturamento Referente ao dia: ".date('d/m/Y',strtotime(datai))),"RLB",0,"C");
+      $this->Cell(250,11,utf8_decode("Relatorio de Controle de Faturamento Referente ao dia: ".date('d/m/Y',strtotime(datai)).' - '.date('d/m/Y', strtotime(dataf))),"RLB",0,"C");
 	  $this->Ln(15);
       $fill=0;   
    }

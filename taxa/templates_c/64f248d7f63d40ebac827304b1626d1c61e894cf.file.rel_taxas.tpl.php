@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2015-06-02 14:41:25
+<?php /* Smarty version Smarty-3.1.12, created on 2015-06-03 17:13:46
          compiled from "view/rel_taxas.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18732506254cbb8811369a5-90221544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '64f248d7f63d40ebac827304b1626d1c61e894cf' => 
     array (
       0 => 'view/rel_taxas.tpl',
-      1 => 1433270480,
+      1 => 1433365468,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54cbb88116b045_32647756')) {function content_54cbb88116b045_32647756($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sigAntigo/sig2/includes/smarty/libs/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_54cbb88116b045_32647756')) {function content_54cbb88116b045_32647756($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/var/www/sig/includes/smarty/libs/plugins/modifier.date_format.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("../../view/topo_novo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
