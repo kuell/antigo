@@ -8,16 +8,16 @@
 <script src="../../../bibliotecas/mascara.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(function(){
-			   $(".data").mask("99-99-9999")		   
-			   
+			   $(".data").mask("99-99-9999")
+
 			   })
 	function abre(){
 		data1 = document.getElementById('data_1').value
 		data2 = document.getElementById('data_2').value
-		
+
 		window.open('../equipamento_custo.php?data1='+data1+'&data2='+data2, 'Print', 'channelmode=yes');
-	
-	
+
+
 	}
 
 </script>
@@ -26,15 +26,15 @@
 <body>
 <div class="acao_pagina">Relatorio de Equipamento p/ Custo</div>
 <form id="form1" name="form1" method="get" action="../equipamento_custo.php" target="_blank">
-  <table border="0" align="center" class="KT_tngtable">
+  <table border="0" align="center">
     <tr>
       <th scope="row">Periodo:</th>
       <td><label>
-        <input type="text" name="data_1" id="data_1" class="data" value="<?php echo date('01/m/Y'); ?>" />
+        <input type="text" name="data_1" id="data_1" class="data" value="<?php echo date('01/m/Y');?>" />
       </label></td>
       <th>a</th>
       <td><label>
-        <input type="text" name="data_2" id="data_2" class="data" value="<?php echo date('d/m/Y'); ?>" />
+        <input type="text" name="data_2" id="data_2" class="data" value="<?php echo date('d/m/Y');?>" />
       </label></td>
     </tr>
     <tr>

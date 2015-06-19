@@ -1,17 +1,15 @@
 <?php
-if($_REQUEST['data_1'] == ""){
+if ($_REQUEST['data_1'] == "") {
 	$dia = 1;
-	$data1 = date("Y-m-".$dia."");
-	}
-	else{
+	$data1 = date("Y-m-" . $dia . "");
+} else {
 	$data1 = date('Y-m-d', strtotime($_REQUEST['data_1']));
-	}
-if($_REQUEST['data_2'] == ""){
+}
+if ($_REQUEST['data_2'] == "") {
 	$data2 = date('Y-m-d');
-	}
-	else{
+} else {
 	$data2 = date('Y-m-d', strtotime($_REQUEST['data_2']));
-	}
+}
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,7 +22,7 @@ if($_REQUEST['data_2'] == ""){
 <script type="text/ecmascript">
 	$(function(){
 			$(".data").mask("99-99-9999");
-			
+
 			   });
 
 	function lista(data1, data2){
@@ -40,11 +38,12 @@ if($_REQUEST['data_2'] == ""){
 <body>
 <div align="center" class="acao_pagina">Relatorio Resumido por Setor<br />
 </div>
+<div class="form">
 <form action="" method="post" name="form1" id="form1">
-  <table width="auto" border="0" align="center" class="KT_tngtable">
+  <table width="auto" border="0" align="center">
     <tr>
-      <th class="div_botoes">De:</th>
-      <td><input name="data_1" type="text" id="data" class="data" value="<?php echo date('d-m-Y', strtotime($data1)); ?>" /></td>
+      <th>De:</th>
+      <td><input name="data_1" type="text" id="data" class="data" value="<?php echo date('d-m-Y', strtotime($data1));?>" /></td>
     </tr>
     <tr>
       <th class="div_botoes">At&eacute;:</th>
@@ -60,6 +59,6 @@ if($_REQUEST['data_2'] == ""){
     </tr>
   </table>
 </form>
-<br />
+</div>
 </body>
 </html>
