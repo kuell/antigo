@@ -1,5 +1,5 @@
 <?php
-require ("class/TaxaItens.class.php");
+require "class/TaxaItens.class.php";
 
 $item = new TaxaItens();
 
@@ -38,7 +38,8 @@ $itens = $item->RunSelect('Select * from taxa_item');
 
 <?php foreach ($itens as $it) {?>
 						<option value="<?php echo $it['id']?>"><?php echo utf8_decode($it['descricao'])?></option>
-	<?php }?>
+	<?php }
+?>
 
 				        </select>
 			    	</div>
@@ -66,10 +67,9 @@ $itens = $item->RunSelect('Select * from taxa_item');
 	$(function(){
 		$('#item').chosen()
 		$('#buscar').bind('click',  function() {
-			datai = $('#datai').val()
-			dataf = $('#dataf').val()
+			datai = $('#dataI').val()
+			dataf = $('#dataF').val()
 			item = $('#item').val()
-		alert("Ola");
 
 			window.open('rel_item.php?datai='+datai+'&dataf='+dataf+'&item='+item, 'Print', 'channelmode=yes')
 
