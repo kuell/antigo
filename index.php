@@ -18,13 +18,28 @@ h1{
 	color:#fff;
 	padding:15px 5px;
 	letter-spacing:-0.04em;
-	text-shadow:1px 1px 5px #fff;}
+	text-shadow:1px 1px 5px #fff;
+}
 </style>
 </head>
 <body style="overflow:hidden">
 	<div style="float:left;"><img src="logo/Logo.png" width="140" height="84" /></div><div><h1>SIG - Frizelo Frigorificos Ltda.</h1></div>
 <div id="conteudo">
+	<div>
+		<a class="btn" href="#" id="ajuda">
+			Precisa de Ajuda?
+		</a>
+	</div>
   <iframe width="100%" height="100%" name="paginas" src="login.php" frameborder="0" ></iframe>
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		$('#ajuda').bind('click', function(){
+			window.open('http://10.1.1.248:81', 'Ajuda', 'width=400px, height=300px')
+		})
+	})
+</script>
+
 </body>
 </html>
